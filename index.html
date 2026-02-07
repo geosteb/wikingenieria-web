@@ -3,218 +3,266 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wikingeniería | Sobrevive a la Ingeniería</title>
-    <meta name="description" content="Recursos, plantillas Notion y estrategias para estudiantes de ingeniería.">
+    <title>Wikingeniería | Minimalist Student OS</title>
+    <meta name="description" content="Estrategia y sistemas para estudiantes de ingeniería.">
+    
     <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
     
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    fontFamily: {
-                        sans: ['Inter', 'sans-serif'],
-                        mono: ['Space Mono', 'monospace'],
-                    },
                     colors: {
-                        wikigreen: '#10B981', /* Color Esmeralda estilo Hacker/Ingeniero */
-                        wikidark: '#0f172a',  /* Slate 900 */
-                        wikicard: '#1e293b',  /* Slate 800 */
+                        'w-black': '#020201',   /* Fondo Principal */
+                        'w-olive': '#2a322e',   /* Secundario / Tarjetas */
+                        'w-sage': '#b0bab3',    /* Texto Cuerpo */
+                        'w-light': '#d3d3d3',   /* Títulos / Acentos */
+                        'w-accent': '#d3d3d3',  /* Acentos claros */
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'mono': ['Space Grotesk', 'monospace'], /* Fuente TOP Minimalista */
+                    },
+                    backgroundImage: {
+                        'podcast-pattern': "url('https://images.unsplash.com/photo-1478737270239-2f02b77ac6d5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')", 
                     }
                 }
             }
         }
     </script>
-</head>
-<body class="bg-wikidark text-slate-300 font-sans antialiased selection:bg-wikigreen selection:text-white">
 
-    <nav class="fixed w-full z-50 bg-wikidark/90 backdrop-blur-md border-b border-slate-800">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="flex items-center justify-between h-16">
-                <div class="flex-shrink-0">
-                    <span class="font-mono text-xl font-bold text-white tracking-tighter">
-                        WIKI<span class="text-wikigreen">NGENIERÍA</span>_
-                    </span>
-                </div>
-                <div class="hidden md:block">
-                    <div class="ml-10 flex items-baseline space-x-4">
-                        <a href="#productos" class="hover:text-wikigreen px-3 py-2 rounded-md text-sm font-medium transition-colors">Recursos</a>
-                        <a href="#podcast" class="hover:text-wikigreen px-3 py-2 rounded-md text-sm font-medium transition-colors">Podcast</a>
-                        <a href="#blog" class="hover:text-wikigreen px-3 py-2 rounded-md text-sm font-medium transition-colors">Blog</a>
-                        <a href="#contacto" class="hover:text-wikigreen px-3 py-2 rounded-md text-sm font-medium transition-colors">Contacto</a>
-                    </div>
-                </div>
-                <div class="md:hidden">
-                    <a href="#productos" class="text-wikigreen"><i class="fas fa-bars"></i></a>
-                </div>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="bg-w-black text-w-sage font-sans antialiased selection:bg-w-light selection:text-w-black relative">
+
+    <nav class="fixed w-full z-50 bg-w-black/90 backdrop-blur-md border-b border-w-olive">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center gap-3">
+                <img src="https://via.placeholder.com/40" alt="Logo Wikingeniería" class="h-10 w-10 opacity-90 hover:opacity-100 transition">
+                <span class="font-mono text-xl font-bold text-w-light tracking-tight">Wikingeniería</span>
             </div>
+
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#productos" class="font-mono text-sm text-w-sage hover:text-w-light transition-colors uppercase tracking-widest">Tienda</a>
+                <a href="#blog" class="font-mono text-sm text-w-sage hover:text-w-light transition-colors uppercase tracking-widest">Blog</a>
+                <a href="#contacto" class="font-mono text-sm text-w-sage hover:text-w-light transition-colors uppercase tracking-widest">Contacto</a>
+            </div>
+            
+            <button class="md:hidden text-w-light"><i class="fas fa-bars text-xl"></i></button>
         </div>
     </nav>
 
-    <section class="pt-32 pb-20 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto text-center">
-        <h1 class="text-4xl sm:text-6xl font-extrabold text-white tracking-tight mb-6">
-            Sobrevive a la Ingeniería <br>
-            <span class="text-transparent bg-clip-text bg-gradient-to-r from-wikigreen to-blue-500">sin perder la salud mental.</span>
-        </h1>
-        <p class="mt-4 max-w-2xl mx-auto text-xl text-slate-400">
-            Sistemas de productividad, plantillas Notion y la cruda realidad que no te cuentan en la guía docente.
-        </p>
-        <div class="mt-10 flex justify-center gap-4">
-            <a href="#productos" class="px-8 py-3 border border-transparent text-base font-medium rounded-md text-wikidark bg-wikigreen hover:bg-emerald-400 md:py-4 md:text-lg md:px-10 transition-all shadow-lg shadow-emerald-500/20">
-                Ver Herramientas
-            </a>
-            <a href="https://open.spotify.com/show/TU_PODCAST_LINK" target="_blank" class="px-8 py-3 border border-slate-600 text-base font-medium rounded-md text-white hover:bg-slate-800 md:py-4 md:text-lg md:px-10 transition-all">
-                <i class="fab fa-spotify mr-2"></i> Escuchar Podcast
-            </a>
+    <div class="h-20"></div>
+
+    <section class="py-20 px-6 max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-12">
+        <div class="md:w-1/2 space-y-6">
+            <div class="inline-block px-3 py-1 border border-w-sage/30 rounded-full text-xs font-mono text-w-sage tracking-widest uppercase">
+                Nuevo Lanzamiento
+            </div>
+            <h1 class="font-mono text-4xl md:text-6xl font-bold text-w-light leading-tight">
+                Integra el mejor contenido para ingenieros en tu día a día.
+            </h1>
+            <p class="text-lg font-light leading-relaxed opacity-80">
+                Deja de luchar contra la carrera. Empieza a gestionarla con sistemas que funcionan. 
+            </p>
+            <div class="pt-4">
+                <a href="#productos" class="inline-flex items-center gap-3 text-w-light border-b border-w-light pb-1 hover:opacity-70 transition font-mono">
+                    Ver Student OS <i class="fas fa-arrow-right text-xs"></i>
+                </a>
+            </div>
+        </div>
+        
+        <div class="md:w-1/2 w-full">
+            <div class="relative group cursor-pointer overflow-hidden border border-w-olive rounded-sm">
+                <img src="https://via.placeholder.com/800x450/2a322e/b0bab3?text=Cover+Student+OS+Horizontal" alt="Student OS Cover" class="w-full h-auto object-cover transform group-hover:scale-105 transition duration-700 opacity-90 hover:opacity-100">
+            </div>
+            <p class="text-center text-xs font-mono mt-3 opacity-50 uppercase tracking-widest">Wikingeniería Student OS v1.0</p>
         </div>
     </section>
 
-    <section id="productos" class="py-20 bg-slate-900/50">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-white font-mono">_ARMAMENTO</h2>
-                <p class="mt-2 text-slate-400">Herramientas diseñadas para aprobar.</p>
+    <div class="max-w-4xl mx-auto border-t border-w-olive/50 my-10"></div>
+
+    <section id="productos" class="py-16 px-6">
+        <div class="max-w-7xl mx-auto text-center mb-16">
+            <h2 class="font-mono text-2xl text-w-light uppercase tracking-widest">_Material_Clasificado</h2>
+        </div>
+
+        <div class="flex flex-wrap justify-center gap-8">
+            
+            <div class="w-full max-w-sm bg-w-olive p-1 hover:bg-[#353f3a] transition duration-300">
+                <div class="relative h-64 bg-black/20 overflow-hidden group">
+                    <div class="absolute top-4 right-4 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 uppercase tracking-wider z-10 font-mono">
+                        Top Ventas
+                    </div>
+                    <img src="https://via.placeholder.com/400x400/111/d3d3d3?text=Student+OS" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="p-6 text-left">
+                    <h3 class="font-mono text-xl text-w-light mb-2">Student OS</h3>
+                    <p class="text-sm opacity-70 mb-6 font-light">El sistema operativo en Notion para organizar asignaturas y vida.</p>
+                    <a href="#" class="block w-full py-3 border border-w-sage/30 text-center font-mono text-xs text-w-light hover:bg-w-light hover:text-w-black transition uppercase tracking-widest">
+                        Adquirir Sistema
+                    </a>
+                </div>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <div class="w-full max-w-sm bg-w-olive p-1 hover:bg-[#353f3a] transition duration-300">
+                <div class="relative h-64 bg-black/20 overflow-hidden group">
+                     <div class="absolute top-4 right-4 bg-w-sage text-w-black text-[10px] font-bold px-2 py-1 uppercase tracking-wider z-10 font-mono">
+                        Gratis
+                    </div>
+                    <img src="https://via.placeholder.com/400x400/111/d3d3d3?text=Ebook+Cover" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                </div>
+                <div class="p-6 text-left">
+                    <h3 class="font-mono text-xl text-w-light mb-2">Sobrevive a la Ingeniería</h3>
+                    <p class="text-sm opacity-70 mb-6 font-light">Manual de estrategia mental y táctica académica.</p>
+                    <a href="#" class="block w-full py-3 border border-w-sage/30 text-center font-mono text-xs text-w-light hover:bg-w-light hover:text-w-black transition uppercase tracking-widest">
+                        Descargar
+                    </a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <div class="max-w-4xl mx-auto border-t border-w-olive/50 my-10"></div>
+
+    <section class="py-20 relative bg-w-olive overflow-hidden">
+        <div class="absolute inset-0 bg-podcast-pattern bg-cover bg-center opacity-10 grayscale"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-w-black via-w-black/80 to-transparent"></div>
+
+        <div class="relative max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center justify-between">
+            <div class="md:w-2/3">
+                <div class="flex items-center gap-4 mb-4">
+                    <i class="fas fa-microphone-lines text-2xl text-w-light"></i>
+                    <span class="font-mono text-sm tracking-[0.2em] text-w-sage uppercase">Frecuencia Oficial</span>
+                </div>
+                <h2 class="font-mono text-3xl md:text-5xl text-w-light font-bold mb-6">WIKIPODCAST</h2>
+                <p class="text-w-sage max-w-xl mb-8 font-light">
+                    Conversaciones sin filtro sobre la realidad académica y profesional. Lo que no te cuentan en el aula magna.
+                </p>
+                <a href="LINK_SPOTIFY" target="_blank" class="inline-flex items-center px-8 py-3 bg-w-light text-w-black font-mono text-sm font-bold tracking-widest hover:bg-white transition rounded-sm">
+                    ESCUCHAR AHORA
+                </a>
+            </div>
+            <div class="mt-10 md:mt-0 md:w-1/3 flex justify-center">
+                <div class="w-32 h-32 border border-w-light/20 rounded-full flex items-center justify-center animate-pulse">
+                    <i class="fab fa-spotify text-5xl text-w-light"></i>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 px-6 bg-w-black">
+        <div class="max-w-5xl mx-auto">
+            <h3 class="font-mono text-sm text-w-sage uppercase tracking-widest mb-8 text-center">_Soundtrack_Ingeniería</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DX8Uebhn9wqrS?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+                 <iframe style="border-radius:12px" src="https://open.spotify.com/embed/playlist/37i9dQZF1DWZeKCadgRdKQ?utm_source=generator&theme=0" width="100%" height="152" frameBorder="0" allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"></iframe>
+            </div>
+        </div>
+    </section>
+
+    <div class="max-w-4xl mx-auto border-t border-w-olive/50 my-10"></div>
+
+    <section id="blog" class="py-16 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex justify-between items-end mb-10">
+                <h2 class="font-mono text-2xl text-w-light uppercase tracking-widest">_Log_de_Datos</h2>
+                <a href="blog.html" class="text-xs font-mono text-w-sage hover:text-w-light border-b border-transparent hover:border-w-light transition">VER ARCHIVO COMPLETO</a>
+            </div>
+
+            <div class="space-y-8">
+                <article class="group cursor-pointer">
+                    <div class="flex flex-col md:flex-row gap-4 md:items-center justify-between border-b border-w-olive pb-6">
+                        <div>
+                            <span class="text-xs font-mono text-w-sage/50 mb-2 block">05.02.2026</span>
+                            <h3 class="text-xl text-w-light font-medium group-hover:text-white transition">La falacia del estudio en grupo</h3>
+                        </div>
+                        <span class="text-xs font-mono text-w-sage group-hover:translate-x-2 transition duration-300">LEER_ENTRY -></span>
+                    </div>
+                </article>
                 
-                <div class="bg-wikicard rounded-xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-emerald-500/10 transition-all border border-slate-700 group">
-                    <div class="h-48 bg-slate-700 flex items-center justify-center">
-                        <i class="fas fa-book text-6xl text-slate-500 group-hover:text-white transition-colors"></i>
+                <article class="group cursor-pointer">
+                    <div class="flex flex-col md:flex-row gap-4 md:items-center justify-between border-b border-w-olive pb-6">
+                        <div>
+                            <span class="text-xs font-mono text-w-sage/50 mb-2 block">20.01.2026</span>
+                            <h3 class="text-xl text-w-light font-medium group-hover:text-white transition">Setup minimalista para 2026</h3>
+                        </div>
+                        <span class="text-xs font-mono text-w-sage group-hover:translate-x-2 transition duration-300">LEER_ENTRY -></span>
                     </div>
-                    <div class="p-8">
-                        <div class="uppercase tracking-wide text-sm text-wikigreen font-semibold">eBook Gratuito</div>
-                        <a href="#" class="block mt-1 text-2xl leading-tight font-bold text-white hover:underline">Sobrevive a la Ingeniería</a>
-                        <p class="mt-2 text-slate-400">El manual que ojalá hubiera tenido en primero. Estrategia mental, trucos de veterano y cómo estudiar menos rindiendo más.</p>
-                        <div class="mt-6">
-                            <a href="https://wikingenieria.gumroad.com/l/sobrevive-ingenieria" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-wikidark bg-white hover:bg-gray-200">
-                                Descargar Gratis (0€)
-                            </a>
+                </article>
+                
+                <article class="group cursor-not-allowed opacity-50">
+                    <div class="flex flex-col md:flex-row gap-4 md:items-center justify-between border-b border-w-olive pb-6">
+                        <div>
+                            <span class="text-xs font-mono text-w-sage/50 mb-2 block">PRÓXIMAMENTE</span>
+                            <h3 class="text-xl text-w-light font-medium">Esperando datos...</h3>
                         </div>
                     </div>
-                </div>
-
-                <div class="bg-wikicard rounded-xl overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-emerald-500/10 transition-all border border-slate-700 group relative">
-                    <div class="absolute top-0 right-0 bg-red-500 text-white text-xs font-bold px-3 py-1 rounded-bl-lg">TOP VENTAS</div>
-                    <div class="h-48 bg-slate-700 flex items-center justify-center">
-                        <i class="fas fa-laptop-code text-6xl text-slate-500 group-hover:text-white transition-colors"></i>
-                    </div>
-                    <div class="p-8">
-                        <div class="uppercase tracking-wide text-sm text-wikigreen font-semibold">Plantilla Notion</div>
-                        <a href="#" class="block mt-1 text-2xl leading-tight font-bold text-white hover:underline">Student OS: Sistema Operativo</a>
-                        <p class="mt-2 text-slate-400">Panel de control completo. Gestión de asignaturas, cálculo de notas automático, Active Recall y Pomodoro integrado.</p>
-                        <div class="mt-6 flex items-center justify-between">
-                            <a href="https://wikingenieria.gumroad.com/l/plantilla-notion-organiza-aprueba" class="inline-flex items-center px-4 py-2 border border-transparent text-sm font-medium rounded-md shadow-sm text-white bg-wikigreen hover:bg-emerald-600">
-                                Comprar Sistema
-                            </a>
-                            <span class="text-sm text-slate-500 line-through">14,90€</span>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-    </section>
-
-    <section id="podcast" class="py-20 border-t border-slate-800">
-        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold text-white font-mono mb-10">_AUDIO_ZONE</h2>
-            
-            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
-                <div class="lg:col-span-2 bg-wikicard p-6 rounded-xl border border-slate-700">
-                    <h3 class="text-xl font-bold text-white mb-4"><i class="fas fa-microphone-alt text-wikigreen mr-2"></i> Último Episodio</h3>
-                    <div class="w-full h-40 bg-slate-800 rounded flex items-center justify-center text-slate-500">
-                        [Embed de Spotify Podcast aquí]
-                    </div>
-                    <p class="mt-4 text-sm text-slate-400">Analizamos asignaturas, entrevistamos a ingenieros y contamos la verdad.</p>
-                </div>
-
-                <div class="bg-wikicard p-6 rounded-xl border border-slate-700">
-                    <h3 class="text-xl font-bold text-white mb-4"><i class="fas fa-music text-wikigreen mr-2"></i> Focus Mode</h3>
-                    <div class="space-y-4">
-                        <a href="#" class="block p-3 rounded bg-slate-800 hover:bg-slate-700 transition flex items-center">
-                            <i class="fab fa-spotify text-green-500 text-2xl mr-3"></i>
-                            <div>
-                                <div class="font-bold text-white">Lofi Engineering</div>
-                                <div class="text-xs text-slate-400">Para estudiar Termo sin llorar.</div>
-                            </div>
-                        </a>
-                        <a href="#" class="block p-3 rounded bg-slate-800 hover:bg-slate-700 transition flex items-center">
-                            <i class="fab fa-spotify text-green-500 text-2xl mr-3"></i>
-                            <div>
-                                <div class="font-bold text-white">Deep Work / Coding</div>
-                                <div class="text-xs text-slate-400">Sin letras. Pura concentración.</div>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section id="blog" class="py-20 bg-slate-900/50">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <h2 class="text-3xl font-bold text-white font-mono mb-4">_DATA_STREAM</h2>
-            <p class="text-slate-400 mb-8">Artículos mensuales sobre ingeniería y productividad. Sin spam.</p>
-            
-            <div class="text-left space-y-4 mb-12">
-                <article class="p-6 bg-wikicard rounded-lg border border-slate-700 hover:border-wikigreen transition cursor-pointer">
-                    <div class="text-wikigreen text-xs font-mono mb-1">05 FEB 2026</div>
-                    <h3 class="text-xl font-bold text-white">Por qué estudiar en grupo está matando tu media</h3>
-                    <p class="text-slate-400 mt-2 text-sm">El análisis coste-beneficio de la biblioteca social vs. la cueva.</p>
                 </article>
             </div>
-
-            <div class="bg-gradient-to-r from-slate-800 to-slate-900 p-8 rounded-2xl border border-slate-700">
-                <h3 class="text-white font-bold text-lg mb-2">Únete al Hub</h3>
-                <p class="text-slate-400 text-sm mb-4">Recibe consejos que no publico en redes.</p>
-                <form class="flex flex-col sm:flex-row gap-2 max-w-md mx-auto">
-                    <input type="email" placeholder="tu@email.com" class="flex-1 px-4 py-2 rounded bg-slate-950 border border-slate-700 text-white focus:outline-none focus:border-wikigreen">
-                    <button type="submit" class="px-6 py-2 bg-wikigreen text-wikidark font-bold rounded hover:bg-emerald-400 transition">Suscribirse</button>
-                </form>
-            </div>
         </div>
     </section>
 
-    <section id="contacto" class="py-20 border-t border-slate-800">
-        <div class="max-w-xl mx-auto px-4">
-            <div class="text-center mb-10">
-                <h2 class="text-3xl font-bold text-white font-mono">_CONTACT</h2>
-                <p class="text-slate-400">¿Dudas sobre la plantilla? ¿Propuestas? Dispara.</p>
-            </div>
-            
-            <form action="https://formspree.io/f/xlgwewkl" method="POST" class="space-y-4">
-                <div>
-                    <label class="block text-sm font-medium text-slate-400 mb-1">Nombre</label>
-                    <input type="text" name="name" class="w-full px-4 py-2 rounded bg-wikicard border border-slate-700 text-white focus:border-wikigreen focus:outline-none focus:ring-1 focus:ring-wikigreen">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-slate-400 mb-1">Email</label>
-                    <input type="email" name="email" class="w-full px-4 py-2 rounded bg-wikicard border border-slate-700 text-white focus:border-wikigreen focus:outline-none focus:ring-1 focus:ring-wikigreen">
-                </div>
-                <div>
-                    <label class="block text-sm font-medium text-slate-400 mb-1">Mensaje</label>
-                    <textarea name="message" rows="4" class="w-full px-4 py-2 rounded bg-wikicard border border-slate-700 text-white focus:border-wikigreen focus:outline-none focus:ring-1 focus:ring-wikigreen"></textarea>
-                </div>
-                <button type="submit" class="w-full py-3 bg-white text-wikidark font-bold rounded hover:bg-gray-200 transition">Enviar Transmisión</button>
+    <section class="py-16 px-6 bg-w-olive/20">
+        <div class="max-w-xl mx-auto text-center">
+            <h3 class="font-mono text-lg text-w-light mb-4">Únete al Hub Privado</h3>
+            <form class="flex border-b border-w-sage/30 pb-2">
+                <input type="email" placeholder="tu@email.com" class="bg-transparent w-full text-w-light placeholder-w-sage/30 focus:outline-none font-mono text-sm">
+                <button type="submit" class="text-w-light font-mono text-xs uppercase tracking-widest hover:opacity-70">Suscribirse</button>
             </form>
         </div>
     </section>
 
-    <footer class="bg-wikidark py-12 border-t border-slate-800">
-        <div class="max-w-6xl mx-auto px-4 flex flex-col md:flex-row justify-between items-center gap-6">
-            <div class="text-slate-500 text-sm">
-                &copy; 2026 Wikingeniería. Todos los derechos reservados.
+    <footer id="contacto" class="bg-w-olive/10 border-t border-w-olive pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+                <div>
+                    <span class="font-mono text-2xl font-bold text-w-light tracking-tight block mb-6">Wikingeniería_</span>
+                    <p class="text-w-sage text-sm font-light max-w-xs">
+                        Ingeniería, productividad y estoicismo académico.
+                    </p>
+                    <a href="mailto:hola@wikingenieria.com" class="block mt-6 text-w-light hover:underline font-mono text-sm">hola@wikingenieria.com</a>
+                </div>
+                
+                <div class="grid grid-cols-4 gap-6 text-center md:text-right">
+                    <a href="#" class="text-w-sage hover:text-white transition"><i class="fab fa-instagram text-xl"></i></a>
+                    <a href="#" class="text-w-sage hover:text-white transition"><i class="fab fa-x-twitter text-xl"></i></a> <a href="#" class="text-w-sage hover:text-white transition"><i class="fab fa-tiktok text-xl"></i></a>
+                    <a href="#" class="text-w-sage hover:text-white transition"><i class="fab fa-youtube text-xl"></i></a>
+                    <a href="#" class="text-w-sage hover:text-white transition"><i class="fab fa-discord text-xl"></i></a>
+                    <a href="#" class="text-w-sage hover:text-white transition"><i class="fab fa-spotify text-xl"></i></a>
+                    <a href="#" class="text-w-sage hover:text-white transition"><i class="fab fa-facebook text-xl"></i></a>
+                    <a href="#" class="text-w-sage hover:text-white transition"><i class="fas fa-envelope text-xl"></i></a>
+                </div>
             </div>
-            <div class="flex space-x-6">
-                <a href="#" class="text-slate-400 hover:text-white transition"><i class="fab fa-instagram text-xl"></i></a>
-                <a href="#" class="text-slate-400 hover:text-white transition"><i class="fab fa-tiktok text-xl"></i></a>
-                <a href="#" class="text-slate-400 hover:text-white transition"><i class="fab fa-twitter text-xl"></i></a>
-                <a href="#" class="text-slate-400 hover:text-white transition"><i class="fab fa-linkedin text-xl"></i></a>
+
+            <div class="flex flex-col md:flex-row justify-between items-center border-t border-w-olive/30 pt-8 text-xs font-mono text-w-sage/40 uppercase tracking-widest">
+                <p>© 2026 Wikingeniería. Todos los derechos reservados.</p>
+                <div class="flex gap-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-w-light">Legal</a>
+                    <a href="#" class="hover:text-w-light">Privacidad</a>
+                </div>
             </div>
         </div>
     </footer>
 
+    <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-8 right-8 bg-w-light text-w-black w-10 h-10 flex items-center justify-center rounded-sm opacity-0 pointer-events-none transition-opacity duration-300 hover:bg-white z-50">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Script para el botón volver arriba
+        const btn = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                btn.classList.remove('opacity-0', 'pointer-events-none');
+            } else {
+                btn.classList.add('opacity-0', 'pointer-events-none');
+            }
+        });
+    </script>
 </body>
 </html>
