@@ -1,16 +1,24 @@
 <!DOCTYPE html>
-<html lang="es">
+<html lang="es" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Estudio en Grupo | Wikingeniería</title>
+    <title>La Falacia del Estudio en Grupo | Wikingeniería</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: { 'w-black': '#020201', 'w-olive': '#2a322e', 'w-sage': '#b0bab3', 'w-light': '#d3d3d3' },
-                    fontFamily: { 'sans': ['Inter', 'sans-serif'], 'mono': ['Space Grotesk', 'monospace'] }
+                    colors: {
+                        'w-black': '#020201',
+                        'w-olive': '#2a322e',
+                        'w-sage': '#b0bab3',
+                        'w-light': '#d3d3d3',
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'mono': ['Space Grotesk', 'monospace'],
+                    }
                 }
             }
         }
@@ -18,42 +26,127 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="bg-w-black text-w-sage font-sans antialiased selection:bg-w-light selection:text-w-black">
+
+<body class="bg-w-black text-w-sage font-sans antialiased selection:bg-w-light selection:text-w-black flex flex-col min-h-screen">
 
     <nav class="fixed w-full z-50 bg-w-black/90 backdrop-blur-md border-b border-w-olive">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="index.html" class="font-mono text-xl font-bold text-w-light tracking-tight">Wikingeniería</a>
-            <a href="blog.html" class="font-mono text-sm text-w-sage hover:text-w-light uppercase tracking-widest"><i class="fas fa-arrow-left mr-2"></i> Volver al Archivo</a>
+            <a href="../index.html" class="flex items-center gap-3 hover:opacity-80 transition">
+                <img src="https://via.placeholder.com/40" alt="Logo" class="h-8 w-8 grayscale opacity-80">
+                <span class="font-mono text-xl font-bold text-w-light tracking-tight">Wikingeniería</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="../blog.html" class="font-mono text-xs text-w-sage hover:text-w-light uppercase tracking-widest border border-w-sage/30 px-3 py-1 rounded-full transition hover:border-w-light">
+                    <i class="fas fa-arrow-left mr-2"></i> Volver al Archivo
+                </a>
+            </div>
         </div>
     </nav>
 
-    <article class="pt-32 pb-20 px-6 max-w-2xl mx-auto">
-        
-        <header class="mb-10 text-center">
-            <span class="font-mono text-xs text-w-sage/50 uppercase tracking-widest border border-w-sage/20 px-3 py-1 rounded-full">Estrategia Académica</span>
-            <h1 class="font-mono text-3xl md:text-5xl font-bold text-w-light mt-6 mb-4 leading-tight">La falacia del estudio en grupo</h1>
-            <time class="font-mono text-sm text-w-sage/60">07 de Febrero, 2026</time>
-        </header>
+    <article class="flex-grow pt-32 pb-20 px-6">
+        <div class="max-w-3xl mx-auto">
+            
+            <header class="mb-12 text-center">
+                <div class="inline-block border-b border-w-light/30 mb-6 pb-1">
+                    <span class="font-mono text-xs text-w-light uppercase tracking-[0.2em]">Estrategia Académica</span>
+                </div>
+                <h1 class="font-mono text-3xl md:text-5xl font-bold text-w-light mb-6 leading-tight">
+                    La falacia del estudio en grupo
+                </h1>
+                <p class="text-lg md:text-xl text-w-sage/80 font-light italic mb-8 max-w-2xl mx-auto">
+                    "Si quieres ir rápido, ve solo. Si quieres suspender acompañado, ve a la biblioteca con tus amigos."
+                </p>
+                <time class="font-mono text-xs text-w-sage/50 block">05.02.2026 • 4 min de lectura</time>
+            </header>
 
-        <div class="mb-12 border border-w-olive rounded-sm overflow-hidden">
-            <img src="https://via.placeholder.com/800x400/2a322e/b0bab3" alt="Biblioteca" class="w-full grayscale opacity-80">
-        </div>
-
-        <div class="prose prose-invert prose-lg prose-headings:font-mono prose-headings:text-w-light prose-p:text-w-sage prose-p:font-light prose-strong:text-white mx-auto">
-            <p>
-                Recuerdo perfectamente el día que dejé de ir a la biblioteca con mis compañeros de clase. 
-                Fue un martes. Llevábamos tres horas "estudiando" Termodinámica.
-            </p>
-            <h3>El coste oculto de la socialización</h3>
-            <p>
-                Si analizas fríamente el tiempo efectivo (Real Work), te darás cuenta de que...
-            </p>
+            <div class="w-full h-64 md:h-96 bg-w-olive mb-12 overflow-hidden border border-w-olive">
+                <img src="https://via.placeholder.com/1200x600/2a322e/b0bab3?text=Cover+Image" alt="Estudiantes en biblioteca" class="w-full h-full object-cover opacity-90">
             </div>
 
+            <div class="prose prose-invert prose-lg max-w-none 
+                        prose-headings:font-mono prose-headings:text-w-light 
+                        prose-p:text-w-sage prose-p:font-light prose-p:leading-relaxed
+                        prose-strong:text-white prose-strong:font-bold
+                        prose-a:text-w-light prose-a:underline hover:prose-a:text-white">
+                
+                <p>
+                    Recuerdo perfectamente el día que dejé de ir a la biblioteca con mis compañeros de clase. Fue un martes de noviembre. Llevábamos tres horas "estudiando" Termodinámica, pero la realidad es que habíamos pasado:
+                </p>
+                <ul>
+                    <li>45 minutos quejándonos del profesor.</li>
+                    <li>30 minutos decidiendo dónde tomar café.</li>
+                    <li>15 minutos de estudio real.</li>
+                </ul>
+
+                <h2>El coste oculto de la socialización</h2>
+                <p>
+                    Si analizas fríamente el tiempo efectivo (Real Work), te darás cuenta de que estudiar en grupo suele ser una trampa emocional. Nos hace sentir menos solos ante el peligro, pero reduce drásticamente nuestra capacidad de <strong>Deep Work</strong>.
+                </p>
+
+                <figure class="my-10 border border-w-olive/50 bg-w-olive/10 p-2">
+                    <img src="https://via.placeholder.com/800x400/111/333?text=Grafico+Productividad" alt="Gráfico" class="w-full opacity-80">
+                    <figcaption class="text-center text-xs font-mono text-w-sage/50 mt-2">Fig 1. Caída de rendimiento por interrupciones.</figcaption>
+                </figure>
+
+                <p>
+                    La solución no es aislarse del mundo, es aislarse durante los bloques de estudio. Tu cerebro necesita silencio para procesar ecuaciones diferenciales, no el ruido de fondo de las quejas de tus compañeros.
+                </p>
+
+                <h3>La regla de oro</h3>
+                <p>
+                    Estudia solo. Repasa en grupo (solo si es necesario). Celebra después.
+                </p>
+            </div>
+
+            <div class="w-full h-px bg-w-olive my-16"></div>
+
+            <div class="bg-w-olive/20 border border-w-olive p-8 rounded-sm text-center mb-12">
+                <h3 class="font-mono text-xl text-w-light mb-2">¿Te ha gustado este análisis?</h3>
+                <p class="text-w-sage text-sm font-light mb-6">Únete al Hub Privado y recibe estrategias semanales.</p>
+                <form class="flex border-b border-w-sage/30 max-w-sm mx-auto">
+                    <input type="email" placeholder="tu@email.com" class="bg-transparent w-full text-w-light placeholder-w-sage/30 py-2 focus:outline-none font-mono text-sm">
+                    <button type="submit" class="text-w-light font-mono text-xs uppercase tracking-widest hover:text-white">Suscribirse</button>
+                </form>
+            </div>
+
+            <div class="bg-w-light/5 border border-w-light/10 p-8 md:p-10 flex flex-col md:flex-row items-center gap-8 relative overflow-hidden">
+                <div class="absolute -right-10 -top-10 w-40 h-40 bg-w-light/5 rounded-full blur-3xl"></div>
+                
+                <div class="md:w-1/3">
+                    <div class="aspect-square bg-w-olive relative overflow-hidden border border-w-olive shadow-2xl">
+                        <img src="https://via.placeholder.com/400x400/111/d3d3d3?text=Student+OS" class="w-full h-full object-cover">
+                        <div class="absolute top-2 right-2 bg-yellow-400 text-black text-[9px] font-bold px-2 py-0.5 uppercase font-mono">Recomendado</div>
+                    </div>
+                </div>
+                
+                <div class="md:w-2/3 text-center md:text-left z-10">
+                    <h3 class="font-mono text-2xl text-w-light font-bold mb-2">Pasa de la teoría a la práctica</h3>
+                    <p class="text-w-sage font-light mb-6 text-sm leading-relaxed">
+                        Este artículo es solo la punta del iceberg. Si quieres aplicar este sistema de organización automáticamente, he creado una plantilla que lo hace por ti.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                        <a href="LINK_GUMROAD_STUDENT_OS" class="bg-w-light text-w-black font-mono text-xs font-bold uppercase tracking-widest px-6 py-3 hover:bg-white transition text-center">
+                            Ver Student OS
+                        </a>
+                        <a href="LINK_GUMROAD_EBOOK" class="border border-w-sage/30 text-w-sage font-mono text-xs font-bold uppercase tracking-widest px-6 py-3 hover:border-w-light hover:text-w-light transition text-center">
+                            Descargar eBook Gratis
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </article>
 
-    <footer class="text-center py-8 border-t border-w-olive">
-        <p class="font-mono text-xs text-w-sage/40">Fin de la transmisión</p>
+    <footer class="bg-w-olive/10 border-t border-w-olive py-8">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
+            <span class="font-mono text-xs text-w-sage/40 uppercase tracking-widest">© 2026 Wikingeniería</span>
+            <div class="flex gap-6">
+                <a href="#" class="text-w-sage/60 hover:text-w-light transition"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-w-sage/60 hover:text-w-light transition"><i class="fab fa-x-twitter"></i></a>
+                <a href="#" class="text-w-sage/60 hover:text-w-light transition"><i class="fab fa-tiktok"></i></a>
+            </div>
+        </div>
     </footer>
 
 </body>
