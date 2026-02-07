@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wikingeniería | Minimalist Student OS</title>
+    <meta name="description" content="Estrategia y sistemas para estudiantes de ingeniería.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'w-black': '#020201',   /* Fondo Principal */
+                        'w-olive': '#2a322e',   /* Secundario / Tarjetas */
+                        'w-sage': '#b0bab3',    /* Texto Cuerpo */
+                        'w-light': '#d3d3d3',   /* Títulos / Acentos */
+                        'w-accent': '#d3d3d3',  /* Acentos claros */
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'mono': ['Space Grotesk', 'monospace'], /* Fuente TOP Minimalista */
+                    },
+                    backgroundImage: {
+                        'podcast-pattern': "url('https://images.unsplash.com/photo-1478737270239-2f02b77ac6d5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')", 
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+   <footer id="contacto" class="bg-w-olive/10 border-t border-w-olive pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-6">
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
+                <div>
+                    <span class="font-mono text-2xl font-bold text-w-light tracking-tight block mb-6">Wikingeniería_</span>
+                    <p class="text-w-sage text-sm font-light max-w-xs">
+                        Ingeniería, productividad y estoicismo académico.
+                    </p>
+                    <a href="mailto:hola@wikingenieria.com" class="block mt-6 text-w-light hover:underline font-mono text-sm">hola@wikingenieria.com</a>
+                </div>
+                
+                <div class="grid grid-cols-4 gap-6 text-center md:text-right">
+                    <a href="#" class="text-w-sage hover:text-white transition"><i class="fab fa-instagram text-xl"></i></a>
+                    <a href="#" class="text-w-sage hover:text-white transition"><i class="fab fa-x-twitter text-xl"></i></a> <a href="#" class="text-w-sage hover:text-white transition"><i class="fab fa-tiktok text-xl"></i></a>
+                    <a href="#" class="text-w-sage hover:text-white transition"><i class="fab fa-youtube text-xl"></i></a>
+                    <a href="#" class="text-w-sage hover:text-white transition"><i class="fab fa-discord text-xl"></i></a>
+                    <a href="#" class="text-w-sage hover:text-white transition"><i class="fab fa-spotify text-xl"></i></a>
+                    <a href="#" class="text-w-sage hover:text-white transition"><i class="fab fa-facebook text-xl"></i></a>
+                    <a href="#" class="text-w-sage hover:text-white transition"><i class="fas fa-envelope text-xl"></i></a>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row justify-between items-center border-t border-w-olive/30 pt-8 text-xs font-mono text-w-sage/40 uppercase tracking-widest">
+                <p>© 2026 Wikingeniería. Todos los derechos reservados.</p>
+                <div class="flex gap-4 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-w-light">Legal</a>
+                    <a href="#" class="hover:text-w-light">Privacidad</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-8 right-8 bg-w-light text-w-black w-10 h-10 flex items-center justify-center rounded-sm opacity-0 pointer-events-none transition-opacity duration-300 hover:bg-white z-50">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <script>
+        // Script para el botón volver arriba
+        const btn = document.getElementById('backToTop');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                btn.classList.remove('opacity-0', 'pointer-events-none');
+            } else {
+                btn.classList.add('opacity-0', 'pointer-events-none');
+            }
+        });
+    </script>
+</body>
+</html>
