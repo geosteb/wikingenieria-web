@@ -108,6 +108,48 @@
             </div>
         </div>
     </footer>
+<div id="cookie-banner" class="fixed bottom-0 left-0 w-full bg-w-black border-t border-w-olive p-4 z-[60] transform translate-y-full transition-transform duration-500 hidden">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="text-xs text-w-sage font-mono font-light text-center md:text-left">
+                <span class="text-w-light font-bold">SYSTEM_NOTICE:</span> Usamos cookies propias y de terceros (Spotify, Gumroad) para mejorar tu experiencia.
+                <a href="legal.html#cookies" class="underline hover:text-white ml-1">Ver política</a>.
+            </div>
+            <div class="flex gap-3">
+                <button id="btn-reject" class="px-4 py-2 border border-w-sage/30 text-[10px] font-mono uppercase text-w-sage hover:text-white hover:border-white transition rounded-sm">
+                    Rechazar
+                </button>
+                <button id="btn-accept" class="px-6 py-2 bg-w-light text-w-black text-[10px] font-mono font-bold uppercase hover:bg-white transition rounded-sm">
+                    Aceptar Todo
+                </button>
+            </div>
+        </div>
+    </div>
 
+    <script>
+        // Lógica del Banner de Cookies
+        const cookieBanner = document.getElementById('cookie-banner');
+        const btnAccept = document.getElementById('btn-accept');
+        const btnReject = document.getElementById('btn-reject');
+
+        // Comprobar si ya existe la cookie de consentimiento
+        if (!localStorage.getItem('cookiesAccepted')) {
+            cookieBanner.classList.remove('hidden');
+            // Pequeño retardo para la animación de entrada
+            setTimeout(() => {
+                cookieBanner.classList.remove('translate-y-full');
+            }, 500);
+        }
+
+        btnAccept.addEventListener('click', () => {
+            localStorage.setItem('cookiesAccepted', 'true');
+            cookieBanner.classList.add('translate-y-full');
+        });
+
+        btnReject.addEventListener('click', () => {
+            localStorage.setItem('cookiesAccepted', 'false');
+            cookieBanner.classList.add('translate-y-full');
+            // Aquí podrías añadir lógica para bloquear scripts si fueras muy estricto
+        });
+    </script>
 </body>
 </html>
