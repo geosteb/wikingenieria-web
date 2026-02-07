@@ -1,87 +1,60 @@
 <!DOCTYPE html>
-<html lang="es" class="scroll-smooth">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wikingeniería | Minimalist Student OS</title>
-    <meta name="description" content="Estrategia y sistemas para estudiantes de ingeniería.">
-    
+    <title>Estudio en Grupo | Wikingeniería</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    
     <script>
         tailwind.config = {
             theme: {
                 extend: {
-                    colors: {
-                        'w-black': '#020201',   /* Fondo Principal */
-                        'w-olive': '#2a322e',   /* Secundario / Tarjetas */
-                        'w-sage': '#b0bab3',    /* Texto Cuerpo */
-                        'w-light': '#d3d3d3',   /* Títulos / Acentos */
-                        'w-accent': '#d3d3d3',  /* Acentos claros */
-                    },
-                    fontFamily: {
-                        'sans': ['Inter', 'sans-serif'],
-                        'mono': ['Space Grotesk', 'monospace'], /* Fuente TOP Minimalista */
-                    },
-                    backgroundImage: {
-                        'podcast-pattern': "url('https://images.unsplash.com/photo-1478737270239-2f02b77ac6d5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1950&q=80')", 
-                    }
+                    colors: { 'w-black': '#020201', 'w-olive': '#2a322e', 'w-sage': '#b0bab3', 'w-light': '#d3d3d3' },
+                    fontFamily: { 'sans': ['Inter', 'sans-serif'], 'mono': ['Space Grotesk', 'monospace'] }
                 }
             }
         }
     </script>
-
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
+<body class="bg-w-black text-w-sage font-sans antialiased selection:bg-w-light selection:text-w-black">
 
-   <footer id="contacto" class="bg-w-olive/10 border-t border-w-olive pt-16 pb-8">
-        <div class="max-w-7xl mx-auto px-6">
-            
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
-                <div>
-                    <span class="font-mono text-2xl font-bold text-w-light tracking-tight block mb-6">Wikingeniería_</span>
-                    <p class="text-w-sage text-sm font-light max-w-xs">
-                        Ingeniería, productividad y estoicismo académico.
-                    </p>
-                    <a href="mailto:hola@wikingenieria.com" class="block mt-6 text-w-light hover:underline font-mono text-sm">hola@wikingenieria.com</a>
-                </div>
-                
-                <div class="grid grid-cols-4 gap-6 text-center md:text-right">
-                    <a href="#" class="text-w-sage hover:text-white transition"><i class="fab fa-instagram text-xl"></i></a>
-                    <a href="#" class="text-w-sage hover:text-white transition"><i class="fab fa-x-twitter text-xl"></i></a> <a href="#" class="text-w-sage hover:text-white transition"><i class="fab fa-tiktok text-xl"></i></a>
-                    <a href="#" class="text-w-sage hover:text-white transition"><i class="fab fa-youtube text-xl"></i></a>
-                    <a href="#" class="text-w-sage hover:text-white transition"><i class="fab fa-discord text-xl"></i></a>
-                    <a href="#" class="text-w-sage hover:text-white transition"><i class="fab fa-spotify text-xl"></i></a>
-                    <a href="#" class="text-w-sage hover:text-white transition"><i class="fab fa-facebook text-xl"></i></a>
-                    <a href="#" class="text-w-sage hover:text-white transition"><i class="fas fa-envelope text-xl"></i></a>
-                </div>
-            </div>
-
-            <div class="flex flex-col md:flex-row justify-between items-center border-t border-w-olive/30 pt-8 text-xs font-mono text-w-sage/40 uppercase tracking-widest">
-                <p>© 2026 Wikingeniería. Todos los derechos reservados.</p>
-                <div class="flex gap-4 mt-4 md:mt-0">
-                    <a href="#" class="hover:text-w-light">Legal</a>
-                    <a href="#" class="hover:text-w-light">Privacidad</a>
-                </div>
-            </div>
+    <nav class="fixed w-full z-50 bg-w-black/90 backdrop-blur-md border-b border-w-olive">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="font-mono text-xl font-bold text-w-light tracking-tight">Wikingeniería</a>
+            <a href="blog.html" class="font-mono text-sm text-w-sage hover:text-w-light uppercase tracking-widest"><i class="fas fa-arrow-left mr-2"></i> Volver al Archivo</a>
         </div>
+    </nav>
+
+    <article class="pt-32 pb-20 px-6 max-w-2xl mx-auto">
+        
+        <header class="mb-10 text-center">
+            <span class="font-mono text-xs text-w-sage/50 uppercase tracking-widest border border-w-sage/20 px-3 py-1 rounded-full">Estrategia Académica</span>
+            <h1 class="font-mono text-3xl md:text-5xl font-bold text-w-light mt-6 mb-4 leading-tight">La falacia del estudio en grupo</h1>
+            <time class="font-mono text-sm text-w-sage/60">07 de Febrero, 2026</time>
+        </header>
+
+        <div class="mb-12 border border-w-olive rounded-sm overflow-hidden">
+            <img src="https://via.placeholder.com/800x400/2a322e/b0bab3" alt="Biblioteca" class="w-full grayscale opacity-80">
+        </div>
+
+        <div class="prose prose-invert prose-lg prose-headings:font-mono prose-headings:text-w-light prose-p:text-w-sage prose-p:font-light prose-strong:text-white mx-auto">
+            <p>
+                Recuerdo perfectamente el día que dejé de ir a la biblioteca con mis compañeros de clase. 
+                Fue un martes. Llevábamos tres horas "estudiando" Termodinámica.
+            </p>
+            <h3>El coste oculto de la socialización</h3>
+            <p>
+                Si analizas fríamente el tiempo efectivo (Real Work), te darás cuenta de que...
+            </p>
+            </div>
+
+    </article>
+
+    <footer class="text-center py-8 border-t border-w-olive">
+        <p class="font-mono text-xs text-w-sage/40">Fin de la transmisión</p>
     </footer>
 
-    <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-8 right-8 bg-w-light text-w-black w-10 h-10 flex items-center justify-center rounded-sm opacity-0 pointer-events-none transition-opacity duration-300 hover:bg-white z-50">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <script>
-        // Script para el botón volver arriba
-        const btn = document.getElementById('backToTop');
-        window.addEventListener('scroll', () => {
-            if (window.scrollY > 300) {
-                btn.classList.remove('opacity-0', 'pointer-events-none');
-            } else {
-                btn.classList.add('opacity-0', 'pointer-events-none');
-            }
-        });
-    </script>
 </body>
 </html>
