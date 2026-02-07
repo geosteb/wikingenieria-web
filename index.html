@@ -37,20 +37,37 @@
 
 <body class="bg-w-black text-w-sage font-sans antialiased selection:bg-w-light selection:text-w-black relative">
 
-    <nav class="fixed w-full z-50 bg-w-black/90 backdrop-blur-md border-b border-w-olive">
+    <nav class="fixed w-full z-50 bg-w-black/95 backdrop-blur-md border-b border-w-olive transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="flex items-center gap-3">
-                <img src="https://via.placeholder.com/40" alt="Logo Wikingeniería" class="h-10 w-10 opacity-90 hover:opacity-100 transition">
-                <span class="font-mono text-xl font-bold text-w-light tracking-tight">Wikingeniería</span>
-            </div>
+            
+            <a href="#" class="flex items-center gap-3 group">
+                <img src="https://via.placeholder.com/40" alt="Logo" class="h-9 w-9 opacity-90 group-hover:opacity-100 transition">
+                <span class="font-mono text-lg font-bold text-w-light tracking-tight">Wikingeniería</span>
+            </a>
 
             <div class="hidden md:flex items-center space-x-8">
-                <a href="#productos" class="font-mono text-sm text-w-sage hover:text-w-light transition-colors uppercase tracking-widest">Tienda</a>
-                <a href="#blog" class="font-mono text-sm text-w-sage hover:text-w-light transition-colors uppercase tracking-widest">Blog</a>
-                <a href="#contacto" class="font-mono text-sm text-w-sage hover:text-w-light transition-colors uppercase tracking-widest">Contacto</a>
+                <a href="#productos" class="font-mono text-xs text-w-sage hover:text-w-light transition-colors uppercase tracking-widest">Tienda</a>
+                <a href="blog.html" class="font-mono text-xs text-w-sage hover:text-w-light transition-colors uppercase tracking-widest">Blog</a>
+                <a href="#contacto" class="font-mono text-xs text-w-sage hover:text-w-light transition-colors uppercase tracking-widest">Contacto</a>
             </div>
             
-            <button class="md:hidden text-w-light"><i class="fas fa-bars text-xl"></i></button>
+            <button id="mobile-menu-btn" class="md:hidden text-w-sage hover:text-w-light focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-w-black border-b border-w-olive absolute w-full left-0 top-20">
+            <div class="px-6 pt-4 pb-8 space-y-4 flex flex-col text-center">
+                <a href="#productos" class="font-mono text-sm text-w-light py-3 border-b border-w-olive/30 hover:bg-w-olive/20 transition uppercase tracking-widest mobile-link">
+                    Tienda
+                </a>
+                <a href="blog.html" class="font-mono text-sm text-w-light py-3 border-b border-w-olive/30 hover:bg-w-olive/20 transition uppercase tracking-widest mobile-link">
+                    Blog
+                </a>
+                <a href="#contacto" class="font-mono text-sm text-w-light py-3 border-b border-w-olive/30 hover:bg-w-olive/20 transition uppercase tracking-widest mobile-link">
+                    Contacto
+                </a>
+            </div>
         </div>
     </nav>
 
@@ -84,40 +101,46 @@
 
     <div class="max-w-4xl mx-auto border-t border-w-olive/50 my-10"></div>
 
-    <section id="productos" class="py-16 px-6">
+    <section id="productos" class="py-20 px-6">
         <div class="max-w-7xl mx-auto text-center mb-16">
             <h2 class="font-mono text-2xl text-w-light uppercase tracking-widest">_Material_Clasificado</h2>
         </div>
 
         <div class="flex flex-wrap justify-center gap-8">
             
-            <div class="w-full max-w-sm bg-w-olive p-1 hover:bg-[#353f3a] transition duration-300">
-                <div class="relative h-64 bg-black/20 overflow-hidden group">
+            <div class="w-full max-w-sm flex flex-col bg-w-olive p-1 hover:bg-[#353f3a] transition duration-300 group h-full min-h-[500px]">
+                <div class="relative h-72 bg-black/20 overflow-hidden w-full">
                     <div class="absolute top-4 right-4 bg-yellow-400 text-black text-[10px] font-bold px-2 py-1 uppercase tracking-wider z-10 font-mono">
                         Top Ventas
                     </div>
                     <img src="https://via.placeholder.com/400x400/111/d3d3d3?text=Student+OS" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                 </div>
-                <div class="p-6 text-left">
+                
+                <div class="p-6 flex flex-col flex-grow text-left">
                     <h3 class="font-mono text-xl text-w-light mb-2">Student OS</h3>
-                    <p class="text-sm opacity-70 mb-6 font-light">El sistema operativo en Notion para organizar asignaturas y vida.</p>
-                    <a href="#" class="block w-full py-3 border border-w-sage/30 text-center font-mono text-xs text-w-light hover:bg-w-light hover:text-w-black transition uppercase tracking-widest">
+                    <p class="text-sm opacity-70 mb-6 font-light flex-grow">
+                        El sistema operativo en Notion para organizar asignaturas, calcular notas y gestionar tu vida académica.
+                    </p>
+                    <a href="LINK_GUMROAD_STUDENT_OS" class="mt-auto block w-full py-3 border border-w-sage/30 text-center font-mono text-xs text-w-light hover:bg-w-light hover:text-w-black transition uppercase tracking-widest">
                         Adquirir Sistema
                     </a>
                 </div>
             </div>
 
-            <div class="w-full max-w-sm bg-w-olive p-1 hover:bg-[#353f3a] transition duration-300">
-                <div class="relative h-64 bg-black/20 overflow-hidden group">
+            <div class="w-full max-w-sm flex flex-col bg-w-olive p-1 hover:bg-[#353f3a] transition duration-300 group h-full min-h-[500px]">
+                <div class="relative h-72 bg-black/20 overflow-hidden w-full">
                      <div class="absolute top-4 right-4 bg-w-sage text-w-black text-[10px] font-bold px-2 py-1 uppercase tracking-wider z-10 font-mono">
                         Gratis
                     </div>
                     <img src="https://via.placeholder.com/400x400/111/d3d3d3?text=Ebook+Cover" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                 </div>
-                <div class="p-6 text-left">
+                
+                <div class="p-6 flex flex-col flex-grow text-left">
                     <h3 class="font-mono text-xl text-w-light mb-2">Sobrevive a la Ingeniería</h3>
-                    <p class="text-sm opacity-70 mb-6 font-light">Manual de estrategia mental y táctica académica.</p>
-                    <a href="#" class="block w-full py-3 border border-w-sage/30 text-center font-mono text-xs text-w-light hover:bg-w-light hover:text-w-black transition uppercase tracking-widest">
+                    <p class="text-sm opacity-70 mb-6 font-light flex-grow">
+                        Manual de estrategia mental y táctica académica. Lo que no te cuentan en la guía docente.
+                    </p>
+                    <a href="LINK_GUMROAD_EBOOK" class="mt-auto block w-full py-3 border border-w-sage/30 text-center font-mono text-xs text-w-light hover:bg-w-light hover:text-w-black transition uppercase tracking-widest">
                         Descargar
                     </a>
                 </div>
@@ -216,36 +239,37 @@
         </div>
     </section>
 
-    <footer id="contacto" class="bg-w-olive/10 border-t border-w-olive pt-16 pb-8">
-        <div class="max-w-7xl mx-auto px-6">
+    <footer id="contacto" class="bg-w-olive/10 border-t border-w-olive py-12">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 mb-16">
-                <div>
-                    <span class="font-mono text-2xl font-bold text-w-light tracking-tight block mb-6">Wikingeniería_</span>
-                    <p class="text-w-sage text-sm font-light max-w-xs">
-                        Ingeniería, productividad y estoicismo académico.
-                    </p>
-                    <a href="mailto:hola@wikingenieria.com" class="block mt-6 text-w-light hover:underline font-mono text-sm">hola@wikingenieria.com</a>
-                </div>
-                
-                <div class="grid grid-cols-4 gap-6 text-center md:text-right">
-                    <a href="#" class="text-w-sage hover:text-white transition"><i class="fab fa-instagram text-xl"></i></a>
-                    <a href="#" class="text-w-sage hover:text-white transition"><i class="fab fa-x-twitter text-xl"></i></a> <a href="#" class="text-w-sage hover:text-white transition"><i class="fab fa-tiktok text-xl"></i></a>
-                    <a href="#" class="text-w-sage hover:text-white transition"><i class="fab fa-youtube text-xl"></i></a>
-                    <a href="#" class="text-w-sage hover:text-white transition"><i class="fab fa-discord text-xl"></i></a>
-                    <a href="#" class="text-w-sage hover:text-white transition"><i class="fab fa-spotify text-xl"></i></a>
-                    <a href="#" class="text-w-sage hover:text-white transition"><i class="fab fa-facebook text-xl"></i></a>
-                    <a href="#" class="text-w-sage hover:text-white transition"><i class="fas fa-envelope text-xl"></i></a>
-                </div>
+            <div class="flex flex-col md:flex-row items-center gap-4 text-center md:text-left">
+                <img src="https://via.placeholder.com/40" alt="Wikingeniería Logo" class="h-8 w-auto opacity-80 hover:opacity-100 transition">
+                <span class="font-mono text-xs text-w-sage/40 uppercase tracking-widest">
+                    © 2026 Wikingeniería
+                </span>
             </div>
 
-            <div class="flex flex-col md:flex-row justify-between items-center border-t border-w-olive/30 pt-8 text-xs font-mono text-w-sage/40 uppercase tracking-widest">
-                <p>© 2026 Wikingeniería. Todos los derechos reservados.</p>
-                <div class="flex gap-4 mt-4 md:mt-0">
-                    <a href="#" class="hover:text-w-light">Legal</a>
-                    <a href="#" class="hover:text-w-light">Privacidad</a>
-                </div>
+            <div class="flex items-center gap-6">
+                <a href="#" class="text-w-sage/60 hover:text-white transition transform hover:-translate-y-1">
+                    <i class="fab fa-instagram text-lg"></i>
+                </a>
+                <a href="#" class="text-w-sage/60 hover:text-white transition transform hover:-translate-y-1">
+                    <i class="fab fa-x-twitter text-lg"></i>
+                </a>
+                <a href="#" class="text-w-sage/60 hover:text-white transition transform hover:-translate-y-1">
+                    <i class="fab fa-tiktok text-lg"></i>
+                </a>
+                <a href="#" class="text-w-sage/60 hover:text-white transition transform hover:-translate-y-1">
+                    <i class="fab fa-youtube text-lg"></i>
+                </a>
+                <a href="#" class="text-w-sage/60 hover:text-white transition transform hover:-translate-y-1">
+                    <i class="fab fa-spotify text-lg"></i>
+                </a>
+                 <a href="#" class="text-w-sage/60 hover:text-white transition transform hover:-translate-y-1">
+                    <i class="fab fa-discord text-lg"></i>
+                </a>
             </div>
+
         </div>
     </footer>
 
@@ -264,5 +288,34 @@
             }
         });
     </script>
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const icon = btn.querySelector('i');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+
+        // 1. Abrir/Cerrar menú al tocar el botón
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            // Cambiar icono de hamburguesa a X
+            if (menu.classList.contains('hidden')) {
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-times');
+            }
+        });
+
+        // 2. Cerrar menú automáticamente al hacer clic en un enlace
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden');
+                icon.classList.remove('fa-times');
+                icon.classList.add('fa-bars');
+            });
+        });
+    </script>
+</body>
 </body>
 </html>
