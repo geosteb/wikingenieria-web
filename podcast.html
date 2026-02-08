@@ -41,11 +41,17 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
 
-<body class="bg-gradient-to-b from-w-black via-[#0a0a05] to-[#1a201d] text-w-sage font-sans min-h-screen flex flex-col items-center justify-center p-6 relative overflow-x-hidden selection:bg-w-light selection:text-w-black">
+<body class="bg-w-black text-w-sage font-sans min-h-screen flex flex-col items-center justify-center p-6 relative overflow-x-hidden selection:bg-w-light selection:text-w-black">
 
-    <div class="fixed inset-0 opacity-[0.03] pointer-events-none" style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noise%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.65%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noise)%22 opacity=%221%22/%3E%3C/svg%3E');"></div>
+    <div class="fixed inset-0 z-0 bg-gradient-to-b from-[#050505] via-[#0a0a05] to-[#1a201d]"></div>
 
-    <main class="w-full max-w-md z-10 animate-fade-in text-center my-10">
+    <div class="fixed top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-w-olive/20 rounded-full blur-[100px] z-0 pointer-events-none opacity-50"></div>
+
+    <div class="fixed inset-0 z-0 opacity-[0.04] pointer-events-none" 
+         style="background-image: url('data:image/svg+xml,%3Csvg viewBox=%220 0 200 200%22 xmlns=%22http://www.w3.org/2000/svg%22%3E%3Cfilter id=%22noiseFilter%22%3E%3CfeTurbulence type=%22fractalNoise%22 baseFrequency=%220.8%22 numOctaves=%223%22 stitchTiles=%22stitch%22/%3E%3C/filter%3E%3Crect width=%22100%25%22 height=%22100%25%22 filter=%22url(%23noiseFilter)%22/%3E%3C/svg%3E');">
+    </div>
+
+    <main class="w-full max-w-md z-10 animate-fade-in text-center my-10 relative">
 
         <div class="mb-8 relative inline-block group">
             <div class="absolute -inset-1 bg-gradient-to-tr from-w-olive to-w-light opacity-30 rounded-full blur group-hover:opacity-60 transition duration-1000"></div>
@@ -58,8 +64,11 @@
 
         <p class="text-sm font-light leading-relaxed text-w-sage/80 mb-10 px-2">
             La frecuencia oficial para amantes de la ciencia, tecnología e ingeniería. 
-            Sin filtros: el camino real de la carrera y el sector profesional. 
-            <br><span class="text-w-light font-mono text-xs mt-2 block opacity-60">AUDIO HQ • 320KBPS • HUMOR • DATOS</span>
+            Sin filtros paso-bajo: el camino real de la carrera y el sector profesional. 
+            <br>
+            <span class="text-w-light font-mono text-[10px] mt-3 block opacity-70 tracking-[0.2em] border border-w-light/10 inline-block px-3 py-1 rounded-full bg-w-olive/10">
+                320KBPS • INGENIERÍA • HUMOR • MENTALIDAD
+            </span>
         </p>
 
         <div class="space-y-4 mb-12">
@@ -113,7 +122,7 @@
                 </div>
             </a>
 
-            <a href="https://www.youtube.com/playlist?list=PLdAod0BrDeR5Q0jtOpO7bUcOU5hGaRJ8M" target="_blank" class="group block w-full bg-w-olive/10 hover:bg-[#FF0000]/20 backdrop-blur-sm border border-w-light/10 hover:border-[#FF0000] text-w-light hover:text-white transition-all duration-300 rounded-xl p-4 relative overflow-hidden transform hover:scale-[1.02]">
+            <a id="youtube-link" href="https://www.youtube.com/playlist?list=PLdAod0BrDeR5Q0jtOpO7bUcOU5hGaRJ8M" target="_blank" class="group block w-full bg-w-olive/10 hover:bg-[#FF0000]/20 backdrop-blur-sm border border-w-light/10 hover:border-[#FF0000] text-w-light hover:text-white transition-all duration-300 rounded-xl p-4 relative overflow-hidden transform hover:scale-[1.02]">
                 <div class="flex items-center justify-between relative z-10">
                     <div class="flex items-center gap-4">
                         <i class="fab fa-youtube text-2xl group-hover:scale-110 transition"></i>
@@ -142,6 +151,22 @@
         </footer>
 
     </main>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Detectar si es un dispositivo móvil (Android o iOS)
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            
+            if (isMobile) {
+                const ytBtn = document.getElementById('youtube-link');
+                if (ytBtn) {
+                    // Cambiamos 'https' por 'youtube' para invocar el protocolo de la App
+                    // Esto hace que el móvil diga "¿Abrir en YouTube?" o la abra directo
+                    ytBtn.href = ytBtn.href.replace('https://', 'youtube://');
+                }
+            }
+        });
+    </script>
 
 </body>
 </html>
