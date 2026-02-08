@@ -24,28 +24,23 @@
                         'mono': ['Space Grotesk', 'monospace'],
                     },
                     animation: {
-                        'fade-in': 'fadeIn 1s ease-out forwards',
-                        'scan': 'scan 4s linear infinite',
-                        'glitch-rgb': 'glitchRGB 0.4s cubic-bezier(.25,.46,.45,.94) both',
-                    },
-                    keyframes: {
-                        fadeIn: {
-                            '0%': { opacity: '0', transform: 'translateY(20px)' },
-                            '100%': { opacity: '1', transform: 'translateY(0)' },
-                        },
-                        scan: { 
-                            '0%': { top: '0%' }, 
-                            '100%': { top: '100%' } 
-                        },
-                        glitchRGB: {
-                            '0%': { transform: 'translate(0)', filter: 'none' },
-                            '20%': { transform: 'translate(-3px, 2px)', filter: 'drop-shadow(2px 0 #ff0000) drop-shadow(-2px 0 #00ffff)' },
-                            '40%': { transform: 'translate(-3px, -2px)', filter: 'drop-shadow(-2px 0 #ff0000) drop-shadow(2px 0 #00ff00)' },
-                            '60%': { transform: 'translate(3px, 2px)', filter: 'drop-shadow(2px 0 #00ff00) drop-shadow(-2px 0 #ff0000)' },
-                            '80%': { transform: 'translate(3px, -2px)', filter: 'drop-shadow(-2px 0 #00ffff) drop-shadow(2px 0 #ff0000)' },
-                            '100%': { transform: 'translate(0)', filter: 'none' },
-                        }
-                    }
+    'fade-in': 'fadeIn 1s ease-out forwards',
+    'glitch-pro': 'glitchPro 0.4s cubic-bezier(.25,.46,.45,.94) both',
+},
+keyframes: {
+    fadeIn: {
+        '0%': { opacity: '0', transform: 'translateY(20px)' },
+        '100%': { opacity: '1', transform: 'translateY(0)' },
+    },
+    glitchPro: {
+        '0%': { transform: 'translate(0)', filter: 'none', opacity: '1' },
+        '20%': { transform: 'translate(-5px, 2px)', filter: 'hue-rotate(90deg) brightness(1.2)', clipPath: 'inset(10% 0 30% 0)' },
+        '40%': { transform: 'translate(5px, -2px)', filter: 'hue-rotate(270deg) contrast(1.5)', clipPath: 'inset(40% 0 10% 0)' },
+        '60%': { transform: 'translate(-3px, 3px)', filter: 'invert(0.1)', clipPath: 'inset(70% 0 5% 0)' },
+        '80%': { transform: 'translate(3px, -3px)', clipPath: 'inset(0 0 80% 0)' },
+        '100%': { transform: 'translate(0)', filter: 'none', opacity: '1' },
+    }
+}
                 }
             }
         }
@@ -75,11 +70,16 @@
         <div class="mb-8 relative inline-block group">
             <div class="absolute -inset-4 bg-w-olive/20 rounded-full blur-xl group-hover:bg-w-olive/40 transition duration-1000"></div>
             
-            <div id="logo-container" class="relative w-32 h-32 rounded-full border border-w-light/10 shadow-2xl overflow-hidden bg-w-black mx-auto">
-                <img src="assets/img/core/wikipodcast-logo.png" alt="WikiPodcast Logo" class="w-full h-full object-cover relative z-10">
-                <div class="absolute inset-0 w-full h-1 bg-w-light/10 shadow-[0_0_10px_rgba(211,211,211,0.3)] top-0 animate-scan z-20 pointer-events-none"></div>
-            </div>
-        </div>
+            <div class="mb-8 relative inline-block group">
+    <div class="absolute -inset-4 bg-w-olive/20 rounded-full blur-xl group-hover:bg-w-olive/40 transition duration-1000"></div>
+    
+    <div id="logo-container" class="relative w-32 h-32 rounded-full border border-w-light/10 shadow-2xl overflow-hidden bg-w-black mx-auto">
+        <img src="assets/img/core/wikipodcast-logo.png" alt="WikiPodcast Logo" class="w-full h-full object-cover relative z-10">
+        
+        <div class="glitch-layer absolute inset-0 bg-[url('assets/img/core/wikipodcast-logo.png')] bg-cover hidden z-20 opacity-70"></div>
+        <div class="glitch-layer absolute inset-0 bg-[url('assets/img/core/wikipodcast-logo.png')] bg-cover hidden z-30 opacity-70" style="filter: hue-rotate(180deg)"></div>
+    </div>
+</div>
 
         <h1 class="font-mono text-3xl font-bold text-w-light mb-4 tracking-wider">
             <span class="opacity-30 font-light">//</span> WIKIPODCAST<span class="text-w-olive animate-pulse font-bold">_</span>
@@ -179,25 +179,33 @@
     </main>
 
     <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const logo = document.getElementById('logo-container');
-            const ytLink = document.getElementById('youtube-link');
+    document.addEventListener('DOMContentLoaded', () => {
+        const logo = document.getElementById('logo-container');
+        const glitchLayers = document.querySelectorAll('.glitch-layer');
+        const ytLink = document.getElementById('youtube-link');
 
-            // 1. Efecto Glitch cada 7 segundos
-            function triggerGlitch() {
-                logo.classList.add('animate-glitch-rgb');
-                setTimeout(() => {
-                    logo.classList.remove('animate-glitch-rgb');
-                }, 400);
-            }
-            setInterval(triggerGlitch, 7000);
+        // Función para el Glitch TOP (Interno y Externo)
+        function triggerGlitch() {
+            // Activamos la animación del contenedor
+            logo.classList.add('animate-glitch-pro');
+            // Mostramos las capas de interferencia pixelada
+            glitchLayers.forEach(l => l.classList.remove('hidden'));
 
-            // 2. Deep Link para YouTube en móviles
-            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-            if (isMobile && ytLink) {
-                ytLink.href = ytLink.href.replace('https://', 'youtube://');
-            }
-        });
-    </script>
+            setTimeout(() => {
+                logo.classList.remove('animate-glitch-pro');
+                glitchLayers.forEach(l => l.classList.add('hidden'));
+            }, 400); // Duración del chispazo
+        }
+
+        // Intervalo de interferencia (cada 7 segundos)
+        setInterval(triggerGlitch, 7000);
+
+        // Deep Link para YouTube en móviles
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        if (isMobile && ytLink) {
+            ytLink.href = ytLink.href.replace('https://', 'youtube://');
+        }
+    });
+</script>
 </body>
 </html>
