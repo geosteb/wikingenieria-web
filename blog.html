@@ -3,19 +3,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Artículos | Wikingeniería</title>
+    <title>Blog | Wikingeniería</title>
+    
     <meta property="og:type" content="website">
-    <meta property="og:url" content="https://wikingenieria.com/">
-    <meta property="og:title" content="Wikingeniería">
-    <meta property="og:description" content="Contenido para amantes de la ingeniería, ciencia y tecnología. Plantillas Notion, estrategia académica y herramientas para estudiantes.">
+    <meta property="og:url" content="https://wikingenieria.com/blog.html">
+    <meta property="og:title" content="Blog | Wikingeniería">
+    <meta property="og:description" content="Archivo de estrategia académica, productividad y herramientas para ingeniería.">
     <meta property="og:image" content="https://wikingenieria.com/assets/img/core/wikingenieria-social-share.jpg">
 
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://wikingenieria.com/">
-    <meta property="twitter:title" content="Wikingeniería">
-    <meta property="twitter:description" content="Contenido para amantes de la ingeniería, ciencia y tecnología.">
+    <meta property="twitter:url" content="https://wikingenieria.com/blog.html">
+    <meta property="twitter:title" content="Blog | Wikingeniería">
     <meta property="twitter:image" content="https://wikingenieria.com/assets/img/core/wikingenieria-social-share.jpg">
+    
     <link rel="icon" type="image/x-icon" href="assets/img/core/wikingenieria-favicon.ico">
+    
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -41,18 +43,37 @@
 
 <body class="bg-w-black text-w-sage font-sans antialiased selection:bg-w-light selection:text-w-black flex flex-col min-h-screen">
 
-    <nav class="fixed w-full z-50 bg-w-black/90 backdrop-blur-md border-b border-w-olive">
+    <nav class="fixed w-full z-50 bg-w-black/90 backdrop-blur-md border-b border-w-olive transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            
             <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition">
                 <img src="assets/img/core/wikingenieria-logo.png" alt="Wikingeniería Logo" class="h-9 w-9 opacity-90 group-hover:opacity-100 transition">
                 <span class="font-mono text-xl font-bold text-w-light tracking-tight">Wikingeniería</span>
             </a>
+
             <div class="hidden md:flex items-center space-x-8">
-                <a href="index.html#productos" class="font-mono text-sm text-w-sage hover:text-w-light transition uppercase tracking-widest">Tienda</a>
-                <a href="blog.html" class="font-mono text-sm text-w-light uppercase tracking-widest border-b border-w-light">Blog</a>
-                <a href="index.html#contacto" class="font-mono text-sm text-w-sage hover:text-w-light transition uppercase tracking-widest">Contacto</a>
+                <a href="index.html#productos" class="font-mono text-xs text-w-sage hover:text-w-light transition-colors uppercase tracking-widest">Tienda</a>
+                <a href="blog.html" class="font-mono text-xs text-w-light uppercase tracking-widest border-b border-w-light">Blog</a>
+                <a href="index.html#contacto" class="font-mono text-xs text-w-sage hover:text-w-light transition-colors uppercase tracking-widest">Contacto</a>
             </div>
-            <button class="md:hidden text-w-light"><i class="fas fa-bars text-xl"></i></button>
+            
+            <button id="mobile-menu-btn" class="md:hidden text-w-sage hover:text-w-light focus:outline-none">
+                <i class="fas fa-bars text-2xl"></i>
+            </button>
+        </div>
+
+        <div id="mobile-menu" class="hidden md:hidden bg-w-black border-b border-w-olive absolute w-full left-0 top-20">
+            <div class="px-6 pt-4 pb-8 space-y-4 flex flex-col text-center">
+                <a href="index.html#productos" class="font-mono text-sm text-w-light py-3 border-b border-w-olive/30 hover:bg-w-olive/20 transition uppercase tracking-widest mobile-link">
+                    Tienda
+                </a>
+                <a href="blog.html" class="font-mono text-sm text-w-light py-3 border-b border-w-olive/30 hover:bg-w-olive/20 transition uppercase tracking-widest mobile-link">
+                    Blog
+                </a>
+                <a href="index.html#contacto" class="font-mono text-sm text-w-light py-3 border-b border-w-olive/30 hover:bg-w-olive/20 transition uppercase tracking-widest mobile-link">
+                    Contacto
+                </a>
+            </div>
         </div>
     </nav>
 
@@ -66,20 +87,20 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
 
-                <article class="group bg-w-olive/20 border border-w-olive hover:border-w-light transition duration-500 overflow-hidden">
-                    <a href="blog/_template_articulo.html" class="block h-full">
-                        <div class="h-48 overflow-hidden">
+                <article class="group bg-w-olive/20 border border-w-olive hover:border-w-light transition duration-500 overflow-hidden flex flex-col">
+                    <a href="blog/articulo-1.html" class="block h-full flex flex-col">
+                        <div class="h-48 overflow-hidden shrink-0">
                             <img src="assets/img/blog/2026/articulo-1-test-cover.webp" alt="La falacia del estudio en grupo" class="w-full h-full object-cover transform group-hover:scale-105 transition duration-700 opacity-80 group-hover:opacity-100">
                         </div>
-                        <div class="p-6">
+                        <div class="p-6 flex flex-col flex-grow">
                             <span class="font-mono text-xs text-w-sage/50 uppercase tracking-widest mb-2 block">05.02.2026</span>
                             <h2 class="text-xl font-bold text-w-light font-mono mb-3 leading-tight group-hover:underline decoration-1 underline-offset-4">
                                 La falacia del estudio en grupo
                             </h2>
-                            <p class="text-sm text-w-sage/70 font-light line-clamp-3">
+                            <p class="text-sm text-w-sage/70 font-light line-clamp-3 mb-4 flex-grow">
                                 Analizamos por qué ir a la biblioteca con amigos reduce tu rendimiento un 40% y cómo solucionarlo.
                             </p>
-                            <div class="mt-4 flex items-center gap-2 text-xs font-mono text-w-light uppercase tracking-widest opacity-60 group-hover:opacity-100 transition">
+                            <div class="mt-auto flex items-center gap-2 text-xs font-mono text-w-light uppercase tracking-widest opacity-60 group-hover:opacity-100 transition">
                                 <span>Leer Entrada</span> <i class="fas fa-arrow-right text-[10px]"></i>
                             </div>
                         </div>
@@ -109,22 +130,44 @@
         </div>
     </main>
 
-    <footer class="bg-w-olive/10 border-t border-w-olive py-8">
-        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-4">
-            <img src="assets/img/core/wikingenieria-logo.png" alt="Logo" class="h-8 w-auto opacity-80 hover:opacity-100 transition">
-            <span class="font-mono text-xs text-w-sage/40 uppercase tracking-widest">© 2026 Wikingeniería</span>
-            <div class="flex gap-6">
-                <a href="#" class="text-w-sage/60 hover:text-w-light transition"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="text-w-sage/60 hover:text-w-light transition"><i class="fab fa-x-twitter"></i></a>
-                <a href="#" class="text-w-sage/60 hover:text-w-light transition"><i class="fab fa-tiktok"></i></a>
-                <a href="#" class="text-w-sage/60 hover:text-w-light transition"><i class="fab fa-spotify"></i></a>
+    <footer class="bg-w-olive/10 border-t border-w-olive py-12">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+            
+            <div class="flex flex-col gap-2 text-center md:text-left">
+                <div class="flex items-center justify-center md:justify-start gap-3">
+                    <img src="assets/img/core/wikingenieria-logo.png" alt="Logo" class="h-8 w-auto opacity-80 hover:opacity-100 transition">
+                    <span class="font-mono text-xs text-w-sage/40 uppercase tracking-widest">
+                        © 2026 Wikingeniería
+                    </span>
+                </div>
+                <div class="flex gap-4 text-[10px] font-mono text-w-sage/30 uppercase tracking-widest justify-center md:justify-start">
+                    <a href="legal.html#aviso" class="hover:text-w-light transition">Aviso Legal</a>
+                    <span class="text-w-olive">|</span>
+                    <a href="legal.html#privacidad" class="hover:text-w-light transition">Privacidad</a>
+                    <span class="text-w-olive">|</span>
+                    <a href="legal.html#cookies" class="hover:text-w-light transition">Cookies</a>
+                </div>
+            </div>
+
+            <div class="flex flex-wrap justify-center md:justify-end gap-6">
+                <a href="https://instagram.com/wikingenieria" target="_blank" rel="noopener" class="text-w-sage/60 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-instagram text-lg"></i></a>
+                <a href="https://x.com/wikingenieria" target="_blank" rel="noopener" class="text-w-sage/60 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-x-twitter text-lg"></i></a>
+                <a href="https://tiktok.com/@wikingenieria" target="_blank" rel="noopener" class="text-w-sage/60 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-tiktok text-lg"></i></a>
+                <a href="https://facebook.com/wikingenieria" target="_blank" rel="noopener" class="text-w-sage/60 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-facebook text-lg"></i></a>
+                <a href="https://www.youtube.com/@Wikingenieria" target="_blank" rel="noopener" class="text-w-sage/60 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-youtube text-lg"></i></a>
+                <a href="https://open.spotify.com/show/4rJF6Rcz7CtIKGzAR2SBiz?si=800ccb4920594e02" target="_blank" rel="noopener" class="text-w-sage/60 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-spotify text-lg"></i></a>
             </div>
         </div>
     </footer>
-<div id="cookie-banner" class="fixed bottom-0 left-0 w-full bg-w-black border-t border-w-olive p-4 z-[60] transform translate-y-full transition-transform duration-500 hidden">
+
+    <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-8 right-8 bg-w-light text-w-black w-10 h-10 flex items-center justify-center rounded-sm opacity-0 pointer-events-none transition-opacity duration-300 hover:bg-white z-50">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <div id="cookie-banner" class="fixed bottom-0 left-0 w-full bg-w-black border-t border-w-olive p-4 z-[60] transform translate-y-full transition-transform duration-500 hidden">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
             <div class="text-xs text-w-sage font-mono font-light text-center md:text-left">
-                <span class="text-w-light font-bold">SYSTEM_NOTICE:</span> Usamos cookies propias y de terceros (Spotify, Gumroad) para mejorar tu experiencia.
+                <span class="text-w-light font-bold">SYSTEM_NOTICE:</span> Usamos cookies propias y de terceros para mejorar tu experiencia.
                 <a href="legal.html#cookies" class="underline hover:text-white ml-1">Ver política</a>.
             </div>
             <div class="flex gap-3">
@@ -139,59 +182,83 @@
     </div>
 
     <script>
-        // Lógica del Banner de Cookies
-        const cookieBanner = document.getElementById('cookie-banner');
-        const btnAccept = document.getElementById('btn-accept');
-        const btnReject = document.getElementById('btn-reject');
-
-        // Comprobar si ya existe la cookie de consentimiento
-        if (!localStorage.getItem('cookiesAccepted')) {
-            cookieBanner.classList.remove('hidden');
-            // Pequeño retardo para la animación de entrada
-            setTimeout(() => {
-                cookieBanner.classList.remove('translate-y-full');
-            }, 500);
-        }
-
-        btnAccept.addEventListener('click', () => {
-            localStorage.setItem('cookiesAccepted', 'true');
-            cookieBanner.classList.add('translate-y-full');
-        });
-
-        btnReject.addEventListener('click', () => {
-            localStorage.setItem('cookiesAccepted', 'false');
-            cookieBanner.classList.add('translate-y-full');
-            // Aquí podrías añadir lógica para bloquear scripts si fueras muy estricto
-        });
-    </script>
-    <script>
-        // 1. Seleccionamos los elementos del HTML
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
-        const icon = btn.querySelector('i'); // El icono de las tres rayitas
-        const mobileLinks = document.querySelectorAll('#mobile-menu a'); // Los enlaces de dentro
-
-        // 2. Función para abrir/cerrar al tocar el botón
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden'); // Quita o pone la clase 'hidden'
+        document.addEventListener('DOMContentLoaded', function() {
             
-            // Cambia el icono visualmente (de hamburguesa a X)
-            if (menu.classList.contains('hidden')) {
-                icon.classList.remove('fa-xmark');
-                icon.classList.add('fa-bars');
-            } else {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-xmark'); // Usa fa-xmark en FontAwesome 6
-            }
-        });
+            // --- 1. MENÚ MÓVIL ---
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            
+            if (mobileBtn && mobileMenu) {
+                const icon = mobileBtn.querySelector('i');
+                const links = document.querySelectorAll('.mobile-link');
 
-        // 3. Función extra: Cerrar el menú automáticamente al tocar un enlace
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.add('hidden'); // Lo oculta
-                icon.classList.remove('fa-xmark');
-                icon.classList.add('fa-bars'); // Resetea el icono
-            });
+                mobileBtn.addEventListener('click', (e) => {
+                    e.stopPropagation(); 
+                    mobileMenu.classList.toggle('hidden');
+                    
+                    if (mobileMenu.classList.contains('hidden')) {
+                        icon.classList.remove('fa-xmark');
+                        icon.classList.add('fa-bars');
+                    } else {
+                        icon.classList.remove('fa-bars');
+                        icon.classList.add('fa-xmark');
+                    }
+                });
+
+                links.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                        icon.classList.remove('fa-xmark');
+                        icon.classList.add('fa-bars');
+                    });
+                });
+
+                document.addEventListener('click', (e) => {
+                    if (!mobileMenu.contains(e.target) && !mobileBtn.contains(e.target) && !mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden');
+                        icon.classList.remove('fa-xmark');
+                        icon.classList.add('fa-bars');
+                    }
+                });
+            }
+
+            // --- 2. BOTÓN VOLVER ARRIBA ---
+            const backToTopBtn = document.getElementById('backToTop');
+            if (backToTopBtn) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 300) {
+                        backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
+                    } else {
+                        backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
+                    }
+                });
+            }
+
+            // --- 3. COOKIES ---
+            const cookieBanner = document.getElementById('cookie-banner');
+            const btnAccept = document.getElementById('btn-accept');
+            const btnReject = document.getElementById('btn-reject');
+
+            if (cookieBanner && !localStorage.getItem('cookiesAccepted')) {
+                cookieBanner.classList.remove('hidden');
+                setTimeout(() => {
+                    cookieBanner.classList.remove('translate-y-full');
+                }, 500);
+            }
+
+            if(btnAccept) {
+                btnAccept.addEventListener('click', () => {
+                    localStorage.setItem('cookiesAccepted', 'true');
+                    cookieBanner.classList.add('translate-y-full');
+                });
+            }
+
+            if(btnReject) {
+                btnReject.addEventListener('click', () => {
+                    localStorage.setItem('cookiesAccepted', 'false');
+                    cookieBanner.classList.add('translate-y-full');
+                });
+            }
         });
     </script>
 </body>
