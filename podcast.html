@@ -5,8 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WIKIPODCAST | Enlaces Oficiales</title>
     
-    <meta name="description" content="Escucha el Wikipodcast. Ingeniería, ciencia y tecnología sin filtros paso-bajo. Enlaces a todas las plataformas.">
-    
+    <meta name="description" content="Escucha el podcast de Wikingenieria. Ingeniería, ciencia y tecnología sin filtros paso-bajo. Enlaces a todas las plataformas.">
     <link rel="icon" type="image/x-icon" href="assets/img/core/wikingenieria-favicon.ico">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -26,22 +25,26 @@
                     },
                     animation: {
                         'fade-in': 'fadeIn 1s ease-out forwards',
-                        'glitch': 'glitch 0.4s cubic-bezier(.25,.46,.45,.94) both infinite',
                         'scan': 'scan 4s linear infinite',
+                        'glitch-rgb': 'glitchRGB 0.4s cubic-bezier(.25,.46,.45,.94) both',
                     },
                     keyframes: {
                         fadeIn: {
                             '0%': { opacity: '0', transform: 'translateY(20px)' },
                             '100%': { opacity: '1', transform: 'translateY(0)' },
-                                },
-                            scan: { '0%': { top: '0%' }, '100%': { top: '100%' } },
-                            glitch: {
-                                '0%': { transform: 'translate(0)', 'text-shadow': 'none' },
-                                '20%': { transform: 'translate(-2px, 2px)', 'text-shadow': '2px 0 #ff0000, -2px 0 #00ff00' },
-                                '40%': { transform: 'translate(-2px, -2px)', 'text-shadow': '-2px 0 #ff0000, 2px 0 #0000ff' },
-                                '60%': { transform: 'translate(2px, 2px)', 'text-shadow': '2px 0 #00ff00, -2px 0 #ff0000' },
-                                '80%': { transform: 'translate(2px, -2px)', 'text-shadow': '-2px 0 #0000ff, 2px 0 #00ff00' },
-                                '100%': { transform: 'translate(0)', 'text-shadow': 'none' },
+                        },
+                        scan: { 
+                            '0%': { top: '0%' }, 
+                            '100%': { top: '100%' } 
+                        },
+                        glitchRGB: {
+                            '0%': { transform: 'translate(0)', filter: 'none' },
+                            '20%': { transform: 'translate(-3px, 2px)', filter: 'drop-shadow(2px 0 #ff0000) drop-shadow(-2px 0 #00ffff)' },
+                            '40%': { transform: 'translate(-3px, -2px)', filter: 'drop-shadow(-2px 0 #ff0000) drop-shadow(2px 0 #00ff00)' },
+                            '60%': { transform: 'translate(3px, 2px)', filter: 'drop-shadow(2px 0 #00ff00) drop-shadow(-2px 0 #ff0000)' },
+                            '80%': { transform: 'translate(3px, -2px)', filter: 'drop-shadow(-2px 0 #00ffff) drop-shadow(2px 0 #ff0000)' },
+                            '100%': { transform: 'translate(0)', filter: 'none' },
+                        }
                     }
                 }
             }
@@ -49,33 +52,37 @@
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* Ajuste fino para asegurar que el contenido esté siempre arriba */
+        main { position: relative; z-index: 20; }
+        #logo-container.animate-glitch { animation: glitchRGB 0.4s cubic-bezier(.25,.46,.45,.94) both; }
+    </style>
 </head>
 
 <body class="bg-w-black text-w-sage font-sans min-h-screen flex flex-col items-center justify-center p-6 relative overflow-x-hidden selection:bg-w-light selection:text-w-black">
 
     <div class="fixed inset-0 z-0 bg-[#020201]"></div>
-
     <div class="fixed top-0 left-0 right-0 h-[500px] z-0 opacity-40 pointer-events-none" 
          style="background: radial-gradient(circle at 50% 0%, #2a322e 0%, transparent 70%);">
     </div>
-
     <div class="fixed bottom-0 left-0 right-0 h-[300px] z-0 opacity-20 pointer-events-none" 
          style="background: radial-gradient(circle at 50% 100%, #3a423e 0%, transparent 60%);">
     </div>
 
-    <main class="w-full max-w-md z-10 animate-fade-in text-center my-10 relative">
+    <main class="w-full max-w-md animate-fade-in text-center my-10 relative">
 
         <div class="mb-8 relative inline-block group">
-    <div class="absolute -inset-4 bg-w-olive/20 rounded-full blur-xl group-hover:bg-w-olive/40 transition duration-1000"></div>
-    
-    <div id="logo-container" class="relative w-32 h-32 rounded-full border border-w-light/10 shadow-2xl overflow-hidden bg-w-black mx-auto">
-        <img src="assets/img/core/wikipodcast-logo.png" alt="WikiPodcast Logo" class="w-full h-full object-cover relative z-10">
-        <div class="absolute inset-0 w-full h-1 bg-w-light/10 shadow-[0_0_10px_rgba(211,211,211,0.3)] top-0 animate-scan z-20 pointer-events-none"></div>
+            <div class="absolute -inset-4 bg-w-olive/20 rounded-full blur-xl group-hover:bg-w-olive/40 transition duration-1000"></div>
+            
+            <div id="logo-container" class="relative w-32 h-32 rounded-full border border-w-light/10 shadow-2xl overflow-hidden bg-w-black mx-auto">
+                <img src="assets/img/core/wikipodcast-logo.png" alt="WikiPodcast Logo" class="w-full h-full object-cover relative z-10">
+                <div class="absolute inset-0 w-full h-1 bg-w-light/10 shadow-[0_0_10px_rgba(211,211,211,0.3)] top-0 animate-scan z-20 pointer-events-none"></div>
+            </div>
         </div>
-    </div>
 
         <h1 class="font-mono text-3xl font-bold text-w-light mb-4 tracking-wider">
-    <span class="opacity-30 font-light">//</span> WIKIPODCAST<span class="text-w-olive animate-pulse font-bold">_</span>
+            <span class="opacity-30 font-light">//</span> WIKIPODCAST<span class="text-w-olive animate-pulse font-bold">_</span>
         </h1>
 
         <p class="text-sm font-light leading-relaxed text-w-sage/80 mb-8 px-2">
@@ -92,70 +99,69 @@
 
         <div class="space-y-4 mb-12">
             
-            <a href="https://open.spotify.com/show/4rJF6Rcz7CtIKGzAR2SBiz?si=28678c8646d944c6" target="_blank" class="group block w-full bg-w-olive/10 hover:bg-[#1DB954]/10 backdrop-blur-md border border-w-light/10 hover:border-[#1DB954] text-w-light hover:text-white transition-all duration-300 rounded-xl p-4 relative overflow-hidden transform hover:scale-[1.02] shadow-lg">
+            <a href="https://open.spotify.com/show/tu-podcast" target="_blank" class="group block w-full bg-w-olive/10 hover:bg-[#1DB954]/10 backdrop-blur-md border border-w-light/10 hover:border-[#1DB954] text-w-light hover:text-white transition-all duration-300 rounded-xl p-4 relative overflow-hidden transform hover:scale-[1.02]">
                 <div class="flex items-center justify-between relative z-10">
                     <div class="flex items-center gap-4">
-                        <i class="fab fa-spotify text-2xl group-hover:scale-110 transition duration-300 text-[#1DB954] group-hover:text-white"></i>
+                        <i class="fab fa-spotify text-2xl text-[#1DB954] group-hover:text-white transition"></i>
                         <span class="font-mono text-sm font-bold uppercase tracking-widest">Spotify</span>
                     </div>
-                    <i class="fas fa-arrow-right opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition duration-300 text-[#1DB954] group-hover:text-white"></i>
+                    <i class="fas fa-arrow-right opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition duration-300"></i>
                 </div>
             </a>
 
-            <a href="https://www.ivoox.com/podcast-wikipodcast_sq_f1624847_1.html" target="_blank" class="group block w-full bg-w-olive/10 hover:bg-[#f45a2d]/10 backdrop-blur-md border border-w-light/10 hover:border-[#f45a2d] text-w-light hover:text-white transition-all duration-300 rounded-xl p-4 relative overflow-hidden transform hover:scale-[1.02] shadow-lg">
+            <a href="https://www.ivoox.com/podcast-wikipodcast_sq_f1624847_1.html" target="_blank" class="group block w-full bg-w-olive/10 hover:bg-[#f45a2d]/10 backdrop-blur-md border border-w-light/10 hover:border-[#f45a2d] text-w-light hover:text-white transition-all duration-300 rounded-xl p-4 relative overflow-hidden transform hover:scale-[1.02]">
                 <div class="flex items-center justify-between relative z-10">
                     <div class="flex items-center gap-4">
-                        <i class="fas fa-tower-broadcast text-xl group-hover:scale-110 transition duration-300 text-[#f45a2d] group-hover:text-white"></i> 
+                        <i class="fas fa-tower-broadcast text-xl text-[#f45a2d] group-hover:text-white transition"></i> 
                         <span class="font-mono text-sm font-bold uppercase tracking-widest">iVoox</span>
                     </div>
-                    <i class="fas fa-arrow-right opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition duration-300 text-[#f45a2d] group-hover:text-white"></i>
+                    <i class="fas fa-arrow-right opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition duration-300"></i>
                 </div>
             </a>
 
-            <a href="https://podcasts.apple.com/us/podcast/wikipodcast/id1447093967" target="_blank" class="group block w-full bg-w-olive/10 hover:bg-white/10 backdrop-blur-md border border-w-light/10 hover:border-white text-w-light hover:text-white transition-all duration-300 rounded-xl p-4 relative overflow-hidden transform hover:scale-[1.02] shadow-lg">
+            <a href="https://podcasts.apple.com/us/podcast/wikipodcast/id1447093967" target="_blank" class="group block w-full bg-w-olive/10 hover:bg-white/10 backdrop-blur-md border border-w-light/10 hover:border-white text-w-light hover:text-white transition-all duration-300 rounded-xl p-4 relative overflow-hidden transform hover:scale-[1.02]">
                 <div class="flex items-center justify-between relative z-10">
                     <div class="flex items-center gap-4">
-                        <i class="fab fa-apple text-2xl group-hover:scale-110 transition duration-300"></i>
+                        <i class="fab fa-apple text-2xl transition"></i>
                         <span class="font-mono text-sm font-bold uppercase tracking-widest">Apple Podcasts</span>
                     </div>
                     <i class="fas fa-arrow-right opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition duration-300"></i>
                 </div>
             </a>
 
-            <a href="https://music.amazon.com/es-us/podcasts/ef659637-617d-466c-8403-3da0a33a89a7/wikipodcast" target="_blank" class="group block w-full bg-w-olive/10 hover:bg-[#00A8E1]/10 backdrop-blur-md border border-w-light/10 hover:border-[#00A8E1] text-w-light hover:text-white transition-all duration-300 rounded-xl p-4 relative overflow-hidden transform hover:scale-[1.02] shadow-lg">
+            <a href="https://music.amazon.com/es-us/podcasts/ef659637-617d-466c-8403-3da0a33a89a7/wikipodcast" target="_blank" class="group block w-full bg-w-olive/10 hover:bg-[#00A8E1]/10 backdrop-blur-md border border-w-light/10 hover:border-[#00A8E1] text-w-light hover:text-white transition-all duration-300 rounded-xl p-4 relative overflow-hidden transform hover:scale-[1.02]">
                 <div class="flex items-center justify-between relative z-10">
                     <div class="flex items-center gap-4">
-                        <i class="fab fa-amazon text-2xl group-hover:scale-110 transition duration-300 text-[#00A8E1] group-hover:text-white"></i>
+                        <i class="fab fa-amazon text-2xl text-[#00A8E1] group-hover:text-white transition"></i>
                         <span class="font-mono text-sm font-bold uppercase tracking-widest">Amazon Music</span>
                     </div>
-                    <i class="fas fa-arrow-right opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition duration-300 text-[#00A8E1] group-hover:text-white"></i>
+                    <i class="fas fa-arrow-right opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition duration-300"></i>
                 </div>
             </a>
 
-            <a href="https://podimo.com/es/shows/wikipodcast-2" target="_blank" class="group block w-full bg-w-olive/10 hover:bg-[#C896FF]/10 backdrop-blur-md border border-w-light/10 hover:border-[#C896FF] text-w-light hover:text-white transition-all duration-300 rounded-xl p-4 relative overflow-hidden transform hover:scale-[1.02] shadow-lg">
+            <a href="https://podimo.com/es/shows/wikipodcast-2" target="_blank" class="group block w-full bg-w-olive/10 hover:bg-[#C896FF]/10 backdrop-blur-md border border-w-light/10 hover:border-[#C896FF] text-w-light hover:text-white transition-all duration-300 rounded-xl p-4 relative overflow-hidden transform hover:scale-[1.02]">
                 <div class="flex items-center justify-between relative z-10">
                     <div class="flex items-center gap-4">
-                        <i class="fas fa-podcast text-2xl group-hover:scale-110 transition duration-300 text-[#C896FF] group-hover:text-white"></i>
+                        <i class="fas fa-podcast text-2xl text-[#C896FF] group-hover:text-white transition"></i>
                         <span class="font-mono text-sm font-bold uppercase tracking-widest">Podimo</span>
                     </div>
-                    <i class="fas fa-arrow-right opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition duration-300 text-[#C896FF] group-hover:text-white"></i>
+                    <i class="fas fa-arrow-right opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition duration-300"></i>
                 </div>
             </a>
 
-            <a id="youtube-link" href="https://www.youtube.com/playlist?list=PLdAod0BrDeR5Q0jtOpO7bUcOU5hGaRJ8M" target="_blank" class="group block w-full bg-w-olive/10 hover:bg-[#FF0000]/10 backdrop-blur-md border border-w-light/10 hover:border-[#FF0000] text-w-light hover:text-white transition-all duration-300 rounded-xl p-4 relative overflow-hidden transform hover:scale-[1.02] shadow-lg">
+            <a id="youtube-link" href="https://www.youtube.com/playlist?list=PLdAod0BrDeR5Q0jtOpO7bUcOU5hGaRJ8M" target="_blank" class="group block w-full bg-w-olive/10 hover:bg-[#FF0000]/10 backdrop-blur-md border border-w-light/10 hover:border-[#FF0000] text-w-light hover:text-white transition-all duration-300 rounded-xl p-4 relative overflow-hidden transform hover:scale-[1.02]">
                 <div class="flex items-center justify-between relative z-10">
                     <div class="flex items-center gap-4">
-                        <i class="fab fa-youtube text-2xl group-hover:scale-110 transition duration-300 text-[#FF0000] group-hover:text-white"></i>
+                        <i class="fab fa-youtube text-2xl text-[#FF0000] group-hover:text-white transition"></i>
                         <span class="font-mono text-sm font-bold uppercase tracking-widest">YouTube</span>
                     </div>
-                    <i class="fas fa-arrow-right opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition duration-300 text-[#FF0000] group-hover:text-white"></i>
+                    <i class="fas fa-arrow-right opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition duration-300"></i>
                 </div>
             </a>
 
         </div>
 
         <footer class="flex flex-col items-center gap-6 mt-auto">
-            
             <a href="index.html" class="inline-flex items-center gap-2 text-xs font-mono text-w-sage hover:text-w-light uppercase tracking-widest border-b border-transparent hover:border-w-light transition pb-1">
                 <i class="fas fa-globe"></i> wikingenieria.com
             </a>
@@ -174,39 +180,24 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', () => {
-            // Detectar móvil para forzar App de YouTube
+            const logo = document.getElementById('logo-container');
+            const ytLink = document.getElementById('youtube-link');
+
+            // 1. Efecto Glitch cada 7 segundos
+            function triggerGlitch() {
+                logo.classList.add('animate-glitch-rgb');
+                setTimeout(() => {
+                    logo.classList.remove('animate-glitch-rgb');
+                }, 400);
+            }
+            setInterval(triggerGlitch, 7000);
+
+            // 2. Deep Link para YouTube en móviles
             const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-            
-            if (isMobile) {
-                const ytBtn = document.getElementById('youtube-link');
-                if (ytBtn) {
-                    // Protocolo 'youtube://' fuerza abrir la app
-                    ytBtn.href = ytBtn.href.replace('https://', 'youtube://');
-                }
+            if (isMobile && ytLink) {
+                ytLink.href = ytLink.href.replace('https://', 'youtube://');
             }
         });
     </script>
-    <script>
-    // Función para activar el glitch de forma aleatoria/periódica
-    const logo = document.getElementById('logo-container');
-    
-    function triggerGlitch() {
-        logo.classList.add('animate-glitch');
-        // El glitch dura 0.4s, lo quitamos justo después
-        setTimeout(() => {
-            logo.classList.remove('animate-glitch');
-        }, 400);
-    }
-
-    // Se activa cada 7 segundos
-    setInterval(triggerGlitch, 7000);
-
-    // Mantenemos también tu script de YouTube móvil aquí abajo
-    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-    if (isMobile) {
-        const ytBtn = document.getElementById('youtube-link');
-        if (ytBtn) ytBtn.href = ytBtn.href.replace('https://', 'youtube://');
-    }
-</script>
 </body>
 </html>
