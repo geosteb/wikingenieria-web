@@ -54,7 +54,7 @@
             
             <a href="#" class="flex items-center gap-3 group">
                 <img src="assets/img/core/wikingenieria-logo.png" alt="Wikingeniería Logo" class="h-9 w-9 opacity-90 group-hover:opacity-100 transition">
-                <span class="font-mono text-lg font-bold text-w-light tracking-tight">Wikingeniería</span>
+                <span class="font-mono text-xl font-bold text-w-light tracking-tight">Wikingeniería</span>
             </a>
 
             <div class="hidden md:flex items-center space-x-8">
@@ -70,7 +70,7 @@
 
         <div id="mobile-menu" class="hidden md:hidden bg-w-black border-b border-w-olive absolute w-full left-0 top-20">
             <div class="px-6 pt-4 pb-8 space-y-4 flex flex-col text-center">
-                <a href="#productos" class="font-mono text-sm text-w-light py-3 border-b border-w-olive/30 hover:bg-w-olive/20 transition uppercase tracking-widest mobile-link">
+                <a href="https://wikingenieria.gumroad.com/" target="_blank" rel="noopener" class="font-mono text-sm text-w-light py-3 border-b border-w-olive/30 hover:bg-w-olive/20 transition uppercase tracking-widest mobile-link">
                     Tienda
                 </a>
                 <a href="blog.html" class="font-mono text-sm text-w-light py-3 border-b border-w-olive/30 hover:bg-w-olive/20 transition uppercase tracking-widest mobile-link">
@@ -105,7 +105,7 @@
         
         <div class="md:w-1/2 w-full">
             <div class="relative group cursor-pointer overflow-hidden border border-w-olive rounded-sm">
-                <img src="assets/img/products/plantilla-notion-organiza-aprueba-cover.webp" alt="Plantilla Organiza y Aprueba" class="w-full h-auto object-cover transform group-hover:scale-105 transition duration-700 opacity-90 hover:opacity-100">
+                <a href="https://wikingenieria.gumroad.com/l/plantilla-notion-organiza-aprueba" target="_blank" rel="noopener" class="mt-auto block w-full py-4 border border-w-sage/30 bg-w-black/20 text-center font-mono text-xs text-w-light hover:bg-w-light hover:text-w-black transition uppercase tracking-widest">
             </div>
             <p class="text-center text-xs font-mono mt-3 opacity-50 uppercase tracking-widest">Wikingeniería Student OS v1.0</p>
         </div>
@@ -136,7 +136,7 @@
                         El sistema operativo en Notion para organizar asignaturas, calcular notas y gestionar tu vida académica.
                     </p>
                     
-                    <a href="https://wikingenieria.gumroad.com/l/plantilla-notion-organiza-aprueba?layout=profile" class="mt-auto block w-full py-4 border border-w-sage/30 bg-w-black/20 text-center font-mono text-xs text-w-light hover:bg-w-light hover:text-w-black transition uppercase tracking-widest">
+                    <a href="https://wikingenieria.gumroad.com/l/plantilla-notion-organiza-aprueba" target="_blank" rel="noopener" class="mt-auto block w-full py-4 border border-w-sage/30 bg-w-black/20 text-center font-mono text-xs text-w-light hover:bg-w-light hover:text-w-black transition uppercase tracking-widest">
                         Adquirir Sistema
                     </a>
                 </div>
@@ -256,7 +256,45 @@
             </form>
         </div>
     </section>
+<section id="contacto" class="py-20 px-6 border-t border-w-olive bg-w-black">
+        <div class="max-w-2xl mx-auto">
+            
+            <div class="text-center mb-12">
+                <h2 class="font-mono text-2xl text-w-light uppercase tracking-widest mb-4">_Canal_Abierto</h2>
+                <p class="text-w-sage font-light text-sm">
+                    ¿Dudas sobre el Student OS? ¿Propuestas de colaboración? ¿Un error en la Matrix?
+                    <br>Envía un mensaje cifrado. Respondo en 48h.
+                </p>
+            </div>
 
+            <form action="https://formspree.io/f/TU_CODIGO_AQUI" method="POST" class="space-y-6">
+                
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="flex flex-col gap-2">
+                        <label class="font-mono text-xs text-w-sage/50 uppercase tracking-widest">Identidad</label>
+                        <input type="text" name="name" required placeholder="Tu Nombre" 
+                               class="bg-w-olive/10 border border-w-olive text-w-light px-4 py-3 text-sm focus:outline-none focus:border-w-light transition">
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <label class="font-mono text-xs text-w-sage/50 uppercase tracking-widest">Frecuencia (Email)</label>
+                        <input type="email" name="email" required placeholder="tu@email.com" 
+                               class="bg-w-olive/10 border border-w-olive text-w-light px-4 py-3 text-sm focus:outline-none focus:border-w-light transition">
+                    </div>
+                </div>
+
+                <div class="flex flex-col gap-2">
+                    <label class="font-mono text-xs text-w-sage/50 uppercase tracking-widest">Mensaje</label>
+                    <textarea name="message" rows="5" required placeholder="Escribe aquí..." 
+                              class="bg-w-olive/10 border border-w-olive text-w-light px-4 py-3 text-sm focus:outline-none focus:border-w-light transition resize-none"></textarea>
+                </div>
+
+                <button type="submit" class="w-full bg-w-sage/10 border border-w-sage/30 text-w-light font-mono text-xs font-bold uppercase tracking-widest py-4 hover:bg-w-light hover:text-w-black transition">
+                    Enviar Transmisión
+                </button>
+            </form>
+
+        </div>
+    </section>
     <footer id="contacto" class="bg-w-olive/10 border-t border-w-olive py-12">
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
             
