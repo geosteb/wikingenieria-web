@@ -4,8 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WIKIPODCAST | Enlaces Oficiales</title>
-    
-    <meta name="description" content="Escucha el podcast de Wikingenieria. Ingeniería, ciencia y tecnología sin filtros paso-bajo. Enlaces a todas las plataformas.">
+    <meta name="description" content="Escucha el podcast de Wikingeniería. Ingeniería, ciencia y tecnología sin filtros paso-bajo.">
     <link rel="icon" type="image/x-icon" href="assets/img/core/wikingenieria-favicon.ico">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -24,23 +23,23 @@
                         'mono': ['Space Grotesk', 'monospace'],
                     },
                     animation: {
-    'fade-in': 'fadeIn 1s ease-out forwards',
-    'glitch-pro': 'glitchPro 0.4s cubic-bezier(.25,.46,.45,.94) both',
-},
-keyframes: {
-    fadeIn: {
-        '0%': { opacity: '0', transform: 'translateY(20px)' },
-        '100%': { opacity: '1', transform: 'translateY(0)' },
-    },
-    glitchPro: {
-        '0%': { transform: 'translate(0)', filter: 'none', opacity: '1' },
-        '20%': { transform: 'translate(-5px, 2px)', filter: 'hue-rotate(90deg) brightness(1.2)', clipPath: 'inset(10% 0 30% 0)' },
-        '40%': { transform: 'translate(5px, -2px)', filter: 'hue-rotate(270deg) contrast(1.5)', clipPath: 'inset(40% 0 10% 0)' },
-        '60%': { transform: 'translate(-3px, 3px)', filter: 'invert(0.1)', clipPath: 'inset(70% 0 5% 0)' },
-        '80%': { transform: 'translate(3px, -3px)', clipPath: 'inset(0 0 80% 0)' },
-        '100%': { transform: 'translate(0)', filter: 'none', opacity: '1' },
-    }
-}
+                        'fade-in': 'fadeIn 1s ease-out forwards',
+                        'glitch-rgb': 'glitchRGB 0.4s cubic-bezier(.25,.46,.45,.94) both',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        glitchRGB: {
+                            '0%': { transform: 'translate(0)', filter: 'none' },
+                            '20%': { transform: 'translate(-5px, 3px)', filter: 'drop-shadow(3px 0 #ff0000) drop-shadow(-3px 0 #00ffff) contrast(1.5)' },
+                            '40%': { transform: 'translate(-5px, -3px)', filter: 'drop-shadow(-3px 0 #ff0000) drop-shadow(3px 0 #00ff00) brightness(1.2)', clipPath: 'inset(20% 0 40% 0)' },
+                            '60%': { transform: 'translate(5px, 3px)', filter: 'drop-shadow(3px 0 #00ff00) drop-shadow(-3px 0 #ff0000)', clipPath: 'inset(50% 0 10% 0)' },
+                            '80%': { transform: 'translate(5px, -3px)', filter: 'drop-shadow(-3px 0 #00ffff) drop-shadow(3px 0 #ff0000)' },
+                            '100%': { transform: 'translate(0)', filter: 'none' },
+                        }
+                    }
                 }
             }
         }
@@ -49,19 +48,32 @@ keyframes: {
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
-        /* Ajuste fino para asegurar que el contenido esté siempre arriba */
-        main { position: relative; z-index: 20; }
+        /* Ajuste para el glitch por JS */
         #logo-container.animate-glitch { animation: glitchRGB 0.4s cubic-bezier(.25,.46,.45,.94) both; }
+        
+        /* Solo mostramos el efecto "píldora" de fondo en dispositivos móviles */
+        @media (max-width: 768px) {
+            main::before {
+                content: "";
+                position: absolute;
+                inset: -20px;
+                background: rgba(42, 50, 46, 0.15);
+                backdrop-filter: blur(10px);
+                border-radius: 40px;
+                z-index: -1;
+                border: 1px solid rgba(211, 211, 211, 0.05);
+            }
+        }
     </style>
 </head>
 
 <body class="bg-w-black text-w-sage font-sans min-h-screen flex flex-col items-center justify-center p-6 relative overflow-x-hidden selection:bg-w-light selection:text-w-black">
 
     <div class="fixed inset-0 z-0 bg-[#020201]"></div>
-    <div class="fixed top-0 left-0 right-0 h-[500px] z-0 opacity-40 pointer-events-none" 
-         style="background: radial-gradient(circle at 50% 0%, #2a322e 0%, transparent 70%);">
+    <div class="fixed top-0 left-0 right-0 h-[600px] z-0 opacity-40 pointer-events-none" 
+         style="background: radial-gradient(circle at 50% 0%, #2a322e 0%, transparent 75%);">
     </div>
-    <div class="fixed bottom-0 left-0 right-0 h-[300px] z-0 opacity-20 pointer-events-none" 
+    <div class="fixed bottom-0 left-0 right-0 h-[400px] z-0 opacity-20 pointer-events-none" 
          style="background: radial-gradient(circle at 50% 100%, #3a423e 0%, transparent 60%);">
     </div>
 
@@ -70,16 +82,13 @@ keyframes: {
         <div class="mb-8 relative inline-block group">
             <div class="absolute -inset-4 bg-w-olive/20 rounded-full blur-xl group-hover:bg-w-olive/40 transition duration-1000"></div>
             
-            <div class="mb-8 relative inline-block group">
-    <div class="absolute -inset-4 bg-w-olive/20 rounded-full blur-xl group-hover:bg-w-olive/40 transition duration-1000"></div>
-    
-    <div id="logo-container" class="relative w-32 h-32 rounded-full border border-w-light/10 shadow-2xl overflow-hidden bg-w-black mx-auto">
-        <img src="assets/img/core/wikipodcast-logo.png" alt="WikiPodcast Logo" class="w-full h-full object-cover relative z-10">
-        
-        <div class="glitch-layer absolute inset-0 bg-[url('assets/img/core/wikipodcast-logo.png')] bg-cover hidden z-20 opacity-70"></div>
-        <div class="glitch-layer absolute inset-0 bg-[url('assets/img/core/wikipodcast-logo.png')] bg-cover hidden z-30 opacity-70" style="filter: hue-rotate(180deg)"></div>
-    </div>
-</div>
+            <div id="logo-container" class="relative w-32 h-32 rounded-full border border-w-light/10 shadow-2xl overflow-hidden bg-w-black mx-auto">
+                <img src="assets/img/core/wikipodcast-logo.png" alt="WikiPodcast Logo" class="w-full h-full object-cover relative z-10">
+                
+                <div class="glitch-layer absolute inset-0 bg-[url('assets/img/core/wikipodcast-logo.png')] bg-cover hidden z-20 opacity-60" style="filter: hue-rotate(90deg) brightness(1.5);"></div>
+                <div class="glitch-layer absolute inset-0 bg-[url('assets/img/core/wikipodcast-logo.png')] bg-cover hidden z-30 opacity-60" style="filter: hue-rotate(-90deg) contrast(1.2);"></div>
+            </div>
+        </div>
 
         <h1 class="font-mono text-3xl font-bold text-w-light mb-4 tracking-wider">
             <span class="opacity-30 font-light">//</span> WIKIPODCAST<span class="text-w-olive animate-pulse font-bold">_</span>
@@ -98,8 +107,7 @@ keyframes: {
         </div>
 
         <div class="space-y-4 mb-12">
-            
-            <a href="https://open.spotify.com/show/tu-podcast" target="_blank" class="group block w-full bg-w-olive/10 hover:bg-[#1DB954]/10 backdrop-blur-md border border-w-light/10 hover:border-[#1DB954] text-w-light hover:text-white transition-all duration-300 rounded-xl p-4 relative overflow-hidden transform hover:scale-[1.02]">
+            <a href="https://open.spotify.com/show/tu-podcast" target="_blank" class="group block w-full bg-w-olive/10 hover:bg-[#1DB954]/10 backdrop-blur-md border border-w-light/10 hover:border-[#1DB954] text-w-light hover:text-white transition-all duration-300 rounded-xl p-4 relative overflow-hidden transform hover:scale-[1.02] shadow-lg">
                 <div class="flex items-center justify-between relative z-10">
                     <div class="flex items-center gap-4">
                         <i class="fab fa-spotify text-2xl text-[#1DB954] group-hover:text-white transition"></i>
@@ -109,7 +117,7 @@ keyframes: {
                 </div>
             </a>
 
-            <a href="https://www.ivoox.com/podcast-wikipodcast_sq_f1624847_1.html" target="_blank" class="group block w-full bg-w-olive/10 hover:bg-[#f45a2d]/10 backdrop-blur-md border border-w-light/10 hover:border-[#f45a2d] text-w-light hover:text-white transition-all duration-300 rounded-xl p-4 relative overflow-hidden transform hover:scale-[1.02]">
+            <a href="https://www.ivoox.com/podcast-wikipodcast_sq_f1624847_1.html" target="_blank" class="group block w-full bg-w-olive/10 hover:bg-[#f45a2d]/10 backdrop-blur-md border border-w-light/10 hover:border-[#f45a2d] text-w-light hover:text-white transition-all duration-300 rounded-xl p-4 relative overflow-hidden transform hover:scale-[1.02] shadow-lg">
                 <div class="flex items-center justify-between relative z-10">
                     <div class="flex items-center gap-4">
                         <i class="fas fa-tower-broadcast text-xl text-[#f45a2d] group-hover:text-white transition"></i> 
@@ -119,7 +127,7 @@ keyframes: {
                 </div>
             </a>
 
-            <a href="https://podcasts.apple.com/us/podcast/wikipodcast/id1447093967" target="_blank" class="group block w-full bg-w-olive/10 hover:bg-white/10 backdrop-blur-md border border-w-light/10 hover:border-white text-w-light hover:text-white transition-all duration-300 rounded-xl p-4 relative overflow-hidden transform hover:scale-[1.02]">
+            <a href="https://podcasts.apple.com/us/podcast/wikipodcast/id1447093967" target="_blank" class="group block w-full bg-w-olive/10 hover:bg-white/10 backdrop-blur-md border border-w-light/10 hover:border-white text-w-light hover:text-white transition-all duration-300 rounded-xl p-4 relative overflow-hidden transform hover:scale-[1.02] shadow-lg">
                 <div class="flex items-center justify-between relative z-10">
                     <div class="flex items-center gap-4">
                         <i class="fab fa-apple text-2xl transition"></i>
@@ -129,7 +137,7 @@ keyframes: {
                 </div>
             </a>
 
-            <a href="https://music.amazon.com/es-us/podcasts/ef659637-617d-466c-8403-3da0a33a89a7/wikipodcast" target="_blank" class="group block w-full bg-w-olive/10 hover:bg-[#00A8E1]/10 backdrop-blur-md border border-w-light/10 hover:border-[#00A8E1] text-w-light hover:text-white transition-all duration-300 rounded-xl p-4 relative overflow-hidden transform hover:scale-[1.02]">
+            <a href="https://music.amazon.com/es-us/podcasts/ef659637-617d-466c-8403-3da0a33a89a7/wikipodcast" target="_blank" class="group block w-full bg-w-olive/10 hover:bg-[#00A8E1]/10 backdrop-blur-md border border-w-light/10 hover:border-[#00A8E1] text-w-light hover:text-white transition-all duration-300 rounded-xl p-4 relative overflow-hidden transform hover:scale-[1.02] shadow-lg">
                 <div class="flex items-center justify-between relative z-10">
                     <div class="flex items-center gap-4">
                         <i class="fab fa-amazon text-2xl text-[#00A8E1] group-hover:text-white transition"></i>
@@ -139,7 +147,7 @@ keyframes: {
                 </div>
             </a>
 
-            <a href="https://podimo.com/es/shows/wikipodcast-2" target="_blank" class="group block w-full bg-w-olive/10 hover:bg-[#C896FF]/10 backdrop-blur-md border border-w-light/10 hover:border-[#C896FF] text-w-light hover:text-white transition-all duration-300 rounded-xl p-4 relative overflow-hidden transform hover:scale-[1.02]">
+            <a href="https://podimo.com/es/shows/wikipodcast-2" target="_blank" class="group block w-full bg-w-olive/10 hover:bg-[#C896FF]/10 backdrop-blur-md border border-w-light/10 hover:border-[#C896FF] text-w-light hover:text-white transition-all duration-300 rounded-xl p-4 relative overflow-hidden transform hover:scale-[1.02] shadow-lg">
                 <div class="flex items-center justify-between relative z-10">
                     <div class="flex items-center gap-4">
                         <i class="fas fa-podcast text-2xl text-[#C896FF] group-hover:text-white transition"></i>
@@ -149,7 +157,7 @@ keyframes: {
                 </div>
             </a>
 
-            <a id="youtube-link" href="https://www.youtube.com/playlist?list=PLdAod0BrDeR5Q0jtOpO7bUcOU5hGaRJ8M" target="_blank" class="group block w-full bg-w-olive/10 hover:bg-[#FF0000]/10 backdrop-blur-md border border-w-light/10 hover:border-[#FF0000] text-w-light hover:text-white transition-all duration-300 rounded-xl p-4 relative overflow-hidden transform hover:scale-[1.02]">
+            <a id="youtube-link" href="https://www.youtube.com/playlist?list=PLdAod0BrDeR5Q0jtOpO7bUcOU5hGaRJ8M" target="_blank" class="group block w-full bg-w-olive/10 hover:bg-[#FF0000]/10 backdrop-blur-md border border-w-light/10 hover:border-[#FF0000] text-w-light hover:text-white transition-all duration-300 rounded-xl p-4 relative overflow-hidden transform hover:scale-[1.02] shadow-lg">
                 <div class="flex items-center justify-between relative z-10">
                     <div class="flex items-center gap-4">
                         <i class="fab fa-youtube text-2xl text-[#FF0000] group-hover:text-white transition"></i>
@@ -158,54 +166,43 @@ keyframes: {
                     <i class="fas fa-arrow-right opacity-0 group-hover:opacity-100 -translate-x-2 group-hover:translate-x-0 transition duration-300"></i>
                 </div>
             </a>
-
         </div>
 
         <footer class="flex flex-col items-center gap-6 mt-auto">
             <a href="index.html" class="inline-flex items-center gap-2 text-xs font-mono text-w-sage hover:text-w-light uppercase tracking-widest border-b border-transparent hover:border-w-light transition pb-1">
                 <i class="fas fa-globe"></i> wikingenieria.com
             </a>
-
             <div class="flex gap-6 opacity-60">
                 <a href="https://instagram.com/wikingenieria" target="_blank" class="hover:text-white hover:scale-110 transition"><i class="fab fa-instagram text-xl"></i></a>
                 <a href="https://x.com/wikingenieria" target="_blank" class="hover:text-white hover:scale-110 transition"><i class="fab fa-x-twitter text-xl"></i></a>
                 <a href="https://facebook.com/wikingenieria" target="_blank" class="hover:text-white hover:scale-110 transition"><i class="fab fa-facebook text-xl"></i></a>
                 <a href="https://tiktok.com/@wikingenieria" target="_blank" class="hover:text-white hover:scale-110 transition"><i class="fab fa-tiktok text-xl"></i></a>
             </div>
-
             <p class="text-[10px] font-mono text-w-olive uppercase tracking-widest mt-4">© 2026 Wikingeniería</p>
         </footer>
-
     </main>
 
     <script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const logo = document.getElementById('logo-container');
-        const glitchLayers = document.querySelectorAll('.glitch-layer');
-        const ytLink = document.getElementById('youtube-link');
+        document.addEventListener('DOMContentLoaded', () => {
+            const logo = document.getElementById('logo-container');
+            const glitchLayers = document.querySelectorAll('.glitch-layer');
+            const ytLink = document.getElementById('youtube-link');
 
-        // Función para el Glitch TOP (Interno y Externo)
-        function triggerGlitch() {
-            // Activamos la animación del contenedor
-            logo.classList.add('animate-glitch-pro');
-            // Mostramos las capas de interferencia pixelada
-            glitchLayers.forEach(l => l.classList.remove('hidden'));
+            function triggerGlitch() {
+                logo.classList.add('animate-glitch');
+                glitchLayers.forEach(l => l.classList.remove('hidden'));
+                setTimeout(() => {
+                    logo.classList.remove('animate-glitch');
+                    glitchLayers.forEach(l => l.classList.add('hidden'));
+                }, 400);
+            }
+            setInterval(triggerGlitch, 7000);
 
-            setTimeout(() => {
-                logo.classList.remove('animate-glitch-pro');
-                glitchLayers.forEach(l => l.classList.add('hidden'));
-            }, 400); // Duración del chispazo
-        }
-
-        // Intervalo de interferencia (cada 7 segundos)
-        setInterval(triggerGlitch, 7000);
-
-        // Deep Link para YouTube en móviles
-        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-        if (isMobile && ytLink) {
-            ytLink.href = ytLink.href.replace('https://', 'youtube://');
-        }
-    });
-</script>
+            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+            if (isMobile && ytLink) {
+                ytLink.href = ytLink.href.replace('https://', 'youtube://');
+            }
+        });
+    </script>
 </body>
 </html>
