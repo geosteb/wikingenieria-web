@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <title>TÍTULO DEL ARTÍCULO AQUÍ | Wikingeniería</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Resumen corto de 150 caracteres sobre de qué va el artículo para que salga en Google.">
+    
+    <meta property="og:title" content="TÍTULO DEL ARTÍCULO">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://wikingenieria.com/blog/NOMBRE-ARCHIVO.html">
+    <meta property="og:image" content="https://wikingenieria.com/assets/img/core/wikingenieria-social-share.jpg">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = { theme: { extend: { colors: { 'w-black': '#020201', 'w-olive': '#2a322e', 'w-sage': '#b0bab3', 'w-light': '#d3d3d3' }, fontFamily: { 'sans': ['Inter', 'sans-serif'], 'mono': ['Space Grotesk', 'monospace'] } } } }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="icon" type="image/x-icon" href="../assets/img/core/wikingenieria-favicon.ico">
+</head>
+
+<body class="bg-w-black text-w-sage font-sans antialiased selection:bg-w-light selection:text-w-black flex flex-col min-h-screen">
+
+    <nav class="fixed w-full z-50 bg-w-black/90 backdrop-blur-md border-b border-w-olive transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="../index.html" class="flex items-center gap-3 hover:opacity-80 transition">
+                <img src="../assets/img/core/wikingenieria-logo.svg" alt="Logo" class="h-9 w-9 opacity-90">
+                <span class="font-mono text-lg font-bold text-w-light tracking-tight">Wikingeniería</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="../blog.html" class="font-mono text-xs text-w-sage hover:text-w-light uppercase tracking-widest border border-w-sage/30 px-3 py-1 rounded-full transition hover:border-w-light">
+                    <i class="fas fa-arrow-left mr-2"></i> Volver al Archivo
+                </a>
+            </div>
+            <button id="mobile-menu-btn" class="md:hidden text-w-sage hover:text-w-light focus:outline-none"><i class="fas fa-bars text-2xl"></i></button>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-w-black border-b border-w-olive absolute w-full left-0 top-20">
+            <div class="px-6 pt-4 pb-8 space-y-4 flex flex-col text-center">
+                <a href="../index.html" class="font-mono text-sm text-w-light py-3 border-b border-w-olive/30 uppercase tracking-widest">Inicio</a>
+                <a href="../blog.html" class="font-mono text-sm text-w-light py-3 border-b border-w-olive/30 uppercase tracking-widest">Volver al Blog</a>
+            </div>
+        </div>
+    </nav>
+
+    <article class="flex-grow pt-32 pb-20 px-6">
+        <div class="max-w-3xl mx-auto">
+            
+            <header class="mb-12 text-center">
+                <div class="inline-block border-b border-w-light/30 mb-6 pb-1">
+                    <span class="font-mono text-xs text-w-light uppercase tracking-[0.2em]">CATEGORÍA (Ej: Gadgets / Estrategia)</span>
+                </div>
+                <h1 class="font-mono text-3xl md:text-5xl font-bold text-w-light mb-6 leading-tight">
+                    TÍTULO DEL ARTÍCULO AQUÍ
+                </h1>
+                <p class="text-lg md:text-xl text-w-sage/80 font-light italic mb-8 max-w-2xl mx-auto">
+                    "Subtítulo o frase gancho que resuma el artículo."
+                </p>
+                <time class="font-mono text-xs text-w-sage/50 block">DD.MM.AAAA • X min de lectura</time>
+            </header>
+
+            <div class="w-full h-64 md:h-96 bg-w-olive mb-12 overflow-hidden border border-w-olive">
+                <img src="../assets/img/blog/NOMBRE-FOTO-COVER.webp" alt="Descripción foto SEO" class="w-full h-full object-cover opacity-90">
+            </div>
+
+            <div class="prose prose-invert prose-lg max-w-none prose-headings:font-mono prose-headings:text-w-light prose-p:text-w-sage prose-p:font-light prose-p:leading-relaxed prose-strong:text-white prose-a:text-w-light prose-a:underline hover:prose-a:text-white">
+                
+                <p>Primer párrafo introductorio...</p>
+
+                <h2>Subtítulo H2</h2>
+                <p>Texto...</p>
+
+                <h3>Subtítulo H3</h3>
+                <p>Texto...</p>
+                
+                <ul>
+                    <li>Punto 1</li>
+                    <li>Punto 2</li>
+                </ul>
+
+            </div>
+
+            <div class="w-full h-px bg-w-olive my-16"></div>
+
+            <div class="bg-w-olive/20 border border-w-olive p-8 rounded-sm text-center mb-12">
+                <h3 class="font-mono text-xl text-w-light mb-2">Únete al Hub Privado</h3>
+                <p class="text-w-sage text-sm font-light mb-6">Recibe estrategias de ingeniería en tu correo.</p>
+                <form class="flex border-b border-w-sage/30 max-w-sm mx-auto">
+                    <input type="email" placeholder="tu@email.com" class="bg-transparent w-full text-w-light placeholder-w-sage/30 py-2 focus:outline-none font-mono text-sm">
+                    <button type="submit" class="text-w-light font-mono text-xs uppercase tracking-widest hover:text-white">Suscribirse</button>
+                </form>
+            </div>
+
+            <div class="bg-w-light/5 border border-w-light/10 p-8 md:p-10 flex flex-col md:flex-row items-center gap-8 relative overflow-hidden">
+                <div class="md:w-1/3">
+                    <div class="aspect-square bg-w-olive relative overflow-hidden border border-w-olive shadow-2xl">
+                        <img src="../assets/img/products/student-os-cover.webp" class="w-full h-full object-cover">
+                    </div>
+                </div>
+                <div class="md:w-2/3 text-center md:text-left z-10">
+                    <h3 class="font-mono text-2xl text-w-light font-bold mb-2">Organiza tu caos académico</h3>
+                    <p class="text-w-sage font-light mb-6 text-sm leading-relaxed">
+                        Deja de usar Excel y pásate al sistema usado por cientos de ingenieros.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                        <a href="LINK_GUMROAD_STUDENT_OS" class="bg-w-light text-w-black font-mono text-xs font-bold uppercase tracking-widest px-6 py-3 hover:bg-white transition text-center">Ver Sistema</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </article>
+
+    <footer class="bg-w-olive/10 border-t border-w-olive py-12">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex flex-col gap-2 text-center md:text-left">
+                <div class="flex items-center justify-center md:justify-start gap-3">
+                    <img src="../assets/img/core/wikingenieria-logo.svg" alt="Logo" class="h-8 w-auto opacity-80 hover:opacity-100 transition">
+                    <span class="font-mono text-xs text-w-sage/40 uppercase tracking-widest">© 2026 Wikingeniería</span>
+                </div>
+                <div class="flex gap-4 text-[10px] font-mono text-w-sage/30 uppercase tracking-widest justify-center md:justify-start">
+                    <a href="../legal.html#aviso" class="hover:text-w-light transition">Aviso Legal</a>
+                    <span class="text-w-olive">|</span>
+                    <a href="../legal.html#privacidad" class="hover:text-w-light transition">Privacidad</a>
+                    <span class="text-w-olive">|</span>
+                    <a href="../legal.html#cookies" class="hover:text-w-light transition">Cookies</a>
+                </div>
+            </div>
+            <div class="flex flex-wrap justify-center md:justify-end gap-6">
+                <a href="https://instagram.com/wikingenieria" target="_blank" rel="noopener" class="text-w-sage/60 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-instagram text-lg"></i></a>
+                <a href="https://x.com/wikingenieria" target="_blank" rel="noopener" class="text-w-sage/60 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-x-twitter text-lg"></i></a>
+                <a href="https://tiktok.com/@wikingenieria" target="_blank" rel="noopener" class="text-w-sage/60 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-tiktok text-lg"></i></a>
+                <a href="https://facebook.com/wikingenieria" target="_blank" rel="noopener" class="text-w-sage/60 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-facebook text-lg"></i></a>
+                <a href="https://www.youtube.com/@Wikingenieria" target="_blank" rel="noopener" class="text-w-sage/60 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-youtube text-lg"></i></a>
+                <a href="https://open.spotify.com/show/4rJF6Rcz7CtIKGzAR2SBiz?si=800ccb4920594e02" target="_blank" rel="noopener" class="text-w-sage/60 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-spotify text-lg"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const icon = btn.querySelector('i');
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+            if (menu.classList.contains('hidden')) { icon.classList.remove('fa-times'); icon.classList.add('fa-bars'); } 
+            else { icon.classList.remove('fa-bars'); icon.classList.add('fa-times'); }
+        });
+    </script>
+</body>
+</html>
