@@ -25,16 +25,23 @@
                         'mono': ['Space Grotesk', 'monospace'],
                     },
                     animation: {
-                        'glitch': 'glitch 5s ease-in-out infinite',
+                        'fade-in': 'fadeIn 1s ease-out forwards',
+                        'glitch': 'glitch 0.4s cubic-bezier(.25,.46,.45,.94) both infinite',
+                        'scan': 'scan 4s linear infinite',
                     },
                     keyframes: {
-                        glitch: {
-                              '0%, 100%': { transform: 'translate(0)', filter: 'brightness(1)' },
-                              '92%': { transform: 'translate(0)', filter: 'brightness(1)' },
-                              '94%': { transform: 'translate(-2px, 1px)', filter: 'brightness(1.2) hue-rotate(10deg)' },
-                              '96%': { transform: 'translate(2px, -1px)', filter: 'brightness(0.8) contrast(1.2)' },
-                              '98%': { transform: 'translate(-1px, 0)', filter: 'brightness(1.1)' },
-                                }
+                        fadeIn: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                                },
+                            scan: { '0%': { top: '0%' }, '100%': { top: '100%' } },
+                            glitch: {
+                                '0%': { transform: 'translate(0)', 'text-shadow': 'none' },
+                                '20%': { transform: 'translate(-2px, 2px)', 'text-shadow': '2px 0 #ff0000, -2px 0 #00ff00' },
+                                '40%': { transform: 'translate(-2px, -2px)', 'text-shadow': '-2px 0 #ff0000, 2px 0 #0000ff' },
+                                '60%': { transform: 'translate(2px, 2px)', 'text-shadow': '2px 0 #00ff00, -2px 0 #ff0000' },
+                                '80%': { transform: 'translate(2px, -2px)', 'text-shadow': '-2px 0 #0000ff, 2px 0 #00ff00' },
+                                '100%': { transform: 'translate(0)', 'text-shadow': 'none' },
                     }
                 }
             }
@@ -58,13 +65,17 @@
 
     <main class="w-full max-w-md z-10 animate-fade-in text-center my-10 relative">
 
-        <div class="mb-8 relative inline-block group animate-glitch">
-            <div class="absolute -inset-4 bg-w-olive/30 rounded-full blur-xl group-hover:bg-w-olive/50 transition duration-1000"></div>
-            <img src="assets/img/core/wikingenieria-logo.png" alt="Wikingeniería" class="relative w-32 h-32 rounded-full border border-w-light/10 shadow-2xl object-cover bg-w-black mx-auto">
+        <div class="mb-8 relative inline-block group">
+    <div class="absolute -inset-4 bg-w-olive/20 rounded-full blur-xl group-hover:bg-w-olive/40 transition duration-1000"></div>
+    
+    <div id="logo-container" class="relative w-32 h-32 rounded-full border border-w-light/10 shadow-2xl overflow-hidden bg-w-black mx-auto">
+        <img src="assets/img/core/wikipodcast-logo.png" alt="WikiPodcast Logo" class="w-full h-full object-cover relative z-10">
+        <div class="absolute inset-0 w-full h-1 bg-w-light/10 shadow-[0_0_10px_rgba(211,211,211,0.3)] top-0 animate-scan z-20 pointer-events-none"></div>
         </div>
+    </div>
 
-        <h1 class="font-mono text-3xl font-bold text-w-light mb-4 tracking-tighter">
-            <span class="opacity-30 font-light">//</span> WIKIPODCAST<span class="text-w-olive animate-pulse font-bold">_</span>
+        <h1 class="font-mono text-3xl font-bold text-w-light mb-4 tracking-wider">
+    <span class="opacity-30 font-light">//</span> WIKIPODCAST<span class="text-w-olive animate-pulse font-bold">_</span>
         </h1>
 
         <p class="text-sm font-light leading-relaxed text-w-sage/80 mb-8 px-2">
@@ -175,6 +186,27 @@
             }
         });
     </script>
+    <script>
+    // Función para activar el glitch de forma aleatoria/periódica
+    const logo = document.getElementById('logo-container');
+    
+    function triggerGlitch() {
+        logo.classList.add('animate-glitch');
+        // El glitch dura 0.4s, lo quitamos justo después
+        setTimeout(() => {
+            logo.classList.remove('animate-glitch');
+        }, 400);
+    }
 
+    // Se activa cada 7 segundos
+    setInterval(triggerGlitch, 7000);
+
+    // Mantenemos también tu script de YouTube móvil aquí abajo
+    const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+    if (isMobile) {
+        const ytBtn = document.getElementById('youtube-link');
+        if (ytBtn) ytBtn.href = ytBtn.href.replace('https://', 'youtube://');
+    }
+</script>
 </body>
 </html>
