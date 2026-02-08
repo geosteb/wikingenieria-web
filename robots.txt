@@ -1,1 +1,4 @@
-# Googlebot
+User-agent: *
+Allow: /
+
+Sitemap: https://wikingenieria.com/sitemap.xml
