@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mensaje Recibido | Wikingeniería</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+<body class="bg-[#020201] text-[#b0bab3] font-mono h-screen flex flex-col items-center justify-center text-center p-6">
+    
+    <div class="fixed inset-0 z-0 bg-gradient-to-b from-[#050505] via-[#0a0a05] to-[#1a201d]"></div>
+
+    <div class="relative z-10 max-w-lg">
+        <div class="text-[#2a322e] text-6xl mb-4">
+            <i class="fas fa-check-circle"></i>
+        </div>
+        <h1 class="text-3xl font-bold text-[#d3d3d3] mb-2 tracking-tight">
+            // STATUS: <span class="text-[#4ade80]">RECEIVED</span>
+        </h1>
+        <p class="text-sm opacity-80 mb-8">
+            Tu transmisión ha sido encriptada y enviada al servidor de Wikingeniería.
+            <br>Procesando respuesta...
+        </p>
+        
+        <a href="index.html" class="inline-block border border-[#d3d3d3]/20 hover:border-[#d3d3d3] text-[#d3d3d3] px-6 py-2 rounded text-sm hover:bg-[#d3d3d3]/10 transition-all duration-300">
+            &lt; VOLVER AL INICIO /&gt;
+        </a>
+    </div>
+
+    <script>
+        setTimeout(function(){
+            window.location.href = 'index.html';
+        }, 5000);
+    </script>
+</body>
+</html>
