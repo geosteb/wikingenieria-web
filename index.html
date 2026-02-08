@@ -386,5 +386,35 @@
             // Aquí podrías añadir lógica para bloquear scripts si fueras muy estricto
         });
     </script>
+    <script>
+        // 1. Seleccionamos los elementos del HTML
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        const icon = btn.querySelector('i'); // El icono de las tres rayitas
+        const mobileLinks = document.querySelectorAll('#mobile-menu a'); // Los enlaces de dentro
+
+        // 2. Función para abrir/cerrar al tocar el botón
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden'); // Quita o pone la clase 'hidden'
+            
+            // Cambia el icono visualmente (de hamburguesa a X)
+            if (menu.classList.contains('hidden')) {
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars');
+            } else {
+                icon.classList.remove('fa-bars');
+                icon.classList.add('fa-xmark'); // Usa fa-xmark en FontAwesome 6
+            }
+        });
+
+        // 3. Función extra: Cerrar el menú automáticamente al tocar un enlace
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                menu.classList.add('hidden'); // Lo oculta
+                icon.classList.remove('fa-xmark');
+                icon.classList.add('fa-bars'); // Resetea el icono
+            });
+        });
+    </script>
 </body>
 </html>
