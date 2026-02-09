@@ -61,7 +61,7 @@
             max-width: 90%;
         }
 
-        /* -- ESTILOS TERMINAL BADGE -- */
+        /* --- ESTILOS TERMINAL BADGE --- */
         .cmd-badge {
             display: inline-flex;
             align-items: center;
@@ -90,12 +90,6 @@
             overflow: hidden;
             white-space: nowrap;
             width: 0;
-            /* Ciclo total: 7s
-               Escribe: 0-10% (0.7s)
-               Espera: 10-80% (~5s)
-               Borra: 80-90% (0.7s)
-               Pausa: 90-100%
-            */
             animation: typing 7s steps(5, end) infinite;
         }
 
@@ -109,7 +103,7 @@
         @keyframes typing {
             0% { width: 0; }
             10% { width: 5ch; } /* Escribe 5 caracteres */
-            85% { width: 5ch; } /* Mantiene (Espera de 5s aprox) */
+            85% { width: 5ch; } /* Mantiene */
             95% { width: 0; }   /* Borra */
             100% { width: 0; }
         }
@@ -257,7 +251,7 @@
                     </p>
                     <a href="https://wikingenieria.gumroad.com/l/plantilla-notion-organiza-aprueba" target="_blank"
                         rel="noopener"
-                        class="mt-auto block w-full py-3 border border-w-sage/30 bg-w-black/40 text-center font-mono text-[10px] text-w-light hover:bg-w-light hover:text-w-black transition uppercase tracking-widest">
+                        class="mt-auto block w-full py-3 border border-w-sage/30 bg-w-black/40 text-center font-mono text-xs font-bold text-w-light hover:bg-w-light hover:text-w-black transition uppercase tracking-widest">
                         Adquirir Sistema
                     </a>
                 </div>
@@ -280,7 +274,7 @@
                         Manual de estrategia mental y táctica académica para no pagar segundas matrículas.
                     </p>
                     <a href="https://wikingenieria.gumroad.com/l/sobrevive-ingenieria" target="_blank" rel="noopener"
-                        class="mt-auto block w-full py-3 border border-w-sage/30 bg-w-black/40 text-center font-mono text-[10px] text-w-light hover:bg-w-light hover:text-w-black transition uppercase tracking-widest">
+                        class="mt-auto block w-full py-3 border border-w-sage/30 bg-w-black/40 text-center font-mono text-xs font-bold text-w-light hover:bg-w-light hover:text-w-black transition uppercase tracking-widest">
                         Descargar
                     </a>
                 </div>
@@ -299,7 +293,6 @@
             <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
                 
                 <div class="w-full md:max-w-lg space-y-4 md:space-y-6 text-center md:text-left">
-
                     <div class="flex items-center justify-center md:justify-start gap-3">
                         <i class="fas fa-microphone-lines text-2xl text-w-light" aria-hidden="true"></i>
                         <h3 class="font-mono text-xl md:text-2xl font-bold text-w-light">El Podcast de Wikingeniería</h3>
@@ -370,7 +363,7 @@
                     class="shadow-lg"></iframe>
             </div>
 
-            <div class="flex justify-center">
+             <div class="flex justify-center">
                 <a href="https://open.spotify.com/user/1167448648?si=9d77421160354179" target="_blank" rel="noopener"
                     class="inline-flex items-center gap-2 px-6 py-3 bg-w-olive/20 border border-w-olive text-w-light font-mono text-[10px] uppercase tracking-widest hover:bg-[#1DB954]/10 hover:border-[#1DB954] hover:text-white transition rounded-full">
                     <i class="fab fa-spotify text-lg"></i>
@@ -390,7 +383,7 @@
                         class="animate-pulse text-w-olive">_</span></h2>
                 <a href="blog.html"
                     class="text-[10px] font-mono text-w-sage hover:text-w-light border border-transparent hover:border-w-olive px-3 py-1 transition uppercase tracking-widest">
-                    [ VER ARCHIVO ]
+                    [ VER LOG ]
                 </a>
             </div>
 
@@ -487,17 +480,12 @@
 
     <footer class="bg-w-black border-t border-w-olive/30 py-12 relative z-10">
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
-
             <div class="flex flex-col gap-2 text-center md:text-left">
                 <div class="flex items-center justify-center md:justify-start gap-3">
-                    <img src="assets/img/core/wikingenieria-logo.png" alt="Logo"
-                        class="h-8 w-auto opacity-70 hover:opacity-100 transition">
-                    <span class="font-mono text-xs text-w-sage/40 uppercase tracking-widest">
-                        © 2026 Wikingeniería
-                    </span>
+                    <img src="assets/img/core/wikingenieria-logo.png" alt="Logo" class="h-8 w-auto opacity-70 hover:opacity-100 transition">
+                    <span class="font-mono text-xs text-w-sage/40 uppercase tracking-widest">© 2026 Wikingeniería</span>
                 </div>
-                <div
-                    class="flex gap-4 text-[10px] font-mono text-w-sage/30 uppercase tracking-widest justify-center md:justify-start">
+                <div class="flex gap-4 text-[10px] font-mono text-w-sage/30 uppercase tracking-widest justify-center md:justify-start">
                     <a href="legal.html#aviso" class="hover:text-w-light transition">Aviso Legal</a>
                     <span class="text-w-olive">|</span>
                     <a href="legal.html#privacidad" class="hover:text-w-light transition">Privacidad</a>
@@ -505,63 +493,32 @@
                     <a href="legal.html#cookies" class="hover:text-w-light transition">Cookies</a>
                 </div>
             </div>
-
             <div class="flex flex-wrap justify-center md:justify-end gap-6">
-                <a href="https://instagram.com/wikingenieria" target="_blank" rel="noopener"
-                    class="text-w-sage/60 hover:text-white transition transform hover:-translate-y-1"
-                    aria-label="Instagram">
-                    <i class="fab fa-instagram text-lg"></i>
-                </a>
-                <a href="https://x.com/wikingenieria" target="_blank" rel="noopener"
-                    class="text-w-sage/60 hover:text-white transition transform hover:-translate-y-1"
-                    aria-label="X Twitter">
-                    <i class="fab fa-x-twitter text-lg"></i>
-                </a>
-                <a href="https://tiktok.com/@wikingenieria" target="_blank" rel="noopener"
-                    class="text-w-sage/60 hover:text-white transition transform hover:-translate-y-1"
-                    aria-label="TikTok">
-                    <i class="fab fa-tiktok text-lg"></i>
-                </a>
-                <a href="https://facebook.com/wikingenieria" target="_blank" rel="noopener"
-                    class="text-w-sage/60 hover:text-white transition transform hover:-translate-y-1"
-                    aria-label="Facebook">
-                    <i class="fab fa-facebook text-lg"></i>
-                </a>
-                <a href="https://www.youtube.com/@Wikingenieria" target="_blank" rel="noopener"
-                    class="text-w-sage/60 hover:text-white transition transform hover:-translate-y-1"
-                    aria-label="YouTube">
-                    <i class="fab fa-youtube text-lg"></i>
-                </a>
-                <a href="https://open.spotify.com/embed/playlist/37i9dQZF1DX5treGwdZtS3?utm_source=generator" target="_blank" rel="noopener"
-                    class="text-w-sage/60 hover:text-white transition transform hover:-translate-y-1"
-                    aria-label="Spotify">
-                    <i class="fab fa-spotify text-lg"></i>
-                </a>
+                <a href="https://instagram.com/wikingenieria" target="_blank" rel="noopener" class="text-w-sage/60 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-instagram text-lg"></i></a>
+                <a href="https://x.com/wikingenieria" target="_blank" rel="noopener" class="text-w-sage/60 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-x-twitter text-lg"></i></a>
+                <a href="https://tiktok.com/@wikingenieria" target="_blank" rel="noopener" class="text-w-sage/60 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-tiktok text-lg"></i></a>
+                <a href="https://facebook.com/wikingenieria" target="_blank" rel="noopener" class="text-w-sage/60 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-facebook text-lg"></i></a>
+                <a href="https://www.youtube.com/@Wikingenieria" target="_blank" rel="noopener" class="text-w-sage/60 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-youtube text-lg"></i></a>
+                <a href="https://open.spotify.com/embed/playlist/37i9dQZF1DX5treGwdZtS3?utm_source=generator" target="_blank" rel="noopener" class="text-w-sage/60 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-spotify text-lg"></i></a>
             </div>
-
         </div>
     </footer>
 
-    <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
-        class="fixed bottom-8 right-8 bg-w-olive text-w-light w-10 h-10 flex items-center justify-center rounded-sm opacity-0 pointer-events-none transition-all duration-300 hover:bg-w-light hover:text-w-black z-50 border border-w-light/10">
+    <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-8 right-8 bg-w-olive text-w-light w-10 h-10 flex items-center justify-center rounded-sm opacity-0 pointer-events-none transition-all duration-300 hover:bg-w-light hover:text-w-black z-50 border border-w-light/10">
         <i class="fas fa-arrow-up"></i>
     </button>
 
-    <div id="cookie-banner"
-        class="fixed bottom-0 left-0 w-full bg-w-black/95 backdrop-blur-md border-t border-w-olive p-4 z-[60] transform translate-y-full transition-transform duration-500 hidden">
+    <div id="cookie-banner" class="fixed bottom-0 left-0 w-full bg-w-black/95 backdrop-blur-md border-t border-w-olive p-4 z-[60] transform translate-y-full transition-transform duration-500 hidden">
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
             <div class="text-xs text-w-sage font-mono font-light text-center md:text-left">
-                <span class="text-w-light font-bold">SYSTEM_NOTICE:</span> Usamos cookies propias y de terceros para
-                mejorar tu experiencia.
+                <span class="text-w-light font-bold">SYSTEM_NOTICE:</span> Usamos cookies propias y de terceros para mejorar tu experiencia.
                 <a href="legal.html#cookies" class="underline hover:text-white ml-1">Ver política</a>.
             </div>
             <div class="flex gap-3">
-                <button id="btn-reject"
-                    class="px-4 py-2 border border-w-sage/30 text-[10px] font-mono uppercase text-w-sage hover:text-white hover:border-white transition rounded-sm">
+                <button id="btn-reject" class="px-4 py-2 border border-w-sage/30 text-[10px] font-mono uppercase text-w-sage hover:text-white hover:border-white transition rounded-sm">
                     Rechazar
                 </button>
-                <button id="btn-accept"
-                    class="px-6 py-2 bg-w-olive text-w-light text-[10px] font-mono font-bold uppercase hover:bg-w-light hover:text-w-black transition rounded-sm">
+                <button id="btn-accept" class="px-6 py-2 bg-w-olive text-w-light text-[10px] font-mono font-bold uppercase hover:bg-w-light hover:text-w-black transition rounded-sm">
                     Aceptar Todo
                 </button>
             </div>
@@ -570,38 +527,28 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // --- LÓGICA FORMSPREE AJAX (INFALIBLE) ---
+            // ... (Mismo script de Index: Formspree, Menu, BackToTop, Cookies) ...
             const form = document.getElementById('contact-form');
             const status = document.getElementById('form-status');
             const submitBtn = document.getElementById('submit-btn');
 
             if (form) {
                 form.addEventListener("submit", function(ev) {
-                    ev.preventDefault(); // Paramos el envío normal
+                    ev.preventDefault();
                     const data = new FormData(form);
-                    
-                    // Feedback visual de "Enviando..."
                     submitBtn.disabled = true;
                     submitBtn.innerHTML = "ENVIANDO PAQUETES...";
 
                     fetch(form.action, {
                         method: form.method,
                         body: data,
-                        headers: {
-                            'Accept': 'application/json'
-                        }
+                        headers: { 'Accept': 'application/json' }
                     }).then(response => {
-                        if (response.ok) {
-                            // ÉXITO: Redirección manual forzosa
-                            window.location.href = "gracias.html"; 
-                        } else {
-                            // ERROR: Mostrar mensaje
+                        if (response.ok) { window.location.href = "gracias.html"; } 
+                        else {
                             response.json().then(data => {
-                                if (Object.hasOwn(data, 'errors')) {
-                                    status.innerText = data["errors"].map(error => error["message"]).join(", ");
-                                } else {
-                                    status.innerText = "Error en la transmisión. Intenta de nuevo.";
-                                }
+                                if (Object.hasOwn(data, 'errors')) { status.innerText = data["errors"].map(error => error["message"]).join(", "); } 
+                                else { status.innerText = "Error en la transmisión. Intenta de nuevo."; }
                                 status.classList.remove('hidden');
                                 status.classList.add('text-red-500');
                                 submitBtn.disabled = false;
@@ -617,85 +564,46 @@
                     });
                 });
             }
-            // --- 1. LÓGICA DEL MENÚ MÓVIL ---
+            
             const mobileBtn = document.getElementById('mobile-menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
-
             if (mobileBtn && mobileMenu) {
                 const icon = mobileBtn.querySelector('i');
                 const links = document.querySelectorAll('.mobile-link');
-
                 mobileBtn.addEventListener('click', (e) => {
                     e.stopPropagation();
                     mobileMenu.classList.toggle('hidden');
-
-                    if (mobileMenu.classList.contains('hidden')) {
-                        icon.classList.remove('fa-xmark');
-                        icon.classList.add('fa-bars');
-                    } else {
-                        icon.classList.remove('fa-bars');
-                        icon.classList.add('fa-xmark');
-                    }
+                    if (mobileMenu.classList.contains('hidden')) { icon.classList.remove('fa-xmark'); icon.classList.add('fa-bars'); } 
+                    else { icon.classList.remove('fa-bars'); icon.classList.add('fa-xmark'); }
                 });
-
-                // Cerrar al pulsar un link
                 links.forEach(link => {
-                    link.addEventListener('click', () => {
-                        mobileMenu.classList.add('hidden');
-                        icon.classList.remove('fa-xmark');
-                        icon.classList.add('fa-bars');
-                    });
+                    link.addEventListener('click', () => { mobileMenu.classList.add('hidden'); icon.classList.remove('fa-xmark'); icon.classList.add('fa-bars'); });
                 });
-
-                // Cerrar al pulsar fuera
                 document.addEventListener('click', (e) => {
                     if (!mobileMenu.contains(e.target) && !mobileBtn.contains(e.target) && !mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden');
-                        icon.classList.remove('fa-xmark');
-                        icon.classList.add('fa-bars');
+                        mobileMenu.classList.add('hidden'); icon.classList.remove('fa-xmark'); icon.classList.add('fa-bars');
                     }
                 });
             }
 
-            // --- 2. LÓGICA DEL BOTÓN VOLVER ARRIBA ---
             const backToTopBtn = document.getElementById('backToTop');
             if (backToTopBtn) {
                 window.addEventListener('scroll', () => {
-                    if (window.scrollY > 300) {
-                        backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
-                    } else {
-                        backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
-                    }
+                    if (window.scrollY > 300) { backToTopBtn.classList.remove('opacity-0', 'pointer-events-none'); } 
+                    else { backToTopBtn.classList.add('opacity-0', 'pointer-events-none'); }
                 });
             }
 
-            // --- 3. LÓGICA DE COOKIES ---
             const cookieBanner = document.getElementById('cookie-banner');
             const btnAccept = document.getElementById('btn-accept');
             const btnReject = document.getElementById('btn-reject');
-
             if (cookieBanner && !localStorage.getItem('cookiesAccepted')) {
                 cookieBanner.classList.remove('hidden');
-                setTimeout(() => {
-                    cookieBanner.classList.remove('translate-y-full');
-                }, 500);
+                setTimeout(() => { cookieBanner.classList.remove('translate-y-full'); }, 500);
             }
-
-            if (btnAccept) {
-                btnAccept.addEventListener('click', () => {
-                    localStorage.setItem('cookiesAccepted', 'true');
-                    cookieBanner.classList.add('translate-y-full');
-                });
-            }
-
-            if (btnReject) {
-                btnReject.addEventListener('click', () => {
-                    localStorage.setItem('cookiesAccepted', 'false');
-                    cookieBanner.classList.add('translate-y-full');
-                });
-            }
+            if (btnAccept) { btnAccept.addEventListener('click', () => { localStorage.setItem('cookiesAccepted', 'true'); cookieBanner.classList.add('translate-y-full'); }); }
+            if (btnReject) { btnReject.addEventListener('click', () => { localStorage.setItem('cookiesAccepted', 'false'); cookieBanner.classList.add('translate-y-full'); }); }
         });
     </script>
 </body>
-
 </html>

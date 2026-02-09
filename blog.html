@@ -16,6 +16,7 @@
                         'w-olive': '#2a322e',
                         'w-sage': '#b0bab3',
                         'w-light': '#d3d3d3',
+                        'w-offblack': '#080a09',
                     },
                     fontFamily: {
                         'sans': ['Inter', 'sans-serif'],
@@ -29,7 +30,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
-        /* Quitar el botón azul nativo de búsqueda en móviles */
         input[type="search"]::-webkit-search-cancel-button {
             -webkit-appearance: none;
             height: 10px;
@@ -73,18 +73,17 @@
             <div class="mb-12 border-b border-w-olive pb-8 flex flex-col md:flex-row md:items-end justify-between gap-8">
                 <div>
                     <h1 class="font-mono text-3xl md:text-4xl text-w-light mb-2">
-                        <span class="text-w-olive mr-2">//</span>Logs de Artículos<span class="animate-pulse text-w-olive">_</span>
+                        <span class="text-w-olive mr-2">//</span>Log de Artículos<span class="animate-pulse text-w-olive">_</span>
                     </h1>
-                    <p class="text-xs font-mono text-w-sage/40 uppercase tracking-widest">Central de Inteligencia Académica</p>
                 </div>
                 
                 <div class="flex items-center gap-2 w-full md:w-auto">
                     <div class="relative flex-grow md:w-80">
-                        <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-w-sage/20 text-xs"></i>
+                        <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-w-sage/40 text-xs"></i>
                         <input id="blog-search" type="search" placeholder="Filtrar por palabra clave..." 
-                               class="bg-w-olive/10 border border-w-olive/40 text-w-light pl-9 pr-4 py-2.5 rounded-sm font-mono text-xs focus:outline-none focus:border-w-sage/50 w-full placeholder-w-sage/20 transition-all" />
+                               class="bg-w-olive/10 border border-w-olive/60 text-w-light pl-9 pr-4 py-3 rounded-sm font-mono text-xs focus:outline-none focus:border-w-sage/50 w-full placeholder-w-sage/30 transition-all" />
                     </div>
-                    <button id="blog-search-btn" class="px-5 py-2.5 border border-w-olive/50 text-w-sage font-mono text-xs font-bold uppercase tracking-widest hover:bg-w-olive/30 hover:text-w-light transition rounded-sm">
+                    <button id="blog-search-btn" class="px-5 py-3 bg-w-olive text-w-light font-mono text-xs font-bold uppercase tracking-widest hover:bg-w-light hover:text-w-black transition rounded-sm border border-transparent">
                         BUSCAR
                     </button>
                 </div>
@@ -92,7 +91,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20" id="articles-grid">
 
-                <article class="article-card group bg-w-olive/10 border border-w-olive/30 hover:border-w-sage/50 transition-all duration-500 overflow-hidden flex flex-col" data-title="Gadgets para ingenieros 2026" data-subtitle="Lo último en herramientas que realmente importan">
+                <article class="article-card group bg-w-olive/10 border border-w-olive/30 hover:border-w-sage/50 transition-all duration-500 overflow-hidden flex flex-col h-full" data-title="Gadgets para ingenieros 2026" data-subtitle="Lo último en herramientas que realmente importan">
                     <div class="p-6 flex flex-col flex-grow">
                         <span class="font-mono text-[10px] text-w-sage/30 uppercase tracking-widest mb-3 block">09.02.2026 :: ENTRY_001</span>
                         <h2 class="text-lg font-bold text-w-light font-mono mb-3 leading-tight group-hover:text-white transition">
@@ -102,52 +101,50 @@
                             Lo último en herramientas que realmente importan — un resumen corto y potente de hardware y software.
                         </p>
                         <div class="mt-auto">
-                            <a href="blog/gadgets-para-ingenieros-2026.html" class="inline-flex items-center text-w-light font-mono text-[10px] font-bold uppercase tracking-[0.2em] group/link">
+                            <a href="blog/gadgets-para-ingenieros-2026.html" class="inline-flex items-center text-w-light font-mono text-xs font-bold uppercase tracking-[0.1em] group/link hover:text-w-olive transition-colors">
                                 <span>LEER</span>
-                                <span class="ml-2 group-hover:translate-x-2 transition-transform duration-300 text-w-olive">-></span>
+                                <span class="ml-2 group-hover:translate-x-1 transition-transform duration-300">-></span>
                             </a>
                         </div>
                     </div>
                 </article>
 
-                <article class="article-card group bg-w-olive/10 border border-w-olive/30 hover:border-w-sage/50 transition-all duration-500 overflow-hidden flex flex-col" data-title="Técnicas de estudio (reales) que salvaron mi carrera" data-subtitle="Técnicas prácticas y efectivas">
+                <article class="article-card group bg-w-olive/5 border border-w-olive/20 transition-all duration-500 overflow-hidden flex flex-col h-full opacity-70" data-title="Técnicas de estudio (reales) que salvaron mi carrera" data-subtitle="Técnicas prácticas y efectivas">
                     <div class="p-6 flex flex-col flex-grow">
-                        <span class="font-mono text-[10px] text-w-sage/30 uppercase tracking-widest mb-3 block">15.01.2026 :: ENTRY_002</span>
-                        <h2 class="text-lg font-bold text-w-light font-mono mb-3 leading-tight group-hover:text-white transition">
+                        <span class="font-mono text-[10px] text-w-olive uppercase tracking-widest mb-3 block animate-pulse">PRÓXIMAMENTE :: EN_PROCESO</span>
+                        <h2 class="text-lg font-bold text-w-light/80 font-mono mb-3 leading-tight">
                             Técnicas de estudio (reales) que salvaron mi carrera
                         </h2>
-                        <p class="text-sm text-w-sage/60 font-light mb-8 flex-grow leading-relaxed">
-                            Técnicas prácticas y efectivas que funcionan en el mundo real para superar la ingeniería.
+                        <p class="text-sm text-w-sage/50 font-light mb-8 flex-grow leading-relaxed">
+                            Generando entry... Procesando redacción técnica y tácticas de supervivencia académica.
                         </p>
                         <div class="mt-auto">
-                            <a href="blog/tecnicas-estudio.html" class="inline-flex items-center text-w-light font-mono text-[10px] font-bold uppercase tracking-[0.2em] group/link">
-                                <span>LEER</span>
-                                <span class="ml-2 group-hover:translate-x-2 transition-transform duration-300 text-w-olive">-></span>
-                            </a>
+                            <span class="inline-flex items-center text-w-sage/30 font-mono text-xs font-bold uppercase tracking-[0.1em] cursor-not-allowed">
+                                <span>EN ESPERA</span>
+                            </span>
                         </div>
                     </div>
                 </article>
 
-                <article class="opacity-20 border border-w-olive/20 p-8 flex flex-col justify-center items-center text-center h-full min-h-[250px] grayscale">
-                    <i class="fas fa-terminal text-xl text-w-sage/30 mb-4"></i>
-                    <h3 class="font-mono text-sm text-w-sage uppercase tracking-widest">COMPILANDO...</h3>
+                <article class="opacity-60 border border-w-olive/20 p-8 flex flex-col justify-center items-center text-center h-full min-h-[250px] grayscale bg-w-olive/5">
+                    <i class="fas fa-terminal text-xl text-w-sage/40 mb-4"></i>
+                    <h3 class="font-mono text-sm text-w-sage/80 uppercase tracking-widest">COMPILANDO...</h3>
                 </article>
 
             </div>
-
-            <section class="py-16 px-6 bg-w-olive border border-w-olive/40 rounded-sm">
-                <div class="max-w-xl mx-auto text-center">
-                    <h3 class="font-mono text-lg text-white mb-2">Únete al Hub por excelencia para ingenieros</h3>
-                    <p class="text-xs text-w-light/70 mb-6 font-light">Recibe actualizaciones del sistema, nuevos recursos y contenido exclusivo.</p>
-                    <form class="flex border-b border-w-light/50 pb-2 focus-within:border-white transition">
-                        <input type="email" placeholder="tu@email.com" class="bg-transparent w-full text-white placeholder-w-light/50 focus:outline-none font-mono text-sm">
-                        <button type="submit" class="text-w-light font-mono text-xs uppercase tracking-widest hover:text-white transition">Suscribirse</button>
-                    </form>
-                </div>
-            </section>
-
         </div>
     </main>
+
+    <section class="py-16 md:py-20 px-6 bg-[#2a322e] border-y border-w-olive/40 w-full">
+        <div class="max-w-xl mx-auto text-center">
+            <h3 class="font-mono text-lg text-white mb-2">Únete al Hub por excelencia para ingenieros</h3>
+            <p class="text-xs text-w-light/70 mb-6 font-light">Recibe actualizaciones del sistema, nuevos recursos y contenido exclusivo.</p>
+            <form class="flex border-b border-w-light/50 pb-2 focus-within:border-white transition">
+                <input type="email" placeholder="tu@email.com" class="bg-transparent w-full text-white placeholder-w-light/50 focus:outline-none font-mono text-sm">
+                <button type="submit" class="text-w-light font-mono text-xs uppercase tracking-widest hover:text-white transition">Suscribirse</button>
+            </form>
+        </div>
+    </section>
 
     <footer class="bg-w-black border-t border-w-olive/30 py-12">
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
@@ -177,6 +174,23 @@
         <i class="fas fa-arrow-up"></i>
     </button>
 
+    <div id="cookie-banner" class="fixed bottom-0 left-0 w-full bg-w-black/95 backdrop-blur-md border-t border-w-olive p-4 z-[60] transform translate-y-full transition-transform duration-500 hidden">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="text-xs text-w-sage font-mono font-light text-center md:text-left">
+                <span class="text-w-light font-bold">SYSTEM_NOTICE:</span> Usamos cookies propias y de terceros para mejorar tu experiencia.
+                <a href="legal.html#cookies" class="underline hover:text-white ml-1">Ver política</a>.
+            </div>
+            <div class="flex gap-3">
+                <button id="btn-reject" class="px-4 py-2 border border-w-sage/30 text-[10px] font-mono uppercase text-w-sage hover:text-white hover:border-white transition rounded-sm">
+                    Rechazar
+                </button>
+                <button id="btn-accept" class="px-6 py-2 bg-w-olive text-w-light text-[10px] font-mono font-bold uppercase hover:bg-w-light hover:text-w-black transition rounded-sm">
+                    Aceptar Todo
+                </button>
+            </div>
+        </div>
+    </div>
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             
@@ -185,11 +199,20 @@
             const mobileMenu = document.getElementById('mobile-menu');
             if (mobileBtn && mobileMenu) {
                 const icon = mobileBtn.querySelector('i');
+                const links = document.querySelectorAll('.mobile-link');
                 mobileBtn.addEventListener('click', (e) => {
                     e.stopPropagation(); 
                     mobileMenu.classList.toggle('hidden');
-                    icon.classList.toggle('fa-bars');
-                    icon.classList.toggle('fa-xmark');
+                    if (mobileMenu.classList.contains('hidden')) { icon.classList.remove('fa-xmark'); icon.classList.add('fa-bars'); } 
+                    else { icon.classList.remove('fa-bars'); icon.classList.add('fa-xmark'); }
+                });
+                links.forEach(link => {
+                    link.addEventListener('click', () => { mobileMenu.classList.add('hidden'); icon.classList.remove('fa-xmark'); icon.classList.add('fa-bars'); });
+                });
+                document.addEventListener('click', (e) => {
+                    if (!mobileMenu.contains(e.target) && !mobileBtn.contains(e.target) && !mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden'); icon.classList.remove('fa-xmark'); icon.classList.add('fa-bars');
+                    }
                 });
             }
 
@@ -197,15 +220,23 @@
             const backToTopBtn = document.getElementById('backToTop');
             if (backToTopBtn) {
                 window.addEventListener('scroll', () => {
-                    if (window.scrollY > 300) {
-                        backToTopBtn.classList.remove('opacity-0', 'pointer-events-none');
-                    } else {
-                        backToTopBtn.classList.add('opacity-0', 'pointer-events-none');
-                    }
+                    if (window.scrollY > 300) { backToTopBtn.classList.remove('opacity-0', 'pointer-events-none'); } 
+                    else { backToTopBtn.classList.add('opacity-0', 'pointer-events-none'); }
                 });
             }
 
-            // --- 3. BUSCADOR INTELIGENTE (SIN TILDES) ---
+            // --- 3. COOKIES ---
+            const cookieBanner = document.getElementById('cookie-banner');
+            const btnAccept = document.getElementById('btn-accept');
+            const btnReject = document.getElementById('btn-reject');
+            if (cookieBanner && !localStorage.getItem('cookiesAccepted')) {
+                cookieBanner.classList.remove('hidden');
+                setTimeout(() => { cookieBanner.classList.remove('translate-y-full'); }, 500);
+            }
+            if(btnAccept) { btnAccept.addEventListener('click', () => { localStorage.setItem('cookiesAccepted', 'true'); cookieBanner.classList.add('translate-y-full'); }); }
+            if(btnReject) { btnReject.addEventListener('click', () => { localStorage.setItem('cookiesAccepted', 'false'); cookieBanner.classList.add('translate-y-full'); }); }
+
+            // --- 4. BUSCADOR INTELIGENTE (SIN TILDES Y ROBUSTO) ---
             const searchInput = document.getElementById('blog-search');
             const searchBtn = document.getElementById('blog-search-btn');
             const articlesGrid = document.getElementById('articles-grid');
@@ -225,19 +256,27 @@
                         const subtitle = normalize(card.getAttribute('data-subtitle') || '');
                         const matches = title.includes(q) || subtitle.includes(q);
                         
-                        // Animación suave al filtrar
+                        // Usamos hidden para asegurar que no hay estados intermedios raros
                         if (matches) {
-                            card.style.display = 'flex';
-                            setTimeout(() => card.style.opacity = '1', 10);
+                            card.classList.remove('hidden');
+                            card.classList.add('flex'); // Mantiene el layout flex
                         } else {
-                            card.style.opacity = '0';
-                            setTimeout(() => card.style.display = 'none', 300);
+                            card.classList.remove('flex');
+                            card.classList.add('hidden');
                         }
                     });
                 }
 
                 searchBtn.addEventListener('click', doSearch);
-                searchInput.addEventListener('input', doSearch); // Búsqueda en tiempo real
+                searchInput.addEventListener('input', doSearch); // Búsqueda en tiempo real robusta
+                
+                // Prevenir el submit del form si estuviera dentro de uno
+                searchInput.addEventListener('keydown', (e) => {
+                    if (e.key === 'Enter') {
+                        e.preventDefault();
+                        doSearch();
+                    }
+                });
             }
         });
     </script>
