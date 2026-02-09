@@ -172,7 +172,7 @@
                 </div>
             </a>
 
-            <a id="youtube-link" href="https://www.youtube.com/playlist?list=PLdAod0BrDeR5Q0jtOpO7bUcOU5hGaRJ8M" target="_blank" class="group block w-full bg-w-olive/10 hover:bg-[#FF0000]/10 backdrop-blur-md border border-w-light/10 hover:border-[#FF0000] text-w-light hover:text-white transition-all duration-300 rounded-xl p-4 relative overflow-hidden transform hover:scale-[1.02] shadow-lg">
+            <a id="youtube-link" href="https://www.youtube.com/playlist?list=PLdAod0BrDeR5Q0jtOpO7bUcOU5hGaRJ8M" target="_blank" rel="noopener noreferrer" class="group block w-full bg-w-olive/10 hover:bg-[#FF0000]/10 backdrop-blur-md border border-w-light/10 hover:border-[#FF0000] text-w-light hover:text-white transition-all duration-300 rounded-xl p-4 relative overflow-hidden transform hover:scale-[1.02] shadow-lg">
                 <div class="flex items-center justify-between relative z-10">
                     <div class="flex items-center gap-4">
                         <i class="fab fa-youtube text-2xl text-[#FF0000] group-hover:text-white transition"></i>
@@ -212,12 +212,6 @@
             }
             // Intervalo cada 5s para que sea más activo
             setInterval(triggerGlitch, 5000);
-
-            // YouTube Mobile App Fix
-            const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-            if (isMobile && ytLink) {
-                ytLink.href = ytLink.href.replace('https://', 'youtube://');
-            }
         });
     </script>
 </body>
