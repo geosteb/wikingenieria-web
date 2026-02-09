@@ -33,6 +33,7 @@
                         'w-olive': '#2a322e',   /* Secundario / Tarjetas */
                         'w-sage': '#b0bab3',    /* Texto Cuerpo */
                         'w-light': '#d3d3d3',   /* Títulos / Acentos */
+                        'w-offblack': '#080a09', /* Fondo alternativo sutil */
                     },
                     fontFamily: {
                         'sans': ['Inter', 'sans-serif'],
@@ -52,12 +53,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <style>
-        /* Separador técnico sutil entre secciones (Estilo 2026: Blueprint) */
+        /* Separador técnico sutil pero visible */
         .section-divider {
             height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(42, 50, 46, 0.5), transparent);
+            background: linear-gradient(90deg, transparent, rgba(176, 186, 179, 0.3), transparent); /* Más visible */
             margin: 0 auto;
-            max-width: 80%;
+            max-width: 90%;
         }
     </style>
 </head>
@@ -111,7 +112,7 @@
 
     <div class="h-20"></div>
 
-    <section class="py-16 md:py-24 px-6 max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-10 md:gap-16">
+    <section class="py-16 md:py-20 px-6 max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-16">
         <div class="md:w-1/2 space-y-5">
             <div
                 class="inline-block px-3 py-1 border border-w-sage/30 rounded-full text-[10px] font-mono text-w-sage tracking-widest uppercase mb-2">
@@ -124,7 +125,8 @@
                 No dejes que el cuatrimestre te coma. Tú pones el estudio. La plantilla pone el orden. (Ojalá hubiese
                 tenido yo algo así cuando me saqué la carrera).
             </p>
-            <div class="pt-4 flex flex-col sm:flex-row gap-4">
+            
+            <div class="hidden md:flex flex-row gap-4 pt-2">
                 <a href="https://wikingenieria.gumroad.com/l/plantilla-notion-organiza-aprueba" target="_blank"
                     class="px-6 py-3 bg-w-olive text-w-light font-mono text-xs font-bold uppercase tracking-widest hover:bg-w-light hover:text-w-black transition rounded-sm text-center">
                     Adquirir Sistema
@@ -150,24 +152,35 @@
             </div>
             <p class="text-center text-[10px] font-mono mt-3 opacity-40 uppercase tracking-widest">Wikingeniería:
                 Organiza & Aprueba</p>
+
+            <div class="flex md:hidden flex-col gap-3 pt-6">
+                <a href="https://wikingenieria.gumroad.com/l/plantilla-notion-organiza-aprueba" target="_blank"
+                    class="px-6 py-4 bg-w-olive text-w-light font-mono text-xs font-bold uppercase tracking-widest hover:bg-w-light hover:text-w-black transition rounded-sm text-center">
+                    Adquirir Sistema
+                </a>
+                <a href="#productos"
+                    class="px-6 py-4 border border-w-olive text-w-sage font-mono text-xs uppercase tracking-widest hover:border-w-light hover:text-w-light transition rounded-sm text-center">
+                    Ver más recursos
+                </a>
+            </div>
         </div>
     </section>
 
     <div class="section-divider"></div>
 
-    <section id="productos" class="py-24 px-6 bg-[#030302]">
-        <div class="max-w-7xl mx-auto text-center mb-16">
+    <section id="productos" class="py-16 md:py-20 px-6 bg-w-offblack">
+        <div class="max-w-7xl mx-auto text-center mb-10">
             <h2 class="font-mono text-2xl text-w-light uppercase tracking-widest"><span
                     class="text-w-olive mr-2">//</span>RECURSOS<span class="animate-pulse text-w-olive">_</span></h2>
         </div>
 
-        <div class="flex flex-wrap justify-center gap-8 items-stretch">
+        <div class="flex flex-wrap justify-center gap-6 items-stretch">
 
             <article
-                class="w-full max-w-[22rem] flex flex-col bg-w-olive/30 border border-w-olive/50 hover:border-w-sage/30 transition-all duration-300 group backdrop-blur-sm">
+                class="w-full max-w-[22rem] flex flex-col bg-w-olive/20 border border-w-olive/40 hover:border-w-sage/30 transition-all duration-300 group backdrop-blur-sm">
                 <div class="relative w-full h-56 bg-black/40 overflow-hidden shrink-0">
                     <div
-                        class="absolute top-3 right-3 bg-red-500/80 text-white text-[10px] font-bold px-2 py-1 uppercase tracking-wider z-10 font-mono">
+                        class="absolute top-3 right-3 bg-[#e05d5d] text-white text-[10px] font-bold px-2 py-1 uppercase tracking-wider z-10 font-mono shadow-md">
                         Top Ventas
                     </div>
                     <img src="assets/img/products/plantilla-notion-organiza-aprueba-cover.webp"
@@ -190,10 +203,10 @@
             </article>
 
             <article
-                class="w-full max-w-[22rem] flex flex-col bg-w-olive/30 border border-w-olive/50 hover:border-w-sage/30 transition-all duration-300 group backdrop-blur-sm">
+                class="w-full max-w-[22rem] flex flex-col bg-w-olive/20 border border-w-olive/40 hover:border-w-sage/30 transition-all duration-300 group backdrop-blur-sm">
                 <div class="relative w-full h-56 bg-black/40 overflow-hidden shrink-0">
                     <div
-                        class="absolute top-3 right-3 bg-yellow-400/90 text-black text-[10px] font-bold px-2 py-1 uppercase tracking-wider z-10 font-mono">
+                        class="absolute top-3 right-3 bg-[#f0dfa0] text-black text-[10px] font-bold px-2 py-1 uppercase tracking-wider z-10 font-mono shadow-md">
                         Gratis
                     </div>
                     <img src="assets/img/products/ebook-sobrevive-ingenieria-cover.webp" alt="Portada eBook"
@@ -217,41 +230,39 @@
 
     <div class="section-divider"></div>
 
-    <section id="wikipodcast" class="py-24 px-6 bg-w-black">
+    <section id="wikipodcast" class="py-16 md:py-20 px-6 bg-w-black">
         <div class="max-w-6xl mx-auto">
-            <h2 class="font-mono text-2xl text-w-light uppercase tracking-widest text-center mb-16"><span
+            <h2 class="font-mono text-2xl text-w-light uppercase tracking-widest text-center mb-10"><span
                     class="text-w-olive mr-2">//</span>WIKIPODCAST<span class="animate-pulse text-w-olive">_</span></h2>
 
-            <div class="flex flex-col md:flex-row items-center md:items-start justify-center gap-12">
+            <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
                 
-                <div class="w-full md:max-w-lg space-y-8 text-center md:text-left">
+                <div class="w-full md:max-w-lg space-y-4 md:space-y-6 text-center md:text-left">
 
                     <div class="flex items-center justify-center md:justify-start gap-3">
                         <i class="fas fa-microphone-lines text-2xl text-w-light" aria-hidden="true"></i>
                         <h3 class="font-mono text-xl md:text-2xl font-bold text-w-light">El Podcast de Wikingeniería</h3>
                     </div>
 
-                    <div class="flex flex-col sm:flex-row items-center gap-6">
-                        <div class="flex-shrink-0">
-                            <img src="assets/img/core/wikipodcast-logo.png" alt="WikiPodcast"
-                            class="w-32 h-32 object-contain opacity-90 hover:opacity-100 transition duration-500 hover:scale-105">
-                        </div>
-                        <p class="text-w-sage font-light text-sm leading-relaxed text-center sm:text-left">
-                            El podcast para amantes de la ciencia, tecnología e ingeniería. A 320kbps con humor y mentalidad
-                            para evitar segundas matrículas.
+                    <div class="flex flex-row items-center justify-center md:justify-start gap-4 md:gap-6">
+                        <img src="assets/img/core/wikipodcast-logo.png" alt="WikiPodcast"
+                            class="w-20 h-20 md:w-28 md:h-28 object-contain opacity-90 hover:opacity-100 transition duration-500 hover:scale-105 flex-shrink-0">
+                        
+                        <p class="text-w-sage font-light text-sm leading-relaxed text-left">
+                            El podcast para amantes de la ciencia, tecnología e ingeniería. A 320kbps con humor y mentalidad.
                         </p>
                     </div>
 
-                    <div>
+                    <div class="pt-2">
                         <a href="podcast.html" target="_blank"
-                            class="inline-flex items-center px-8 py-4 border border-w-light/30 text-w-light font-mono text-xs font-bold tracking-widest hover:bg-w-light hover:text-w-black transition rounded-sm group">
-                            <span>Escuchar en tu plataforma favorita</span>
+                            class="inline-flex items-center px-8 py-3 border border-w-light/30 text-w-light font-mono text-xs font-bold tracking-widest hover:bg-w-light hover:text-w-black transition rounded-sm group w-full md:w-auto justify-center">
+                            <span>Escuchar ahora</span>
                             <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition"></i>
                         </a>
                     </div>
                 </div>
 
-                <div class="w-full md:max-w-[400px] flex-shrink-0 flex items-center h-full pt-4">
+                <div class="w-full md:max-w-[400px] flex-shrink-0 flex items-center justify-center h-full">
                     <iframe style="border-radius:12px"
                         src="https://open.spotify.com/embed/episode/0ZE6181gKJX0mC0dJlc7bz?utm_source=generator&theme=0&t=0"
                         width="100%" height="152" frameBorder="0" allowfullscreen=""
@@ -262,7 +273,7 @@
         </div>
     </section>
 
-    <section class="py-20 px-6 relative overflow-hidden">
+    <section class="py-16 md:py-20 px-6 relative overflow-hidden">
         <div class="absolute inset-0 z-0 bg-gradient-to-b from-w-black via-[#0a0f0d] to-w-olive/20 pointer-events-none">
         </div>
 
@@ -271,20 +282,14 @@
                     class="text-w-olive mr-2">//</span>LISTAS SPOTIFY PARA INGENIEROS<span class="animate-pulse text-w-olive">_</span>
             </h2>
 
-            <div class="text-center space-y-6 max-w-2xl mx-auto mb-10">
+            <div class="text-center space-y-6 max-w-2xl mx-auto mb-8">
                 <p class="text-sm font-light text-w-sage/80 leading-relaxed">
                     Música seleccionada específicamente para sesiones de estudio profundo o para desconectar
                     el cerebro tras resolver ecuaciones diferenciales. Elimina el ruido externo y aumenta la concentración.
                 </p>
-
-                <a href="https://open.spotify.com/user/1167448648?si=9d77421160354179" target="_blank" rel="noopener"
-                    class="inline-flex items-center gap-2 px-6 py-2 bg-w-olive/20 border border-w-olive text-w-light font-mono text-[10px] uppercase tracking-widest hover:bg-[#1DB954]/10 hover:border-[#1DB954] hover:text-white transition rounded-full">
-                    <i class="fab fa-spotify text-lg"></i>
-                    Échale una oreja a todas las listas aquí
-                </a>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-center">
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-center mb-10">
                 <iframe style="border-radius:12px"
                     src="https://open.spotify.com/embed/playlist/5Syo3RZAL0OMfAFDDHAO0R?utm_source=generator&theme=0"
                     width="100%" height="152" frameBorder="0" allowfullscreen=""
@@ -296,14 +301,22 @@
                     allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"
                     class="shadow-lg"></iframe>
             </div>
+
+            <div class="flex justify-center">
+                <a href="https://open.spotify.com/user/1167448648?si=9d77421160354179" target="_blank" rel="noopener"
+                    class="inline-flex items-center gap-2 px-6 py-3 bg-w-olive/20 border border-w-olive text-w-light font-mono text-[10px] uppercase tracking-widest hover:bg-[#1DB954]/10 hover:border-[#1DB954] hover:text-white transition rounded-full">
+                    <i class="fab fa-spotify text-lg"></i>
+                    Échale una oreja a todas las listas aquí
+                </a>
+             </div>
         </div>
     </section>
 
     <div class="section-divider"></div>
 
-    <section id="blog" class="py-24 px-6 bg-w-black">
+    <section id="blog" class="py-16 md:py-20 px-6 bg-w-black">
         <div class="max-w-4xl mx-auto">
-            <div class="flex justify-between items-end mb-12 border-b border-w-olive/30 pb-4">
+            <div class="flex justify-between items-end mb-10 border-b border-w-olive/30 pb-4">
                 <h2 class="font-mono text-2xl text-w-light uppercase tracking-widest"><span
                         class="text-w-olive mr-2">//</span>LOG DE ARTÍCULOS<span
                         class="animate-pulse text-w-olive">_</span></h2>
@@ -313,7 +326,7 @@
                 </a>
             </div>
 
-            <div class="space-y-8">
+            <div class="space-y-6">
                 <article
                     class="group relative pl-4 border-l-2 border-transparent hover:border-w-olive transition duration-300">
                     <a href="blog/articulo-gadgets-ingenieros-2026.html" class="block">
@@ -346,24 +359,24 @@
         </div>
     </section>
 
-    <section class="py-16 px-6 bg-[#0a0a08] border-y border-w-olive/20">
+    <section class="py-16 md:py-20 px-6 bg-[#2a322e] border-y border-w-olive/40">
         <div class="max-w-xl mx-auto text-center">
-            <h3 class="font-mono text-lg text-w-light mb-2">Únete al Hub por excelencia para ingenieros</h3>
-            <p class="text-xs text-w-sage/60 mb-6 font-light">Recibe actualizaciones del sistema, nuevos recursos y
+            <h3 class="font-mono text-lg text-white mb-2">Únete al Hub por excelencia para ingenieros</h3>
+            <p class="text-xs text-w-light/70 mb-6 font-light">Recibe actualizaciones del sistema, nuevos recursos y
                 contenido exclusivo.</p>
-            <form class="flex border-b border-w-sage/30 pb-2 focus-within:border-w-light transition">
+            <form class="flex border-b border-w-light/50 pb-2 focus-within:border-white transition">
                 <input type="email" placeholder="tu@email.com"
-                    class="bg-transparent w-full text-w-light placeholder-w-sage/30 focus:outline-none font-mono text-sm">
+                    class="bg-transparent w-full text-white placeholder-w-light/50 focus:outline-none font-mono text-sm">
                 <button type="submit"
                     class="text-w-light font-mono text-xs uppercase tracking-widest hover:text-white transition">Suscribirse</button>
             </form>
         </div>
     </section>
 
-    <section id="contacto" class="py-24 px-6 bg-w-black">
+    <section id="contacto" class="py-16 md:py-20 px-6 bg-w-black">
         <div class="max-w-2xl mx-auto">
 
-            <div class="text-center mb-12">
+            <div class="text-center mb-10">
                 <h2 class="font-mono text-2xl text-w-light uppercase tracking-widest mb-6"><span
                         class="text-w-olive mr-2">//</span>SOPORTE TÉCNICO<span
                         class="animate-pulse text-w-olive">_</span></h2>
