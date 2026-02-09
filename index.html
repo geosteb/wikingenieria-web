@@ -69,51 +69,57 @@
         .animate-new-pulse {
             animation: newPulse 2.2s ease-in-out infinite;
         }
-        /* Badge "Nuevo" — estilo tipo terminal con prefijo y efecto tipeo
-           ahora dentro de un contorno similar al botón "Adquirir Sistema" */
+        /* Badge "Nuevo" — ahora relleno como botón (igual estética que "Adquirir Sistema"),
+           con prefijo tipo terminal más pequeño y efecto tipeo; borrado más rápido */
         .new-badge {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.5rem 1.5rem; /* similar a px-6 py-3 */
+            padding: 0.5rem 1.25rem; /* compacto pero suficiente para no cortar la O */
             border-radius: 0.25rem; /* rounded-sm */
-            background: transparent;
-            border: 1px solid #2a322e; /* contorno oliva solicitado */
+            background: #2a322e; /* relleno oliva solicitado */
+            border: 1px solid #2a322e; /* contorno oliva */
+            box-shadow: 0 2px 8px rgba(42,50,46,0.06);
         }
         .terminal-prefix {
             color: #d3d3d3; /* blanco roto como el botón Adquirir Sistema */
             font-family: 'Space Grotesk', monospace;
             font-weight: 500;
-            font-size: 0.95rem;
+            font-size: 0.8rem;
             opacity: 0.9;
+            margin-right: 0.25rem; /* acercar al backslash */
         }
         .new-type {
             display: inline-block;
             white-space: nowrap;
             overflow: hidden;
-            color: #d3d3d3; /* letras en blanco roto */
+            color: #f0f0f0; /* letras en blanco (blanco roto cercano) */
             font-family: 'Space Grotesk', monospace;
             font-weight: 700;
             letter-spacing: 0.12em;
             text-transform: uppercase;
             width: 0ch;
-            /* Duración total: 8s -> escribe rápido, se queda 5s con caret, borra rápido */
-            animation: typing 8s steps(5,end) infinite;
-            font-size: 0.95rem;
+            /* Duración total: 9s -> escribe más despacio, mantiene 5s, borra más rápido */
+            animation: typing 9s steps(5,end) infinite;
+            font-size: 1rem; /* un poco más grande */
+            padding-right: 0.2rem; /* evitar recorte de última letra */
+            box-sizing: content-box;
+            min-width: 5ch; /* asegura espacio suficiente cuando completa */
         }
         .new-caret {
             display: inline-block;
-            color: rgba(211,211,211,0.55); /* caret más transparente que la palabra */
+            color: rgba(240,240,240,0.55); /* caret más transparente */
             margin-left: 4px;
             font-weight: 700;
             animation: blink 1s step-end infinite;
-            font-size: 0.95rem;
+            font-size: 1rem;
+            opacity: 0.75;
         }
         @keyframes typing {
-            0%   { width: 0ch; }
-            12.5% { width: 5ch; }   /* escribe la palabra (~1s) */
-            75%  { width: 5ch; }    /* se queda  ~5s con caret parpadeando */
-            87.5% { width: 0ch; }   /* borra rápido */
+            0%    { width: 0ch; }
+            25%   { width: 5ch; }   /* escribe la palabra (más despacio) */
+            80%   { width: 5ch; }   /* se queda ~5s con caret parpadeando */
+            90%   { width: 0ch; }   /* borra rápido (más rápido que escribir) */
             100%  { width: 0ch; }
         }
         @keyframes blink {
