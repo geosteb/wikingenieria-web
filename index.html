@@ -285,7 +285,7 @@
                 <button type="submit" class="w-full bg-w-sage/10 border border-w-sage/30 text-w-light font-mono text-xs font-bold uppercase tracking-widest py-4 hover:bg-w-light hover:text-w-black transition">
                     Enviar Transmisión
                 </button>
-                <input type="hidden" name="_next" id="formspree-next" value="gracias.html">
+                <input type="hidden" name="_next" value="gracias.html">
             </form>
 
         </div>
@@ -357,13 +357,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Formspree: redirigir a gracias.html en el mismo dominio (funciona en local, github.io y producción)
-            var nextInput = document.getElementById('formspree-next');
-            if (nextInput) {
-                var base = window.location.href.replace(/[^/]*$/, '');
-                nextInput.value = (base.endsWith('/') ? base : base + '/') + 'gracias.html';
-            }
-
             // --- 1. LÓGICA DEL MENÚ MÓVIL ---
             const mobileBtn = document.getElementById('mobile-menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
