@@ -56,73 +56,67 @@
         /* Separador técnico sutil pero visible */
         .section-divider {
             height: 1px;
-            background: linear-gradient(90deg, transparent, rgba(176, 186, 179, 0.3), transparent); /* Más visible */
+            background: linear-gradient(90deg, transparent, rgba(176, 186, 179, 0.3), transparent);
             margin: 0 auto;
             max-width: 90%;
         }
-        /* Nuevo badge: sutil pulso y elevación para destacarlo */
-        @keyframes newPulse {
-            0%   { transform: scale(1); box-shadow: 0 0 0 0 rgba(74,222,128,0); }
-            50%  { transform: scale(1.04); box-shadow: 0 10px 30px rgba(74,222,128,0.10); }
-            100% { transform: scale(1); box-shadow: 0 0 0 0 rgba(74,222,128,0); }
-        }
-        .animate-new-pulse {
-            animation: newPulse 2.2s ease-in-out infinite;
-        }
-        /* Badge "Nuevo" — ahora relleno como botón (igual estética que "Adquirir Sistema"),
-           con prefijo tipo terminal más pequeño y efecto tipeo; borrado más rápido */
-        .new-badge {
+
+        /* --- ESTILOS TERMINAL BADGE --- */
+        .cmd-badge {
             display: inline-flex;
             align-items: center;
-            gap: 0.2rem;
-            padding: 0.5rem 1.25rem; /* compacto pero suficiente para no cortar la O */
-            border-radius: 0.25rem; /* rounded-sm */
-            background: #2a322e; /* relleno oliva solicitado */
-            border: 1px solid #2a322e; /* contorno oliva */
-            box-shadow: 0 2px 8px rgba(42,50,46,0.06);
-        }
-        .terminal-prefix {
-            color: #d3d3d3; /* blanco roto como el botón Adquirir Sistema */
+            background-color: #2a322e; /* Mismo color que el botón */
+            color: #d3d3d3;
+            padding: 6px 12px;
+            border-radius: 2px; /* Rounded-sm */
             font-family: 'Space Grotesk', monospace;
-            font-weight: 500;
-            font-size: 0.78rem;
-            opacity: 0.9;
-            margin-right: 0.05rem; /* acercar al backslash */
+            line-height: 1;
+            border: 1px solid rgba(211, 211, 211, 0.1);
+            user-select: none;
         }
-        .new-type {
-            display: inline-block;
+
+        .cmd-path {
+            font-size: 0.7rem; /* Letra más chica */
+            opacity: 0.7;
+            margin-right: 2px; /* Espacio mínimo */
             white-space: nowrap;
+        }
+
+        .cmd-text {
+            font-family: 'Courier New', Courier, monospace; /* Fuente mono estricta para animación fluida */
+            font-weight: 700;
+            font-size: 0.85rem; /* Letra NUEVO más grande */
+            color: #fff;
             overflow: hidden;
-            color: #f0f0f0; /* letras en blanco (blanco roto cercano) */
-            /* Forzar tipografía monospace para que 1ch == 1 carácter y evitar recortes */
-            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', 'Courier New', monospace;
-            font-weight: 700;
-            text-transform: uppercase;
-            width: 0ch;
-            /* Escribir 1s, mantener 5s, borrar 1s -> total 7s */
-            animation: typing 7s steps(5,end) infinite;
-            font-size: 1.05rem; /* un poco más grande */
-            padding-right: 0.45rem; /* evitar recorte de última letra */
-            box-sizing: content-box;
+            white-space: nowrap;
+            width: 0;
+            /* Ciclo total: 7s
+               Escribe: 0-10% (0.7s)
+               Espera: 10-80% (~5s)
+               Borra: 80-90% (0.7s)
+               Pausa: 90-100%
+            */
+            animation: typing 7s steps(5, end) infinite;
         }
-        .new-caret {
-            display: inline-block;
-            color: rgba(240,240,240,0.55); /* caret más transparente */
-            margin-left: 4px;
+
+        .cmd-cursor {
             font-weight: 700;
+            margin-left: 1px;
             animation: blink 1s step-end infinite;
-            font-size: 1rem;
-            opacity: 0.75;
+            color: #d3d3d3;
         }
+
         @keyframes typing {
-            0%   { width: 0ch; }       /* nada visible */
-            14%  { width: 5ch; }      /* escribe la palabra (aprox 1s) */
-            86%  { width: 5ch; }      /* se queda ~5s con caret parpadeando */
-            100% { width: 0ch; }      /* borra rápido (último 1s) */
+            0% { width: 0; }
+            10% { width: 5ch; } /* Escribe 5 caracteres */
+            85% { width: 5ch; } /* Mantiene (Espera de 5s aprox) */
+            95% { width: 0; }   /* Borra */
+            100% { width: 0; }
         }
+
         @keyframes blink {
-            0%, 49% { opacity: 1; }
-            50%, 100% { opacity: 0; }
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
         }
     </style>
 </head>
@@ -178,10 +172,13 @@
 
     <section class="py-16 md:py-20 px-6 max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-16">
         <div class="md:w-1/2 space-y-5">
-            <div class="new-badge mb-2" aria-hidden="false">
-                <span class="terminal-prefix">C:\Users\Wikingenieria\</span>
-                <span class="new-type font-mono" aria-hidden="true">NUEVO</span><span class="new-caret" aria-hidden="true">_</span>
+            
+            <div class="cmd-badge mb-2">
+                <span class="cmd-path">C:\Users\Wikingenieria\</span>
+                <span class="cmd-text">NUEVO</span>
+                <span class="cmd-cursor">_</span>
             </div>
+
             <h1 class="font-mono text-3xl md:text-4xl lg:text-5xl font-bold text-w-light leading-tight">
                 La ingeniería no se saca solo estudiando, se saca gestionando recursos.
             </h1>
@@ -209,12 +206,13 @@
                     rel="noopener">
                     <div class="absolute inset-0 bg-w-olive/10 group-hover:bg-transparent transition duration-500 z-10">
                     </div>
-                    <img src="assets/img/products/main-product-cover.png"
+                    <img src="assets/img/products/plantilla-notion-organiza-aprueba-cover.webp"
                         alt="Plantilla Notion Organiza y Aprueba"
                         class="w-full h-auto object-cover transform group-hover:scale-105 transition duration-700">
                 </a>
             </div>
-            <p class="text-center text-[10px] font-mono mt-3 opacity-40 uppercase tracking-widest">WIKINGENIERIA: ORGANIZA & APRUEBA</p>
+            <p class="text-center text-[10px] font-mono mt-3 opacity-40 uppercase tracking-widest">Wikingeniería:
+                Organiza & Aprueba</p>
 
             <div class="flex md:hidden flex-col gap-3 pt-6">
                 <a href="https://wikingenieria.gumroad.com/l/plantilla-notion-organiza-aprueba" target="_blank"
@@ -277,9 +275,9 @@
                 </div>
 
                 <div class="p-6 flex flex-col flex-grow">
-                    <h3 class="font-mono text-lg text-w-light mb-3 leading-tight">Cómo aprobar sin perder la salud mental [eBook]</h3>
+                    <h3 class="font-mono text-lg text-w-light mb-3 leading-tight">Guía Anti-Suspensión [eBook]</h3>
                     <p class="text-sm opacity-70 mb-6 font-light leading-relaxed flex-grow">
-                        Manual de estrategia y táctica académica para no pagar segundas matrículas.
+                        Manual de estrategia mental y táctica académica para no pagar segundas matrículas.
                     </p>
                     <a href="https://wikingenieria.gumroad.com/l/sobrevive-ingenieria" target="_blank" rel="noopener"
                         class="mt-auto block w-full py-3 border border-w-sage/30 bg-w-black/40 text-center font-mono text-[10px] text-w-light hover:bg-w-light hover:text-w-black transition uppercase tracking-widest">
@@ -316,7 +314,6 @@
                         </p>
                     </div>
 
-                    <!-- Botón visible en desktop (oculto en móvil) -->
                     <div class="pt-2 hidden md:block">
                         <a href="podcast.html" target="_blank"
                             class="inline-flex items-center px-8 py-3 border border-w-light/30 text-w-light font-mono text-xs font-bold tracking-widest hover:bg-w-light hover:text-w-black transition rounded-sm group w-full md:w-auto justify-center">
@@ -355,7 +352,7 @@
 
             <div class="text-center space-y-6 max-w-2xl mx-auto mb-8">
                 <p class="text-sm font-light text-w-sage/80 leading-relaxed">
-                    Música seleccionada específicamente para sesiones de estudio profundas o para desconectar
+                    Música seleccionada específicamente para sesiones de estudio profundo o para desconectar
                     el cerebro tras resolver ecuaciones diferenciales. Elimina el ruido externo y aumenta la concentración.
                 </p>
             </div>
@@ -374,7 +371,7 @@
             </div>
 
             <div class="flex justify-center">
-                <a href="https://open.spotify.com/user/z8yt3h6v2vw5u0615aev5peqf?si=d51a9dd55de949f2" target="_blank" rel="noopener"
+                <a href="https://open.spotify.com/user/1167448648?si=9d77421160354179" target="_blank" rel="noopener"
                     class="inline-flex items-center gap-2 px-6 py-3 bg-w-olive/20 border border-w-olive text-w-light font-mono text-[10px] uppercase tracking-widest hover:bg-[#1DB954]/10 hover:border-[#1DB954] hover:text-white transition rounded-full">
                     <i class="fab fa-spotify text-lg"></i>
                     Échale una oreja a todas las listas aquí
@@ -535,7 +532,7 @@
                     aria-label="YouTube">
                     <i class="fab fa-youtube text-lg"></i>
                 </a>
-                <a href="https://open.spotify.com/show/4rJF6Rcz7CtIKGzAR2SBiz?si=3d4a3651bfd74de2" target="_blank" rel="noopener"
+                <a href="https://open.spotify.com/embed/playlist/37i9dQZF1DX5treGwdZtS3?utm_source=generator" target="_blank" rel="noopener"
                     class="text-w-sage/60 hover:text-white transition transform hover:-translate-y-1"
                     aria-label="Spotify">
                     <i class="fab fa-spotify text-lg"></i>
