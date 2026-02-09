@@ -69,6 +69,44 @@
         .animate-new-pulse {
             animation: newPulse 2.2s ease-in-out infinite;
         }
+        /* Badge "Nuevo" — efecto tipeo tipo terminal con guión bajo parpadeante */
+        .new-badge {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            background: transparent;
+            border: 1px solid rgba(159,191,140,0.10); /* contorno oliva claro */
+        }
+        .new-type {
+            display: inline-block;
+            white-space: nowrap;
+            overflow: hidden;
+            color: #9fbf8c; /* oliva claro */
+            font-family: 'Space Grotesk', monospace;
+            font-weight: 600;
+            letter-spacing: 0.12em;
+            text-transform: uppercase;
+            width: 0ch;
+            /* Typing: escribe 5 caracteres (NUEVO) luego espera y borra */
+            animation: typing 4s steps(5,end) infinite;
+        }
+        .new-caret {
+            display: inline-block;
+            color: #9fbf8c;
+            margin-left: 4px;
+            font-weight: 600;
+            animation: blink 1s step-end infinite;
+        }
+        @keyframes typing {
+            0%   { width: 0ch; }
+            45%  { width: 5ch; } /* palabra completa */
+            70%  { width: 5ch; } /* pausa */
+            100% { width: 0ch; } /* borra y repite */
+        }
+        @keyframes blink {
+            0%, 49% { opacity: 1; }
+            50%, 100% { opacity: 0; }
+        }
     </style>
 </head>
 
@@ -123,9 +161,8 @@
 
     <section class="py-16 md:py-20 px-6 max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-16">
         <div class="md:w-1/2 space-y-5">
-            <div class="inline-block px-4 py-2 rounded-full text-sm font-mono text-w-black tracking-widest uppercase mb-2 shadow-lg animate-new-pulse"
-                 style="background: linear-gradient(90deg,#4ade80 0%, #b0bab3 60%, #d3d3d3 100%); border: 1px solid rgba(176,186,179,0.12);">
-                NUEVO
+            <div class="new-badge mb-2" aria-hidden="false">
+                <span class="new-type font-mono" aria-hidden="true">NUEVO</span><span class="new-caret" aria-hidden="true">_</span>
             </div>
             <h1 class="font-mono text-3xl md:text-4xl lg:text-5xl font-bold text-w-light leading-tight">
                 La ingeniería no se saca solo estudiando, se saca gestionando recursos.
