@@ -69,28 +69,29 @@
         .animate-new-pulse {
             animation: newPulse 2.2s ease-in-out infinite;
         }
-        /* Badge "Nuevo" — estilo tipo terminal con prefijo y efecto tipeo */
+        /* Badge "Nuevo" — estilo tipo terminal con prefijo y efecto tipeo
+           ahora dentro de un contorno similar al botón "Adquirir Sistema" */
         .new-badge {
             display: inline-flex;
             align-items: center;
             gap: 0.5rem;
-            padding: 0.25rem 1rem; /* más espacio para que no corte la O */
-            border-radius: 8px;
+            padding: 0.5rem 1.5rem; /* similar a px-6 py-3 */
+            border-radius: 0.25rem; /* rounded-sm */
             background: transparent;
-            border: 1px solid rgba(42,50,46,0.08); /* contorno muy sutil (oliva #2a322e) */
+            border: 1px solid #2a322e; /* contorno oliva solicitado */
         }
         .terminal-prefix {
-            color: #2a322e; /* prefijo en oliva */
+            color: #d3d3d3; /* blanco roto como el botón Adquirir Sistema */
             font-family: 'Space Grotesk', monospace;
             font-weight: 500;
-            font-size: 0.75rem;
-            opacity: 0.85;
+            font-size: 0.95rem;
+            opacity: 0.9;
         }
         .new-type {
             display: inline-block;
             white-space: nowrap;
             overflow: hidden;
-            color: #2a322e; /* texto en oliva (hex) */
+            color: #d3d3d3; /* letras en blanco roto */
             font-family: 'Space Grotesk', monospace;
             font-weight: 700;
             letter-spacing: 0.12em;
@@ -98,15 +99,15 @@
             width: 0ch;
             /* Duración total: 8s -> escribe rápido, se queda 5s con caret, borra rápido */
             animation: typing 8s steps(5,end) infinite;
-            font-size: 0.85rem;
+            font-size: 0.95rem;
         }
         .new-caret {
             display: inline-block;
-            color: rgba(42,50,46,0.6); /* caret más transparente */
-            margin-left: 2px;
+            color: rgba(211,211,211,0.55); /* caret más transparente que la palabra */
+            margin-left: 4px;
             font-weight: 700;
             animation: blink 1s step-end infinite;
-            font-size: 0.85rem;
+            font-size: 0.95rem;
         }
         @keyframes typing {
             0%   { width: 0ch; }
