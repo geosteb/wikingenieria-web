@@ -74,7 +74,7 @@
         .new-badge {
             display: inline-flex;
             align-items: center;
-            gap: 0.5rem;
+            gap: 0.2rem;
             padding: 0.5rem 1.25rem; /* compacto pero suficiente para no cortar la O */
             border-radius: 0.25rem; /* rounded-sm */
             background: #2a322e; /* relleno oliva solicitado */
@@ -85,9 +85,9 @@
             color: #d3d3d3; /* blanco roto como el botón Adquirir Sistema */
             font-family: 'Space Grotesk', monospace;
             font-weight: 500;
-            font-size: 0.8rem;
+            font-size: 0.78rem;
             opacity: 0.9;
-            margin-right: 0.25rem; /* acercar al backslash */
+            margin-right: 0.05rem; /* acercar al backslash */
         }
         .new-type {
             display: inline-block;
@@ -98,13 +98,12 @@
             font-weight: 700;
             letter-spacing: 0.12em;
             text-transform: uppercase;
-            width: 0ch;
+            max-width: 0ch;
             /* Duración total: 9s -> escribe más despacio, mantiene 5s, borra más rápido */
             animation: typing 9s steps(5,end) infinite;
-            font-size: 1rem; /* un poco más grande */
-            padding-right: 0.2rem; /* evitar recorte de última letra */
+            font-size: 1.05rem; /* un poco más grande */
+            padding-right: 0.35rem; /* evitar recorte de última letra */
             box-sizing: content-box;
-            min-width: 5ch; /* asegura espacio suficiente cuando completa */
         }
         .new-caret {
             display: inline-block;
@@ -116,11 +115,11 @@
             opacity: 0.75;
         }
         @keyframes typing {
-            0%    { width: 0ch; }
-            25%   { width: 5ch; }   /* escribe la palabra (más despacio) */
-            80%   { width: 5ch; }   /* se queda ~5s con caret parpadeando */
-            90%   { width: 0ch; }   /* borra rápido (más rápido que escribir) */
-            100%  { width: 0ch; }
+            0%    { max-width: 0ch; }
+            30%   { max-width: 6ch; }   /* escribe la palabra (más despacio) + padding para letra O */
+            78%   { max-width: 6ch; }   /* se queda ~5s con caret parpadeando */
+            88%   { max-width: 0ch; }   /* borra rápido (más rápido que escribir) */
+            100%  { max-width: 0ch; }
         }
         @keyframes blink {
             0%, 49% { opacity: 1; }
