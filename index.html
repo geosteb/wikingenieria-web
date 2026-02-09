@@ -94,15 +94,15 @@
             white-space: nowrap;
             overflow: hidden;
             color: #f0f0f0; /* letras en blanco (blanco roto cercano) */
-            font-family: 'Space Grotesk', monospace;
+            /* Forzar tipografía monospace para que 1ch == 1 carácter y evitar recortes */
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, 'Roboto Mono', 'Courier New', monospace;
             font-weight: 700;
-            letter-spacing: 0.12em;
             text-transform: uppercase;
-            max-width: 0ch;
-            /* Duración total: 9s -> escribe más despacio, mantiene 5s, borra más rápido */
-            animation: typing 9s steps(5,end) infinite;
+            width: 0ch;
+            /* Escribir 1s, mantener 5s, borrar 1s -> total 7s */
+            animation: typing 7s steps(5,end) infinite;
             font-size: 1.05rem; /* un poco más grande */
-            padding-right: 0.35rem; /* evitar recorte de última letra */
+            padding-right: 0.45rem; /* evitar recorte de última letra */
             box-sizing: content-box;
         }
         .new-caret {
@@ -115,11 +115,10 @@
             opacity: 0.75;
         }
         @keyframes typing {
-            0%    { max-width: 0ch; }
-            30%   { max-width: 6ch; }   /* escribe la palabra (más despacio) + padding para letra O */
-            78%   { max-width: 6ch; }   /* se queda ~5s con caret parpadeando */
-            88%   { max-width: 0ch; }   /* borra rápido (más rápido que escribir) */
-            100%  { max-width: 0ch; }
+            0%   { width: 0ch; }       /* nada visible */
+            14%  { width: 5ch; }      /* escribe la palabra (aprox 1s) */
+            86%  { width: 5ch; }      /* se queda ~5s con caret parpadeando */
+            100% { width: 0ch; }      /* borra rápido (último 1s) */
         }
         @keyframes blink {
             0%, 49% { opacity: 1; }
