@@ -30,12 +30,16 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
+        /* Quitar el botón azul nativo de búsqueda + El parpadeo al hacer click */
         input[type="search"]::-webkit-search-cancel-button {
             -webkit-appearance: none;
             height: 10px;
             width: 10px;
             background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="white"><path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>') no-repeat center;
             cursor: pointer;
+        }
+        input[type="search"] {
+            -webkit-tap-highlight-color: transparent; /* MATA EL PARPADEO EN MÓVIL */
         }
     </style>
 </head>
@@ -81,7 +85,7 @@
                     <div class="relative flex-grow md:w-80">
                         <i class="fas fa-search absolute left-3 top-1/2 -translate-y-1/2 text-w-sage/40 text-xs"></i>
                         <input id="blog-search" type="search" placeholder="Filtrar por palabra clave..." 
-                               class="bg-w-olive/10 border border-w-olive/60 text-w-light pl-9 pr-4 py-3 rounded-sm font-mono text-xs focus:outline-none focus:ring-0 focus:border-w-sage/60 w-full placeholder-w-sage/50 transition-all" />
+                        class="appearance-none bg-w-olive/10 border border-w-olive/60 text-w-light pl-9 pr-4 py-3 rounded-sm font-mono text-xs focus:outline-none focus:ring-0 focus:border-w-sage/60 w-full placeholder-w-sage/50 transition-colors duration-300" />
                     </div>
                     <button id="blog-search-btn" class="px-5 py-3 bg-w-olive text-w-light font-mono text-xs font-bold uppercase tracking-widest hover:bg-w-light hover:text-w-black transition rounded-sm border border-transparent">
                         BUSCAR
@@ -91,7 +95,7 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20" id="articles-grid">
 
-                <article class="article-card group bg-w-olive/20 border border-w-olive/40 hover:border-w-sage/50 transition-all duration-500 overflow-hidden flex flex-col h-full" data-title="Gadgets para ingenieros 2026" data-subtitle="Lo último en herramientas que realmente importan">
+                <article class="article-card relative group bg-w-olive/20 border border-w-olive/40 hover:border-w-sage/50 transition-all duration-500 overflow-hidden flex flex-col h-full" data-title="Gadgets para ingenieros 2026" data-subtitle="Lo último en herramientas que realmente importan">
                     <div class="p-6 flex flex-col flex-grow">
                         <span class="font-mono text-xs text-w-sage/40 uppercase tracking-widest mb-3 block">09.02.2026 :: ENTRY_001</span>
                         <h2 class="text-xl md:text-2xl font-bold text-w-light font-mono mb-3 leading-tight group-hover:text-white transition">
@@ -101,14 +105,14 @@
                             Lo último en herramientas que realmente importan — un resumen corto y potente de hardware y software.
                         </p>
                         <div class="mt-auto">
-                            <a href="blog/gadgets-para-ingenieros-2026.html" class="inline-flex items-center text-w-light font-mono text-xs font-bold uppercase tracking-[0.1em] group/link hover:text-w-olive transition-colors">
+                            <a href="blog/gadgets-para-ingenieros-2026.html" class="inline-flex items-center text-w-light font-mono text-xs font-bold uppercase tracking-[0.1em] group/link hover:text-w-olive transition-colors before:absolute before:inset-0 before:z-10">
                                 <span>LEER</span>
                                 <span class="ml-2 group-hover:translate-x-1 transition-transform duration-300">-></span>
                             </a>
                         </div>
                     </div>
                 </article>
-
+            
                 <article class="article-card group bg-w-olive/10 border border-w-olive/30 transition-all duration-500 overflow-hidden flex flex-col h-full opacity-80" data-title="Técnicas de estudio (reales) que salvaron mi carrera" data-subtitle="Técnicas prácticas y efectivas">
                     <div class="p-6 flex flex-col flex-grow">
                         <span class="font-mono text-xs text-w-olive uppercase tracking-widest mb-3 block animate-pulse">PRÓXIMAMENTE :: EN_PROCESO</span>
@@ -125,12 +129,12 @@
                         </div>
                     </div>
                 </article>
-
+            
                 <article class="opacity-70 border border-w-olive/20 p-8 flex flex-col justify-center items-center text-center h-full min-h-[250px] grayscale bg-w-olive/10">
                     <i class="fas fa-terminal text-2xl text-w-sage/50 mb-4"></i>
                     <h3 class="font-mono text-sm text-w-sage/80 uppercase tracking-widest">COMPILANDO...</h3>
                 </article>
-
+            
             </div>
         </div>
     </main>
