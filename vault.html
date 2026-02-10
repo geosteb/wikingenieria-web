@@ -103,12 +103,16 @@
                         <button data-filter="conversion" class="filter-btn px-6 py-4 text-w-sage hover:text-w-light font-mono text-xs font-bold uppercase tracking-widest rounded-sm border border-w-olive/20 bg-w-offblack hover:border-w-olive whitespace-nowrap transition-all">Conversiones</button>
                         
                         <div class="relative group">
-                            <button onclick="return false;" class="px-6 py-4 text-w-sage/30 font-mono text-xs font-bold uppercase tracking-widest rounded-sm border border-w-olive/10 bg-w-offblack/50 cursor-not-allowed whitespace-nowrap flex items-center gap-2">
+                            <button onclick="return false;" class="px-6 py-4 text-w-sage/20 font-mono text-xs font-bold uppercase tracking-widest rounded-sm border border-w-olive/10 bg-w-offblack/50 cursor-not-allowed whitespace-nowrap flex items-center gap-2">
                                 <i class="fas fa-lock text-[10px]"></i> Tablas
                             </button>
-                            <span class="absolute bottom-full left-1/2 -translate-x-1/2 mb-3 bg-w-olive text-[10px] text-w-light py-1 px-2 rounded-sm opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border border-w-light/20 whitespace-nowrap font-mono z-50 shadow-xl">
-                                SYSTEM_STATUS :: EN_DESARROLLO
-                            </span>
+                            
+                            <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block z-[100] pointer-events-none">
+                                <div class="bg-w-olive text-[10px] text-w-light py-1.5 px-3 rounded-sm border border-w-light/20 whitespace-nowrap font-mono shadow-2xl">
+                                    SYSTEM_STATUS :: EN_DESARROLLO
+                                    <div class="absolute top-full left-1/2 -translate-x-1/2 border-8 border-transparent border-t-w-olive"></div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
