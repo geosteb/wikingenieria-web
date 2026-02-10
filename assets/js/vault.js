@@ -131,11 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const end = start + ITEMS_PER_PAGE;
         const itemsToShow = currentData.slice(start, end);
 
-        // Detectar si es móvil (pantalla < 768px) para la lógica del botón VER
-        // En móvil la tarjeta es más ancha (1 col), en PC es más estrecha (3 cols).
         const isMobile = window.innerWidth < 768;
-        // Si es móvil, permitimos más caracteres (ej: 40) antes de cortar. 
-        // Si es PC, cortamos antes (ej: 22) porque la columna es estrecha.
         const charLimit = isMobile ? 40 : 22;
     
         if (itemsToShow.length === 0) {
@@ -151,17 +147,20 @@ document.addEventListener('DOMContentLoaded', () => {
     
         itemsToShow.forEach(item => {
             let borderColor = 'border-w-olive/40';
-            let badgeColor = 'text-w-olive';
+            // CAMBIO: Olive más brillante para CTE
+            let badgeColor = 'text-[#8a9a90] font-bold'; 
             let iconType = 'fa-cube';
             
             if(item.type === 'formula') { 
                 borderColor = 'border-blue-500/30'; 
-                badgeColor = 'text-blue-400'; 
+                // CAMBIO: Azul ligeramente menos brillante (opacity-80)
+                badgeColor = 'text-blue-400/80'; 
                 iconType = 'fa-square-root-variable'; 
             }
             if(item.type === 'conversion') { 
                 borderColor = 'border-purple-500/30'; 
-                badgeColor = 'text-purple-400'; 
+                // CAMBIO: Morado ligeramente menos brillante (opacity-80)
+                badgeColor = 'text-purple-400/80'; 
                 iconType = 'fa-exchange-alt'; 
             }
     
@@ -182,12 +181,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `;
     
-            // Lógica de truncado optimizada
             const isLongValue = item.value.length > charLimit;
             const showInfoBtn = item.desc.length > 80 || isLongValue;
     
+            // CAMBIO: Tamaño de tag subido a text-[10px] (antes era 9px)
             const tagsHTML = item.tags.slice(0, 4).map(tag => 
-                `<span class="text-[9px] bg-w-olive/10 text-w-sage/40 px-1.5 py-0.5 rounded-sm border border-w-olive/20 group-hover:text-w-sage/60 group-hover:border-w-olive/40 transition whitespace-nowrap">#${tag}</span>`
+                `<span class="text-[10px] bg-w-olive/10 text-w-sage/40 px-1.5 py-0.5 rounded-sm border border-w-olive/20 group-hover:text-w-sage/60 group-hover:border-w-olive/40 transition whitespace-nowrap">#${tag}</span>`
             ).join(' ');
     
             const card = document.createElement('div');
@@ -239,7 +238,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
         renderPagination();
     }
-
     // --- EVENT LISTENERS ---
     searchInput.addEventListener('input', filterData);
     

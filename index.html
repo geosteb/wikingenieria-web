@@ -118,54 +118,40 @@
 <body
     class="bg-w-black text-w-sage font-sans antialiased selection:bg-w-light selection:text-w-black relative flex flex-col min-h-screen">
 
-    <nav class="fixed w-full z-50 bg-w-black/95 backdrop-blur-md border-b border-w-olive transition-all duration-300"
-        id="navbar">
+    <nav class="fixed w-full z-50 bg-w-black/95 backdrop-blur-md border-b border-w-olive transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-
             <a href="#" class="flex items-center gap-3 group">
-                <img src="assets/img/core/wikingenieria-logo.png" alt="Logo"
-                    class="h-9 w-9 opacity-90 group-hover:opacity-100 transition">
+                <img src="assets/img/core/wikingenieria-logo.png" alt="Logo" class="h-9 w-9 opacity-90 group-hover:opacity-100 transition">
                 <span class="font-mono text-xl font-bold text-w-light tracking-tight">Wikingeniería</span>
                 <span class="text-w-olive animate-pulse font-bold text-xl font-mono -ml-1">_</span>
             </a>
-
+    
             <div class="hidden md:flex items-center space-x-8">
-                <a href="#productos"
-                    class="font-mono text-sm text-w-sage hover:text-w-light transition-colors uppercase tracking-widest">Recursos</a>
-                <a href="blog.html"
-                    class="font-mono text-sm text-w-sage hover:text-w-light transition-colors uppercase tracking-widest">Logs</a>
-                <a href="#contacto"
-                    class="font-mono text-sm text-w-sage hover:text-w-light transition-colors uppercase tracking-widest">Soporte
-                    Técnico</a>
-                    <div class="relative group">
-                        <a href="#" onclick="return false;" class="font-mono text-sm text-w-sage/30 cursor-not-allowed uppercase tracking-widest flex items-center gap-2">
-                            <i class="fas fa-lock text-[10px]"></i> Vault
-                        </a>
-                        <span class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-w-olive text-[10px] text-w-light py-1 px-2 rounded-sm opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border border-w-light/20 whitespace-nowrap font-mono">
-                            //EN_DESARROLLO
-                        </span>
-                    </div>    
+                <a href="#productos" class="font-mono text-sm text-w-sage hover:text-w-light transition-colors uppercase tracking-widest">Recursos</a>
+                <a href="blog.html" class="font-mono text-sm text-w-sage hover:text-w-light transition-colors uppercase tracking-widest">Logs</a>
+                <a href="#contacto" class="font-mono text-sm text-w-sage hover:text-w-light transition-colors uppercase tracking-widest">Soporte Técnico</a>
+                
+                <div class="relative group">
+                    <a href="#" onclick="return false;" class="font-mono text-sm text-w-sage/30 cursor-not-allowed uppercase tracking-widest flex items-center gap-2">
+                        <i class="fas fa-lock text-[10px]"></i> Vault
+                    </a>
+                    <span class="absolute -bottom-8 left-1/2 -translate-x-1/2 bg-w-olive text-[10px] text-w-light py-1 px-2 rounded-sm opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border border-w-light/20 whitespace-nowrap font-mono">
+                        //EN_DESARROLLO
+                    </span>
+                </div>    
             </div>
-
+    
             <button id="mobile-menu-btn" class="md:hidden text-w-sage hover:text-w-light focus:outline-none">
                 <i class="fas fa-bars text-2xl"></i>
             </button>
         </div>
-
+    
         <div id="mobile-menu" class="hidden md:hidden bg-w-black border-b border-w-olive absolute w-full left-0 top-20">
             <div class="px-6 pt-4 pb-8 space-y-4 flex flex-col text-center">
-                <a href="#productos"
-                    class="font-mono text-sm text-w-light py-3 border-b border-w-olive/30 hover:bg-w-olive/20 transition uppercase tracking-widest mobile-link">
-                    Recursos
-                </a>
-                <a href="blog.html"
-                    class="font-mono text-sm text-w-light py-3 border-b border-w-olive/30 hover:bg-w-olive/20 transition uppercase tracking-widest mobile-link">
-                    Logs
-                </a>
-                <a href="#contacto"
-                    class="font-mono text-sm text-w-light py-3 border-b border-w-olive/30 hover:bg-w-olive/20 transition uppercase tracking-widest mobile-link">
-                    Soporte Técnico
-                </a>
+                <a href="#productos" class="font-mono text-sm text-w-light py-3 border-b border-w-olive/30 hover:bg-w-olive/20 transition uppercase tracking-widest mobile-link">Recursos</a>
+                <a href="blog.html" class="font-mono text-sm text-w-light py-3 border-b border-w-olive/30 hover:bg-w-olive/20 transition uppercase tracking-widest mobile-link">Logs</a>
+                <a href="#contacto" class="font-mono text-sm text-w-light py-3 border-b border-w-olive/30 hover:bg-w-olive/20 transition uppercase tracking-widest mobile-link">Soporte Técnico</a>
+                <span class="font-mono text-sm text-w-sage/30 py-3 uppercase tracking-widest opacity-50 italic">Vault // Bloqueado</span>
             </div>
         </div>
     </nav>
