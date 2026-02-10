@@ -24,13 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const isVerified = randomItem.verified !== false;
             const statusText = isVerified ? 'VERIFICADO' : 'NO VERIFICADO';
-            // Rojo pastel para no verificado, Ámbar para verificado
             const statusColor = isVerified ? 'text-amber-500/40 group-hover:text-amber-500/80' : 'text-red-400/60 group-hover:text-red-400';
     
             tipContainer.innerHTML = `
                 <span class="text-amber-500 font-bold group-hover:text-amber-400 transition-colors duration-500 uppercase">¿Sabías qué?</span> 
                 <span class="transition-colors duration-500 text-w-light/90 group-hover:text-white">
-                    El dato <span class="text-white font-bold">"${randomItem.title}"</span> tiene un valor de <span class="text-white border-b border-amber-500/40">${randomItem.value}</span>.
+                    El dato <span class="text-white font-bold">"${randomItem.title}"</span> tiene un valor de <span class="text-white border-b border-amber-500/40">${randomItem.value} <span class="text-[10px] text-w-sage/60 font-light ml-1">${randomItem.unit}</span></span>.
                 </span>
                 <span class="${statusColor} text-[10px] block mt-3 transition-all duration-500 font-mono tracking-widest uppercase">
                     <i class="fas fa-database text-[8px] mr-1"></i> SOURCE_ENTRY: ${randomItem.id} | ${statusText}

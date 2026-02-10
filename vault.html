@@ -54,11 +54,13 @@
                 <span class="text-w-olive animate-pulse font-bold text-xl font-mono -ml-1">_</span>
             </a>
             
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="index.html#productos" class="font-mono text-sm text-w-sage hover:text-w-light transition-colors uppercase tracking-widest">Recursos</a>
-                <a href="blog.html" class="font-mono text-sm text-w-sage hover:text-w-light transition-colors uppercase tracking-widest">Logs</a>
-                <a href="vault.html" class="font-mono text-sm text-w-light uppercase tracking-widest border-b border-w-light">Vault</a>
-                <a href="index.html#contacto" class="font-mono text-sm text-w-sage hover:text-w-light transition-colors uppercase tracking-widest">Soporte Técnico</a>
+            <div class="hidden md:flex items-center space-x-8 h-full">
+                <a href="index.html#productos" class="font-mono text-sm text-w-sage hover:text-w-light transition-colors uppercase tracking-widest flex items-center h-full">Recursos</a>
+                <a href="blog.html" class="font-mono text-sm text-w-sage hover:text-w-light transition-colors uppercase tracking-widest flex items-center h-full">Logs</a>
+                
+                <a href="vault.html" class="font-mono text-sm text-w-light uppercase tracking-widest border-b border-w-light flex items-center h-full">Vault</a>
+                
+                <a href="index.html#contacto" class="font-mono text-sm text-w-sage hover:text-w-light transition-colors uppercase tracking-widest flex items-center h-full">Soporte Técnico</a>
             </div>
     
             <button id="mobile-menu-btn" class="md:hidden text-w-sage hover:text-w-light focus:outline-none p-2">
@@ -66,11 +68,15 @@
             </button>
         </div>
     
-        <div id="mobile-menu" class="hidden absolute top-20 left-0 w-full bg-w-black/95 backdrop-blur-xl border-b border-w-olive/30 p-6 flex flex-col gap-6 shadow-2xl md:hidden z-50">
-            <a href="index.html#productos" class="font-mono text-sm text-w-sage hover:text-w-light transition-colors uppercase tracking-widest block">Recursos</a>
-            <a href="blog.html" class="font-mono text-sm text-w-sage hover:text-w-light transition-colors uppercase tracking-widest block">Logs</a>
-            <a href="vault.html" class="font-mono text-sm text-w-light font-bold uppercase tracking-widest block border-l-2 border-w-light pl-4 bg-w-olive/10 py-2">Vault</a>
-            <a href="index.html#contacto" class="font-mono text-sm text-w-sage hover:text-w-light transition-colors uppercase tracking-widest block">Soporte Técnico</a>
+        <div id="mobile-menu" class="hidden absolute top-20 left-0 w-full bg-w-black border-b border-w-olive flex-col shadow-2xl md:hidden z-50">
+            <div class="px-6 pt-4 pb-8 space-y-4 flex flex-col">
+                <a href="index.html#productos" class="font-mono text-sm text-w-light py-3 border-b border-w-olive/30 hover:bg-w-olive/20 transition uppercase tracking-widest mobile-link text-center">Recursos</a>
+                <a href="blog.html" class="font-mono text-sm text-w-light py-3 border-b border-w-olive/30 hover:bg-w-olive/20 transition uppercase tracking-widest mobile-link text-center">Logs</a>
+                
+                <a href="vault.html" class="font-mono text-sm text-w-light py-3 border-b border-w-olive/30 bg-w-olive/10 transition uppercase tracking-widest mobile-link text-center font-bold">Vault</a>
+                
+                <a href="index.html#contacto" class="font-mono text-sm text-w-light py-3 border-b border-w-olive/30 hover:bg-w-olive/20 transition uppercase tracking-widest mobile-link text-center">Soporte Técnico</a>
+            </div>
         </div>
     </nav>
 
@@ -131,7 +137,7 @@
                                 
                                 <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block z-50 pointer-events-none w-max">
                                     <div class="bg-w-olive text-[10px] text-w-light py-1.5 px-3 rounded-sm border border-w-light/20 font-mono shadow-xl relative uppercase tracking-tighter">
-                                        STATUS: DEV__
+                                        //EN_DESARROLLO
                                         <div class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-w-olive"></div>
                                     </div>
                                 </div>
@@ -158,7 +164,7 @@
                 <i class="fas fa-database text-2xl text-w-sage/60 mb-3 group-hover:text-w-light transition-colors"></i>
                 <h3 class="font-mono text-lg text-w-light mb-2 font-bold uppercase tracking-wide">¿Echas en falta algún dato crítico?</h3>
                 <p class="text-sm text-w-sage/80 mb-6 font-light max-w-xl mx-auto">
-                    El Vault se construye con la inteligencia colectiva. Si no encuentras una constante o fórmula vital, repórtalo al sistema central.
+                    El Vault se construye entre todos. Si no encuentras una constante o fórmula importante, repórtalo al sistema central.
                 </p>
                 <a href="index.html#contacto" class="inline-flex items-center gap-2 px-8 py-3 bg-w-olive/20 border border-w-sage/40 text-w-light font-mono text-xs font-bold uppercase tracking-widest hover:bg-w-olive hover:border-w-light transition rounded-sm shadow-md">
                     <i class="fas fa-plus"></i> Solicitar Ingreso de Dato
