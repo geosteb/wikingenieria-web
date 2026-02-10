@@ -1,5 +1,5 @@
 /* * WIKINGENIERÍA VAULT DATABASE
- * v2.1 - Semantically Optimized Tags (ES/LATAM)
+ * v2.2 - Fixed Data Structure & Tags
  */
 
 const vaultData = [
@@ -449,26 +449,27 @@ const vaultData = [
         verified: true
     },
 
-    // --- DATOS NO VERIFICADOS (EJEMPLOS) ---
-    // NOTA: Usamos IDs 'CTE' o 'FORM' normales, pero verified: false cambia el estado.
+    // --- DATOS NO VERIFICADOS / EMPÍRICOS (EJEMPLOS FUNCIONALES) ---
     {
-        id: "CTE_042", // Sigue la numeración normal
+        id: "CTE_042",
         type: "constante",
         category: "Mecánica",
         title: "Fricción Caucho-Asfalto",
-        value: "0.7",
+        value: "0.7 - 0.9 (Seco)",
         unit: "µ",
-        verified: false // <--- ESTO es lo que manda visualmente
-        // ... resto de campos
+        desc: "Coeficiente muy variable. Baja drásticamente en mojado (0.3).",
+        tags: ["coches", "carretera", "seguridad", "neumáticos", "asfalto"],
+        verified: false
     },
     {
-        id: "CTE_043", // El siguiente dato, este sí es oficial
+        id: "CTE_043",
         type: "constante",
-        category: "Física",
-        title: "Velocidad de la luz",
-        value: "299.792.458",
-        unit: "m/s",
-        verified: true // <--- Borde verde y check doble
-        // ... resto de campos
+        category: "Construcción",
+        title: "Precio m² Reforma (España)",
+        value: "600 - 800 €/m²",
+        unit: "€",
+        desc: "Estimación muy variable para calidades medias en 2026. Depende de zona.",
+        tags: ["dinero", "obra", "civil", "presupuesto"],
+        verified: false
     }
 ];
