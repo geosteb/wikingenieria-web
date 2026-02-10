@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vault | Wikingeniería</title>
+    
+    <link rel="icon" type="image/x-icon" href="assets/img/core/wikingenieria-favicon.ico">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'w-black': '#020201',
+                        'w-olive': '#2a322e',
+                        'w-sage': '#b0bab3',
+                        'w-light': '#d3d3d3',
+                        'w-offblack': '#080a09',
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'mono': ['Space Grotesk', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        input[type="search"]::-webkit-search-cancel-button { -webkit-appearance: none; }
+        input[type="search"] { -webkit-tap-highlight-color: transparent; }
+    </style>
+</head>
+
+<body class="bg-w-black text-w-sage font-sans antialiased selection:bg-w-light selection:text-w-black flex flex-col min-h-screen">
+
+    <nav class="fixed w-full z-50 bg-w-black/90 backdrop-blur-md border-b border-w-olive transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition">
+                <img src="assets/img/core/wikingenieria-logo.png" alt="Wikingeniería Logo" class="h-9 w-9 opacity-90 transition">
+                <span class="font-mono text-xl font-bold text-w-light tracking-tight">Wikingeniería</span>
+                <span class="text-w-olive animate-pulse font-bold text-xl font-mono -ml-1">_</span>
+            </a>
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="index.html#productos" class="font-mono text-sm text-w-sage hover:text-w-light transition-colors uppercase tracking-widest">Recursos</a>
+                <a href="blog.html" class="font-mono text-sm text-w-sage hover:text-w-light transition-colors uppercase tracking-widest">Logs</a>
+                <a href="vault.html" class="font-mono text-sm text-w-light uppercase tracking-widest border-b border-w-light">Vault</a>
+            </div>
+            </div>
+    </nav>
+
+    <main class="flex-grow pt-32 pb-20 px-6">
+        <div class="max-w-7xl mx-auto">
+            
+            <div class="text-center mb-12">
+                <div class="inline-flex items-center gap-2 mb-4 px-3 py-1 bg-w-olive/10 border border-w-olive/30 rounded-full">
+                    <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+                    <span class="font-mono text-[10px] uppercase tracking-widest text-w-light">System Status: Online</span>
+                </div>
+                <h1 class="font-mono text-4xl md:text-5xl text-w-light mb-4 font-bold tracking-tight">
+                    Wikingeniería <span class="text-w-olive">Vault</span>
+                </h1>
+                <p class="text-sm md:text-base text-w-sage/60 max-w-2xl mx-auto font-light leading-relaxed">
+                    El repositorio central de constantes, fórmulas y datos verificados. <br>
+                    <span class="font-mono text-xs opacity-50">v1.0.2 :: ACCESS_GRANTED</span>
+                </p>
+            </div>
+
+            <div class="mb-12 sticky top-24 z-40 bg-w-black/95 p-4 border-y border-w-olive/20 backdrop-blur-xl">
+                <div class="flex flex-col md:flex-row gap-4 max-w-4xl mx-auto">
+                    <div class="relative flex-grow">
+                        <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-w-sage/40 text-xs"></i>
+                        <input id="vault-search" type="search" placeholder="Buscar constante, fórmula o unidad..." 
+                               class="w-full bg-w-offblack border border-w-olive/50 text-w-light pl-10 pr-4 py-3 rounded-sm font-mono text-xs focus:outline-none focus:border-w-light focus:bg-w-olive/10 transition-all placeholder-w-sage/40 appearance-none" />
+                    </div>
+                    
+                    <div class="flex gap-2 overflow-x-auto pb-1 md:pb-0 no-scrollbar">
+                        <button data-filter="all" class="filter-btn px-4 py-3 bg-w-olive text-white font-mono text-[10px] font-bold uppercase tracking-widest rounded-sm border border-transparent whitespace-nowrap transition-all">Todo</button>
+                        <button data-filter="constante" class="filter-btn px-4 py-3 text-w-sage/50 hover:text-w-light font-mono text-[10px] font-bold uppercase tracking-widest rounded-sm border border-transparent hover:border-w-olive/30 whitespace-nowrap transition-all">Constantes</button>
+                        <button data-filter="formula" class="filter-btn px-4 py-3 text-w-sage/50 hover:text-w-light font-mono text-[10px] font-bold uppercase tracking-widest rounded-sm border border-transparent hover:border-w-olive/30 whitespace-nowrap transition-all">Fórmulas</button>
+                        <button data-filter="conversion" class="filter-btn px-4 py-3 text-w-sage/50 hover:text-w-light font-mono text-[10px] font-bold uppercase tracking-widest rounded-sm border border-transparent hover:border-w-olive/30 whitespace-nowrap transition-all">Conversiones</button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="vault-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                </div>
+
+        </div>
+    </main>
+
+    <footer class="bg-w-offblack border-t border-w-olive/20 py-8 text-center">
+        <p class="font-mono text-[10px] text-w-sage/30 uppercase tracking-widest">
+            Datos verificados vía NIST & BIPM. Uso bajo responsabilidad del ingeniero.
+        </p>
+    </footer>
+
+    <script src="assets/data/vault_db.js"></script>
+    <script src="assets/js/vault.js"></script>
+</body>
+</html>
