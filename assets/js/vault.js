@@ -11,12 +11,13 @@ document.addEventListener('DOMContentLoaded', () => {
     function setDailyTip() {
         const tipContainer = document.getElementById('daily-tip-content');
         if(tipContainer && vaultData.length > 0) {
-            // Selecciona uno aleatorio cada vez que carga la página (podría ser por fecha si quisieras)
             const randomItem = vaultData[Math.floor(Math.random() * vaultData.length)];
             tipContainer.innerHTML = `
-                <span class="text-w-olive font-bold">Did you know?</span> 
-                El dato <span class="text-white">"${randomItem.title}"</span> tiene un valor de <span class="text-white border-b border-w-sage/30">${randomItem.value}</span>. 
-                <span class="opacity-70 text-xs block mt-1">> ${randomItem.desc.substring(0, 100)}...</span>
+                <span class="text-w-olive font-bold group-hover:text-w-light transition-colors duration-500">¿Sabías qué?</span> 
+                <span class="text-w-sage/80 group-hover:text-white transition-colors duration-500">
+                    El dato <span class="text-w-light font-bold">"${randomItem.title}"</span> tiene un valor de <span class="text-w-light border-b border-w-olive/50">${randomItem.value}</span>.
+                </span>
+                <span class="opacity-50 text-[10px] block mt-2 group-hover:opacity-80 transition-opacity duration-500">> ${randomItem.desc.substring(0, 120)}...</span>
             `;
         }
     }
