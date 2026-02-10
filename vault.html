@@ -89,35 +89,45 @@
             </div>
 
             <div class="mb-12 sticky top-24 z-40 bg-w-black/95 p-4 border-y border-w-olive/20 backdrop-blur-xl shadow-2xl">
-                <div class="flex flex-col md:flex-row gap-4 max-w-5xl mx-auto items-start md:items-center">
-                    <div class="relative flex-grow w-full">
-                        <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-w-sage/60 text-sm"></i>
+                <div class="flex flex-col md:flex-row gap-6 max-w-6xl mx-auto items-start md:items-center">
+                    
+                    <div class="relative flex-grow w-full md:w-auto md:flex-1 group">
+                        <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-w-sage/60 text-sm group-focus-within:text-w-olive transition-colors"></i>
                         <input id="vault-search" type="search" placeholder="Buscar constante, fórmula o unidad..." 
-                               class="w-full bg-w-offblack border border-w-olive/50 text-w-light pl-12 pr-4 py-4 rounded-sm font-mono text-sm focus:outline-none focus:border-w-light focus:bg-w-olive/10 transition-all placeholder-w-sage/40 appearance-none shadow-inner" />
+                               class="w-full bg-w-offblack border border-w-olive/50 text-w-light pl-12 pr-10 py-4 rounded-sm font-mono text-sm focus:outline-none focus:border-w-light focus:bg-w-olive/10 transition-all placeholder-w-sage/40 appearance-none shadow-inner" />
+                        
+                        <button id="clear-search" class="absolute right-3 top-1/2 -translate-y-1/2 text-w-sage/40 hover:text-w-light hidden p-2 transition-colors">
+                            <i class="fas fa-times"></i>
+                        </button>
                     </div>
                     
-                    <div class="w-full md:w-auto overflow-x-auto no-scrollbar pb-12 -mb-12">
-                        <div class="flex gap-3 items-center">
-                            <button data-filter="all" class="filter-btn px-6 py-4 bg-w-olive text-white font-mono text-xs font-bold uppercase tracking-widest rounded-sm border border-transparent whitespace-nowrap transition-all shadow-md">Todo</button>
-                            <button data-filter="constante" class="filter-btn px-6 py-4 text-w-sage hover:text-w-light font-mono text-xs font-bold uppercase tracking-widest rounded-sm border border-w-olive/20 bg-w-offblack hover:border-w-olive whitespace-nowrap transition-all">Constantes</button>
-                            <button data-filter="formula" class="filter-btn px-6 py-4 text-w-sage hover:text-w-light font-mono text-xs font-bold uppercase tracking-widest rounded-sm border border-w-olive/20 bg-w-offblack hover:border-w-olive whitespace-nowrap transition-all">Fórmulas</button>
-                            <button data-filter="conversion" class="filter-btn px-6 py-4 text-w-sage hover:text-w-light font-mono text-xs font-bold uppercase tracking-widest rounded-sm border border-w-olive/20 bg-w-offblack hover:border-w-olive whitespace-nowrap transition-all">Conversiones</button>
+                    <div class="w-full md:w-auto overflow-x-auto md:overflow-visible no-scrollbar pb-2 md:pb-0">
+                        <div class="flex md:flex-wrap gap-3 items-center min-w-max md:min-w-0">
+                            <button data-filter="all" class="filter-btn px-5 py-3 bg-w-olive text-white font-mono text-xs font-bold uppercase tracking-widest rounded-sm border border-transparent whitespace-nowrap transition-all shadow-md">Todo</button>
+                            <button data-filter="constante" class="filter-btn px-5 py-3 text-w-sage hover:text-w-light font-mono text-xs font-bold uppercase tracking-widest rounded-sm border border-w-olive/20 bg-w-offblack hover:border-w-olive whitespace-nowrap transition-all">Constantes</button>
+                            <button data-filter="formula" class="filter-btn px-5 py-3 text-w-sage hover:text-w-light font-mono text-xs font-bold uppercase tracking-widest rounded-sm border border-w-olive/20 bg-w-offblack hover:border-w-olive whitespace-nowrap transition-all">Fórmulas</button>
+                            <button data-filter="conversion" class="filter-btn px-5 py-3 text-w-sage hover:text-w-light font-mono text-xs font-bold uppercase tracking-widest rounded-sm border border-w-olive/20 bg-w-offblack hover:border-w-olive whitespace-nowrap transition-all">Conversiones</button>
                             
                             <div class="relative group">
-                                <button onclick="return false;" class="px-6 py-4 text-w-sage/30 font-mono text-xs font-bold uppercase tracking-widest rounded-sm border border-w-olive/10 bg-w-offblack/50 cursor-not-allowed whitespace-nowrap flex items-center gap-2">
+                                <button onclick="return false;" class="px-5 py-3 text-w-sage/30 font-mono text-xs font-bold uppercase tracking-widest rounded-sm border border-w-olive/10 bg-w-offblack/50 cursor-not-allowed whitespace-nowrap flex items-center gap-2">
                                     <i class="fas fa-lock text-[10px]"></i> Tablas
                                 </button>
                                 
-                                <div class="absolute top-full left-1/2 -translate-x-1/2 mt-2 hidden group-hover:block z-50 pointer-events-none">
-                                    <div class="bg-w-olive text-[10px] text-w-light py-2 px-3 rounded-sm border border-w-light/20 whitespace-nowrap font-mono shadow-2xl relative">
-                                        <div class="absolute bottom-full left-1/2 -translate-x-1/2 border-4 border-transparent border-b-w-olive"></div>
-                                        SYSTEM_STATUS :: EN_DESARROLLO
+                                <div class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 hidden group-hover:block z-50 pointer-events-none w-max">
+                                    <div class="bg-w-olive text-[10px] text-w-light py-1.5 px-3 rounded-sm border border-w-light/20 font-mono shadow-xl relative">
+                                        EN DESARROLLO
+                                        <div class="absolute top-full left-1/2 -translate-x-1/2 border-4 border-transparent border-t-w-olive"></div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+            </div>
+            
+            <div id="copy-toast" class="fixed bottom-10 left-1/2 -translate-x-1/2 bg-w-olive text-white px-6 py-3 rounded-sm shadow-2xl border border-w-light/20 flex items-center gap-3 transform translate-y-20 opacity-0 transition-all duration-300 z-[100] font-mono text-xs uppercase tracking-widest pointer-events-none">
+                <i class="fas fa-check-circle text-green-400"></i>
+                <span>Valor Copiado</span>
             </div>
 
             <section>
