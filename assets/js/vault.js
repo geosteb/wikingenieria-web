@@ -118,10 +118,10 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     
         itemsToShow.forEach(item => {
-            // --- LÓGICA DE COLORES POR TIPO ---
+            // --- ESTILOS ---
             let borderColor = 'border-w-olive/40';
             let badgeColor = 'text-w-olive';
-            let iconType = 'fa-cube'; // Default: Constante (Olive)
+            let iconType = 'fa-cube';
             
             if(item.type === 'formula') { 
                 borderColor = 'border-blue-500/30'; 
@@ -134,14 +134,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 iconType = 'fa-exchange-alt'; 
             }
     
-            // --- LÓGICA DE VERIFICACIÓN (TOOLTIP) ---
+            // --- VERIFICACIÓN ---
             const isVerified = item.verified !== false;
             const tooltipText = isVerified ? "DATO VERIFICADO" : "DATO NO VERIFICADO";
             const tooltipColor = isVerified ? "text-green-400" : "text-yellow-500";
             const iconClass = isVerified ? "fa-check-double" : "fa-exclamation-triangle";
             const bgClass = isVerified ? "bg-green-500/10" : "bg-yellow-500/10";
             
-            // Icono solo, el texto aparece en hover (Tooltip CSS)
             const verificationBadge = `
                 <div class="group/verified relative flex items-center justify-end">
                     <span class="flex items-center justify-center w-6 h-6 ${tooltipColor} ${bgClass} rounded-bl-sm opacity-80 group-hover:opacity-100 transition cursor-help">
@@ -153,45 +152,62 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `;
     
-            const showInfoBtn = item.desc.length > 80;
+            // --- LOGICA DE CORTE DE TEXTO (TRUNCATE) ---
+            // Si el valor es muy largo (>20 chars), forzamos el botón de ver más aunque la descripción sea corta
+            const isLongValue = item.value.length > 20;
+            const showInfoBtn = item.desc.length > 80 || isLongValue;
     
-            const tagsHTML = item.tags.map(tag => 
-                `<span class="text-[9px] bg-w-olive/10 text-w-sage/40 px-1.5 py-0.5 rounded-sm border border-w-olive/20 group-hover:text-w-sage/60 group-hover:border-w-olive/40 transition">#${tag}</span>`
+            const tagsHTML = item.tags.slice(0, 4).map(tag => // Limitamos a 4 tags visualmente para no romper
+                `<span class="text-[9px] bg-w-olive/10 text-w-sage/40 px-1.5 py-0.5 rounded-sm border border-w-olive/20 group-hover:text-w-sage/60 group-hover:border-w-olive/40 transition whitespace-nowrap">#${tag}</span>`
             ).join(' ');
     
             const card = document.createElement('div');
-            card.className = `bg-w-offblack border ${borderColor} p-8 rounded-sm shadow-xl relative overflow-hidden group hover:bg-w-olive/5 transition-all duration-300 flex flex-col h-full`;
+            // Usamos h-full y flex-col para forzar la altura igual en todas
+            card.className = `bg-w-offblack border ${borderColor} p-6 rounded-sm shadow-xl relative overflow-hidden group hover:bg-w-olive/5 transition-all duration-300 flex flex-col h-full min-h-[420px]`;
             
             card.innerHTML = `
                 <div class="absolute top-0 right-0 p-0 z-10">
                     ${verificationBadge}
                 </div>
-                <div class="flex items-center gap-3 mb-6 mt-1">
+
+                <div class="flex items-center gap-3 mb-4 mt-1">
                     <span class="font-mono text-xs ${badgeColor} uppercase tracking-[0.2em] border-r border-w-olive/30 pr-3 font-bold">${item.id}</span>
                     <span class="font-mono text-xs text-w-sage/60 uppercase tracking-widest flex items-center gap-2 truncate">
                         <i class="fas ${iconType} opacity-50"></i> ${item.category}
                     </span>
                 </div>
-                <div class="space-y-2 mb-4 flex-grow">
-                    <h3 class="font-mono text-base md:text-lg text-w-light font-bold uppercase tracking-wider group-hover:text-white transition leading-tight">${item.title}</h3>
-                    <div class="bg-w-black/60 p-5 border-l-4 ${isVerified ? borderColor.replace('border', 'border-l') : 'border-yellow-500/50'} relative group/code mt-3">
-                        <p class="font-mono text-xl md:text-2xl text-white tracking-tighter break-all font-medium">
-                            ${item.value}
-                        </p>
-                        <p class="font-mono text-xs text-w-sage/80 mt-2 font-bold opacity-80">${item.unit}</p>
-                    </div>
+
+                <div class="min-h-[3rem] flex items-start mb-2">
+                    <h3 class="font-mono text-base text-w-light font-bold uppercase tracking-wider group-hover:text-white transition leading-tight line-clamp-2">
+                        ${item.title}
+                    </h3>
                 </div>
-                <div class="mt-auto pt-4 border-t border-w-olive/20 flex flex-col gap-3">
-                    <div>
-                        <p class="font-mono text-xs text-w-sage/80 leading-relaxed line-clamp-2 mb-2">
+
+                <div class="bg-w-black/60 px-5 border-l-4 ${isVerified ? borderColor.replace('border', 'border-l') : 'border-yellow-500/50'} relative group/code mb-6 h-28 flex flex-col justify-center">
+                    <p class="font-mono text-xl md:text-2xl text-white tracking-tighter font-medium truncate w-full" title="${item.value}">
+                        ${item.value}
+                    </p>
+                    <p class="font-mono text-xs text-w-sage/80 mt-2 font-bold opacity-80 truncate">${item.unit}</p>
+                    
+                    ${isLongValue ? `<div class="absolute bottom-2 right-2"><button onclick="openModal('${item.id}')" class="text-[8px] uppercase tracking-widest text-w-sage/40 hover:text-white transition"><i class="fas fa-expand"></i> Ver</button></div>` : ''}
+                </div>
+
+                <div class="mt-auto border-t border-w-olive/20 pt-4 flex flex-col gap-3">
+                    
+                    <div class="min-h-[3rem]">
+                        <p class="font-mono text-xs text-w-sage/80 leading-relaxed line-clamp-2">
                             ${item.desc}
                         </p>
-                        <div class="flex flex-wrap gap-1 mb-2">
-                            ${tagsHTML}
-                        </div>
-                        ${showInfoBtn ? `<button onclick="openModal('${item.id}')" class="text-[10px] font-mono text-w-sage/60 hover:text-white border-b border-dotted border-w-sage/40 hover:border-white transition mt-1">LEER MÁS (+)</button>` : ''}
                     </div>
-                    <div class="flex justify-end">
+
+                    <div class="flex flex-wrap gap-1 h-6 overflow-hidden content-start">
+                        ${tagsHTML}
+                    </div>
+
+                    <div class="flex justify-between items-center mt-2">
+                        <div>
+                             ${showInfoBtn ? `<button onclick="openModal('${item.id}')" class="text-[10px] font-mono text-w-sage/60 hover:text-white border-b border-dotted border-w-sage/40 hover:border-white transition">INFO (+)</button>` : ''}
+                        </div>
                         <button onclick="copyToClipboard('${item.value}')" class="flex items-center gap-2 px-3 py-2 bg-w-olive/20 hover:bg-w-olive text-w-light text-[10px] font-mono font-bold uppercase tracking-widest transition rounded-sm active:scale-95 border border-transparent hover:border-w-light/20">
                             <i class="far fa-copy"></i> <span>COPY</span>
                         </button>
