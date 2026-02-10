@@ -21,12 +21,15 @@ document.addEventListener('DOMContentLoaded', () => {
         const tipContainer = document.getElementById('daily-tip-content');
         if(tipContainer && vaultData.length > 0) {
             const randomItem = vaultData[Math.floor(Math.random() * vaultData.length)];
+            
             tipContainer.innerHTML = `
-                <span class="text-amber-500/80 font-bold group-hover:text-amber-400 transition-colors duration-500">¿Sabías qué?</span> 
+                <span class="text-amber-500 font-bold group-hover:text-amber-400 transition-colors duration-500">¿SABÍAS QUÉ?</span> 
                 <span class="transition-colors duration-500">
-                    El dato <span class="text-w-light/70 group-hover:text-white font-bold transition-colors">"${randomItem.title}"</span> tiene un valor de <span class="text-w-light/70 group-hover:text-white border-b border-amber-500/30 transition-colors">${randomItem.value}</span>.
+                    El dato <span class="text-white font-bold">"${randomItem.title}"</span> tiene un valor de <span class="text-white border-b border-amber-500/40">${randomItem.value}</span>.
                 </span>
-                <span class="opacity-40 text-[10px] block mt-2 group-hover:opacity-100 transition-opacity duration-500 font-mono tracking-tighter">> SOURCE_ID: ${randomItem.id} | CAT: ${randomItem.category}</span>
+                <span class="text-amber-500/40 text-[10px] block mt-3 group-hover:text-amber-500/80 transition-all duration-500 font-mono tracking-widest uppercase">
+                    <i class="fas fa-database text-[8px] mr-1"></i> SOURCE_ENTRY: ${randomItem.id} | VERIFICATION: ${randomItem.verified ? 'AUTHORIZED' : 'PENDING'}
+                </span>
             `;
         }
     }

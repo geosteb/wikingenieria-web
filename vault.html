@@ -65,25 +65,28 @@
     <main class="flex-grow pt-32 pb-20 px-6">
         <div class="max-w-7xl mx-auto">
             
-            <div class="text-center mb-8">
-                <div class="inline-flex items-center gap-2 mb-4 px-3 py-1 bg-w-olive/10 border border-w-olive/30 rounded-full">
-                    <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
-                    <span class="font-mono text-[10px] uppercase tracking-widest text-w-light">System Status: Online</span>
-                </div>
-                <h1 class="font-mono text-4xl md:text-5xl text-w-light mb-4 font-bold tracking-tight">
+            <div class="text-center mb-16">
+                <h1 class="font-mono text-4xl md:text-5xl text-w-light mb-6 font-bold tracking-tight uppercase">
                     Wikingeniería <span class="text-w-olive">Vault</span>
                 </h1>
-                <p class="text-sm md:text-base text-w-sage/60 max-w-2xl mx-auto font-light leading-relaxed">
-                    El repositorio central de constantes, fórmulas y datos verificados definitivo para el flujo de trabajo del ingeniero.
-                </p>
+                <div class="space-y-3">
+                    <p class="text-sm md:text-base text-w-sage/60 max-w-2xl mx-auto font-light leading-relaxed px-4">
+                        El repositorio central de todo lo que necesita un ingeniero durante su vida.
+                    </p>
+                    <p class="text-[10px] md:text-xs text-w-light/80 font-mono font-bold tracking-[0.3em] uppercase opacity-90 italic">
+                        El nuevo estándar para el flujo de trabajo del ingeniero.
+                    </p>
+                </div>
             </div>
 
-            <div class="max-w-4xl mx-auto mb-12 bg-w-olive/10 border-l-4 border-amber-500/50 p-6 rounded-r-sm flex items-start gap-5 group cursor-default hover:bg-w-olive/20 hover:border-amber-500 transition-all duration-500 shadow-lg shadow-amber-500/5">
-                <i class="fas fa-terminal text-amber-500/60 mt-1 group-hover:text-amber-500 transition-colors duration-500 text-lg"></i>
+            <div class="max-w-4xl mx-auto mb-12 bg-w-olive/10 border-l-4 border-amber-500/60 p-6 rounded-r-sm flex items-start gap-5 group cursor-default hover:bg-w-olive/20 hover:border-amber-500 transition-all duration-500 shadow-lg shadow-amber-500/5">
+                <i class="fas fa-terminal text-amber-500/80 mt-1 group-hover:text-amber-500 transition-colors duration-500 text-lg"></i>
                 <div class="flex-grow">
-                    <span class="block font-mono text-[10px] text-amber-500/70 uppercase tracking-widest mb-2 group-hover:text-amber-400 transition-colors duration-500">System_Message :: Vault_Curiosity</span>
-                    <p id="daily-tip-content" class="font-mono text-sm leading-relaxed text-w-sage/60 group-hover:text-w-light transition-colors duration-500">
-                        Cargando insight del sistema...
+                    <span class="block font-mono text-[10px] text-amber-500 uppercase tracking-[0.2em] mb-2 group-hover:text-amber-400 transition-colors duration-500">
+                        System_Message :: Vault_Curiosity
+                    </span>
+                    <p id="daily-tip-content" class="font-mono text-sm leading-relaxed text-w-light/80 group-hover:text-white transition-colors duration-500">
+                        Cargando entrada de la base de datos...
                     </p>
                 </div>
             </div>
