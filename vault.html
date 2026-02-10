@@ -32,16 +32,15 @@
     <style>
         input[type="search"]::-webkit-search-cancel-button { -webkit-appearance: none; }
         input[type="search"] { -webkit-tap-highlight-color: transparent; }
-        /* Ocultar scrollbar en filtros pero permitir scroll */
         .no-scrollbar::-webkit-scrollbar { display: none; }
         .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
         .line-clamp-2 {
-    display: -webkit-box;
-    -webkit-line-clamp: 2;
-    line-clamp: 2; /* Añade esta línea estándar */
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-}
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
     </style>
 </head>
 
@@ -60,7 +59,7 @@
                 <a href="vault.html" class="font-mono text-sm text-w-light uppercase tracking-widest border-b border-w-light">Vault</a>
                 <a href="index.html#contacto" class="font-mono text-sm text-w-sage hover:text-w-light transition-colors uppercase tracking-widest">Soporte Técnico</a>
             </div>
-            </div>
+        </div>
     </nav>
 
     <main class="flex-grow pt-32 pb-20 px-6">
@@ -102,6 +101,15 @@
                         <button data-filter="constante" class="filter-btn px-6 py-4 text-w-sage hover:text-w-light font-mono text-xs font-bold uppercase tracking-widest rounded-sm border border-w-olive/20 bg-w-offblack hover:border-w-olive whitespace-nowrap transition-all">Constantes</button>
                         <button data-filter="formula" class="filter-btn px-6 py-4 text-w-sage hover:text-w-light font-mono text-xs font-bold uppercase tracking-widest rounded-sm border border-w-olive/20 bg-w-offblack hover:border-w-olive whitespace-nowrap transition-all">Fórmulas</button>
                         <button data-filter="conversion" class="filter-btn px-6 py-4 text-w-sage hover:text-w-light font-mono text-xs font-bold uppercase tracking-widest rounded-sm border border-w-olive/20 bg-w-offblack hover:border-w-olive whitespace-nowrap transition-all">Conversiones</button>
+                        
+                        <div class="relative group">
+                            <button onclick="return false;" class="px-6 py-4 text-w-sage/30 font-mono text-xs font-bold uppercase tracking-widest rounded-sm border border-w-olive/10 bg-w-offblack/50 cursor-not-allowed whitespace-nowrap flex items-center gap-2">
+                                <i class="fas fa-lock text-[10px]"></i> Tablas
+                            </button>
+                            <span class="absolute -bottom-10 left-1/2 -translate-x-1/2 bg-w-olive text-[10px] text-w-light py-1 px-2 rounded-sm opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border border-w-light/20 whitespace-nowrap font-mono z-50">
+                                SYSTEM_STATUS :: EN_DESARROLLO
+                            </span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -114,7 +122,6 @@
                     </div>
             </section>
             
-
             <div class="mt-20 border border-dashed border-w-olive/30 rounded-sm p-8 text-center bg-w-olive/5 hover:bg-w-olive/10 transition duration-500">
                 <i class="fas fa-database text-2xl text-w-sage/40 mb-3"></i>
                 <h3 class="font-mono text-lg text-w-light mb-2">¿Echas en falta algún dato crítico?</h3>
@@ -185,9 +192,11 @@
             </div>
         </div>
     </div>
+    
     <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-8 right-8 bg-w-olive text-w-light w-10 h-10 flex items-center justify-center rounded-sm opacity-0 pointer-events-none transition-all duration-300 hover:bg-w-light hover:text-w-black z-50 border border-w-light/10">
         <i class="fas fa-arrow-up"></i>
     </button>
+    
     <script src="assets/data/vault_db.js"></script>
     <script src="assets/js/vault.js"></script>
     

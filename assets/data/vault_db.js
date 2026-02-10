@@ -449,38 +449,26 @@ const vaultData = [
         verified: true
     },
 
-    // --- DATOS NO VERIFICADOS / EMPÍRICOS (EJEMPLOS) ---
+    // --- DATOS NO VERIFICADOS (EJEMPLOS) ---
+    // NOTA: Usamos IDs 'CTE' o 'FORM' normales, pero verified: false cambia el estado.
     {
-        id: "EMP_001",
-        type: "constante",
-        category: "Construcción",
-        title: "Precio m² Reforma (España)",
-        value: "600 - 800 €/m²",
-        unit: "€",
-        desc: "Estimación muy variable para calidades medias en 2026. Depende de zona.",
-        tags: ["dinero", "obra", "civil", "presupuesto"],
-        verified: false
-    },
-    {
-        id: "EMP_002",
-        type: "formula",
-        category: "Hormigón",
-        title: "Regla 28 Días (Curado)",
-        value: "~99% Resistencia",
-        unit: "%",
-        desc: "El hormigón alcanza su resistencia de diseño a los 28 días. A los 7 días tiene el 70%. Regla empírica.",
-        tags: ["obra", "cemento", "tiempo", "concreto", "fraguado"],
-        verified: false
-    },
-    {
-        id: "EMP_003",
+        id: "CTE_042", // Sigue la numeración normal
         type: "constante",
         category: "Mecánica",
         title: "Fricción Caucho-Asfalto",
-        value: "0.7 - 0.9 (Seco)",
+        value: "0.7",
         unit: "µ",
-        desc: "Coeficiente muy variable. Baja drásticamente en mojado (0.3).",
-        tags: ["coches", "carretera", "seguridad", "neumáticos", "asfalto"],
-        verified: false
+        verified: false // <--- ESTO es lo que manda visualmente
+        // ... resto de campos
+    },
+    {
+        id: "CTE_043", // El siguiente dato, este sí es oficial
+        type: "constante",
+        category: "Física",
+        title: "Velocidad de la luz",
+        value: "299.792.458",
+        unit: "m/s",
+        verified: true // <--- Borde verde y check doble
+        // ... resto de campos
     }
 ];

@@ -32,47 +32,39 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // --- 2. LÓGICA DE BÚSQUEDA AVANZADA (PONDERADA) ---
     function filterData() {
-        // Normalizar entrada (quitar tildes y minusculas)
         const rawQuery = searchInput.value.trim();
         const query = rawQuery.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
         
-        // Si no hay búsqueda, solo filtramos por tipo (Botones)
         if (query === "") {
             currentData = vaultData.filter(item => currentFilter === 'all' || item.type === currentFilter);
         } else {
-            // Algoritmo de Búsqueda Ponderada
             currentData = vaultData
                 .map(item => {
                     let score = 0;
-                    // Normalizar campos del item
                     const title = item.title.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
                     const cat = item.category.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
                     const desc = item.desc.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
                     const val = item.value.toLowerCase();
                     const unit = item.unit.toLowerCase();
-                    const type = item.type.toLowerCase(); // Para encontrar "formula"
+                    const type = item.type.toLowerCase(); 
                     
-                    // SISTEMA DE PUNTUACIÓN
-                    if (title.includes(query)) score += 100;       // Título: Prioridad Máxima
-                    if (title.startsWith(query)) score += 50;      // Empieza por...: Prioridad Alta
-                    if (cat.includes(query)) score += 40;          // Asignatura: Prioridad Media-Alta
-                    
-                    // Tags (Array)
+                    if (title.includes(query)) score += 100;
+                    if (title.startsWith(query)) score += 50;
+                    if (cat.includes(query)) score += 40;
                     if (item.tags.some(t => t.toLowerCase().includes(query))) score += 30;
+                    if (type.includes(query)) score += 20;
+                    if (val.includes(query)) score += 20;
+                    if (unit.includes(query)) score += 20;
+                    if (desc.includes(query)) score += 10;
 
-                    if (type.includes(query)) score += 20;         // Buscar "formula" o "constante" textualmente
-                    if (val.includes(query)) score += 20;          // Buscar por valor numérico
-                    if (unit.includes(query)) score += 20;         // Buscar por unidades (m/s)
-                    if (desc.includes(query)) score += 10;         // Descripción: Prioridad Baja
-
-                    return { ...item, score }; // Devolvemos el item con su puntuación
+                    return { ...item, score }; 
                 })
-                .filter(item => item.score > 0) // Eliminamos los que no coinciden nada
-                .filter(item => currentFilter === 'all' || item.type === currentFilter) // Aplicamos filtro de botones también
-                .sort((a, b) => b.score - a.score); // Ordenar: Mayor puntuación primero
+                .filter(item => item.score > 0) 
+                .filter(item => currentFilter === 'all' || item.type === currentFilter) 
+                .sort((a, b) => b.score - a.score);
         }
 
-        currentPage = 1; // Resetear paginación al buscar
+        currentPage = 1; 
         renderCards();
     }
 
@@ -126,21 +118,43 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     
         itemsToShow.forEach(item => {
+            // --- LÓGICA DE COLORES POR TIPO ---
             let borderColor = 'border-w-olive/40';
             let badgeColor = 'text-w-olive';
-            let iconType = 'fa-cube';
+            let iconType = 'fa-cube'; // Default: Constante (Olive)
             
-            if(item.type === 'formula') { borderColor = 'border-blue-500/30'; badgeColor = 'text-blue-400'; iconType = 'fa-square-root-variable'; }
-            if(item.type === 'conversion') { borderColor = 'border-purple-500/30'; badgeColor = 'text-purple-400'; iconType = 'fa-exchange-alt'; }
+            if(item.type === 'formula') { 
+                borderColor = 'border-blue-500/30'; 
+                badgeColor = 'text-blue-400'; 
+                iconType = 'fa-square-root-variable'; 
+            }
+            if(item.type === 'conversion') { 
+                borderColor = 'border-purple-500/30'; 
+                badgeColor = 'text-purple-400'; 
+                iconType = 'fa-exchange-alt'; 
+            }
     
+            // --- LÓGICA DE VERIFICACIÓN (TOOLTIP) ---
             const isVerified = item.verified !== false;
-            const verificationBadge = isVerified 
-                ? `<span class="flex items-center gap-1 text-[10px] font-mono text-green-400 uppercase tracking-tighter bg-green-500/10 px-2 py-1 rounded-bl-sm opacity-80 group-hover:opacity-100 transition"><i class="fas fa-check-double text-[9px]"></i></span>`
-                : `<span class="flex items-center gap-1 text-[10px] font-mono text-yellow-500 uppercase tracking-tighter bg-yellow-500/10 px-2 py-1 rounded-bl-sm opacity-100"><i class="fas fa-exclamation-triangle text-[9px]"></i></span>`;
+            const tooltipText = isVerified ? "DATO VERIFICADO" : "DATO NO VERIFICADO";
+            const tooltipColor = isVerified ? "text-green-400" : "text-yellow-500";
+            const iconClass = isVerified ? "fa-check-double" : "fa-exclamation-triangle";
+            const bgClass = isVerified ? "bg-green-500/10" : "bg-yellow-500/10";
+            
+            // Icono solo, el texto aparece en hover (Tooltip CSS)
+            const verificationBadge = `
+                <div class="group/verified relative flex items-center justify-end">
+                    <span class="flex items-center justify-center w-6 h-6 ${tooltipColor} ${bgClass} rounded-bl-sm opacity-80 group-hover:opacity-100 transition cursor-help">
+                        <i class="fas ${iconClass} text-[10px]"></i>
+                    </span>
+                    <span class="absolute right-8 top-0 bg-w-offblack border border-w-olive/50 text-[9px] font-mono ${tooltipColor} px-2 py-1 rounded-sm opacity-0 group-hover/verified:opacity-100 transition-opacity pointer-events-none whitespace-nowrap z-50 uppercase tracking-widest shadow-lg">
+                        ${tooltipText}
+                    </span>
+                </div>
+            `;
     
             const showInfoBtn = item.desc.length > 80;
     
-            // --- NUEVO: RENDERIZADO DE TAGS ---
             const tagsHTML = item.tags.map(tag => 
                 `<span class="text-[9px] bg-w-olive/10 text-w-sage/40 px-1.5 py-0.5 rounded-sm border border-w-olive/20 group-hover:text-w-sage/60 group-hover:border-w-olive/40 transition">#${tag}</span>`
             ).join(' ');
@@ -201,17 +215,15 @@ document.addEventListener('DOMContentLoaded', () => {
             btn.classList.remove('text-w-sage', 'bg-w-offblack');
             btn.classList.add('bg-w-olive', 'text-white', 'shadow-md');
             currentFilter = btn.dataset.filter;
-            filterData(); // Volver a filtrar con el nuevo tipo
+            filterData(); 
         });
     });
 
-    // Botón Volver Arriba
     window.addEventListener('scroll', () => {
         if (window.scrollY > 300) { backToTopBtn.classList.remove('opacity-0', 'pointer-events-none'); } 
         else { backToTopBtn.classList.add('opacity-0', 'pointer-events-none'); }
     });
 
-    // Modal & Copy
     window.openModal = function(id) {
         const item = vaultData.find(i => i.id === id);
         if(!item) return;
@@ -233,7 +245,6 @@ document.addEventListener('DOMContentLoaded', () => {
     };
     modal.addEventListener('click', (e) => { if(e.target === modal) window.closeModal(); });
 
-    // Inicialización
     renderCards();
 });
 
