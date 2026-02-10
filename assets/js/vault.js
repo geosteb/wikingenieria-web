@@ -113,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const start = (currentPage - 1) * ITEMS_PER_PAGE;
         const end = start + ITEMS_PER_PAGE;
         const itemsToShow = currentData.slice(start, end);
-
+    
         if (itemsToShow.length === 0) {
             container.innerHTML = `
                 <div class="col-span-full text-center py-20 opacity-50">
@@ -124,23 +124,27 @@ document.addEventListener('DOMContentLoaded', () => {
             paginationContainer.innerHTML = '';
             return;
         }
-
+    
         itemsToShow.forEach(item => {
-            // Estilos dinámicos
             let borderColor = 'border-w-olive/40';
             let badgeColor = 'text-w-olive';
             let iconType = 'fa-cube';
             
             if(item.type === 'formula') { borderColor = 'border-blue-500/30'; badgeColor = 'text-blue-400'; iconType = 'fa-square-root-variable'; }
             if(item.type === 'conversion') { borderColor = 'border-purple-500/30'; badgeColor = 'text-purple-400'; iconType = 'fa-exchange-alt'; }
-
+    
             const isVerified = item.verified !== false;
             const verificationBadge = isVerified 
                 ? `<span class="flex items-center gap-1 text-[10px] font-mono text-green-400 uppercase tracking-tighter bg-green-500/10 px-2 py-1 rounded-bl-sm opacity-80 group-hover:opacity-100 transition"><i class="fas fa-check-double text-[9px]"></i></span>`
                 : `<span class="flex items-center gap-1 text-[10px] font-mono text-yellow-500 uppercase tracking-tighter bg-yellow-500/10 px-2 py-1 rounded-bl-sm opacity-100"><i class="fas fa-exclamation-triangle text-[9px]"></i></span>`;
-
+    
             const showInfoBtn = item.desc.length > 80;
-            
+    
+            // --- NUEVO: RENDERIZADO DE TAGS ---
+            const tagsHTML = item.tags.map(tag => 
+                `<span class="text-[9px] bg-w-olive/10 text-w-sage/40 px-1.5 py-0.5 rounded-sm border border-w-olive/20 group-hover:text-w-sage/60 group-hover:border-w-olive/40 transition">#${tag}</span>`
+            ).join(' ');
+    
             const card = document.createElement('div');
             card.className = `bg-w-offblack border ${borderColor} p-8 rounded-sm shadow-xl relative overflow-hidden group hover:bg-w-olive/5 transition-all duration-300 flex flex-col h-full`;
             
@@ -165,9 +169,12 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
                 <div class="mt-auto pt-4 border-t border-w-olive/20 flex flex-col gap-3">
                     <div>
-                        <p class="font-mono text-xs text-w-sage/80 leading-relaxed line-clamp-2">
+                        <p class="font-mono text-xs text-w-sage/80 leading-relaxed line-clamp-2 mb-2">
                             ${item.desc}
                         </p>
+                        <div class="flex flex-wrap gap-1 mb-2">
+                            ${tagsHTML}
+                        </div>
                         ${showInfoBtn ? `<button onclick="openModal('${item.id}')" class="text-[10px] font-mono text-w-sage/60 hover:text-white border-b border-dotted border-w-sage/40 hover:border-white transition mt-1">LEER MÁS (+)</button>` : ''}
                     </div>
                     <div class="flex justify-end">

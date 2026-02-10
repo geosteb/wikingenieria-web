@@ -1,5 +1,5 @@
 /* * WIKINGENIERÍA VAULT DATABASE
- * v2.0 - Expanded Dataset (Stress Test)
+ * v2.1 - Semantically Optimized Tags (ES/LATAM)
  */
 
 const vaultData = [
@@ -12,7 +12,7 @@ const vaultData = [
         value: "299 792 458",
         unit: "m/s",
         desc: "Exacta por definición. Límite de velocidad del universo.",
-        tags: ["c", "luz", "einstein", "relatividad"],
+        tags: ["c", "relatividad", "einstein", "vacío", "física"],
         verified: true
     },
     {
@@ -23,7 +23,7 @@ const vaultData = [
         value: "9.80665",
         unit: "m/s²",
         desc: "Aceleración media en la superficie terrestre. Usar 9.81 para cálculos rápidos.",
-        tags: ["g", "peso", "newton", "tierra"],
+        tags: ["g", "peso", "caída libre", "newton", "tierra"],
         verified: true
     },
     {
@@ -34,7 +34,7 @@ const vaultData = [
         value: "8.314462618",
         unit: "J / (mol · K)",
         desc: "Fundamental para ecuaciones de estado (PV=nRT).",
-        tags: ["R", "gases", "termo", "quimica"],
+        tags: ["R", "gases", "termo", "química", "pv=nrt"],
         verified: true
     },
     {
@@ -45,7 +45,7 @@ const vaultData = [
         value: "3.1415926535...",
         unit: "Adimensional",
         desc: "Relación entre la circunferencia y su diámetro.",
-        tags: ["pi", "geometria", "circulo"],
+        tags: ["pi", "geometría", "círculo", "trigonometría", "radianes"],
         verified: true
     },
     {
@@ -56,7 +56,7 @@ const vaultData = [
         value: "6.62607015 × 10⁻³⁴",
         unit: "J · s",
         desc: "Cuantización de la energía. Base de la mecánica cuántica.",
-        tags: ["h", "cuantica", "fotones"],
+        tags: ["h", "cuántica", "fotones", "energía", "física"],
         verified: true
     },
     {
@@ -67,7 +67,7 @@ const vaultData = [
         value: "8.8541878128 × 10⁻¹²",
         unit: "F/m",
         desc: "Capacidad del vacío para permitir campos eléctricos.",
-        tags: ["epsilon", "campo electrico", "condensador"],
+        tags: ["epsilon", "campo eléctrico", "condensador", "capacitancia"],
         verified: true
     },
     {
@@ -78,7 +78,7 @@ const vaultData = [
         value: "6.02214076 × 10²³",
         unit: "mol⁻¹",
         desc: "Cantidad de partículas constituyentes en un mol.",
-        tags: ["mol", "atomos", "quimica"],
+        tags: ["mol", "átomos", "química", "estequiometría"],
         verified: true
     },
     {
@@ -89,7 +89,7 @@ const vaultData = [
         value: "1.380649 × 10⁻²³",
         unit: "J/K",
         desc: "Relaciona temperatura y energía a nivel de partícula.",
-        tags: ["k", "estadistica", "entropia"],
+        tags: ["k", "estadística", "entropía", "termo"],
         verified: true
     },
     {
@@ -100,7 +100,7 @@ const vaultData = [
         value: "1.602176634 × 10⁻¹⁹",
         unit: "C",
         desc: "Carga eléctrica de un protón (o electrón, signo opuesto).",
-        tags: ["carga", "electron", "electricidad"],
+        tags: ["carga", "electrón", "protón", "electricidad"],
         verified: true
     },
     {
@@ -111,7 +111,7 @@ const vaultData = [
         value: "1.98847 × 10³⁰",
         unit: "kg",
         desc: "Unidad estándar para medir masas estelares.",
-        tags: ["sol", "astro", "masa"],
+        tags: ["sol", "astronomía", "masa", "espacio"],
         verified: true
     },
     {
@@ -122,7 +122,7 @@ const vaultData = [
         value: "5.670374419 × 10⁻⁸",
         unit: "W / (m² · K⁴)",
         desc: "Potencia radiada por un cuerpo negro por unidad de área.",
-        tags: ["radiacion", "calor", "cuerpo negro"],
+        tags: ["radiación", "calor", "cuerpo negro", "transferencia"],
         verified: true
     },
     {
@@ -133,7 +133,7 @@ const vaultData = [
         value: "999.97 (aprox 1000)",
         unit: "kg/m³",
         desc: "Densidad máxima del agua pura a presión atmosférica.",
-        tags: ["agua", "densidad", "fluidos"],
+        tags: ["agua", "densidad", "hidrostática", "fluidos"],
         verified: true
     },
     {
@@ -144,7 +144,7 @@ const vaultData = [
         value: "343",
         unit: "m/s",
         desc: "Varía con la temperatura. Aprox 1235 km/h.",
-        tags: ["sonido", "ondas", "aire"],
+        tags: ["sonido", "ondas", "aire", "mach", "acústica"],
         verified: true
     },
     {
@@ -155,7 +155,7 @@ const vaultData = [
         value: "200 - 210",
         unit: "GPa",
         desc: "Rigidez típica de aceros estructurales al carbono.",
-        tags: ["acero", "resistencia", "young"],
+        tags: ["acero", "resistencia", "young", "elasticidad", "resis"],
         verified: true
     },
     {
@@ -166,7 +166,7 @@ const vaultData = [
         value: "2.718281828...",
         unit: "Adimensional",
         desc: "Base de los logaritmos naturales. Crecimiento exponencial.",
-        tags: ["e", "logaritmo", "calculo"],
+        tags: ["e", "logaritmo", "cálculo", "exponencial"],
         verified: true
     },
 
@@ -179,7 +179,7 @@ const vaultData = [
         value: "F = m · a",
         unit: "Newtons (N)",
         desc: "La fuerza neta es proporcional a la aceleración.",
-        tags: ["dinamica", "fuerza", "fundamental"],
+        tags: ["dinámica", "fuerza", "leyes", "física"],
         verified: true
     },
     {
@@ -190,7 +190,7 @@ const vaultData = [
         value: "P + ½ρv² + ρgh = cte",
         unit: "Energía/Volumen",
         desc: "Conservación de energía en flujo de fluidos incompresibles.",
-        tags: ["hidraulica", "presion", "tuberias"],
+        tags: ["hidráulica", "presión", "tuberías", "caudal"],
         verified: true
     },
     {
@@ -201,7 +201,7 @@ const vaultData = [
         value: "V = I · R",
         unit: "Voltios (V)",
         desc: "Relación fundamental V-I-R en circuitos óhmicos.",
-        tags: ["voltaje", "resistencia", "circuitos"],
+        tags: ["voltaje", "resistencia", "corriente", "circuitos"],
         verified: true
     },
     {
@@ -212,7 +212,7 @@ const vaultData = [
         value: "σ = F / A",
         unit: "Pascales (Pa)",
         desc: "Fuerza aplicada dividida por el área de la sección transversal.",
-        tags: ["tension", "materiales", "esfuerzo"],
+        tags: ["tensión", "materiales", "esfuerzo", "tracción", "resis"],
         verified: true
     },
     {
@@ -223,7 +223,7 @@ const vaultData = [
         value: "P · V = n · R · T",
         unit: "J (Energía)",
         desc: "Ecuación de estado para gases hipotéticos.",
-        tags: ["gases", "presion", "temperatura"],
+        tags: ["gases", "presión", "temperatura", "termo"],
         verified: true
     },
     {
@@ -234,7 +234,7 @@ const vaultData = [
         value: "P = V · I",
         unit: "Vatios (W)",
         desc: "Potencia disipada o generada en un componente DC.",
-        tags: ["potencia", "energia", "joule"],
+        tags: ["potencia", "energía", "joule", "consumo", "watios"],
         verified: true
     },
     {
@@ -245,7 +245,7 @@ const vaultData = [
         value: "Ec = ½ · m · v²",
         unit: "Julios (J)",
         desc: "Energía asociada al movimiento de un cuerpo.",
-        tags: ["energia", "velocidad", "trabajo"],
+        tags: ["energía", "velocidad", "trabajo", "cinética"],
         verified: true
     },
     {
@@ -256,7 +256,7 @@ const vaultData = [
         value: "Ep = m · g · h",
         unit: "Julios (J)",
         desc: "Energía por posición en campo gravitatorio cte.",
-        tags: ["energia", "altura", "trabajo"],
+        tags: ["energía", "altura", "trabajo", "gravitatoria"],
         verified: true
     },
     {
@@ -267,7 +267,7 @@ const vaultData = [
         value: "Re = (ρ · v · D) / μ",
         unit: "Adimensional",
         desc: "Predice si el flujo es laminar (<2300) o turbulento (>4000).",
-        tags: ["reynolds", "turbulencia", "adimensional"],
+        tags: ["reynolds", "turbulencia", "laminar", "viscosidad"],
         verified: true
     },
     {
@@ -278,7 +278,7 @@ const vaultData = [
         value: "x̄ = (Σ xi) / n",
         unit: "Variable",
         desc: "Promedio simple de un conjunto de datos.",
-        tags: ["promedio", "media", "datos"],
+        tags: ["promedio", "media", "datos", "estadística"],
         verified: true
     },
     {
@@ -289,7 +289,7 @@ const vaultData = [
         value: "A = π · r²",
         unit: "m²",
         desc: "Superficie contenida en una circunferencia.",
-        tags: ["area", "circulo", "radio"],
+        tags: ["área", "círculo", "radio", "superficie"],
         verified: true
     },
     {
@@ -300,7 +300,7 @@ const vaultData = [
         value: "q = -k · ∇T",
         unit: "W/m²",
         desc: "Flujo de calor es proporcional al gradiente de temperatura.",
-        tags: ["calor", "conduccion", "termo"],
+        tags: ["calor", "conducción", "termo", "transferencia"],
         verified: true
     },
     {
@@ -311,7 +311,7 @@ const vaultData = [
         value: "f = 1 / (2π√LC)",
         unit: "Hertz (Hz)",
         desc: "Frecuencia natural de oscilación circuito tanque.",
-        tags: ["radio", "frecuencia", "oscilador"],
+        tags: ["radio", "frecuencia", "oscilador", "resonancia"],
         verified: true
     },
     {
@@ -322,7 +322,7 @@ const vaultData = [
         value: "F = -k · x",
         unit: "Newtons (N)",
         desc: "Fuerza restauradora es proporcional al estiramiento.",
-        tags: ["muelle", "elastico", "resorte"],
+        tags: ["muelle", "elástico", "resorte", "fuerza"],
         verified: true
     },
     {
@@ -333,7 +333,7 @@ const vaultData = [
         value: "ρ(∂u/∂t + u·∇u) = -∇p + μ∇²u + f",
         unit: "Momento",
         desc: "Ecuación diferencial que describe el movimiento de fluidos viscosos. Uno de los problemas del milenio. Sin solución general analítica.",
-        tags: ["cfd", "avanzado", "dificil"],
+        tags: ["cfd", "viscosidad", "ecuaciones", "difícil"],
         verified: true
     },
 
@@ -346,7 +346,7 @@ const vaultData = [
         value: "1 bar = 10⁵ Pa",
         unit: "Pa",
         desc: "Conversión estándar SI.",
-        tags: ["presion", "bar", "pascal"],
+        tags: ["presión", "bar", "pascal", "atmósferas"],
         verified: true
     },
     {
@@ -357,7 +357,7 @@ const vaultData = [
         value: "1 CV = 735.5 W",
         unit: "W",
         desc: "Caballo de vapor métrico.",
-        tags: ["motor", "potencia", "coche"],
+        tags: ["motor", "potencia", "coche", "auto", "caballos"],
         verified: true
     },
     {
@@ -368,7 +368,7 @@ const vaultData = [
         value: "1 in = 25.4 mm",
         unit: "mm",
         desc: "Exacta. Base del sistema imperial industrial.",
-        tags: ["inch", "medida", "imperial"],
+        tags: ["inch", "medida", "imperial", "pulgadas"],
         verified: true
     },
     {
@@ -379,7 +379,7 @@ const vaultData = [
         value: "1 kWh = 3.6 MJ",
         unit: "J",
         desc: "3.6 millones de julios.",
-        tags: ["factura", "electricidad", "energia"],
+        tags: ["factura", "electricidad", "energía", "consumo"],
         verified: true
     },
     {
@@ -390,7 +390,7 @@ const vaultData = [
         value: "K = °C + 273.15",
         unit: "K",
         desc: "Escala absoluta termodinámica.",
-        tags: ["temperatura", "grados", "termo"],
+        tags: ["temperatura", "grados", "termo", "kelvin"],
         verified: true
     },
     {
@@ -401,7 +401,7 @@ const vaultData = [
         value: "°C = (°F - 32) × 5/9",
         unit: "°C",
         desc: "Conversión sistema imperial a métrico.",
-        tags: ["temperatura", "eeuu", "clima"],
+        tags: ["temperatura", "eeuu", "clima", "fahrenheit"],
         verified: true
     },
     {
@@ -412,7 +412,7 @@ const vaultData = [
         value: "1 gal ≈ 3.785 L",
         unit: "L",
         desc: "Galón líquido estadounidense (no imperial).",
-        tags: ["gasolina", "volumen", "liquido"],
+        tags: ["gasolina", "volumen", "líquido", "galón"],
         verified: true
     },
     {
@@ -423,7 +423,7 @@ const vaultData = [
         value: "deg = rad × (180/π)",
         unit: "°",
         desc: "Conversión de unidad natural a sexagesimal.",
-        tags: ["trigonometria", "angulo", "geometria"],
+        tags: ["trigonometría", "ángulo", "geometría", "radianes"],
         verified: true
     },
     {
@@ -434,7 +434,7 @@ const vaultData = [
         value: "1 lb ≈ 0.4536 kg",
         unit: "kg",
         desc: "Libra masa internacional.",
-        tags: ["peso", "masa", "gimnasio"],
+        tags: ["peso", "masa", "gimnasio", "libras"],
         verified: true
     },
     {
@@ -445,7 +445,7 @@ const vaultData = [
         value: "1 psi ≈ 0.0689 bar",
         unit: "bar",
         desc: "Pound per square inch. Común en neumáticos.",
-        tags: ["ruedas", "presion", "aire"],
+        tags: ["ruedas", "presión", "neumáticos", "llantas"],
         verified: true
     },
 
@@ -458,7 +458,7 @@ const vaultData = [
         value: "600 - 800 €/m²",
         unit: "€",
         desc: "Estimación muy variable para calidades medias en 2026. Depende de zona.",
-        tags: ["dinero", "obra", "civil"],
+        tags: ["dinero", "obra", "civil", "presupuesto"],
         verified: false
     },
     {
@@ -469,7 +469,7 @@ const vaultData = [
         value: "~99% Resistencia",
         unit: "%",
         desc: "El hormigón alcanza su resistencia de diseño a los 28 días. A los 7 días tiene el 70%. Regla empírica.",
-        tags: ["obra", "cemento", "tiempo"],
+        tags: ["obra", "cemento", "tiempo", "concreto", "fraguado"],
         verified: false
     },
     {
@@ -480,7 +480,7 @@ const vaultData = [
         value: "0.7 - 0.9 (Seco)",
         unit: "µ",
         desc: "Coeficiente muy variable. Baja drásticamente en mojado (0.3).",
-        tags: ["coches", "carretera", "seguridad"],
+        tags: ["coches", "carretera", "seguridad", "neumáticos", "asfalto"],
         verified: false
     }
 ];
