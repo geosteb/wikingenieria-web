@@ -32,10 +32,19 @@
     <style>
         input[type="search"]::-webkit-search-cancel-button { -webkit-appearance: none; }
         input[type="search"] { -webkit-tap-highlight-color: transparent; }
+        /* Ocultar scrollbar en filtros pero permitir scroll */
+        .no-scrollbar::-webkit-scrollbar { display: none; }
+        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+        .line-clamp-2 {
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
     </style>
 </head>
 
-<body class="bg-w-black text-w-sage font-sans antialiased selection:bg-w-light selection:text-w-black flex flex-col min-h-screen">
+<body class="bg-w-black text-w-sage font-sans antialiased selection:bg-w-light selection:text-w-black flex flex-col min-h-screen relative">
 
     <nav class="fixed w-full z-50 bg-w-black/90 backdrop-blur-md border-b border-w-olive transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
@@ -48,6 +57,7 @@
                 <a href="index.html#productos" class="font-mono text-sm text-w-sage hover:text-w-light transition-colors uppercase tracking-widest">Recursos</a>
                 <a href="blog.html" class="font-mono text-sm text-w-sage hover:text-w-light transition-colors uppercase tracking-widest">Logs</a>
                 <a href="vault.html" class="font-mono text-sm text-w-light uppercase tracking-widest border-b border-w-light">Vault</a>
+                <a href="index.html#contacto" class="font-mono text-sm text-w-sage hover:text-w-light transition-colors uppercase tracking-widest">Soporte Técnico</a>
             </div>
             </div>
     </nav>
@@ -55,7 +65,7 @@
     <main class="flex-grow pt-32 pb-20 px-6">
         <div class="max-w-7xl mx-auto">
             
-            <div class="text-center mb-12">
+            <div class="text-center mb-8">
                 <div class="inline-flex items-center gap-2 mb-4 px-3 py-1 bg-w-olive/10 border border-w-olive/30 rounded-full">
                     <span class="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
                     <span class="font-mono text-[10px] uppercase tracking-widest text-w-light">System Status: Online</span>
@@ -64,39 +74,110 @@
                     Wikingeniería <span class="text-w-olive">Vault</span>
                 </h1>
                 <p class="text-sm md:text-base text-w-sage/60 max-w-2xl mx-auto font-light leading-relaxed">
-                    El repositorio central de constantes, fórmulas y datos verificados. <br>
-                    <span class="font-mono text-xs opacity-50">v1.0.2 :: ACCESS_GRANTED</span>
+                    El repositorio central de constantes, fórmulas y datos verificados.
                 </p>
             </div>
 
-            <div class="mb-12 sticky top-24 z-40 bg-w-black/95 p-4 border-y border-w-olive/20 backdrop-blur-xl">
-                <div class="flex flex-col md:flex-row gap-4 max-w-4xl mx-auto">
+            <div class="max-w-4xl mx-auto mb-10 bg-w-olive/5 border-l-2 border-w-olive p-4 rounded-r-sm flex items-start gap-4">
+                <i class="fas fa-terminal text-w-olive mt-1"></i>
+                <div>
+                    <span class="block font-mono text-[10px] text-w-sage/50 uppercase tracking-widest mb-1">System_Message :: Daily_Tip</span>
+                    <p id="daily-tip-content" class="font-mono text-sm text-w-light leading-relaxed">
+                        Cargando tip del sistema...
+                    </p>
+                </div>
+            </div>
+
+            <div class="mb-12 sticky top-24 z-40 bg-w-black/95 p-4 border-y border-w-olive/20 backdrop-blur-xl shadow-2xl">
+                <div class="flex flex-col md:flex-row gap-4 max-w-5xl mx-auto">
                     <div class="relative flex-grow">
-                        <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-w-sage/40 text-xs"></i>
+                        <i class="fas fa-search absolute left-4 top-1/2 -translate-y-1/2 text-w-sage/60 text-sm"></i>
                         <input id="vault-search" type="search" placeholder="Buscar constante, fórmula o unidad..." 
-                               class="w-full bg-w-offblack border border-w-olive/50 text-w-light pl-10 pr-4 py-3 rounded-sm font-mono text-xs focus:outline-none focus:border-w-light focus:bg-w-olive/10 transition-all placeholder-w-sage/40 appearance-none" />
+                               class="w-full bg-w-offblack border border-w-olive/50 text-w-light pl-12 pr-4 py-4 rounded-sm font-mono text-sm focus:outline-none focus:border-w-light focus:bg-w-olive/10 transition-all placeholder-w-sage/40 appearance-none shadow-inner" />
                     </div>
                     
-                    <div class="flex gap-2 overflow-x-auto pb-1 md:pb-0 no-scrollbar">
-                        <button data-filter="all" class="filter-btn px-4 py-3 bg-w-olive text-white font-mono text-[10px] font-bold uppercase tracking-widest rounded-sm border border-transparent whitespace-nowrap transition-all">Todo</button>
-                        <button data-filter="constante" class="filter-btn px-4 py-3 text-w-sage/50 hover:text-w-light font-mono text-[10px] font-bold uppercase tracking-widest rounded-sm border border-transparent hover:border-w-olive/30 whitespace-nowrap transition-all">Constantes</button>
-                        <button data-filter="formula" class="filter-btn px-4 py-3 text-w-sage/50 hover:text-w-light font-mono text-[10px] font-bold uppercase tracking-widest rounded-sm border border-transparent hover:border-w-olive/30 whitespace-nowrap transition-all">Fórmulas</button>
-                        <button data-filter="conversion" class="filter-btn px-4 py-3 text-w-sage/50 hover:text-w-light font-mono text-[10px] font-bold uppercase tracking-widest rounded-sm border border-transparent hover:border-w-olive/30 whitespace-nowrap transition-all">Conversiones</button>
+                    <div class="flex gap-3 overflow-x-auto pb-1 md:pb-0 no-scrollbar items-center">
+                        <button data-filter="all" class="filter-btn px-6 py-4 bg-w-olive text-white font-mono text-xs font-bold uppercase tracking-widest rounded-sm border border-transparent whitespace-nowrap transition-all shadow-md">Todo</button>
+                        <button data-filter="constante" class="filter-btn px-6 py-4 text-w-sage hover:text-w-light font-mono text-xs font-bold uppercase tracking-widest rounded-sm border border-w-olive/20 bg-w-offblack hover:border-w-olive whitespace-nowrap transition-all">Constantes</button>
+                        <button data-filter="formula" class="filter-btn px-6 py-4 text-w-sage hover:text-w-light font-mono text-xs font-bold uppercase tracking-widest rounded-sm border border-w-olive/20 bg-w-offblack hover:border-w-olive whitespace-nowrap transition-all">Fórmulas</button>
+                        <button data-filter="conversion" class="filter-btn px-6 py-4 text-w-sage hover:text-w-light font-mono text-xs font-bold uppercase tracking-widest rounded-sm border border-w-olive/20 bg-w-offblack hover:border-w-olive whitespace-nowrap transition-all">Conversiones</button>
                     </div>
                 </div>
             </div>
 
-            <div id="vault-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div id="vault-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 </div>
+
+            <div class="mt-20 border border-dashed border-w-olive/30 rounded-sm p-8 text-center bg-w-olive/5 hover:bg-w-olive/10 transition duration-500">
+                <i class="fas fa-database text-2xl text-w-sage/40 mb-3"></i>
+                <h3 class="font-mono text-lg text-w-light mb-2">¿Echas en falta algún dato crítico?</h3>
+                <p class="text-sm text-w-sage/60 mb-6 font-light">
+                    El Vault se construye con la inteligencia colectiva. Si no encuentras una constante o fórmula vital, repórtalo al sistema central.
+                </p>
+                <a href="index.html#contacto" class="inline-flex items-center gap-2 px-6 py-3 bg-transparent border border-w-sage/30 text-w-sage font-mono text-xs font-bold uppercase tracking-widest hover:border-w-light hover:text-w-light transition rounded-sm">
+                    <i class="fas fa-plus"></i> Solicitar Ingreso de Dato
+                </a>
+            </div>
 
         </div>
     </main>
 
-    <footer class="bg-w-offblack border-t border-w-olive/20 py-8 text-center">
-        <p class="font-mono text-[10px] text-w-sage/30 uppercase tracking-widest">
-            Datos verificados vía NIST & BIPM. Uso bajo responsabilidad del ingeniero.
-        </p>
+    <footer class="bg-w-black border-t border-w-olive/30 py-12 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex flex-col gap-2 text-center md:text-left">
+                <div class="flex items-center justify-center md:justify-start gap-3">
+                    <img src="assets/img/core/wikingenieria-logo.png" alt="Logo" class="h-8 w-auto opacity-100 transition">
+                    <span class="font-mono text-sm text-w-sage/80 uppercase tracking-widest">© 2026 Wikingeniería</span>
+                </div>
+                <div class="flex gap-4 text-xs font-mono text-w-sage/70 uppercase tracking-widest justify-center md:justify-start">
+                    <a href="legal.html#aviso" class="hover:text-w-light transition">Aviso Legal</a>
+                    <span class="text-w-olive">|</span>
+                    <a href="legal.html#privacidad" class="hover:text-w-light transition">Privacidad</a>
+                    <span class="text-w-olive">|</span>
+                    <a href="legal.html#cookies" class="hover:text-w-light transition">Cookies</a>
+                </div>
+            </div>
+            
+            <div class="hidden md:block font-mono text-[10px] text-w-sage/40 uppercase tracking-widest text-center">
+                DATOS VERIFICADOS VÍA NIST & BIPM. <br> USO BAJO RESPONSABILIDAD DEL INGENIERO.
+            </div>
+
+            <div class="flex flex-wrap justify-center md:justify-end gap-6">
+                <a href="https://instagram.com/wikingenieria" target="_blank" rel="noopener" class="text-w-sage/90 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-instagram text-lg"></i></a>
+                <a href="https://x.com/wikingenieria" target="_blank" rel="noopener" class="text-w-sage/90 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-x-twitter text-lg"></i></a>
+                <a href="https://tiktok.com/@wikingenieria" target="_blank" rel="noopener" class="text-w-sage/90 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-tiktok text-lg"></i></a>
+                <a href="https://facebook.com/wikingenieria" target="_blank" rel="noopener" class="text-w-sage/90 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-facebook text-lg"></i></a>
+                <a href="https://www.youtube.com/@Wikingenieria" target="_blank" rel="noopener" class="text-w-sage/90 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-youtube text-lg"></i></a>
+                <a href="https://open.spotify.com/embed/playlist/37i9dQZF1DX5treGwdZtS3?utm_source=generator" target="_blank" rel="noopener" class="text-w-sage/90 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-spotify text-lg"></i></a>
+            </div>
+        </div>
+        <div class="md:hidden mt-8 font-mono text-[10px] text-w-sage/40 uppercase tracking-widest text-center px-6">
+            DATOS VERIFICADOS VÍA NIST & BIPM. <br> USO BAJO RESPONSABILIDAD DEL INGENIERO.
+        </div>
     </footer>
+
+    <div id="info-modal" class="fixed inset-0 z-[100] bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4 opacity-0 transition-opacity duration-300">
+        <div class="bg-w-offblack border border-w-olive w-full max-w-lg rounded-sm shadow-2xl transform scale-95 transition-transform duration-300" id="modal-content">
+            <div class="flex justify-between items-center p-6 border-b border-w-olive/30 bg-w-olive/10">
+                <div class="flex items-center gap-2">
+                    <span id="modal-id" class="font-mono text-xs text-w-olive uppercase tracking-widest">ID</span>
+                    <span id="modal-category" class="font-mono text-xs text-w-sage/50 uppercase">CAT</span>
+                </div>
+                <button onclick="closeModal()" class="text-w-sage hover:text-white transition"><i class="fas fa-times text-xl"></i></button>
+            </div>
+            <div class="p-8">
+                <h3 id="modal-title" class="font-mono text-xl text-w-light font-bold mb-4">Título</h3>
+                <div class="bg-black/40 p-4 border-l-4 border-w-olive mb-6">
+                    <p id="modal-value" class="font-mono text-2xl text-white tracking-tight break-all">Valor</p>
+                    <p id="modal-unit" class="font-mono text-xs text-w-sage/60 mt-2">Unidad</p>
+                </div>
+                <p id="modal-desc" class="text-w-sage/80 font-light leading-relaxed text-sm">Descripción completa...</p>
+            </div>
+            <div class="p-4 border-t border-w-olive/20 flex justify-end">
+                <button onclick="closeModal()" class="px-6 py-2 bg-w-olive text-w-light font-mono text-xs font-bold uppercase tracking-widest hover:bg-w-light hover:text-w-black transition rounded-sm">Cerrar</button>
+            </div>
+        </div>
+    </div>
 
     <script src="assets/data/vault_db.js"></script>
     <script src="assets/js/vault.js"></script>
