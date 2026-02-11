@@ -1,1 +1,14 @@
+# Vercel (Configuración local y tokens)
 .vercel
+
+# Datos pesados (Por si acaso mueves algo por error a esta carpeta)
+*.pdf
+*.zip
+*.7z
+*.rar
+
+# Logs y temporales
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.DS_Store
