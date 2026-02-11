@@ -435,7 +435,7 @@
                 <button type="submit" id="hub-submit-btn"
                     class="text-w-light font-mono text-xs uppercase tracking-widest hover:text-white transition">Suscribirse</button>
             </form>
-            <p id="hub-status" class="text-xs font-mono mt-4 hidden"></p>
+            <p id="hub-status" class="text-[10px] font-mono mt-4 hidden uppercase tracking-widest"></p>
         </div>
     </section>
 
@@ -633,19 +633,19 @@
         });
         // --- 5. GESTION FORMULARIO BEEHIIV NEWSLETTER ---
         const hubForm = document.getElementById('newsletter-hub-form');
-const hubStatus = document.getElementById('hub-status');
-const hubSubmitBtn = document.getElementById('hub-submit-btn');
+        const hubStatus = document.getElementById('hub-status');
+        const hubSubmitBtn = document.getElementById('hub-submit-btn');
 
-hubForm.addEventListener('submit', async (e) => {
-    e.preventDefault();
+        hubForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
     
-    const email = document.getElementById('hub-email').value;
-    hubSubmitBtn.innerText = 'PROCESANDO...';
+            const email = document.getElementById('hub-email').value;
+            hubSubmitBtn.innerText = 'PROCESANDO...';
     
-    try {
-        const response = await fetch('https://hook.eu1.make.com/i94znb36hor2wlepeseoet2iv1uuaaa3', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            try {
+                const response = await fetch('https://hook.eu1.make.com/i94znb36hor2wlepeseoet2iv1uuaaa3', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ 
                 email: email,
                 name: "Suscriptor Hub", // Nombre genérico para Beehiiv
@@ -655,13 +655,19 @@ hubForm.addEventListener('submit', async (e) => {
         });
 
         if (response.ok) {
-            hubStatus.innerText = 'ACCESO CONCEDIDO. REVISA TU RADAR (EMAIL).';
-            hubStatus.classList.remove('hidden', 'text-red-500');
-            hubStatus.classList.add('text-w-olive');
-            hubForm.reset();
-        } else {
-            throw new Error();
-        }
+                // Mensaje de éxito visual
+                hubStatus.innerText = ">> TRANSMISIÓN RECIBIDA: ACCESO AL HUB CONCEDIDO.";
+                hubStatus.classList.remove('hidden', 'text-red-500');
+                hubStatus.classList.add('text-w-olive');
+                
+                // Ocultamos el formulario para que el mensaje sea lo único que se vea
+                hubForm.style.opacity = '0.3';
+                hubForm.style.pointerEvents = 'none';
+                
+                hubForm.reset();
+            } else {
+                throw new Error();
+            }
     } catch (error) {
         hubStatus.innerText = 'ERROR EN LA TRANSMISIÓN. REINTENTA.';
         hubStatus.classList.remove('hidden', 'text-w-olive');
