@@ -241,10 +241,34 @@
     <script>
         const mobileBtn = document.getElementById('mobile-menu-btn');
         const mobileMenu = document.getElementById('mobile-menu');
+        
         if(mobileBtn && mobileMenu) {
             mobileBtn.addEventListener('click', () => {
+                const isOpened = mobileMenu.classList.contains('flex');
+                const icon = mobileBtn.querySelector('i');
+                
+                // Toggle de visibilidad del menú
                 mobileMenu.classList.toggle('hidden');
                 mobileMenu.classList.toggle('flex');
+                
+                // Cambio de icono: si estaba abierto (y ahora se cierra), ponemos bars. Si no, ponemos times.
+                if (!isOpened) {
+                    icon.classList.remove('fa-bars');
+                    icon.classList.add('fa-times');
+                } else {
+                    icon.classList.remove('fa-times');
+                    icon.classList.add('fa-bars');
+                }
+            });
+    
+            // Cerrar menú al hacer click en un enlace (opcional, para mejor UX)
+            const mobileLinks = document.querySelectorAll('.mobile-link');
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    mobileMenu.classList.add('hidden');
+                    mobileMenu.classList.remove('flex');
+                    mobileBtn.querySelector('i').classList.replace('fa-times', 'fa-bars');
+                });
             });
         }
     </script>
