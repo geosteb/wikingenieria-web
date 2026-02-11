@@ -451,35 +451,32 @@
                 </p>
             </div>
 
-            <form id="contact-form" 
-      onsubmit="handleForm(event, 'https://hook.eu1.make.com/i94znb36hor2wlepeseoet2iv1uuaaa3', 'gracias.html')" 
-      class="space-y-6 bg-w-olive/5 p-8 border border-w-olive/20 rounded-sm">
-    
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div class="flex flex-col gap-2">
-            <label class="font-mono text-[10px] text-w-sage/80 uppercase tracking-widest">Identidad</label>
-            <input type="text" name="name" required placeholder="Tu Nombre" 
-                   class="bg-w-olive/10 border border-w-olive/40 text-w-light px-4 py-3 text-sm focus:outline-none focus:border-w-light focus:bg-w-black transition placeholder-w-sage/40">
-        </div>
-        <div class="flex flex-col gap-2">
-            <label class="font-mono text-[10px] text-w-sage/80 uppercase tracking-widest">Email</label>
-            <input type="email" name="email" required placeholder="tu@email.com" 
-                   class="bg-w-olive/10 border border-w-olive/40 text-w-light px-4 py-3 text-sm focus:outline-none focus:border-w-light focus:bg-w-black transition placeholder-w-sage/40">
-        </div>
-    </div>
-
-    <div class="flex flex-col gap-2">
-        <label class="font-mono text-[10px] text-w-sage/80 uppercase tracking-widest">Mensaje</label>
-        <textarea name="message" rows="5" required placeholder="Escribe aquí tu mensaje..." 
-                  class="bg-w-olive/10 border border-w-olive/40 text-w-light px-4 py-3 text-sm focus:outline-none focus:border-w-light focus:bg-w-black transition resize-none placeholder-w-sage/40"></textarea>
-    </div>
-
-    <button type="submit" id="submit-btn" class="w-full bg-w-olive text-w-light font-mono text-xs font-bold uppercase tracking-widest py-4 hover:bg-w-light hover:text-w-black transition rounded-sm border border-transparent hover:border-w-light">
-        Enviar Transmisión
-    </button>
-    
-    <p id="form-status" class="text-center text-xs font-mono mt-4 hidden"></p>
-</form>
+            <form id="contact-form" class="space-y-6 bg-w-olive/5 p-8 border border-w-olive/20 rounded-sm">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="flex flex-col gap-2">
+                        <label class="font-mono text-[10px] text-w-sage/80 uppercase tracking-widest">Identidad</label>
+                        <input type="text" name="name" required placeholder="Tu Nombre" 
+                               class="bg-w-olive/10 border border-w-olive/40 text-w-light px-4 py-3 text-sm focus:outline-none focus:border-w-light focus:bg-w-black transition placeholder-w-sage/40">
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <label class="font-mono text-[10px] text-w-sage/80 uppercase tracking-widest">Email</label>
+                        <input type="email" name="email" required placeholder="tu@email.com" 
+                               class="bg-w-olive/10 border border-w-olive/40 text-w-light px-4 py-3 text-sm focus:outline-none focus:border-w-light focus:bg-w-black transition placeholder-w-sage/40">
+                    </div>
+                </div>
+            
+                <div class="flex flex-col gap-2">
+                    <label class="font-mono text-[10px] text-w-sage/80 uppercase tracking-widest">Mensaje</label>
+                    <textarea name="message" rows="5" required placeholder="Escribe aquí tu mensaje..." 
+                              class="bg-w-olive/10 border border-w-olive/40 text-w-light px-4 py-3 text-sm focus:outline-none focus:border-w-light focus:bg-w-black transition resize-none placeholder-w-sage/40"></textarea>
+                </div>
+            
+                <button type="submit" id="submit-btn" class="w-full bg-w-olive text-w-light font-mono text-xs font-bold uppercase tracking-widest py-4 hover:bg-w-light hover:text-w-black transition rounded-sm border border-transparent hover:border-w-light">
+                    Enviar Transmisión
+                </button>
+                
+                <p id="form-status" class="text-center text-xs font-mono mt-4 hidden"></p>
+            </form>
 
         </div>
     </section>
@@ -611,37 +608,44 @@
             if (btnReject) { btnReject.addEventListener('click', () => { localStorage.setItem('cookiesAccepted', 'false'); cookieBanner.classList.add('translate-y-full'); }); }
         });
         // --- NUEVO SCRIPT PARA GESTIÓN DE FORMULARIOS CON MAKE ---
-    async function handleForm(event, webhookUrl, redirectUrl) {
-        event.preventDefault();
-        const form = event.target;
-        const formData = new FormData(form);
-        const data = Object.fromEntries(formData.entries());
+        // --- GESTIÓN DE ENVÍO WIKINGENIERÍA ---
+document.addEventListener('DOMContentLoaded', () => {
+    const contactForm = document.getElementById('contact-form');
+    
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            // Configuración de destino
+            const urlMake = 'https://hook.eu1.make.com/i94znb36hor2wlepeseoet2iv1uuaaa3';
+            const paginaGracias = 'gracias.html';
+            
+            const formData = new FormData(contactForm);
+            const data = Object.fromEntries(formData.entries());
+            const btn = contactForm.querySelector('button[type="submit"]');
+            const originalText = btn.innerText;
+            
+            btn.innerText = "TRANSMITIENDO...";
 
-        // 1. Mostrar estado "Enviando..." en tu botón
-        const btn = form.querySelector('button[type="submit"]');
-        const originalText = btn.innerText;
-        btn.innerText = "TRANSMITIENDO...";
+            try {
+                // Usamos 'cors' para asegurar que Make reciba los datos correctamente
+                const response = await fetch(urlMake, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                });
 
-        try {
-            // 2. Enviar datos de forma invisible a Make.com
-            const response = await fetch(webhookUrl, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify(data)
-            });
+                // Redirigimos si el envío fue exitoso
+                window.location.href = paginaGracias; 
 
-            if (response.ok) {
-                // 3. Tu redirección personalizada (ej: gracias.html)
-                window.location.href = redirectUrl; 
-            } else {
-                throw new Error('Error en el servidor');
+            } catch (error) {
+                console.error("Error detallado:", error);
+                btn.innerText = originalText;
+                alert("Fallo en la matriz de conexión. Revisa la consola (F12).");
             }
-        } catch (e) {
-            console.error("Error:", e);
-            btn.innerText = originalText;
-            alert("Error en la conexión. Inténtalo de nuevo.");
-        }
+        });
     }
+});
     </script>
 </body>
 </html>
