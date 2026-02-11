@@ -478,6 +478,22 @@
                 
                 <p id="form-status" class="text-center text-xs font-mono mt-4 hidden"></p>
             </form>
+            //probando el nuevo formulario
+            <button onclick="openSupportModal()" class="w-full py-4 bg-w-olive text-w-offblack font-bold uppercase tracking-widest hover:bg-w-sage transition">
+                ENVIAR TRANSMISIÓN
+            </button>
+            <div id="support-modal" class="fixed inset-0 z-50 bg-black/90 hidden flex items-center justify-center p-4">
+                <div class="bg-w-offblack w-full max-w-2xl h-[80vh] border border-w-olive relative">
+                    <button onclick="closeSupportModal()" class="absolute top-4 right-4 text-w-sage hover:text-white"><i class="fas fa-times"></i></button>
+                    <iframe data-tally-src="https://tally.so/r/VL5DMv?transparentBackground=1" width="100%" height="100%" frameborder="0" title="Soporte"></iframe>
+                </div>
+            </div>
+            <script async src="https://tally.so/widgets/embed.js"></script>
+            <script>
+                function openSupportModal() { document.getElementById('support-modal').classList.remove('hidden'); }
+                function closeSupportModal() { document.getElementById('support-modal').classList.add('hidden'); }
+            </script>
+            //hasta aquí
 
         </div>
     </section>
