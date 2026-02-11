@@ -427,33 +427,15 @@
     <section class="py-16 md:py-20 px-6 bg-[#2a322e] border-y border-w-olive/40">
         <div class="max-w-xl mx-auto text-center">
             <h3 class="font-mono text-xl md:text-2xl text-white mb-2">Únete al Hub por excelencia para ingenieros</h3>
-            <p class="text-sm text-w-light/70 mb-6 font-light">
-                Recibe actualizaciones del sistema, nuevos recursos y contenido exclusivo.
-            </p>
+            <p class="text-sm text-w-light/70 mb-6 font-light">Recibe actualizaciones del sistema, nuevos recursos y contenido exclusivo.</p>
             
-            <form 
-                action="https://www.beehiiv.com/new-api/v1/subscribers" 
-                method="post" 
-                target="_blank" 
-                class="flex border-b border-w-light/50 pb-2 focus-within:border-white transition"
-            >
-                <input type="hidden" name="publication_id" value="pub_babfe1c1-3426-4109-ab8b-1dea7ca3ce0b">
-                
-                <input 
-                    type="email" 
-                    name="email" 
-                    placeholder="tu@email.com"
-                    required
-                    class="bg-transparent w-full text-white placeholder-w-light/50 focus:outline-none font-mono text-sm"
-                >
-                
-                <button 
-                    type="submit"
-                    class="text-w-light font-mono text-xs uppercase tracking-widest hover:text-white transition"
-                >
-                    Suscribirse
-                </button>
+            <form id="newsletter-hub-form" class="flex border-b border-w-light/50 pb-2 focus-within:border-white transition">
+                <input type="email" id="hub-email" name="email" required placeholder="tu@email.com"
+                    class="bg-transparent w-full text-white placeholder-w-light/50 focus:outline-none font-mono text-sm">
+                <button type="submit" id="hub-submit-btn"
+                    class="text-w-light font-mono text-xs uppercase tracking-widest hover:text-white transition">Suscribirse</button>
             </form>
+            <p id="hub-status" class="text-xs font-mono mt-4 hidden"></p>
         </div>
     </section>
 
@@ -649,6 +631,45 @@
                 });
             }
         });
+        // --- 5. GESTION FORMULARIO BEEHIIV NEWSLETTER ---
+        const hubForm = document.getElementById('newsletter-hub-form');
+const hubStatus = document.getElementById('hub-status');
+const hubSubmitBtn = document.getElementById('hub-submit-btn');
+
+hubForm.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const email = document.getElementById('hub-email').value;
+    hubSubmitBtn.innerText = 'PROCESANDO...';
+    
+    try {
+        const response = await fetch('https://hook.eu1.make.com/i94znb36hor2wlepeseoet2iv1uuaaa3', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ 
+                email: email,
+                name: "Suscriptor Hub", // Nombre genérico para Beehiiv
+                message: "Suscripción directa desde el Hub inferior",
+                newsletter_consent: "on" // Forzamos el consentimiento ya que es un form de suscripción
+            })
+        });
+
+        if (response.ok) {
+            hubStatus.innerText = 'ACCESO CONCEDIDO. REVISA TU RADAR (EMAIL).';
+            hubStatus.classList.remove('hidden', 'text-red-500');
+            hubStatus.classList.add('text-w-olive');
+            hubForm.reset();
+        } else {
+            throw new Error();
+        }
+    } catch (error) {
+        hubStatus.innerText = 'ERROR EN LA TRANSMISIÓN. REINTENTA.';
+        hubStatus.classList.remove('hidden', 'text-w-olive');
+        hubStatus.classList.add('text-red-500');
+    } finally {
+        hubSubmitBtn.innerText = 'SUSCRIBIRSE';
+    }
+});
     </script>
 </body>
 </html>
