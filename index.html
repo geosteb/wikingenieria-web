@@ -435,9 +435,8 @@
                 <button type="submit" id="hub-submit-btn"
                     class="text-w-light font-mono text-xs uppercase tracking-widest hover:text-white transition">Suscribirse</button>
             </form>
-            <p id="hub-status" class="text-[10px] font-mono mt-4 hidden uppercase tracking-widest text-w-olive">
-                <span class="opacity-50">SYSTEM_MESSAGE ::</span> TRANSMISIÓN RECIBIDA CON ÉXITO<span class="animate-pulse">_</span>
-            </p>
+    
+            <p id="hub-status" class="text-[10px] font-mono mt-4 hidden uppercase tracking-widest text-w-olive text-center w-full"></p>
         </div>
     </section>
 
@@ -551,21 +550,26 @@
                 mobileBtn.addEventListener('click', (e) => {
                     e.stopPropagation();
                     mobileMenu.classList.toggle('hidden');
-                    if (mobileMenu.classList.contains('hidden')) { icon.classList.remove('fa-xmark'); icon.classList.add('fa-bars'); } 
-                    else { icon.classList.remove('fa-bars'); icon.classList.add('fa-xmark'); }
+                    if (mobileMenu.classList.contains('hidden')) { 
+                        icon.classList.remove('fa-xmark'); icon.classList.add('fa-bars'); 
+                    } else { 
+                        icon.classList.remove('fa-bars'); icon.classList.add('fa-xmark'); 
+                    }
                 });
-
+    
                 links.forEach(link => {
-                    link.addEventListener('click', () => { mobileMenu.classList.add('hidden'); icon.classList.remove('fa-xmark'); icon.classList.add('fa-bars'); });
+                    link.addEventListener('click', () => { 
+                        mobileMenu.classList.add('hidden'); icon.classList.remove('fa-xmark'); icon.classList.add('fa-bars'); 
+                    });
                 });
-
+    
                 document.addEventListener('click', (e) => {
                     if (!mobileMenu.contains(e.target) && !mobileBtn.contains(e.target) && !mobileMenu.classList.contains('hidden')) {
                         mobileMenu.classList.add('hidden'); icon.classList.remove('fa-xmark'); icon.classList.add('fa-bars');
                     }
                 });
             }
-
+    
             // --- 2. BOTÓN VOLVER ARRIBA ---
             const backToTopBtn = document.getElementById('backToTop');
             if (backToTopBtn) {
@@ -574,7 +578,7 @@
                     else { backToTopBtn.classList.add('opacity-0', 'pointer-events-none'); }
                 });
             }
-
+    
             // --- 3. COOKIES ---
             const cookieBanner = document.getElementById('cookie-banner');
             const btnAccept = document.getElementById('btn-accept');
@@ -585,45 +589,30 @@
             }
             if (btnAccept) { btnAccept.addEventListener('click', () => { localStorage.setItem('cookiesAccepted', 'true'); cookieBanner.classList.add('translate-y-full'); }); }
             if (btnReject) { btnReject.addEventListener('click', () => { localStorage.setItem('cookiesAccepted', 'false'); cookieBanner.classList.add('translate-y-full'); }); }
-
-            // --- 4. GESTIÓN FORMULARIO CON MAKE (EL BUENO) ---
+    
+            // --- 4. GESTIÓN FORMULARIO CON MAKE (SOPORTE) ---
             const contactForm = document.getElementById('contact-form');
             if (contactForm) {
                 contactForm.addEventListener('submit', async (e) => {
                     e.preventDefault();
-                    
-                    // Configuración
                     const urlMake = 'https://hook.eu1.make.com/i94znb36hor2wlepeseoet2iv1uuaaa3';
                     const paginaGracias = 'gracias.html';
-                    
-                    // Captura de datos
                     const formData = new FormData(contactForm);
                     const data = Object.fromEntries(formData.entries());
-                    
-                    // UX del botón
                     const btn = contactForm.querySelector('button[type="submit"]');
                     const originalText = btn.innerText;
-                    const statusText = document.getElementById('form-status'); // Si quieres usar el p hidden
-
+    
                     btn.innerText = "TRANSMITIENDO...";
                     btn.disabled = true;
-
+    
                     try {
                         const response = await fetch(urlMake, {
                             method: 'POST',
-                            headers: { 
-                                'Content-Type': 'application/json',
-                                'Accept': 'application/json' 
-                            },
+                            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
                             body: JSON.stringify(data)
                         });
-
-                        if (response.ok) {
-                            window.location.href = paginaGracias; 
-                        } else {
-                            throw new Error(`Status: ${response.status}`);
-                        }
-
+                        if (response.ok) { window.location.href = paginaGracias; } 
+                        else { throw new Error(`Status: ${response.status}`); }
                     } catch (error) {
                         console.error("Error envío:", error);
                         btn.innerText = originalText;
@@ -632,52 +621,50 @@
                     }
                 });
             }
-        });
-        // --- 5. GESTION FORMULARIO BEEHIIV NEWSLETTER ---
-        const hubForm = document.getElementById('newsletter-hub-form');
-        const hubStatus = document.getElementById('hub-status');
-        const hubSubmitBtn = document.getElementById('hub-submit-btn');
-
-        hubForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
     
-            const email = document.getElementById('hub-email').value;
-            hubSubmitBtn.innerText = 'PROCESANDO...';
+            // --- 5. GESTION FORMULARIO BEEHIIV NEWSLETTER (DENTRO DEL DOMCONTENTLOADED) ---
+            const hubForm = document.getElementById('newsletter-hub-form');
+            const hubStatus = document.getElementById('hub-status');
+            const hubSubmitBtn = document.getElementById('hub-submit-btn');
     
-            try {
-                const response = await fetch('https://hook.eu1.make.com/i94znb36hor2wlepeseoet2iv1uuaaa3', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ 
-                email: email,
-                name: "Suscriptor Hub", // Nombre genérico para Beehiiv
-                message: "Suscripción directa desde el Hub inferior",
-                newsletter_consent: "on" // Forzamos el consentimiento ya que es un form de suscripción
-            })
-        });
-
-        if (response.ok) {
-                // 1. Inyectamos el contenido con el guion parpadeante
-                hubStatus.innerHTML = '<span class="opacity-50">SYSTEM_MESSAGE ::</span> TRANSMISIÓN RECIBIDA CON ÉXITO<span class="animate-pulse">_</span>';
-                
-                // 2. Hacemos visible el mensaje
-                hubStatus.classList.remove('hidden', 'text-red-500');
-                
-                // 3. Bloqueo estético del formulario
-                hubForm.style.opacity = '0.4';
-                hubForm.style.pointerEvents = 'none';
-                hubForm.reset();
-            } else {
-                throw new Error();
+            if (hubForm) {
+                hubForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    const email = document.getElementById('hub-email').value;
+                    hubSubmitBtn.innerText = 'PROCESANDO...';
+                    hubSubmitBtn.disabled = true;
+    
+                    try {
+                        const response = await fetch('https://hook.eu1.make.com/i94znb36hor2wlepeseoet2iv1uuaaa3', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                email: email,
+                                name: "Suscriptor Hub",
+                                message: "Suscripción directa desde el Hub inferior",
+                                newsletter_consent: "on"
+                            })
+                        });
+    
+                        if (response.ok) {
+                            hubStatus.innerHTML = '<span class="opacity-50">SYSTEM_MESSAGE ::</span> TRANSMISIÓN RECIBIDA CON ÉXITO<span class="animate-pulse">_</span>';
+                            hubStatus.classList.remove('hidden', 'text-red-500');
+                            hubStatus.classList.add('text-w-olive');
+                            hubForm.style.opacity = '0.4';
+                            hubForm.style.pointerEvents = 'none';
+                            hubForm.reset();
+                        } else { throw new Error('Server Error'); }
+                    } catch (error) {
+                        hubStatus.innerText = 'ERROR EN LA TRANSMISIÓN. REINTENTA.';
+                        hubStatus.classList.remove('hidden', 'text-w-olive');
+                        hubStatus.classList.add('text-red-500');
+                    } finally {
+                        hubSubmitBtn.innerText = 'SUSCRIBIRSE';
+                        hubSubmitBtn.disabled = false;
+                    }
+                });
             }
-    } catch (error) {
-        hubStatus.innerText = 'ERROR EN LA TRANSMISIÓN. REINTENTA.';
-        hubStatus.classList.remove('hidden', 'text-w-olive');
-        hubStatus.classList.add('text-red-500');
-    } finally {
-        hubSubmitBtn.innerText = 'SUSCRIBIRSE';
-    }
-});
+        }); // <--- AQUÍ CIERRA TODO EL DOMCONTENTLOADED
     </script>
 </body>
 </html>
