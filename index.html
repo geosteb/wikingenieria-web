@@ -435,7 +435,9 @@
                 <button type="submit" id="hub-submit-btn"
                     class="text-w-light font-mono text-xs uppercase tracking-widest hover:text-white transition">Suscribirse</button>
             </form>
-            <p id="hub-status" class="text-[10px] font-mono mt-4 hidden uppercase tracking-widest"></p>
+            <p id="hub-status" class="text-[10px] font-mono mt-4 hidden uppercase tracking-widest text-w-olive">
+                <span class="opacity-50">SYSTEM_MESSAGE ::</span> TRANSMISIÓN RECIBIDA CON ÉXITO<span class="animate-pulse">_</span>
+            </p>
         </div>
     </section>
 
@@ -655,15 +657,15 @@
         });
 
         if (response.ok) {
-                // Mensaje de éxito visual
-                hubStatus.innerText = ">> TRANSMISIÓN RECIBIDA: ACCESO AL HUB CONCEDIDO.";
+                // 1. Inyectamos el contenido con el guion parpadeante
+                hubStatus.innerHTML = '<span class="opacity-50">SYSTEM_MESSAGE ::</span> TRANSMISIÓN RECIBIDA CON ÉXITO<span class="animate-pulse">_</span>';
+                
+                // 2. Hacemos visible el mensaje
                 hubStatus.classList.remove('hidden', 'text-red-500');
-                hubStatus.classList.add('text-w-olive');
                 
-                // Ocultamos el formulario para que el mensaje sea lo único que se vea
-                hubForm.style.opacity = '0.3';
+                // 3. Bloqueo estético del formulario
+                hubForm.style.opacity = '0.4';
                 hubForm.style.pointerEvents = 'none';
-                
                 hubForm.reset();
             } else {
                 throw new Error();
