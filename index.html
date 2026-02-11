@@ -622,15 +622,18 @@
                 });
             }
     
-            // --- 5. GESTION FORMULARIO BEEHIIV NEWSLETTER (DENTRO DEL DOMCONTENTLOADED) ---
+            // --- 5. GESTION FORMULARIO BEEHIIV NEWSLETTER (CORREGIDO Y BLINDADO) ---
             const hubForm = document.getElementById('newsletter-hub-form');
             const hubStatus = document.getElementById('hub-status');
             const hubSubmitBtn = document.getElementById('hub-submit-btn');
     
             if (hubForm) {
                 hubForm.addEventListener('submit', async (e) => {
-                    e.preventDefault();
+                    e.preventDefault(); // Detener recarga
+                    
                     const email = document.getElementById('hub-email').value;
+                    
+                    // Cambio estado botón
                     hubSubmitBtn.innerText = 'PROCESANDO...';
                     hubSubmitBtn.disabled = true;
     
@@ -647,24 +650,40 @@
                         });
     
                         if (response.ok) {
+                            // --- ÉXITO ---
+                            // 1. Inyectar HTML
                             hubStatus.innerHTML = '<span class="opacity-50">SYSTEM_MESSAGE ::</span> TRANSMISIÓN RECIBIDA CON ÉXITO<span class="animate-pulse">_</span>';
+                            
+                            // 2. FORZAR VISIBILIDAD (Esto arregla el problema)
+                            hubStatus.style.display = 'block'; 
                             hubStatus.classList.remove('hidden', 'text-red-500');
                             hubStatus.classList.add('text-w-olive');
+                            
+                            // 3. Bloquear visualmente el formulario
                             hubForm.style.opacity = '0.4';
                             hubForm.style.pointerEvents = 'none';
                             hubForm.reset();
+                            
+                            // 4. Dejar botón en estado final (NO RESETEARLO)
+                            hubSubmitBtn.innerText = 'ENVIADO';
+                            
                         } else { throw new Error('Server Error'); }
+    
                     } catch (error) {
+                        // --- ERROR ---
                         hubStatus.innerText = 'ERROR EN LA TRANSMISIÓN. REINTENTA.';
+                        hubStatus.style.display = 'block'; // Forzar visibilidad también aquí
                         hubStatus.classList.remove('hidden', 'text-w-olive');
                         hubStatus.classList.add('text-red-500');
-                    } finally {
+                        
+                        // Solo reseteamos el botón si ha fallado para que pueda reintentar
                         hubSubmitBtn.innerText = 'SUSCRIBIRSE';
                         hubSubmitBtn.disabled = false;
                     }
                 });
             }
-        }); // <--- AQUÍ CIERRA TODO EL DOMCONTENTLOADED
+    
+        }); // Cierre DOMContentLoaded
     </script>
 </body>
 </html>
