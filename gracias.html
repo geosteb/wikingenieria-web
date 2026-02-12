@@ -7,18 +7,35 @@
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    
+    <style>
+        /* Ruido de alta intensidad para monitores modernos */
+        .bg-noise {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.80' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 150px 150px; /* Ajusta el grano del ruido */
+        }
+    </style>
 </head>
-<body class="bg-[#020201] text-[#b0bab3] font-mono h-screen flex flex-col items-center justify-center text-center p-6">
+<body class="bg-[#020201] text-[#b0bab3] font-mono h-screen flex flex-col items-center justify-center text-center p-6 relative overflow-hidden">
     
     <div class="fixed inset-0 z-0 bg-gradient-to-b from-[#050505] via-[#0a0a05] to-[#1a201d]"></div>
+
+    <div class="fixed inset-0 z-0 bg-noise opacity-50 pointer-events-none mix-blend-soft-light"></div>
 
     <div class="relative z-10 max-w-lg">
         <div class="text-[#2a322e] text-6xl mb-4">
             <i class="fas fa-check-circle"></i>
         </div>
-        <h1 class="text-3xl font-bold text-[#d3d3d3] mb-2 tracking-tight">
-            // STATUS: <span class="text-[#4ade80]">RECEIVED</span>
+        
+        <h1 class="text-3xl font-bold text-[#d3d3d3]/90 mb-2 tracking-tight">
+            <span class="opacity-30 text-[#d3d3d3]">//</span> 
+            
+            SYSTEM_MESSAGE :: 
+            
+            <span class="text-[#4ade80]/80">RECEIVED<span class="animate-pulse">_</span></span>
         </h1>
+
         <p class="text-sm opacity-80 mb-8">
             Tu transmisión ha sido encriptada y enviada al servidor de Wikingeniería.
             <br>Procesando respuesta...
@@ -30,10 +47,10 @@
     </div>
 
     <script>
-        // Esperar 15s antes de volver al inicio para que el usuario pueda leer el mensaje
+        // Esperar 12s antes de volver al inicio (ajustado a tu script anterior)
         setTimeout(function(){
             window.location.href = 'index.html';
-        }, 12000);
+        }, 72000);
     </script>
 </body>
 </html>
