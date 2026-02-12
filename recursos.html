@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Recursos & Herramientas | Wikingeniería</title>
+    <meta name="description" content="Arsenal digital para ingenieros: Plantillas Notion, eBooks y herramientas de productividad.">
+    
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'w-black': '#0a0a0a',
+                        'w-offblack': '#121212',
+                        'w-olive': '#8f9e8b',
+                        'w-sage': '#aebcb9',
+                        'w-light': '#e5e5e5',
+                    },
+                    fontFamily: {
+                        mono: ['JetBrains Mono', 'monospace'],
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@100;400;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #0a0a0a; color: #e5e5e5; }
+        .font-mono { font-family: 'JetBrains Mono', monospace; }
+        
+        /* Efecto Noise */
+        .bg-noise {
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+            background-repeat: repeat;
+            background-size: 150px 150px;
+        }
+
+        /* Patrón para items bloqueados (Blueprint effect) */
+        .bg-grid-pattern {
+            background-image: linear-gradient(to right, rgba(143, 158, 139, 0.05) 1px, transparent 1px),
+                              linear-gradient(to bottom, rgba(143, 158, 139, 0.05) 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+    </style>
+</head>
+<body class="bg-w-black min-h-screen flex flex-col">
+
+    <div class="fixed inset-0 bg-noise opacity-[0.03] pointer-events-none z-0"></div>
+
+    <nav class="fixed w-full z-50 bg-w-black/80 backdrop-blur-md border-b border-w-light/10">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex justify-between items-center">
+            <a href="index.html" class="font-mono text-lg font-bold tracking-tighter hover:text-w-olive transition">
+                WIKINGENIERIA<span class="text-w-olive">_</span>
+            </a>
+            <div class="hidden md:flex gap-8 font-mono text-xs tracking-widest text-w-sage/80">
+                <a href="podcast.html" class="hover:text-w-light transition">PODCAST</a>
+                <a href="recursos.html" class="text-w-olive">RECURSOS</a>
+                <a href="listas.html" class="hover:text-w-light transition">PLAYLISTS</a>
+            </div>
+        </div>
+    </nav>
+
+    <header class="relative z-10 pt-32 pb-12 px-6 text-center">
+        <div class="max-w-4xl mx-auto">
+            <div class="inline-block mb-4 px-3 py-1 rounded-full border border-w-olive/20 bg-w-olive/5 text-[10px] font-mono text-w-olive tracking-widest uppercase">
+                Official Store
+            </div>
+            <h1 class="font-mono text-3xl md:text-5xl font-bold text-w-light mb-6 tracking-tight">
+                ARSENAL <span class="text-w-olive">DIGITAL</span>
+            </h1>
+            <p class="text-w-sage font-light text-sm md:text-base leading-relaxed max-w-xl mx-auto">
+                Herramientas de productividad, sistemas de organización y guías tácticas diseñadas por y para ingenieros.
+            </p>
+        </div>
+    </header>
+
+    <main class="flex-grow relative z-10 px-6 pb-24">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+            <a href="https://wikingenieria.gumroad.com/l/plantilla-notion-organiza-aprueba" 
+               class="group relative flex flex-col bg-w-offblack border border-w-light/10 rounded-xl overflow-hidden hover:border-w-olive/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-w-olive/10">
+                
+                <div class="aspect-video w-full bg-w-black/50 overflow-hidden relative">
+                    <div class="absolute top-3 right-3 bg-[#e05d5d] text-black text-[10px] font-bold px-2 py-1 uppercase tracking-wider z-10 font-mono shadow-md rounded-sm">
+                        Top Ventas
+                    </div>
+                    <img src="assets/img/products/plantilla-notion-organiza-aprueba-cover.webp" 
+                         alt="Plantilla Notion Ingeniería" 
+                         class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition duration-500">
+                </div>
+
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="font-mono text-lg text-w-light mb-2 leading-tight group-hover:text-white transition-colors">
+                        Ingeniería en Modo Fácil [Sistema Notion]
+                    </h3>
+                    <p class="text-xs md:text-sm text-w-sage/70 font-light mb-6 flex-grow leading-relaxed">
+                        El sistema operativo definitivo para organizar asignaturas, calcular medias ponderadas y gestionar entregas.
+                    </p>
+                    
+                    <div class="mt-auto w-full py-3 font-mono text-xs font-bold uppercase tracking-widest text-center border border-w-olive text-w-olive rounded-sm group-hover:bg-w-olive group-hover:text-black transition-all duration-300">
+                        Adquirir Sistema <i class="fas fa-arrow-right ml-2 text-[10px]"></i>
+                    </div>
+                </div>
+            </a>
+
+            <a href="https://wikingenieria.gumroad.com/l/sobrevive-ingenieria" 
+               class="group relative flex flex-col bg-w-offblack border border-w-light/10 rounded-xl overflow-hidden hover:border-w-olive/50 transition-all duration-300 hover:-translate-y-1 hover:shadow-2xl hover:shadow-w-olive/10">
+                
+                <div class="aspect-video w-full bg-w-black/50 overflow-hidden relative">
+                    <div class="absolute top-3 right-3 bg-[#f0dfa0] text-black text-[10px] font-bold px-2 py-1 uppercase tracking-wider z-10 font-mono shadow-md rounded-sm">
+                        Gratis
+                    </div>
+                    <img src="assets/img/products/ebook-sobrevive-ingenieria-cover.webp" 
+                         alt="eBook Sobrevive Ingeniería" 
+                         class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition duration-500">
+                </div>
+
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="font-mono text-lg text-w-light mb-2 leading-tight group-hover:text-white transition-colors">
+                        Aprueba sin perder la Salud Mental [eBook]
+                    </h3>
+                    <p class="text-xs md:text-sm text-w-sage/70 font-light mb-6 flex-grow leading-relaxed">
+                        Manual de estrategia mental y táctica académica para evitar pagar segundas matrículas innecesarias.
+                    </p>
+                    
+                    <div class="mt-auto w-full py-3 font-mono text-xs font-bold uppercase tracking-widest text-center border border-w-olive text-w-olive rounded-sm group-hover:bg-w-olive group-hover:text-black transition-all duration-300">
+                        Descargar Gratis <i class="fas fa-download ml-2 text-[10px]"></i>
+                    </div>
+                </div>
+            </a>
+
+            <div class="relative flex flex-col bg-w-offblack/40 border border-dashed border-w-sage/20 rounded-xl overflow-hidden opacity-70 bg-grid-pattern cursor-not-allowed group">
+                <div class="aspect-video w-full bg-w-black/60 flex items-center justify-center relative">
+                    <i class="fas fa-graduation-cap text-4xl text-w-sage/20"></i>
+                    <div class="absolute inset-0 bg-black/40 backdrop-blur-[2px]"></div>
+                    <div class="absolute bg-w-sage/10 border border-w-sage/20 text-w-sage text-[10px] font-mono font-bold px-3 py-1 rounded-full uppercase tracking-wider backdrop-blur-md">
+                        <i class="fas fa-lock mr-1"></i> Próximamente
+                    </div>
+                </div>
+                <div class="p-6 flex flex-col flex-grow grayscale">
+                    <h3 class="font-mono text-lg text-w-sage/60 mb-2 leading-tight">
+                        Kit Supervivencia Fin de Carrera
+                    </h3>
+                    <p class="text-xs md:text-sm text-w-sage/40 font-light mb-6 flex-grow leading-relaxed">
+                        Guía completa para el TFG, trámites de título y búsqueda del primer empleo ingenieril.
+                    </p>
+                    <div class="mt-auto w-full py-3 font-mono text-xs font-bold uppercase tracking-widest text-center border border-w-sage/10 text-w-sage/30 rounded-sm">
+                        En Desarrollo...
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative flex flex-col bg-w-offblack/40 border border-dashed border-w-sage/20 rounded-xl overflow-hidden opacity-70 bg-grid-pattern cursor-not-allowed group">
+                <div class="aspect-video w-full bg-w-black/60 flex items-center justify-center relative">
+                    <i class="fas fa-compass text-4xl text-w-sage/20"></i>
+                    <div class="absolute inset-0 bg-black/40 backdrop-blur-[2px]"></div>
+                    <div class="absolute bg-w-sage/10 border border-w-sage/20 text-w-sage text-[10px] font-mono font-bold px-3 py-1 rounded-full uppercase tracking-wider backdrop-blur-md">
+                        <i class="fas fa-lock mr-1"></i> Próximamente
+                    </div>
+                </div>
+                <div class="p-6 flex flex-col flex-grow grayscale">
+                    <h3 class="font-mono text-lg text-w-sage/60 mb-2 leading-tight">
+                        Ingeniería: ¿Cuál elijo?
+                    </h3>
+                    <p class="text-xs md:text-sm text-w-sage/40 font-light mb-6 flex-grow leading-relaxed">
+                        Análisis honesto de salidas, salarios y realidad laboral de cada rama sin filtros universitarios.
+                    </p>
+                    <div class="mt-auto w-full py-3 font-mono text-xs font-bold uppercase tracking-widest text-center border border-w-sage/10 text-w-sage/30 rounded-sm">
+                        En Desarrollo...
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative flex flex-col bg-w-offblack/40 border border-dashed border-w-sage/20 rounded-xl overflow-hidden opacity-70 bg-grid-pattern cursor-not-allowed group">
+                <div class="aspect-video w-full bg-w-black/60 flex items-center justify-center relative">
+                    <i class="fas fa-book-open text-4xl text-w-sage/20"></i>
+                    <div class="absolute inset-0 bg-black/40 backdrop-blur-[2px]"></div>
+                    <div class="absolute bg-w-sage/10 border border-w-sage/20 text-w-sage text-[10px] font-mono font-bold px-3 py-1 rounded-full uppercase tracking-wider backdrop-blur-md">
+                        <i class="fas fa-lock mr-1"></i> Próximamente
+                    </div>
+                </div>
+                <div class="p-6 flex flex-col flex-grow grayscale">
+                    <h3 class="font-mono text-lg text-w-sage/60 mb-2 leading-tight">
+                        TFG/TFM Manager [Notion]
+                    </h3>
+                    <p class="text-xs md:text-sm text-w-sage/40 font-light mb-6 flex-grow leading-relaxed">
+                        Cronograma, gestión de bibliografía y estructura del documento para no escribirlo todo la última semana.
+                    </p>
+                    <div class="mt-auto w-full py-3 font-mono text-xs font-bold uppercase tracking-widest text-center border border-w-sage/10 text-w-sage/30 rounded-sm">
+                        En Desarrollo...
+                    </div>
+                </div>
+            </div>
+
+            <div class="relative flex flex-col bg-w-offblack/40 border border-dashed border-w-sage/20 rounded-xl overflow-hidden opacity-70 bg-grid-pattern cursor-not-allowed group">
+                <div class="aspect-video w-full bg-w-black/60 flex items-center justify-center relative">
+                    <i class="fas fa-network-wired text-4xl text-w-sage/20"></i>
+                    <div class="absolute inset-0 bg-black/40 backdrop-blur-[2px]"></div>
+                    <div class="absolute bg-w-sage/10 border border-w-sage/20 text-w-sage text-[10px] font-mono font-bold px-3 py-1 rounded-full uppercase tracking-wider backdrop-blur-md">
+                        <i class="fas fa-lock mr-1"></i> Próximamente
+                    </div>
+                </div>
+                <div class="p-6 flex flex-col flex-grow grayscale">
+                    <h3 class="font-mono text-lg text-w-sage/60 mb-2 leading-tight">
+                        Networking CRM & CV
+                    </h3>
+                    <p class="text-xs md:text-sm text-w-sage/40 font-light mb-6 flex-grow leading-relaxed">
+                        Plantilla para gestionar contactos profesionales y diseñar un CV que pase los filtros ATS.
+                    </p>
+                    <div class="mt-auto w-full py-3 font-mono text-xs font-bold uppercase tracking-widest text-center border border-w-sage/10 text-w-sage/30 rounded-sm">
+                        En Desarrollo...
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </main>
+
+    <footer class="border-t border-w-light/10 bg-w-black/50 backdrop-blur-sm relative z-10">
+        <div class="max-w-7xl mx-auto py-12 px-6 flex flex-col items-center gap-6">
+            <a href="index.html" class="inline-flex items-center gap-2 text-xs font-mono text-w-sage hover:text-w-light uppercase tracking-widest border-b border-transparent hover:border-w-light transition pb-1">
+                <i class="fas fa-globe"></i> wikingenieria.com
+            </a>
+            <div class="flex gap-6 opacity-60">
+                <a href="https://instagram.com/wikingenieria/" target="_blank" class="hover:text-white hover:scale-110 transition"><i class="fab fa-instagram text-xl"></i></a>
+                <a href="https://x.com/wikingenieria" target="_blank" class="hover:text-white hover:scale-110 transition"><i class="fab fa-x-twitter text-xl"></i></a>
+                <a href="https://facebook.com/wikingenieria" target="_blank" class="hover:text-white hover:scale-110 transition"><i class="fab fa-facebook text-xl"></i></a>
+                <a href="https://tiktok.com/@wikingenieria" target="_blank" class="hover:text-white hover:scale-110 transition"><i class="fab fa-tiktok text-xl"></i></a>
+            </div>
+            <p class="text-[10px] font-mono text-w-sage/60 uppercase tracking-widest mt-4">© 2026 Wikingeniería</p>
+        </div>
+    </footer>
+
+    <script src="https://gumroad.com/js/gumroad.js"></script>
+
+</body>
+</html>
