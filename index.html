@@ -285,96 +285,90 @@
 
     <div class="section-divider"></div>
 
-    <section id="wikipodcast" class="py-16 md:py-20 px-6 bg-w-black">
-        <div class="max-w-6xl mx-auto">
-            <h2 class="font-mono text-2xl md:text-3xl text-w-light uppercase tracking-widest text-center mb-10">
+    <section id="wikipodcast" class="py-16 md:py-24 px-6 bg-w-black border-t border-w-light/5">
+        <div class="max-w-5xl mx-auto">
+            <h2 class="font-mono text-2xl md:text-3xl text-w-light uppercase tracking-widest text-center mb-12 md:mb-16">
                 <span class="text-w-olive mr-2">//</span>WIKIPODCAST<span class="animate-pulse text-w-olive">_</span>
             </h2>
     
-            <div class="flex flex-col md:flex-row items-center justify-center gap-8 md:gap-12">
+            <div class="flex flex-col-reverse md:flex-row items-center justify-between gap-10 md:gap-16">
                 
-                <div class="w-full md:max-w-lg space-y-4 md:space-y-6 text-center md:text-left">
-                    <div class="flex items-center justify-center md:justify-start gap-3 border-b border-w-light/20 pb-4">
-                        <i class="fas fa-microphone-lines text-2xl text-w-light" aria-hidden="true"></i>
-                        <h3 class="font-mono text-xl md:text-2xl font-bold text-w-light">El Podcast de Wikingeniería</h3>
+                <div class="flex-1 space-y-6 text-center md:text-left max-w-xl">
+                    <div>
+                        <h3 class="font-mono text-xl md:text-2xl font-bold text-w-light mb-3 tracking-tight">
+                            El Podcast de Wikingeniería
+                        </h3>
+                        <div class="h-1 w-16 bg-w-olive/60 rounded-full mx-auto md:ml-0 mb-4"></div>
                     </div>
     
-                    <div class="flex flex-row items-center justify-center md:justify-start gap-4 md:gap-6">
-                        <img src="assets/img/core/wikipodcast-logo.png" alt="WikiPodcast"
-                            class="w-20 h-20 md:w-28 md:h-28 object-contain opacity-90 hover:opacity-100 transition duration-500 hover:scale-105 flex-shrink-0">
-                        
-                        <p class="text-w-sage font-light text-sm leading-relaxed text-left">
-                            El podcast para amantes de la ciencia, tecnología e ingeniería. A 320kbps con humor y mentalidad necesaria para esquivar segundas matrículas.
-                        </p>
-                    </div>
+                    <p class="text-w-sage font-light text-sm md:text-base leading-relaxed">
+                        El podcast para amantes de la ciencia, tecnología e ingeniería. A 320kbps con humor y mentalidad necesaria para esquivar segundas matrículas.
+                    </p>
     
-                    <div class="pt-2 hidden md:block">
-                        <a href="podcast.html" target="_blank"
-                            class="inline-flex items-center px-8 py-3 border border-w-light/30 text-w-light font-mono text-xs md:text-sm font-bold tracking-widest hover:bg-w-light hover:text-w-black transition rounded-sm group w-full md:w-auto justify-center">
-                            <span>Escúchalo ahora en tu plataforma favorita</span>
-                            <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition"></i>
+                    <div class="pt-4">
+                        <a href="podcast.html" target="_blank" 
+                           class="inline-flex items-center justify-center px-8 py-4 border border-w-light/20 text-w-light font-mono text-xs md:text-sm font-bold tracking-[0.2em] uppercase hover:bg-w-light hover:text-w-black transition-all duration-300 rounded-sm group w-full md:w-auto backdrop-blur-sm shadow-[0_0_15px_rgba(42,50,46,0.2)] hover:shadow-[0_0_20px_rgba(211,211,211,0.2)]">
+                            <span>ESCUCHAR AHORA</span>
+                            <i class="fas fa-play text-[10px] ml-3 transform group-hover:scale-110 transition-transform"></i>
                         </a>
                     </div>
                 </div>
     
-                <div class="w-full md:max-w-[400px] flex-shrink-0 flex items-center justify-center h-full">
-                    <iframe style="border-radius:12px" 
-                        src="https://open.spotify.com/embed/episode/0ZE6181gKJX0mC0dJlc7bz?utm_source=generator&theme=0" 
-                        width="100%" height="152" frameBorder="0" allowfullscreen="" 
-                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
-                        loading="lazy" class="shadow-lg shadow-w-olive/10">
-                    </iframe>
-                </div>
+                <a href="podcast.html" target="_blank" class="relative group flex-shrink-0 cursor-pointer block">
+                    <div class="absolute -inset-4 bg-w-olive/20 rounded-full blur-2xl group-hover:bg-w-olive/40 transition duration-500 opacity-60"></div>
+                    
+                    <div class="relative w-40 h-40 md:w-52 md:h-52 rounded-full border border-w-light/10 bg-w-black/80 flex items-center justify-center shadow-2xl transition duration-500 group-hover:scale-105 group-hover:border-w-olive/50">
+                        <img src="assets/img/core/wikipodcast-logo.png" alt="WikiPodcast Logo" 
+                             class="w-32 h-32 md:w-44 md:h-44 object-contain opacity-90 group-hover:opacity-100 transition duration-500 drop-shadow-lg">
+                    </div>
+                </a>
     
-                <div class="w-full md:max-w-lg flex items-center justify-center mt-4 md:mt-6 md:hidden">
-                    <a href="podcast.html" target="_blank"
-                        class="inline-flex items-center px-8 py-3 border border-w-light/30 text-w-light font-mono text-xs font-bold tracking-widest hover:bg-w-light hover:text-w-black transition rounded-sm group w-full md:w-auto justify-center">
-                        <span>Escúchalo ahora en tu plataforma favorita</span>
-                        <i class="fas fa-arrow-right ml-2 transform group-hover:translate-x-1 transition"></i>
-                    </a>
-                </div>
             </div>
         </div>
     </section>
 
-    <section class="py-16 md:py-20 px-6 relative overflow-hidden">
-        <div class="absolute inset-0 z-0 bg-gradient-to-b from-w-black via-[#0a0f0d] to-w-olive/20 pointer-events-none">
-        </div>
-
-        <div class="max-w-5xl mx-auto relative z-10">
-            <h2 class="font-mono text-2xl md:text-3xl text-w-light uppercase tracking-widest mb-8 text-center"><span
-                    class="text-w-olive mr-2">//</span>LISTAS SPOTIFY PARA INGENIEROS<span class="animate-pulse text-w-olive">_</span>
+    <section class="py-16 md:py-24 px-6 relative overflow-hidden bg-[#0a0f0d]">
+        <div class="absolute inset-0 z-0 bg-gradient-to-b from-w-black via-transparent to-w-olive/10 pointer-events-none"></div>
+    
+        <div class="max-w-5xl mx-auto relative z-10 flex flex-col items-center">
+            
+            <h2 class="font-mono text-2xl md:text-3xl text-w-light uppercase tracking-widest mb-8 text-center">
+                <span class="text-w-olive mr-2">//</span>LISTAS DE MÚSICA PARA INGENIEROS<span class="animate-pulse text-w-olive">_</span>
             </h2>
-
-            <div class="text-center space-y-6 max-w-2xl mx-auto mb-8">
-                <p class="text-sm font-light text-w-sage/80 leading-relaxed">
+    
+            <div class="text-center space-y-6 max-w-2xl mx-auto mb-12">
+                <p class="text-w-sage font-light text-sm md:text-base leading-relaxed">
                     Música seleccionada específicamente para sesiones de estudio profundo o para desconectar
                     el cerebro tras resolver ecuaciones diferenciales. Elimina el ruido externo y aumenta la concentración.
                 </p>
             </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 justify-items-center mb-10">
-                <iframe style="border-radius:12px"
-                    src="https://open.spotify.com/embed/playlist/5Syo3RZAL0OMfAFDDHAO0R?utm_source=generator&theme=0"
-                    width="100%" height="152" frameBorder="0" allowfullscreen=""
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"
-                    sandbox="allow-scripts allow-same-origin allow-popups allow-presentation"
-                    class="shadow-lg"></iframe>
-                <iframe style="border-radius:12px"
-                    src="https://open.spotify.com/embed/playlist/559SY5yxg2fMHSLi1U3Vxm?utm_source=generator&theme=0"
-                    width="100%" height="152" frameBorder="0" allowfullscreen=""
-                    allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"
-                    sandbox="allow-scripts allow-same-origin allow-popups allow-presentation"
-                    class="shadow-lg"></iframe>
-            </div>
-
-             <div class="flex justify-center">
-                <a href="https://open.spotify.com/user/1167448648?si=9d77421160354179" target="_blank" rel="noopener"
-                    class="inline-flex items-center gap-2 px-6 py-3 bg-w-olive/20 border border-w-olive text-w-light font-mono text-[10px] md:text-sm uppercase tracking-widest hover:bg-[#1DB954]/10 hover:border-[#1DB954] hover:text-white transition rounded-full">
-                    <i class="fab fa-spotify text-lg"></i>
-                    Échale una oreja a todas las listas aquí
+    
+            <a href="listas.html" target="_blank" class="block w-full max-w-3xl mb-12 group relative cursor-pointer mx-auto">
+    
+                <div class="absolute -inset-1 bg-gradient-to-r from-w-olive/0 via-w-olive/30 to-w-olive/0 rounded-2xl blur-2xl opacity-40 group-hover:opacity-100 transition duration-700"></div>
+                
+                <div class="relative bg-w-black/50 border border-w-light/10 rounded-xl overflow-hidden shadow-2xl backdrop-blur-sm group-hover:border-w-olive/40 transition duration-500">
+                    
+                    <img src="assets/img/listas/all-spotify-playlists.webp" 
+                         alt="Colección de Listas Wikingeniería" 
+                         class="w-full h-auto block opacity-85 group-hover:opacity-100 group-hover:scale-[1.01] transition duration-700 ease-out">
+                    
+                    <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition duration-500"></div>
+                </div>
+            </a>
+    
+            <div class="flex justify-center">
+                <a href="listas.html" target="_blank" 
+                   class="inline-flex items-center justify-center px-8 py-4 border border-[#1DB954]/20 text-w-light font-mono text-xs md:text-sm font-bold tracking-[0.2em] uppercase hover:bg-[#1DB954] hover:text-white transition-all duration-300 rounded-sm group backdrop-blur-sm shadow-[0_0_15px_rgba(29,185,84,0.05)] hover:shadow-[0_0_20px_rgba(211,211,211,0.15)]">
+                    
+                    <i class="fab fa-spotify text-lg text-[#1DB954] mr-3 group-hover:text-white transition-colors"></i>
+                    
+                    <span>VER TODAS LAS LISTAS</span>
+                    
+                    <i class="fas fa-play text-[10px] ml-3 transform group-hover:scale-110 transition-transform"></i>
                 </a>
-             </div>
+            </div>
+    
         </div>
     </section>
 
