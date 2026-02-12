@@ -437,7 +437,7 @@
                     class="text-w-light font-mono text-xs uppercase tracking-widest hover:text-white transition">Suscribirse</button>
             </form>
     
-            <div id="hub-status" class="hidden mt-6 p-4 bg-black/40 border border-w-olive/50 rounded-sm backdrop-blur-sm text-center">
+            <div id="hub-status" class="hidden mt-6 p-4 bg-black/60 border border-w-olive/50 rounded-sm backdrop-blur-sm text-center">
                 </div>
         </div>
     </section>
@@ -657,10 +657,10 @@
                             
                             // 2. Inyectar HTML con estilo de terminal
                             hubStatus.innerHTML = `
-                                <p class="font-mono text-xs text-w-olive uppercase tracking-widest mb-1">
-                                    <span class="opacity-50">SYSTEM_MESSAGE ::</span> TRANSMISIÓN RECIBIDA
+                                <p class="font-mono text-lg text-w-olive uppercase tracking-widest mb-2">
+                                    <span class="text-white opacity-60">SYSTEM_MESSAGE ::</span> TRANSMISIÓN RECIBIDA<span class="animate-pulse">_</span>
                                 </p>
-                                <p class="font-mono text-[10px] text-w-light/80">
+                                <p class="font-mono text-sm text-white font-light">
                                     Lo que tu universidad no quiere que recibas está en camino<span class="animate-pulse text-w-olive font-bold">_</span>
                                 </p>
                             `;
