@@ -437,7 +437,7 @@
                     class="text-w-light font-mono text-xs uppercase tracking-widest hover:text-white transition">Suscribirse</button>
             </form>
     
-            <div id="hub-status" class="hidden mt-6 p-4 bg-black/40 border border-w-olive/50 rounded-sm backdrop-blur-sm text-center">
+            <div id="hub-status" class="hidden mt-6 p-5 bg-w-olive/10 border border-w-olive/40 rounded-sm backdrop-blur-md text-center">
                 </div>
         </div>
     </section>
@@ -653,31 +653,29 @@
                         });
     
                         if (response.ok) {
-                            // --- ÉXITO ---
-                            
-                            // 2. Inyectar HTML con estilo de terminal
-                            hubStatus.innerHTML = `
-                                <p class="font-mono text-xs text-w-olive uppercase tracking-widest mb-1">
-                                    <span class="opacity-50">SYSTEM_MESSAGE ::</span> TRANSMISIÓN RECIBIDA
-                                </p>
-                                <p class="font-mono text-[10px] text-w-light/80">
-                                    Lo que tu universidad no quiere que recibas está en camino<span class="animate-pulse text-w-olive font-bold">_</span>
-                                </p>
-                            `;
-                            
-                            // 3. Mostrar la caja (Garantizado)
-                            hubStatus.classList.remove('hidden');
-                            hubStatus.style.display = 'block'; // Fuerza bruta por si acaso
-                            
-                            // 4. Bloquear formulario visualmente
-                            hubForm.style.opacity = '0.3';
-                            hubForm.style.pointerEvents = 'none';
-                            hubForm.reset();
-                            
-                            // 5. Estado final del botón
-                            hubSubmitBtn.innerText = 'SUSCRITO';
-                            
-                        } else { throw new Error('Server Error'); }
+                        // --- ÉXITO CON AJUSTES DE DISEÑO ---
+                        
+                        // 1. Inyectar HTML: Barra parpadeante arriba, punto final abajo.
+                        hubStatus.innerHTML = `
+                            <p class="font-mono text-sm text-w-olive uppercase tracking-widest mb-2 font-bold">
+                                <span class="opacity-70">SYSTEM_MESSAGE ::</span> TRANSMISIÓN RECIBIDA<span class="animate-pulse">_</span>
+                            </p>
+                            <p class="font-mono text-xs text-w-light tracking-tight">
+                                Lo que tu universidad no quiere que recibas está en camino.
+                            </p>
+                        `;
+                        
+                        // 2. Mostrar y bloquear
+                        hubStatus.classList.remove('hidden');
+                        hubStatus.style.display = 'block';
+                        
+                        hubForm.style.opacity = '0.3';
+                        hubForm.style.pointerEvents = 'none';
+                        hubForm.reset();
+                        
+                        hubSubmitBtn.innerText = 'SUSCRITO';
+                        
+                    } else { throw new Error('Server Error'); }
     
                     } catch (error) {
                         // --- ERROR ---
