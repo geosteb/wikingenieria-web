@@ -523,10 +523,10 @@
             </div>
             <div class="flex flex-wrap justify-center md:justify-end gap-6">
                 <a href="https://www.instagram.com/wikingenieria?igsh=MTBsczl2Z2hjcTYweQ==" 
-   id="instagram-link"
+   id="insta-social"
    target="_blank" 
    rel="noopener" 
-   class="text-w-sage/90 hover:text-white transition transform hover:-translate-y-1">
+   class="text-w-sage/90 hover:text-white transition-all">
    <i class="fab fa-instagram text-lg"></i>
 </a>
                 <a href="https://x.com/wikingenieria" target="_blank" rel="noopener" class="text-w-sage/90 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-x-twitter text-lg"></i></a>
@@ -716,22 +716,23 @@
         }); // Cierre DOMContentLoaded
 
         // --- GESTIÓN INSTAGRAM MÓVIL (Sustituye la función antigua) ---
-const instaLink = document.getElementById('instagram-link');
-if (instaLink) {
-    instaLink.addEventListener('click', function(e) {
+        document.addEventListener('DOMContentLoaded', function() {
+    const instaLink = document.getElementById('insta-social');
+    
+    if (instaLink) {
+        // Detectamos si es móvil
         const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
         
         if (isMobile) {
-            // En móvil, forzamos que abra en la misma pestaña para que el sistema 
-            // operativo detecte la URL y lance la App de Instagram automáticamente.
-            e.preventDefault();
-            window.location.href = "https://www.instagram.com/wikingenieria?igsh=MTBsczl2Z2hjcTYweQ==";
+            // TRUCO MAESTRO: En móvil eliminamos el abrir en pestaña nueva.
+            // Esto permite que iOS/Android intercepten la URL y abran la App.
+            instaLink.removeAttribute('target');
+            
+            // Usamos el enlace con el token que has copiado
+            instaLink.href = "https://www.instagram.com/wikingenieria?igsh=MTBsczl2Z2hjcTYweQ==";
         }
-        // En PC, no hacemos nada y el target="_blank" abrirá la web en pestaña nueva.
-    });
-}
-    
-
+    }
+});
     </script>
     <script src="https://gumroad.com/js/gumroad.js"></script>
 </body>
