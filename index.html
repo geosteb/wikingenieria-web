@@ -405,42 +405,53 @@
     </div>
 
     <section id="wikipodcast" class="py-20 md:py-24 px-6 bg-w-black">
-        <div class="max-w-5xl mx-auto">
-            <h2 class="font-mono text-2xl md:text-3xl text-w-light uppercase tracking-widest text-center mb-16 md:mb-20">
-                <span class="text-w-olive mr-2">//</span>WIKIPODCAST<span class="animate-pulse text-w-olive">_</span>
+        <div class="max-w-4xl mx-auto">
+            
+            <h2 class="font-mono text-2xl md:text-3xl font-bold text-w-light tracking-widest mb-12 md:mb-20 text-center">
+                <span class="opacity-30 text-w-light">//</span> WIKIPODCAST<span class="text-w-olive animate-pulse font-bold -ml-1">_</span>
             </h2>
     
-            <div class="flex flex-col-reverse md:flex-row items-center justify-between gap-12 md:gap-16">
+            <div class="grid grid-cols-12 gap-y-6 gap-x-4 md:flex md:flex-row md:items-center md:justify-between md:gap-12">
                 
-                <div class="flex-1 space-y-6 text-center md:text-left max-w-xl">
+                <div class="col-span-8 md:flex-1 text-left space-y-4 md:space-y-6 md:max-w-md">
                     <div>
-                        <h3 class="font-mono text-xl md:text-2xl font-bold text-w-light mb-3 tracking-tight">
+                        <h3 class="font-mono text-lg md:text-2xl font-bold text-w-light leading-tight tracking-tight">
                             El Podcast de Wikingeniería
                         </h3>
-                        <div class="h-[1px] w-16 bg-w-olive/40 rounded-full mx-auto md:ml-0 mb-4"></div>
+                        <div class="h-[1px] w-12 md:w-16 bg-w-olive/40 rounded-full mt-3 mb-1"></div>
                     </div>
     
-                    <p class="text-w-sage font-light text-sm md:text-base leading-relaxed">
+                    <p class="text-w-sage font-light text-xs md:text-base leading-relaxed pr-2">
                         El podcast para amantes de la ciencia, tecnología e ingeniería. A 320kbps con humor y mentalidad necesaria para esquivar segundas matrículas.
                     </p>
-    
-                    <div class="pt-6">
+                    
+                    <div class="hidden md:block pt-4">
                         <a href="podcast.html" 
-                           class="inline-flex items-center justify-center px-8 py-4 border border-w-light/20 text-w-light font-mono text-xs md:text-sm font-bold tracking-[0.2em] uppercase hover:bg-w-light hover:text-w-black transition-all duration-300 rounded-sm group w-full md:w-auto backdrop-blur-sm shadow-[0_0_15px_rgba(42,50,46,0.2)] hover:shadow-[0_0_20px_rgba(211,211,211,0.2)]">
+                           class="inline-flex items-center justify-center px-8 py-4 border border-w-light/20 text-w-light font-mono text-sm font-bold tracking-[0.2em] uppercase hover:bg-w-light hover:text-w-black transition-all duration-300 rounded-sm group backdrop-blur-sm shadow-[0_0_15px_rgba(42,50,46,0.2)] hover:shadow-[0_0_20px_rgba(211,211,211,0.2)]">
                             <span>ESCUCHAR AHORA</span>
                             <i class="fas fa-play text-[10px] ml-3 transform group-hover:scale-110 transition-transform"></i>
                         </a>
                     </div>
                 </div>
     
-                <a href="podcast.html" class="relative group flex-shrink-0 cursor-pointer block">
-                    <div class="absolute -inset-4 bg-w-olive/20 rounded-full blur-2xl group-hover:bg-w-olive/40 transition duration-500 opacity-60"></div>
-                    
-                    <div class="relative w-40 h-40 md:w-52 md:h-52 rounded-full border border-w-light/10 bg-w-black/80 flex items-center justify-center shadow-2xl transition duration-500 group-hover:scale-105 group-hover:border-w-olive/50">
-                        <img src="assets/img/core/wikipodcast-logo.png" alt="WikiPodcast Logo" 
-                             class="w-32 h-32 md:w-44 md:h-44 object-contain opacity-90 group-hover:opacity-100 transition duration-500 drop-shadow-lg">
-                    </div>
-                </a>
+                <div class="col-span-4 md:w-auto flex justify-end md:block relative group cursor-pointer">
+                    <a href="podcast.html" class="block relative">
+                        <div class="absolute -inset-2 md:-inset-4 bg-w-olive/20 rounded-full blur-xl md:blur-2xl group-hover:bg-w-olive/40 transition duration-500 opacity-60"></div>
+                        
+                        <div class="relative w-20 h-20 md:w-48 md:h-48 rounded-full border border-w-light/10 bg-w-black/80 flex items-center justify-center shadow-2xl transition duration-500 group-hover:scale-105 group-hover:border-w-olive/50">
+                            <img src="assets/img/core/wikipodcast-logo.png" alt="WikiPodcast Logo" 
+                                 class="w-16 h-16 md:w-40 md:h-40 object-contain opacity-90 group-hover:opacity-100 transition duration-500 drop-shadow-lg">
+                        </div>
+                    </a>
+                </div>
+    
+                <div class="col-span-12 md:hidden mt-2">
+                    <a href="podcast.html" 
+                       class="flex items-center justify-center w-full py-4 bg-w-olive/10 border border-w-olive/40 text-w-light font-mono text-xs font-bold tracking-[0.2em] uppercase hover:bg-w-olive hover:text-white transition-all duration-300 rounded-sm group shadow-lg">
+                        <span>ESCUCHAR AHORA</span>
+                        <i class="fas fa-play text-[10px] ml-3 transform group-hover:scale-110 transition-transform"></i>
+                    </a>
+                </div>
     
             </div>
         </div>
@@ -454,7 +465,7 @@
         <div class="max-w-2xl mx-auto">
 
             <div class="text-center mb-12">
-                <h2 class="font-mono text-2xl text-w-light uppercase tracking-widest mb-6"><span
+                <h2 class="font-mono text-2xl md:text-3xl text-w-light uppercase tracking-widest mb-6"><span
                         class="text-w-olive mr-2">//</span>SOPORTE TÉCNICO<span
                         class="animate-pulse text-w-olive">_</span></h2>
                 <p class="text-w-sage font-light text-sm leading-relaxed max-w-lg mx-auto">
