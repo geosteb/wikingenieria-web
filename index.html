@@ -522,7 +522,8 @@
                 </div>
             </div>
             <div class="flex flex-wrap justify-center md:justify-end gap-6">
-                <a href="https://www.instagram.com/wikingenieria/?igsh=ZWFvaXdiMTRyeGkz" 
+                <a href="https://www.instagram.com/wikingenieria/" 
+   id="insta-link"
    target="_blank" 
    rel="noopener" 
    class="text-w-sage/90 hover:text-white transition transform hover:-translate-y-1">
@@ -713,6 +714,22 @@
             }
     
         }); // Cierre DOMContentLoaded
+
+        document.addEventListener('DOMContentLoaded', function() {
+    const instaLink = document.getElementById('insta-link');
+    
+    if (instaLink) {
+        // Detectar si es móvil (iOS o Android)
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        
+        if (isMobile) {
+            // Si es móvil, envolvemos la URL en el redireccionador de Google 
+            // para forzar la apertura en el navegador del móvil
+            const originalUrl = instaLink.href;
+            instaLink.href = "https://www.google.com/url?q=" + encodeURIComponent(originalUrl);
+        }
+    }
+});
     </script>
     <script src="https://gumroad.com/js/gumroad.js"></script>
 </body>
