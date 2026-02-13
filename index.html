@@ -522,8 +522,8 @@
                 </div>
             </div>
             <div class="flex flex-wrap justify-center md:justify-end gap-6">
-                <a href="https://www.instagram.com/wikingenieria/" 
-   onclick="forceInstagramApp()" 
+                <a href="https://www.instagram.com/wikingenieria/?igsh=ZWFvaXdiMTRyeGkz" 
+   id="instagram-link"
    target="_blank" 
    rel="noopener" 
    class="text-w-sage/90 hover:text-white transition transform hover:-translate-y-1">
@@ -715,27 +715,21 @@
     
         }); // Cierre DOMContentLoaded
 
-        function forceInstagramApp() {
-        var ua = navigator.userAgent.toLowerCase();
-        var isAndroid = ua.indexOf("android") > -1;
-        var isIphone = ua.indexOf("iphone") > -1 || ua.indexOf("ipad") > -1;
-
-        if (isAndroid) {
-            // ANDROID: Usamos el "Intent" oficial. 
-            // Esto fuerza a Android a buscar la App y abrir ESE perfil específico.
-            // Si no tiene app, el propio Android sabe ir a la web.
-            var androidUrl = 'intent://instagram.com/_u/wikingenieria/#Intent;package=com.instagram.android;scheme=https;end';
-            window.location.href = androidUrl;
-        } 
-        else if (isIphone) {
-            // IOS: Intentamos abrir el esquema de la App.
-            // Al no usar preventDefault en el HTML, si esto falla,
-            // Safari simplemente habrá abierto la pestaña nueva del href.
-            var iosUrl = 'instagram://user?username=wikingenieria';
-            window.location.href = iosUrl;
+        // --- GESTIÓN INSTAGRAM MÓVIL (Sustituye la función antigua) ---
+const instaLink = document.getElementById('instagram-link');
+if (instaLink) {
+    instaLink.addEventListener('click', function(e) {
+        const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
+        
+        if (isMobile) {
+            // En móvil, forzamos que abra en la misma pestaña para que el sistema 
+            // operativo detecte la URL y lance la App de Instagram automáticamente.
+            e.preventDefault();
+            window.location.href = "https://www.instagram.com/wikingenieria/?igsh=ZWFvaXdiMTRyeGkz";
         }
-        // Si es PC, no entra en los if y simplemente abre el target="_blank" del HTML.
-    }
+        // En PC, no hacemos nada y el target="_blank" abrirá la web en pestaña nueva.
+    });
+}
     
 
     </script>
