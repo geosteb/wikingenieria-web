@@ -528,7 +528,7 @@
             </div>
             <div class="flex flex-wrap justify-center md:justify-end gap-6">
                 <a href="https://www.instagram.com/wikingenieria/" 
-   onclick="forceInstagramApp(event)" 
+   onclick="forceInstagramApp()" 
    target="_blank" 
    rel="noopener" 
    class="text-w-sage/90 hover:text-white transition transform hover:-translate-y-1">
@@ -720,24 +720,28 @@
     
         }); // Cierre DOMContentLoaded
 
+        function forceInstagramApp() {
+        var ua = navigator.userAgent.toLowerCase();
+        var isAndroid = ua.indexOf("android") > -1;
+        var isIphone = ua.indexOf("iphone") > -1 || ua.indexOf("ipad") > -1;
 
-    function forceInstagramApp(e) {
-        // Detectar si es móvil
-        var isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
-        
-        if (isMobile) {
-            e.preventDefault(); // Evita que el navegador abra el link web inmediatamente
-            
-            // 1. Intenta abrir la App directamente usando el esquema URI
-            window.location.href = "instagram://user?username=wikingenieria";
-            
-            // 2. Si en 500ms no ha cambiado de contexto (no se ha abierto la app), carga la web
-            setTimeout(function() {
-                window.location.href = "https://www.instagram.com/wikingenieria/";
-            }, 500);
+        if (isAndroid) {
+            // ANDROID: Usamos el "Intent" oficial. 
+            // Esto fuerza a Android a buscar la App y abrir ESE perfil específico.
+            // Si no tiene app, el propio Android sabe ir a la web.
+            var androidUrl = 'intent://instagram.com/_u/wikingenieria/#Intent;package=com.instagram.android;scheme=https;end';
+            window.location.href = androidUrl;
+        } 
+        else if (isIphone) {
+            // IOS: Intentamos abrir el esquema de la App.
+            // Al no usar preventDefault en el HTML, si esto falla,
+            // Safari simplemente habrá abierto la pestaña nueva del href.
+            var iosUrl = 'instagram://user?username=wikingenieria';
+            window.location.href = iosUrl;
         }
-        // Si es PC, no hace nada y deja que el href normal con target="_blank" haga su trabajo
+        // Si es PC, no entra en los if y simplemente abre el target="_blank" del HTML.
     }
+    
 
     </script>
 </body>
