@@ -189,15 +189,13 @@
             window.addEventListener('resize', resizeCanvas);
             resizeCanvas();
     
-            // Configuración Inicial
             let matrixChars = 'πΣ∫∞√≈≠ΔΩφμeijkxyz01∀∃∇∂θλσμ≡≤≥'; 
-            let matrixColor = '#6b7838'; // Verde Wikingeniería
-            let matrixGlow = 0;          // Sin brillo por defecto
-            
-            // --- CALIBRACIÓN DE VELOCIDAD ---
-            let currentSpeed = 50;       // Velocidad Normal (ms por frame)
-            const piSpeed = 80;         // Velocidad Modo PI (Más lento para apreciar el símbolo)
+            let matrixColor = '#6b7838'; 
+            let matrixGlow = 0; 
+            let currentSpeed = 50; 
+            const piSpeed = 80; 
             let matrixInterval;
+            let gravityOffset = 0; // Para el Easter Egg de móvil
     
             const fontSize = 14;
             const columns = canvas.width / fontSize;
@@ -214,7 +212,12 @@
     
                 for (let i = 0; i < drops.length; i++) {
                     const text = matrixChars[Math.floor(Math.random() * matrixChars.length)];
-                    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                    
+                    // APLICACIÓN DE GRAVEDAD DINÁMICA (Easter Egg Móvil)
+                    const xPos = (i * fontSize) + (drops[i] * gravityOffset);
+                    const yPos = drops[i] * fontSize;
+                    
+                    ctx.fillText(text, xPos, yPos);
     
                     if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
                         drops[i] = 0;
@@ -225,7 +228,19 @@
             
             matrixInterval = setInterval(drawMatrix, currentSpeed);
     
-            // --- 2. SECUENCIA DE CARGA (BOOT SEQUENCE) ---
+            // --- 2. GRAVEDAD POR INCLINACIÓN (SÓLO MÓVIL) ---
+            if (window.DeviceOrientationEvent) {
+                window.addEventListener('deviceorientation', (event) => {
+                    let tilt = event.gamma; // Inclinación lateral
+                    if (Math.abs(tilt) > 10) {
+                        gravityOffset = tilt / 8; 
+                    } else {
+                        gravityOffset = 0;
+                    }
+                });
+            }
+    
+            // --- 3. SECUENCIA DE CARGA (BOOT SEQUENCE) ---
             const loader = document.getElementById('loader-screen');
             const progressBar = document.getElementById('progress-bar');
             const progressText = document.getElementById('progress-text');
@@ -253,59 +268,61 @@
                 }, 800);
             }
     
-            // --- 3. EASTER EGG: MODO PI (P+I O 3 TOQUES EN LOGO) ---
+            // --- 4. INTERACCIÓN STATUS: OFFLINE (Protocolo de Forzado) ---
+            const statusText = document.querySelector('span.text-\\[\\#e05d5d\\]');
+            if (statusText) {
+                statusText.style.cursor = "pointer";
+                statusText.addEventListener('click', () => {
+                    statusText.innerText = "CONNECTING...";
+                    statusText.style.color = "#f59e0b";
+                    
+                    const logContainer = document.querySelector('.font-mono.space-y-1');
+                    const connectionLog = document.createElement('p');
+                    connectionLog.className = "text-[8px] text-amber-500 animate-pulse";
+                    connectionLog.innerText = "➜ auth_handshake: attempt_01 [SYN_SENT]";
+                    logContainer.appendChild(connectionLog);
+    
+                    setTimeout(() => {
+                        statusText.innerText = "REFUSED";
+                        statusText.style.color = "#ef4444";
+                        setTimeout(() => {
+                            statusText.innerText = "OFFLINE";
+                            statusText.style.color = "#e05d5d";
+                            connectionLog.innerText = "➜ system_msg: bypass_denied. use_email_protocol.";
+                            const form = document.getElementById('notify-form');
+                            form.classList.add('ring-1', 'ring-w-light');
+                            setTimeout(() => form.classList.remove('ring-1', 'ring-w-light'), 2000);
+                        }, 1500);
+                    }, 2000);
+                });
+            }
+    
+            // --- 5. EASTER EGG: MODO PI ---
             let keyBuffer = "";
             let logoClicks = 0;
     
-            // Activación por teclado (Escritorio)
             document.addEventListener('keydown', (e) => {
                 keyBuffer = (keyBuffer + e.key.toLowerCase()).slice(-2);
-                if (keyBuffer === "pi") {
-                    activatePiMode();
-                }
+                if (keyBuffer === "pi") activatePiMode();
             });
     
-            // Activación por toques (Móvil) - Sobre el contenedor del logo
             const logoTrigger = document.querySelector('.mb-12.flex.items-center.gap-3') || document.querySelector('.flex.items-center.gap-3');
             if (logoTrigger) {
-                logoTrigger.style.cursor = "pointer";
                 logoTrigger.addEventListener('click', () => {
                     logoClicks++;
-                    if (logoClicks === 3) {
-                        activatePiMode();
-                        logoClicks = 0;
-                    }
+                    if (logoClicks === 3) { activatePiMode(); logoClicks = 0; }
                     setTimeout(() => { logoClicks = 0; }, 2000);
                 });
             }
     
             function activatePiMode() {
-                // 1. Configuración Visual Modo PI
                 matrixColor = "#e05d5d"; 
                 matrixGlow = 10; 
                 matrixChars = "π"; 
-    
-                // 2. Ajuste de Velocidad
                 clearInterval(matrixInterval);
                 matrixInterval = setInterval(drawMatrix, piSpeed); 
-    
-                // 3. Estilo del Panel
                 const mainPanel = document.querySelector('.glass-panel');
                 if(mainPanel) mainPanel.style.borderColor = "#e05d5d";
-                
-                // 4. Notificación en pantalla
-                const notify = document.createElement('div');
-                notify.className = "fixed top-24 left-1/2 -translate-x-1/2 font-mono text-[9px] bg-[#e05d5d] text-w-black px-4 py-1 z-[100] tracking-tighter shadow-[0_0_10px_#e05d5d]";
-                notify.innerText = "ALERTA: SINGULARIDAD_PI_DETECTADA // CONSTANTE UNIVERSAL ACTIVA";
-                document.body.appendChild(notify);
-    
-                // 5. Tooltips
-                document.querySelectorAll('p, h1, span').forEach(el => {
-                    el.style.cursor = "help";
-                    el.title = `Diagnóstico: π ≈ 3.14159...`;
-                });
-                
-                console.log("%c[!] MODO PI ACTIVADO. Visualizando constante.", "color: #e05d5d; font-weight: bold;");
             }
     
             function renderAsciiLogo() {
@@ -318,44 +335,33 @@
          ╚══╝╚══╝ ╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚══════╝╚═╝  ╚═══╝╚═╝╚══════╝╚═╝  ╚═╝╚═╝╚═╝  ╚═╝
                 `;
                 console.log("%c" + ascii, "color: #6b7838; font-weight: bold;");
-                console.log("%c// Wikingeniería V2.0: Nodo Central Operativo", "color: #b0bab3; font-family: monospace;");
-                console.log("%cREGALO DE BIENVENIDA: Guarda el código 'WIKINGENIERIA40'. Te haré falta para evitar segundas matrículas. Me lo agradecerás luego.", "background: #2a322e; color: #fff; padding: 8px; border-left: 4px solid #6b7838; font-weight: bold; margin-top: 5px;");
+                console.log("%c[CÓDIGO DE ACCESO: 'WIKINGENIERIA40', guárdalo para el futuro, te servirá para evitar segundas matrículas. Me lo agradecerás luego.]", "background: #2a322e; color: #fff; padding: 8px; border-left: 4px solid #6b7838; font-weight: bold;");
             }
     
-            // --- 4. FORMULARIO MAKE.COM ---
+            // --- 6. FORMULARIO MAKE.COM ---
             const notifyForm = document.getElementById('notify-form');
             if (notifyForm) {
                 notifyForm.addEventListener('submit', async (e) => {
                     e.preventDefault();
                     const btn = notifyForm.querySelector('button');
                     const emailInput = notifyForm.querySelector('input[type="email"]');
-                    const originalText = btn.innerText;
-    
                     btn.innerText = "SEND_";
                     btn.disabled = true;
-    
                     try {
                         const response = await fetch('https://hook.eu1.make.com/i94znb36hor2wlepeseoet2iv1uuaaa3', {
                             method: 'POST',
                             headers: { 'Content-Type': 'application/json' },
-                            body: JSON.stringify({ email: emailInput.value, source: "System Update Page" })
+                            body: JSON.stringify({ email: emailInput.value, source: "Soon Page" })
                         });
-    
                         if (response.ok) {
                             btn.innerText = "SYNCED";
                             btn.style.backgroundColor = "#b0bab3";
                             btn.style.color = "#020201";
                             emailInput.value = "SUBSCRIPCIÓN_COMPLETA";
-                            emailInput.disabled = true;
-                        } else { throw new Error(); }
+                        }
                     } catch (error) {
                         btn.innerText = "ERR_";
-                        btn.style.backgroundColor = "#e05d5d"; 
-                        setTimeout(() => { 
-                            btn.innerText = originalText; 
-                            btn.disabled = false; 
-                            btn.style.backgroundColor = ""; 
-                        }, 2000);
+                        setTimeout(() => { btn.innerText = "AVISAR"; btn.disabled = false; }, 2000);
                     }
                 });
             }
