@@ -65,7 +65,7 @@
             z-index: 0;
             opacity: 0;
             transition: opacity 2s ease-in;
-            pointer-events: none; /* Crucial para permitir scroll/recarga en móvil */
+            pointer-events: none; 
         }
 
         #matrix-canvas.active {
@@ -91,11 +91,12 @@
             backdrop-filter: blur(10px);
             -webkit-backdrop-filter: blur(10px);
             border: 1px solid rgba(42, 50, 46, 0.5);
+            transition: border-color 0.5s ease;
         }
 
         body {
             background-color: #020201;
-            overscroll-behavior-y: contain; /* Mejora la experiencia de recarga en móvil */
+            overscroll-behavior-y: contain; 
         }
     </style>
 </head>
@@ -114,7 +115,7 @@
     <div id="main-ui" class="relative z-10 px-4">
         
         <div class="mt-4 mb-8 flex items-center gap-3 opacity-90">
-            <img src="assets/img/core/wikingenieria-logo.png" alt="Logo" class="h-7 w-7 md:h-8 md:w-8 grayscale">
+            <img src="assets/img/core/wikingenieria-logo.png" alt="Logo" class="h-7 w-7 md:h-8 md:w-8 grayscale transition-all duration-300">
             <span class="font-mono text-xs md:text-sm tracking-[0.2em] text-w-light uppercase font-bold">Wikingeniería</span>
         </div>
 
@@ -123,24 +124,24 @@
                 <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-w-olive/80 to-transparent"></div>
 
                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-6 border-b border-w-olive/30 pb-2 font-mono tracking-widest text-w-sage/50">
-                    <span class="text-[8px] md:text-[10px]">SYSTEM_STATUS:: <span class="text-[#e05d5d]">OFFLINE</span></span>
+                    <span class="text-[8px] md:text-[10px]">SYSTEM_STATUS:: <span class="text-[#e05d5d] transition-colors duration-300" id="status-text">OFFLINE</span></span>
                     <span class="text-[8px] md:text-[9px] uppercase font-bold opacity-70">WIKINGENIERIA-V2.0_DEPLOYMENT</span>
                 </div>
 
-                <div class="font-mono text-[10px] md:text-xs space-y-1 mb-6 text-w-sage/70">
+                <div class="font-mono text-[10px] md:text-xs space-y-1 mb-6 text-w-sage/70" id="loading-logs">
                     <p><span class="text-w-olive">➜</span> loading_vault_standards... <span class="text-w-sage font-bold">[OK]</span></p>
                     <p><span class="text-w-olive">➜</span> calibrating_stress_models... <span class="text-w-sage font-bold">[3.14%]</span></p>
                     <p><span class="text-w-olive">➜</span> computing_laplace_transforms... <span class="text-w-light animate-pulse">PROCESSING_</span></p>
                 </div>
 
                 <div class="mb-6">
-                    <h1 class="font-mono text-2xl md:text-4xl font-bold text-w-light tracking-tighter mb-4 leading-tight">
+                    <h1 class="font-mono text-2xl md:text-4xl font-bold text-w-light tracking-tighter mb-4 leading-tight" id="main-title">
                         SYSTEM UPDATE <span class="text-w-olive animate-pulse font-bold -ml-1">_</span>
                     </h1>
-                    <p class="font-light text-xs md:text-base leading-relaxed opacity-80">
+                    <p class="font-light text-xs md:text-base leading-relaxed opacity-80" id="main-desc">
                         Estamos desplegando el sistema operativo que tu facultad no te dio. Se acabó el caos de apuntes y las segundas matrículas por falta de organización.
                         <br><br>
-                        <span class="text-w-light font-medium opacity-40">// Vuelve pronto. Tu carrera depende de ello.</span>
+                        <span class="text-w-light font-medium opacity-40" id="footer-quote">// Vuelve pronto. Tu carrera depende de ello.</span>
                     </p>
                 </div>
 
@@ -157,27 +158,38 @@
                 </div>
             </div>
 
-            <div class="mt-8 mb-4 text-center">
-                 <div class="h-[1px] w-16 bg-w-olive/30 mx-auto mb-6"></div>
-                 <div class="flex flex-wrap justify-center gap-3 md:gap-8 font-mono text-[9px] md:text-xs tracking-[0.15em] text-w-sage/50 uppercase">
-                    <a href="https://www.instagram.com/wikingenieria" target="_blank" class="hover:text-w-light transition">INSTAGRAM</a>
-                    <span class="opacity-30">;</span>
-                    <a href="https://x.com/wikingenieria" target="_blank" class="hover:text-w-light transition">TWITTER</a>
-                    <span class="opacity-30">,</span>
-                    <a href="https://facebook.com/wikingenieria" target="_blank" class="hover:text-w-light transition">FACEBOOK</a>
-                    <span class="opacity-30">;</span>
-                    <a href="https://tiktok.com/@wikingenieria" target="_blank" class="hover:text-w-light transition">TIKTOK</a>
-                </div>
-            </div>
+            <div class="mt-12 text-center">
+                <div class="h-[1px] w-24 bg-w-olive/50 mx-auto mb-6"></div>
+                
+                <div class="flex flex-wrap justify-center gap-4 md:gap-8 font-mono text-[10px] md:text-xs tracking-[0.2em] text-w-sage/60 uppercase">
+                   <a href="https://www.instagram.com/wikingenieria" target="_blank" class="hover:text-w-light transition">INSTAGRAM</a>
+                   <span class="text-w-olive opacity-50">;</span>
+                   <a href="https://x.com/wikingenieria" target="_blank" class="hover:text-w-light transition">TWITTER</a>
+                   <span class="text-w-olive opacity-50">,</span>
+                   <a href="https://facebook.com/wikingenieria" target="_blank" class="hover:text-w-light transition">FACEBOOK</a>
+                   <span class="text-w-olive opacity-50">;</span>
+                   <a href="https://tiktok.com/@wikingenieria" target="_blank" class="hover:text-w-light transition">TIKTOK</a>
+               </div>
+           
+               <div class="mt-8 font-mono text-[8px] md:text-[9px] opacity-30 tracking-[0.3em] text-w-sage uppercase transition-all duration-500">
+                   SYS_UPTIME: <span id="uptime-counter">00:00:00:000</span>
+               </div>
+           </div>
         </main>
     </div>
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // --- 0. INICIO: LOGO ASCII EN CONSOLA ---
+            // --- 0. LOGO ASCII ---
             renderAsciiLogo();
     
-            // --- 1. CONFIGURACIÓN MATRIX (CANVAS) ---
+            // --- VARIABLES GLOBALES PARA CONTROLAR INTERVALOS ---
+            let uptimeInterval; 
+            let matrixInterval;
+            const sessionStart = Date.now();
+            const uptimeDisplay = document.getElementById('uptime-counter');
+    
+            // --- 1. CONFIGURACIÓN MATRIX ---
             const canvas = document.getElementById('matrix-canvas');
             const ctx = canvas.getContext('2d');
             const mainUI = document.getElementById('main-ui');
@@ -194,9 +206,7 @@
             let matrixGlow = 0; 
             let currentSpeed = 50; 
             const piSpeed = 80; 
-            let matrixInterval;
-            let gravityOffset = 0; // Para el Easter Egg de móvil
-    
+            
             const fontSize = 14;
             const columns = canvas.width / fontSize;
             const drops = Array.from({length: columns}, () => Math.floor(Math.random() * -20));
@@ -204,7 +214,6 @@
             function drawMatrix() {
                 ctx.fillStyle = 'rgba(2, 2, 1, 0.05)'; 
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
-    
                 ctx.fillStyle = matrixColor;
                 ctx.shadowBlur = matrixGlow; 
                 ctx.shadowColor = matrixColor;
@@ -212,45 +221,23 @@
     
                 for (let i = 0; i < drops.length; i++) {
                     const text = matrixChars[Math.floor(Math.random() * matrixChars.length)];
-                    
-                    // APLICACIÓN DE GRAVEDAD DINÁMICA (Easter Egg Móvil)
-                    const xPos = (i * fontSize) + (drops[i] * gravityOffset);
-                    const yPos = drops[i] * fontSize;
-                    
-                    ctx.fillText(text, xPos, yPos);
-    
-                    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-                        drops[i] = 0;
-                    }
+                    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                    if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
                     drops[i]++;
                 }
             }
-            
             matrixInterval = setInterval(drawMatrix, currentSpeed);
     
-            // --- 2. GRAVEDAD POR INCLINACIÓN (SÓLO MÓVIL) ---
-            if (window.DeviceOrientationEvent) {
-                window.addEventListener('deviceorientation', (event) => {
-                    let tilt = event.gamma; // Inclinación lateral
-                    if (Math.abs(tilt) > 10) {
-                        gravityOffset = tilt / 8; 
-                    } else {
-                        gravityOffset = 0;
-                    }
-                });
-            }
-    
-            // --- 3. SECUENCIA DE CARGA (BOOT SEQUENCE) ---
+            // --- 2. BOOT SEQUENCE ---
             const loader = document.getElementById('loader-screen');
             const progressBar = document.getElementById('progress-bar');
             const progressText = document.getElementById('progress-text');
-    
             let progress = 0;
-            const interval = setInterval(() => {
+            const bootInterval = setInterval(() => {
                 progress += Math.random() * 4;
                 if (progress >= 100) {
                     progress = 100;
-                    clearInterval(interval);
+                    clearInterval(bootInterval);
                     startSystem();
                 }
                 progressBar.style.width = progress + '%';
@@ -262,25 +249,44 @@
                 setTimeout(() => { 
                     loader.style.display = 'none'; 
                     canvas.classList.add('active'); 
-                    setTimeout(() => {
-                        mainUI.classList.add('visible'); 
-                    }, 2000); 
+                    setTimeout(() => { mainUI.classList.add('visible'); }, 2000); 
                 }, 800);
             }
     
-            // --- 4. INTERACCIÓN STATUS: OFFLINE (Protocolo de Forzado) ---
-            const statusText = document.querySelector('span.text-\\[\\#e05d5d\\]');
+            // --- 3. UPTIME INICIAL (NORMAL) ---
+            function startUptime() {
+                uptimeInterval = setInterval(() => {
+                    const delta = Date.now() - sessionStart;
+                    updateClock(delta);
+                }, 50);
+            }
+            startUptime(); // Iniciamos el reloj normal
+    
+            function updateClock(ms, isReverse = false) {
+                if (!uptimeDisplay) return;
+                const h = Math.floor(ms / 3600000).toString().padStart(2, '0');
+                const m = Math.floor((ms % 3600000) / 60000).toString().padStart(2, '0');
+                const s = Math.floor((ms % 60000) / 1000).toString().padStart(2, '0');
+                const milli = (ms % 1000).toString().padStart(3, '0');
+                uptimeDisplay.innerText = (isReverse ? "-" : "") + `${h}:${m}:${s}:${milli}`;
+            }
+    
+            // --- 4. INTERACCIÓN OFFLINE ---
+            const statusText = document.getElementById('status-text');
+            let isConnecting = false;
             if (statusText) {
                 statusText.style.cursor = "pointer";
                 statusText.addEventListener('click', () => {
+                    if (isConnecting) return;
+                    isConnecting = true;
                     statusText.innerText = "CONNECTING...";
                     statusText.style.color = "#f59e0b";
                     
-                    const logContainer = document.querySelector('.font-mono.space-y-1');
+                    const logContainer = document.getElementById('loading-logs');
                     const connectionLog = document.createElement('p');
                     connectionLog.className = "text-[8px] text-amber-500 animate-pulse";
                     connectionLog.innerText = "➜ auth_handshake: attempt_01 [SYN_SENT]";
-                    logContainer.appendChild(connectionLog);
+                    if(logContainer) logContainer.appendChild(connectionLog);
     
                     setTimeout(() => {
                         statusText.innerText = "REFUSED";
@@ -288,10 +294,13 @@
                         setTimeout(() => {
                             statusText.innerText = "OFFLINE";
                             statusText.style.color = "#e05d5d";
-                            connectionLog.innerText = "➜ system_msg: bypass_denied. use_email_protocol.";
+                            if(connectionLog) connectionLog.innerText = "➜ system_msg: bypass_denied. use_email_protocol.";
                             const form = document.getElementById('notify-form');
                             form.classList.add('ring-1', 'ring-w-light');
-                            setTimeout(() => form.classList.remove('ring-1', 'ring-w-light'), 2000);
+                            setTimeout(() => {
+                                form.classList.remove('ring-1', 'ring-w-light');
+                                isConnecting = false;
+                            }, 2000);
                         }, 1500);
                     }, 2000);
                 });
@@ -300,13 +309,14 @@
             // --- 5. EASTER EGG: MODO PI ---
             let keyBuffer = "";
             let logoClicks = 0;
+            let piModeActive = false; // Flag para evitar reactivación
     
             document.addEventListener('keydown', (e) => {
                 keyBuffer = (keyBuffer + e.key.toLowerCase()).slice(-2);
                 if (keyBuffer === "pi") activatePiMode();
             });
     
-            const logoTrigger = document.querySelector('.mb-12.flex.items-center.gap-3') || document.querySelector('.flex.items-center.gap-3');
+            const logoTrigger = document.querySelector('.mt-4.mb-8.flex.items-center.gap-3') || document.querySelector('.flex.items-center.gap-3');
             if (logoTrigger) {
                 logoTrigger.addEventListener('click', () => {
                     logoClicks++;
@@ -316,13 +326,71 @@
             }
     
             function activatePiMode() {
+                if (piModeActive) return;
+                piModeActive = true;
+    
+                // A. MATRIX VISUALS
                 matrixColor = "#e05d5d"; 
                 matrixGlow = 10; 
                 matrixChars = "π"; 
                 clearInterval(matrixInterval);
                 matrixInterval = setInterval(drawMatrix, piSpeed); 
+                
                 const mainPanel = document.querySelector('.glass-panel');
                 if(mainPanel) mainPanel.style.borderColor = "#e05d5d";
+    
+                // B. TEXT UPDATES (MODO PÁNICO)
+                // 1. Status Failure
+                if (statusText) {
+                    statusText.innerText = "FAILURE";
+                    statusText.className = "text-[#e05d5d] font-bold animate-pulse"; 
+                }
+    
+                // 2. Loadings Failed
+                const loadingSpans = document.querySelectorAll('#loading-logs p span:last-child');
+                loadingSpans.forEach(span => {
+                    span.innerText = "[FAILED]";
+                    span.className = "text-[#e05d5d] font-bold tracking-widest";
+                });
+    
+                // 3. Title Change
+                const title = document.getElementById('main-title');
+                if (title) title.innerHTML = 'PI MODE SYSTEM ACTIVATED<span class="text-[#e05d5d] animate-pulse">_</span>';
+    
+                // 4. Description Change (Digits of Pi)
+                const desc = document.getElementById('main-desc');
+                if (desc) {
+                    desc.innerHTML = `3.14159265358979323846264338327950288419716939937510582097494459230781640628620899862803482534211706798214808651328230664709384460955058223172535940812848111745028410270193852110555964462294895493038196
+                    <br><br>
+                    <span class="text-[#e05d5d] font-mono font-bold text-[10px] tracking-widest uppercase">// CRITICAL_ERROR: Thermodynamic equilibrium reached. System Halted.</span>`;
+                    desc.style.wordBreak = "break-all";
+                    desc.style.fontFamily = "Space Grotesk, monospace";
+                    desc.className = "text-[#e05d5d] text-[10px] leading-tight opacity-80 font-mono";
+                }
+    
+                // C. UPTIME REVERSE (Cuenta atrás)
+                if (uptimeDisplay) {
+                    uptimeDisplay.style.color = "#e05d5d";
+                    uptimeDisplay.style.textShadow = "0 0 10px #e05d5d";
+                    
+                    clearInterval(uptimeInterval); // Paramos el reloj normal
+                    
+                    const piActivationTime = Date.now();
+                    const accumulatedTime = Date.now() - sessionStart; // Tiempo hasta ahora
+    
+                    uptimeInterval = setInterval(() => {
+                        // El tiempo empieza a restar desde lo acumulado
+                        const reverseDelta = accumulatedTime - (Date.now() - piActivationTime);
+                        const absoluteDelta = Math.abs(reverseDelta);
+                        updateClock(absoluteDelta, reverseDelta < 0);
+                    }, 50);
+                }
+    
+                // D. NOTIFICACIÓN
+                const notify = document.createElement('div');
+                notify.className = "fixed top-24 left-1/2 -translate-x-1/2 font-mono text-[9px] bg-[#e05d5d] text-w-black px-4 py-1 z-[100] tracking-tighter shadow-[0_0_10px_#e05d5d]";
+                notify.innerText = "ALERTA: SINGULARIDAD_PI_DETECTADA";
+                document.body.appendChild(notify);
             }
     
             function renderAsciiLogo() {
@@ -335,16 +403,18 @@
          ╚══╝╚══╝ ╚═╝╚═╝  ╚═╝╚═╝╚═╝  ╚═══╝ ╚═════╝ ╚══════╝╚═╝  ╚═══╝╚═╝╚══════╝╚═╝  ╚═╝╚═╝╚═╝  ╚═╝
                 `;
                 console.log("%c" + ascii, "color: #6b7838; font-weight: bold;");
-                console.log("%c[CÓDIGO DE ACCESO: 'WIKINGENIERIA40', guárdalo para el futuro, te servirá para evitar segundas matrículas. Me lo agradecerás luego.]", "background: #2a322e; color: #fff; padding: 8px; border-left: 4px solid #6b7838; font-weight: bold;");
+                console.log("%c// Wikingeniería V2.0: Nodo Central Operativo", "color: #b0bab3; font-family: monospace;");
+                console.log("%cREGALO DE BIENVENIDA: Guarda el código 'WIKINGENIERIA40'. Te haré falta para evitar segundas matrículas. Me lo agradecerás luego.", "background: #2a322e; color: #fff; padding: 8px; border-left: 4px solid #6b7838; font-weight: bold;");
             }
     
-            // --- 6. FORMULARIO MAKE.COM ---
+            // --- 6. MAKE.COM ---
             const notifyForm = document.getElementById('notify-form');
             if (notifyForm) {
                 notifyForm.addEventListener('submit', async (e) => {
                     e.preventDefault();
                     const btn = notifyForm.querySelector('button');
                     const emailInput = notifyForm.querySelector('input[type="email"]');
+                    const originalText = btn.innerText;
                     btn.innerText = "SEND_";
                     btn.disabled = true;
                     try {
@@ -358,10 +428,12 @@
                             btn.style.backgroundColor = "#b0bab3";
                             btn.style.color = "#020201";
                             emailInput.value = "SUBSCRIPCIÓN_COMPLETA";
-                        }
+                            emailInput.disabled = true;
+                        } else { throw new Error(); }
                     } catch (error) {
                         btn.innerText = "ERR_";
-                        setTimeout(() => { btn.innerText = "AVISAR"; btn.disabled = false; }, 2000);
+                        btn.style.backgroundColor = "#e05d5d"; 
+                        setTimeout(() => { btn.innerText = originalText; btn.disabled = false; btn.style.backgroundColor = ""; }, 2000);
                     }
                 });
             }
