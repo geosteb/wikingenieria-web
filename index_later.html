@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wikingeniería | Contenido & Recursos para Ingenieros</title>
+
+    <meta name="description"
+        content="El punto de encuentro para amantes de la ingeniería, ciencia y tecnología. Descarga plantillas de Notion para tu gestión académica, eBooks de estrategia y recursos para sobrevivir a la ingeniería.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wikingenieria.com/">
+    <meta property="og:title" content="Wikingeniería | Recursos para Ingenieros">
+    <meta property="og:description"
+        content="Integra el mejor contenido de ingeniería en tu día a día. Plantillas de organización, eBooks y ciencia.">
+    <meta property="og:image" content="https://wikingenieria.com/assets/img/core/wikingenieria-social-share.jpg">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Wikingeniería | Gestión Académica">
+    <meta name="twitter:description" content="Sobrevive a la ingeniería. Recursos, organización y tecnología.">
+    <meta name="twitter:image" content="https://wikingenieria.com/assets/img/core/wikingenieria-social-share.jpg">
+
+    <link rel="icon" type="image/x-icon" href="assets/img/core/wikingenieria-favicon.ico">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'w-black': '#020201',   /* Fondo Principal */
+                        'w-olive': '#2a322e',   /* Secundario / Tarjetas */
+                        'w-sage': '#b0bab3',    /* Texto Cuerpo */
+                        'w-light': '#d3d3d3',   /* Títulos / Acentos */
+                        'w-offblack': '#080a09', /* Fondo alternativo sutil */
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'mono': ['Space Grotesk', 'monospace'], /* Fuente técnica */
+                    },
+                    animation: {
+                        'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    }
+                }
+            }
+        }
+    </script>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@300;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <style>
+        /* Separador técnico sutil pero visible */
+        .section-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(176, 186, 179, 0.3), transparent);
+            margin: 0 auto;
+            max-width: 90%;
+        }
+
+        /* --- ESTILOS TERMINAL BADGE --- */
+        .cmd-badge {
+            display: inline-flex;
+            align-items: center;
+            background-color: #2a322e; /* Mismo color que el botón */
+            color: #d3d3d3;
+            padding: 6px 12px;
+            border-radius: 2px; /* Rounded-sm */
+            font-family: 'Space Grotesk', monospace;
+            line-height: 1;
+            border: 1px solid rgba(211, 211, 211, 0.1);
+            user-select: none;
+        }
+
+        .cmd-path {
+            font-size: 0.7rem; /* Letra más chica */
+            opacity: 0.7;
+            margin-right: 2px; /* Espacio mínimo */
+            white-space: nowrap;
+        }
+
+        .cmd-text {
+            font-family: 'Courier New', Courier, monospace; /* Fuente mono estricta para animación fluida */
+            font-weight: 700;
+            font-size: 0.85rem; /* Letra NUEVO más grande */
+            color: #fff;
+            overflow: hidden;
+            white-space: nowrap;
+            width: 0;
+            animation: typing 7s steps(5, end) infinite;
+        }
+
+        .cmd-cursor {
+            font-weight: 700;
+            margin-left: 1px;
+            animation: blink 1s step-end infinite;
+            color: #d3d3d3;
+        }
+
+        @keyframes typing {
+            0% { width: 0; }
+            10% { width: 5ch; } /* Escribe 5 caracteres */
+            85% { width: 5ch; } /* Mantiene */
+            95% { width: 0; }   /* Borra */
+            100% { width: 0; }
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+    </style>
+</head>
+
+<body
+    class="bg-w-black text-w-sage font-sans antialiased selection:bg-w-light selection:text-w-black relative flex flex-col min-h-screen">
+
+    <nav class="fixed w-full z-50 bg-w-black/95 backdrop-blur-md border-b border-w-olive transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <a href="#" class="flex items-center gap-3 group">
+                <img src="assets/img/core/wikingenieria-logo.png" alt="Logo" class="h-9 w-9 opacity-90 group-hover:opacity-100 transition">
+                <span class="font-mono text-xl font-bold text-w-light tracking-tight">Wikingeniería</span>
+                <span class="text-w-olive animate-pulse font-bold text-xl font-mono -ml-1">_</span>
+            </a>
+    
+            <div class="hidden md:flex items-center space-x-8 h-full">
+                <a href="#productos" class="font-mono text-sm text-w-sage hover:text-w-light transition-colors uppercase tracking-widest flex items-center h-full">Recursos</a>
+                <a href="blog.html" class="font-mono text-sm text-w-sage hover:text-w-light transition-colors uppercase tracking-widest flex items-center h-full">Logs</a>
+                
+                <div class="relative group flex items-center h-full">
+                    <a href="#" onclick="return false;" class="font-mono text-sm text-w-sage/50 cursor-not-allowed uppercase tracking-widest flex items-center gap-2 hover:text-w-sage/80 transition-colors">
+                        <i class="fas fa-lock text-[10px]"></i> Vault
+                    </a>
+                    <span class="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-w-olive text-[10px] text-w-light py-1 px-2 rounded-sm opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border border-w-light/20 whitespace-nowrap font-mono z-50">
+                        //EN_DESARROLLO
+                    </span>
+                </div> 
+    
+                <a href="#contacto" class="font-mono text-sm text-w-sage hover:text-w-light transition-colors uppercase tracking-widest flex items-center h-full">Soporte</a>   
+            </div>
+    
+            <button id="mobile-menu-btn" class="md:hidden text-w-sage hover:text-w-light focus:outline-none p-2">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
+        </div>
+    
+        <div id="mobile-menu" class="hidden md:hidden bg-w-black border-b border-w-olive absolute w-full left-0 top-20">
+            <div class="px-6 pt-4 pb-8 space-y-4 flex flex-col">
+                <a href="#productos" class="font-mono text-sm text-w-light py-3 border-b border-w-olive/30 hover:bg-w-olive/20 transition uppercase tracking-widest mobile-link text-center">Recursos</a>
+                <a href="blog.html" class="font-mono text-sm text-w-light py-3 border-b border-w-olive/30 hover:bg-w-olive/20 transition uppercase tracking-widest mobile-link text-center">Logs</a>
+                
+                <div class="py-3 border-b border-w-olive/30 flex items-center justify-center gap-2 opacity-60">
+                    <i class="fas fa-lock text-xs text-w-sage"></i>
+                    <span class="font-mono text-sm text-w-sage uppercase tracking-widest">Vault <span class="text-[10px] ml-1 opacity-70">//EN_DESARROLLO</span></span>
+                </div>
+                
+                <a href="#contacto" class="font-mono text-sm text-w-light py-3 border-b border-w-olive/30 hover:bg-w-olive/20 transition uppercase tracking-widest mobile-link text-center">Soporte</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="h-20"></div>
+
+    <section class="py-20 md:py-32 px-6 max-w-6xl mx-auto flex flex-col md:flex-row items-center gap-8 md:gap-16">
+        <div class="md:w-1/2 space-y-6">
+            
+            <div class="cmd-badge mb-2">
+                <span class="cmd-path">C:\Users\Wikingenieria\</span>
+                <span class="cmd-text">NUEVO</span>
+                <span class="cmd-cursor">_</span>
+            </div>
+
+            <h1 class="font-mono text-3xl md:text-4xl lg:text-5xl font-bold text-w-light leading-tight">
+                La ingeniería no se saca solo estudiando, se saca gestionando recursos.
+            </h1>
+            <p class="text-base md:text-lg font-light leading-relaxed opacity-80 max-w-lg">
+                No dejes que el cuatrimestre te coma. Tú pones el estudio. La plantilla pone el orden. (Ojalá hubiese
+                tenido yo algo así cuando me saqué la carrera).
+            </p>
+            
+            <div class="hidden md:flex flex-row gap-4 pt-4">
+                <a href="https://wikingenieria.gumroad.com/l/plantilla-notion-organiza-aprueba" 
+                data-gumroad-single-product="true" class="px-6 py-3 bg-w-olive text-w-light font-mono text-xs font-bold uppercase tracking-widest hover:bg-w-light hover:text-w-black transition rounded-sm text-center">
+                    Conseguir Sistema
+                </a>
+                <a href="#productos"
+                    class="px-6 py-3 border border-w-olive text-w-sage font-mono text-xs uppercase tracking-widest hover:border-w-light hover:text-w-light transition rounded-sm text-center">
+                    Ver más recursos
+                </a>
+            </div>
+            <p class="text-[10px] opacity-40 font-mono mt-4 uppercase tracking-[0.1em]">
+                <i class="fas fa-lock mr-1"></i> Pago seguro vía Gumroad // Acceso instantáneo
+            </p>
+        </div>
+
+        <div class="md:w-1/2 w-full max-w-md mx-auto">
+            <div
+                class="relative group cursor-pointer overflow-hidden border border-w-olive rounded-sm shadow-2xl shadow-w-olive/20">
+                <a href="https://wikingenieria.gumroad.com/l/plantilla-notion-organiza-aprueba" data-gumroad-single-product="true">
+                    <div class="absolute inset-0 bg-w-olive/10 group-hover:bg-transparent transition duration-500 z-10"> 
+                    </div>
+                    <img src="assets/img/products/main-product-cover.png"
+                        alt="ockup de la Plantilla Notion Organiza y Aprueba para estudiantes de ingeniería - Wikingeniería"
+                        fetchpriority="high"
+                        loading="eager"
+                        class="w-full h-auto object-cover transform group-hover:scale-105 transition duration-700">
+                </a>
+            </div>
+            <p class="text-center text-[10px] font-mono mt-3 opacity-40 uppercase tracking-widest">Ingeniería en Modo Fácil</p>
+
+            <div class="flex md:hidden flex-col gap-3 pt-6">
+                <a href="https://wikingenieria.gumroad.com/l/plantilla-notion-organiza-aprueba" 
+                data-gumroad-single-product="true" class="px-6 py-4 bg-w-olive text-w-light font-mono text-xs font-bold uppercase tracking-widest hover:bg-w-light hover:text-w-black transition rounded-sm text-center">
+                    Conseguir Sistema
+                </a>
+                <a href="#productos"
+                    class="px-6 py-4 border border-w-olive text-w-sage font-mono text-xs uppercase tracking-widest hover:border-w-light hover:text-w-light transition rounded-sm text-center">
+                    Ver más recursos
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section id="productos" class="py-20 md:py-24 px-6 bg-w-offblack relative">
+    
+        <div class="max-w-7xl mx-auto text-center mb-12 relative z-10">
+            <h2 class="font-mono text-2xl md:text-3xl text-w-light uppercase tracking-widest">
+                <span class="text-w-olive mr-2">//</span>RECURSOS<span class="animate-pulse text-w-olive">_</span>
+            </h2>
+        </div>
+    
+        <div class="flex flex-wrap justify-center gap-8 items-stretch relative z-10">
+    
+            <a href="https://wikingenieria.gumroad.com/l/plantilla-notion-organiza-aprueba" 
+            data-gumroad-single-product="true" class="w-full max-w-[22rem] flex flex-col bg-w-olive/20 border border-w-olive/40 hover:border-w-sage/30 transition-all duration-300 group backdrop-blur-sm cursor-pointer hover:-translate-y-1 hover:shadow-2xl">
+                
+                <div class="relative w-full h-56 bg-black/40 overflow-hidden shrink-0">
+                    <div class="absolute top-3 right-3 bg-[#e05d5d] text-black text-[10px] font-bold px-2 py-1 uppercase tracking-wider z-10 font-mono shadow-md">
+                        Top Ventas
+                    </div>
+                    <img src="assets/img/products/plantilla-notion-organiza-aprueba-cover.webp"
+                         alt="Portada sistema en Notion para gestión de asignaturas y notas de ingeniería"
+                         loading="lazy"
+                         class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition duration-500">
+                </div>
+    
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="font-mono text-lg text-w-light mb-3 leading-tight group-hover:text-white transition-colors">
+                        Ingeniería en Modo Fácil [Plantilla Notion]
+                    </h3>
+                    <p class="text-sm opacity-70 mb-6 font-light leading-relaxed flex-grow text-w-sage">
+                        El sistema operativo en Notion para organizar asignaturas, calcular notas y gestionar tu vida académica.
+                    </p>
+                    
+                    <div class="mt-auto block w-full py-3 font-mono text-xs font-bold uppercase tracking-widest transition rounded-sm text-center bg-w-olive text-w-light border border-transparent md:bg-w-black/40 md:border-w-sage/30 md:text-w-light group-hover:bg-w-light group-hover:text-w-black">
+                        Conseguir Sistema
+                    </div>
+                </div>
+            </a>
+    
+            <a href="https://wikingenieria.gumroad.com/l/sobrevive-ingenieria" 
+            data-gumroad-single-product="true" class="w-full max-w-[22rem] flex flex-col bg-w-olive/20 border border-w-olive/40 hover:border-w-sage/30 transition-all duration-300 group backdrop-blur-sm cursor-pointer hover:-translate-y-1 hover:shadow-2xl">
+                
+                <div class="relative w-full h-56 bg-black/40 overflow-hidden shrink-0">
+                    <div class="absolute top-3 right-3 bg-[#f0dfa0] text-black text-[10px] font-bold px-2 py-1 uppercase tracking-wider z-10 font-mono shadow-md">
+                        Gratis
+                    </div>
+                    <img src="assets/img/products/ebook-sobrevive-ingenieria-cover.webp" 
+                         alt="Portada eBook gratis Sobrevive a la Ingeniería"
+                         loading="lazy"
+                         class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition duration-500">
+                </div>
+    
+                <div class="p-6 flex flex-col flex-grow">
+                    <h3 class="font-mono text-lg text-w-light mb-3 leading-tight group-hover:text-white transition-colors">
+                        Aprueba sin perder la salud mental [eBook]
+                    </h3>
+                    <p class="text-sm opacity-70 mb-6 font-light leading-relaxed flex-grow text-w-sage">
+                        Manual de estrategia mental y táctica académica para no pagar segundas matrículas.
+                    </p>
+                    
+                    <div class="mt-auto block w-full py-3 font-mono text-xs font-bold uppercase tracking-widest transition rounded-sm text-center bg-w-olive text-w-light border border-transparent md:bg-w-black/40 md:border-w-sage/30 md:text-w-light group-hover:bg-w-light group-hover:text-w-black">
+                        Descargar
+                    </div>
+                </div>
+            </a>
+    
+        </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <section id="blog" class="py-20 md:py-24 px-6 bg-w-black">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex justify-between items-end mb-12 border-b border-w-olive/30 pb-4">
+                <h2 class="font-mono text-2xl md:text-3xl text-w-light uppercase tracking-widest"><span
+                        class="text-w-olive mr-2">//</span>LOG DE ARTÍCULOS<span
+                        class="animate-pulse text-w-olive">_</span></h2>
+                <a href="blog.html"
+                    class="text-xs font-bold font-mono text-w-sage hover:text-w-light border border-transparent hover:border-w-olive px-3 py-1 transition uppercase tracking-widest">
+                    [ VER LOG ]
+                </a>
+            </div>
+
+            <div class="space-y-8">
+                <article
+                    class="group relative pl-4 border-l-2 border-transparent hover:border-w-olive transition duration-300">
+                    <a href="blog/articulo-gadgets-ingenieros-2026.html" class="block">
+                        <div class="flex flex-col md:flex-row gap-2 md:items-center justify-between">
+                            <div>
+                                <span class="text-xs font-mono text-w-sage/50 mb-1 block tracking-wider">05.02.2026
+                                    :: ENTRY_001</span>
+                                <h3
+                                    class="text-xl md:text-2xl text-w-light font-medium group-hover:text-white transition leading-snug">
+                                    Gadgets para ingenieros 2026</h3>
+                            </div>
+                            <span
+                                class="text-xs font-mono text-w-sage group-hover:translate-x-2 transition duration-300 mt-2 md:mt-0 opacity-60 group-hover:opacity-100">LEER_ENTRY
+                                -></span>
+                        </div>
+                    </a>
+                </article>
+                <article
+                    class="group relative pl-4 border-l-2 border-transparent border-dashed hover:border-w-olive/30 transition duration-300 opacity-60">
+                    <div class="flex flex-col md:flex-row gap-2 md:items-center justify-between cursor-not-allowed">
+                        <div>
+                            <span class="text-xs font-mono text-w-sage/50 mb-1 block tracking-wider">PRÓXIMAMENTE ::
+                                ENTRY_002</span>
+                            <h3 class="text-xl md:text-2xl text-w-light font-medium leading-snug">Técnicas de estudio (reales) que salvaron mi carrera</h3>
+                        </div>
+                        <span class="text-xs font-mono text-w-sage mt-2 md:mt-0">COMPILANDO...</span>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section>
+
+    <section class="py-16 md:py-20 px-6 bg-[#2a322e] border-y border-w-olive/40">
+        <div class="max-w-xl mx-auto text-center">
+            <h3 class="font-mono text-xl md:text-2xl text-white mb-2">Únete al Hub por excelencia para ingenieros</h3>
+            <p class="text-sm text-w-light/70 mb-6 font-light">Recibe actualizaciones del sistema, nuevos recursos y contenido exclusivo.</p>
+            
+            <form id="newsletter-hub-form" class="flex border-b border-w-light/50 pb-2 focus-within:border-white transition">
+                <input type="email" id="hub-email" name="email" required placeholder="tu@email.com"
+                    class="bg-transparent w-full text-white placeholder-w-light/50 focus:outline-none font-mono text-sm">
+                <button type="submit" id="hub-submit-btn"
+                    class="text-w-light font-mono text-xs uppercase tracking-widest hover:text-white transition">Suscribirse</button>
+            </form>
+    
+            <div id="hub-status" class="hidden mt-6 p-4 bg-black/60 border border-w-olive/50 rounded-sm backdrop-blur-sm text-center">
+            </div>
+        </div>
+    </section>
+
+    <section id="listas" class="py-20 md:py-24 px-6 relative overflow-hidden bg-w-black">
+        <div class="absolute inset-0 z-0 bg-gradient-to-b from-w-black via-transparent to-transparent pointer-events-none"></div>
+    
+        <div class="max-w-5xl mx-auto relative z-10 flex flex-col items-center">
+            
+            <h2 class="font-mono text-2xl md:text-3xl text-w-light uppercase tracking-widest mb-8 text-center">
+                <span class="text-w-olive mr-2">//</span>LISTAS DE MÚSICA PARA INGENIEROS<span class="animate-pulse text-w-olive">_</span>
+            </h2>
+    
+            <div class="text-center space-y-6 max-w-2xl mx-auto mb-12">
+                <p class="text-w-sage font-light text-sm md:text-base leading-relaxed">
+                    Música seleccionada específicamente para sesiones de estudio profundo o para desconectar
+                    el cerebro tras resolver ecuaciones diferenciales. Elimina el ruido externo y aumenta la concentración.
+                </p>
+            </div>
+    
+            <a href="audio.html" class="block w-full max-w-2xl mx-auto mb-10 group relative cursor-pointer">
+    
+                <div class="absolute -inset-1 bg-gradient-to-r from-w-olive/0 via-w-olive/20 to-w-olive/0 rounded-2xl blur-2xl opacity-40 group-hover:opacity-100 transition duration-700"></div>
+                
+                <div class="relative bg-w-black/50 border border-w-light/10 rounded-xl overflow-hidden shadow-2xl backdrop-blur-sm group-hover:border-w-olive/40 transition duration-500">
+                    
+                    <img src="assets/img/listas/all-spotify-playlists.webp" 
+                         alt="Colección de Listas Musicales para ingenieros Wikingeniería"
+                         loading="lazy" 
+                         class="w-full h-auto block opacity-85 group-hover:opacity-100 group-hover:scale-[1.01] transition duration-700 ease-out">
+                    
+                    <div class="absolute inset-0 bg-black/5 group-hover:bg-transparent transition duration-500"></div>
+                </div>
+            </a>
+            
+            <div class="flex justify-center">
+                <a href="audio.html" 
+                   class="inline-flex items-center justify-center px-8 py-4 border border-[#1DB954]/20 text-w-light font-mono text-xs md:text-sm font-bold tracking-[0.2em] uppercase hover:bg-[#1DB954] hover:text-white transition-all duration-300 rounded-sm group backdrop-blur-sm shadow-[0_0_15px_rgba(29,185,84,0.05)] hover:shadow-[0_0_20px_rgba(255,255,255,0.05)]">
+                    
+                    <i class="fab fa-spotify text-lg text-[#1DB954] mr-3 group-hover:text-white transition-colors"></i>
+                    
+                    <span>VER TODAS LAS LISTAS</span>
+                    
+                    <i class="fas fa-play text-[10px] ml-3 transform group-hover:scale-110 transition-transform"></i>
+                </a>
+            </div>
+    
+        </div>
+    </section>
+
+    <div class="flex justify-center items-center w-full">
+        <div class="h-[1px] w-full max-w-2xl bg-gradient-to-r from-transparent via-[#8f9e8b]/30 to-transparent"></div>
+    </div>
+
+    <section id="wikipodcast" class="py-20 md:py-24 px-6 bg-w-black">
+        <div class="max-w-4xl mx-auto">
+            
+            <h2 class="font-mono text-2xl md:text-3xl font-bold text-w-light tracking-widest mb-12 md:mb-20 text-center">
+                <span class="opacity-30 text-w-light">//</span> WIKIPODCAST<span class="text-w-olive animate-pulse font-bold -ml-1">_</span>
+            </h2>
+    
+            <div class="grid grid-cols-12 gap-y-6 gap-x-4 md:flex md:flex-row md:items-center md:justify-between md:gap-12">
+                
+                <div class="col-span-8 md:flex-1 text-left space-y-4 md:space-y-6 md:max-w-md">
+                    <div>
+                        <h3 class="font-mono text-lg md:text-2xl font-bold text-w-light leading-tight tracking-tight">
+                            El Podcast de Wikingeniería
+                        </h3>
+                        <div class="h-[1px] w-12 md:w-16 bg-w-olive/40 rounded-full mt-3 mb-1"></div>
+                    </div>
+    
+                    <p class="text-w-sage font-light text-xs md:text-base leading-relaxed pr-2">
+                        El podcast para amantes de la ciencia, tecnología e ingeniería. A 320kbps con humor y mentalidad necesaria para esquivar segundas matrículas.
+                    </p>
+                    
+                    <div class="hidden md:block pt-4">
+                        <a href="wikipodcast.html" 
+                           class="inline-flex items-center justify-center px-8 py-4 border border-w-light/20 text-w-light font-mono text-sm font-bold tracking-[0.2em] uppercase hover:bg-w-light hover:text-w-black transition-all duration-300 rounded-sm group backdrop-blur-sm shadow-[0_0_15px_rgba(42,50,46,0.2)] hover:shadow-[0_0_20px_rgba(211,211,211,0.2)]">
+                            <span>ESCUCHAR AHORA</span>
+                            <i class="fas fa-play text-[10px] ml-3 transform group-hover:scale-110 transition-transform"></i>
+                        </a>
+                    </div>
+                </div>
+    
+                <div class="col-span-4 md:w-auto flex justify-end md:block relative group cursor-pointer">
+                    <a href="wikipodcast.html" class="block relative">
+                        <div class="absolute -inset-2 md:-inset-4 bg-w-olive/20 rounded-full blur-xl md:blur-2xl group-hover:bg-w-olive/40 transition duration-500 opacity-60"></div>
+                        
+                        <div class="relative w-20 h-20 md:w-48 md:h-48 rounded-full border border-w-light/10 bg-w-black/80 flex items-center justify-center shadow-2xl transition duration-500 group-hover:scale-105 group-hover:border-w-olive/50">
+                            <img src="assets/img/core/wikipodcast-logo.png" alt="WikiPodcast Logo"
+                            loading="lazy"
+                                 class="w-16 h-16 md:w-40 md:h-40 object-contain opacity-90 group-hover:opacity-100 transition duration-500 drop-shadow-lg">
+                                 
+                        </div>
+                    </a>
+                </div>
+    
+                <div class="col-span-12 md:hidden mt-2">
+                    <a href="wikipodcast.html" 
+                       class="flex items-center justify-center w-full py-4 bg-w-olive/10 border border-w-olive/40 text-w-light font-mono text-xs font-bold tracking-[0.2em] uppercase hover:bg-w-olive hover:text-white transition-all duration-300 rounded-sm group shadow-lg">
+                        <span>ESCUCHAR AHORA</span>
+                        <i class="fas fa-play text-[10px] ml-3 transform group-hover:scale-110 transition-transform"></i>
+                    </a>
+                </div>
+    
+            </div>
+        </div>
+    </section>
+
+    <div class="flex justify-center items-center w-full">
+        <div class="h-[1px] w-full max-w-2xl bg-gradient-to-r from-transparent via-[#8f9e8b]/30 to-transparent"></div>
+    </div>
+
+    <section id="contacto" class="py-20 md:py-24 px-6 bg-w-black">
+        <div class="max-w-2xl mx-auto">
+
+            <div class="text-center mb-12">
+                <h2 class="font-mono text-2xl md:text-3xl text-w-light uppercase tracking-widest mb-6"><span
+                        class="text-w-olive mr-2">//</span>SOPORTE TÉCNICO<span
+                        class="animate-pulse text-w-olive">_</span></h2>
+                <p class="text-w-sage font-light text-sm leading-relaxed max-w-lg mx-auto">
+                    ¿Dudas sobre la plantilla? ¿El eBook te ha salvado el curso? ¿Propuestas de colaboración?
+                    <br>Envía un mensaje cifrado.
+                </p>
+            </div>
+
+            <form id="contact-form" class="space-y-6 bg-w-olive/5 p-8 border border-w-olive/20 rounded-sm">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div class="flex flex-col gap-2">
+                        <label class="font-mono text-[10px] text-w-sage/80 uppercase tracking-widest">Identidad</label>
+                        <input type="text" name="name" required placeholder="Tu Nombre" 
+                               class="bg-w-olive/10 border border-w-olive/40 text-w-light px-4 py-3 text-sm focus:outline-none focus:border-w-light focus:bg-w-black transition placeholder-w-sage/40">
+                    </div>
+                    <div class="flex flex-col gap-2">
+                        <label class="font-mono text-[10px] text-w-sage/80 uppercase tracking-widest">Email</label>
+                        <input type="email" name="email" required placeholder="tu@email.com" 
+                               class="bg-w-olive/10 border border-w-olive/40 text-w-light px-4 py-3 text-sm focus:outline-none focus:border-w-light focus:bg-w-black transition placeholder-w-sage/40">
+                    </div>
+                </div>
+            
+                <div class="flex flex-col gap-2">
+                    <label class="font-mono text-[10px] text-w-sage/80 uppercase tracking-widest">Mensaje</label>
+                    <textarea name="message" rows="5" required placeholder="Escribe aquí tu mensaje..." 
+                              class="bg-w-olive/10 border border-w-olive/40 text-w-light px-4 py-3 text-sm focus:outline-none focus:border-w-light focus:bg-w-black transition resize-none placeholder-w-sage/40"></textarea>
+                </div>
+            
+                <div class="flex items-start gap-3 mt-4 mb-2 w-full">
+                    <input type="checkbox" name="newsletter_consent" id="newsletter_consent" 
+                           class="mt-[0.18rem] accent-w-olive bg-w-black border-w-olive/40 rounded-sm cursor-pointer h-4 w-4 flex-shrink-0">
+                    <label for="newsletter_consent" class="text-[10px] font-mono text-w-sage/60 uppercase tracking-tight cursor-pointer leading-tight text-left">
+                        Acepto la política de privacidad y deseo recibir emails con recursos de ingeniería para evitar segundas matrículas.
+                    </label>
+                </div>
+            
+                <button type="submit" id="submit-btn" class="w-full bg-w-olive text-w-light font-mono text-xs font-bold uppercase tracking-widest py-4 hover:bg-w-light hover:text-w-black transition rounded-sm border border-transparent hover:border-w-light mt-4">
+                    Enviar Transmisión
+                </button>
+                
+                <p id="form-status" class="text-center text-xs font-mono mt-4 hidden"></p>
+            </form>
+        </div>
+    </section>
+
+    <footer class="bg-w-black border-t border-w-olive/30 py-12 relative z-10">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
+            <div class="flex flex-col gap-2 text-center md:text-left">
+                <div class="flex items-center justify-center md:justify-start gap-3">
+                    <img src="assets/img/core/wikingenieria-logo.png" alt="Logo" class="h-8 w-auto opacity-100 hover:opacity-100 transition">
+                    <span class="font-mono text-xs md:text-sm text-w-sage/80 uppercase tracking-widest">© 2026 Wikingeniería</span>
+                </div>
+                <div class="flex gap-4 text-[10px] md:text-xs font-mono text-w-sage/70 uppercase tracking-widest justify-center md:justify-start">
+                    <a href="legal.html" class="hover:text-w-light transition">Aviso Legal</a>
+                    <span class="text-w-olive">|</span>
+                    <a href="legal.html#privacidad" class="hover:text-w-light transition">Privacidad</a>
+                    <span class="text-w-olive">|</span>
+                    <a href="legal.html#cookies" class="hover:text-w-light transition">Cookies</a>
+                </div>
+            </div>
+            <div class="flex flex-wrap justify-center md:justify-end gap-6"> 
+                <a href="https://www.instagram.com/wikingenieria?igsh=MTBsczl2Z2hjcTYweQ==" target="_blank" rel="noopener" class="text-w-sage/90 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-instagram text-lg"></i></a>
+                <a href="https://x.com/wikingenieria" target="_blank" rel="noopener" class="text-w-sage/90 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-x-twitter text-lg"></i></a>
+                <a href="https://tiktok.com/@wikingenieria" target="_blank" rel="noopener" class="text-w-sage/90 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-tiktok text-lg"></i></a>
+                <a href="https://facebook.com/wikingenieria" target="_blank" rel="noopener" class="text-w-sage/90 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-facebook text-lg"></i></a>
+                <a href="https://www.youtube.com/@Wikingenieria" target="_blank" rel="noopener" class="text-w-sage/90 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-youtube text-lg"></i></a>
+                <a href="https://open.spotify.com/show/4rJF6Rcz7CtIKGzAR2SBiz?si=6bcc0c10ff8d4ea2" target="_blank" rel="noopener" class="text-w-sage/90 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-spotify text-lg"></i></a>
+            </div>
+        </div>
+    </footer>
+
+    <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-8 right-8 bg-w-olive text-w-light w-10 h-10 flex items-center justify-center rounded-sm opacity-0 pointer-events-none transition-all duration-300 hover:bg-w-light hover:text-w-black z-50 border border-w-light/10">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <div id="cookie-banner" class="fixed bottom-0 left-0 w-full bg-w-black/95 backdrop-blur-md border-t border-w-olive p-4 z-[60] transform translate-y-full transition-transform duration-500 hidden">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="text-xs text-w-sage font-mono font-light text-center md:text-left">
+                <span class="text-w-light font-bold">SYSTEM_NOTICE:</span> Usamos cookies propias y de terceros para mejorar tu experiencia.
+                <a href="legal.html#cookies" class="underline hover:text-white ml-1">Ver política</a>.
+            </div>
+            <div class="flex gap-3">
+                <button id="btn-reject" class="px-4 py-2 border border-w-sage/30 text-[10px] font-mono uppercase text-w-sage hover:text-white hover:border-white transition rounded-sm">
+                    Rechazar
+                </button>
+                <button id="btn-accept" class="px-6 py-2 bg-w-olive text-w-light text-[10px] font-mono font-bold uppercase hover:bg-w-light hover:text-w-black transition rounded-sm">
+                    Aceptar Todo
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            
+            // --- 1. GESTIÓN MENÚ MÓVIL ---
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileBtn && mobileMenu) {
+                const icon = mobileBtn.querySelector('i');
+                const links = document.querySelectorAll('.mobile-link');
+                
+                mobileBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    mobileMenu.classList.toggle('hidden');
+                    if (mobileMenu.classList.contains('hidden')) { 
+                        icon.classList.remove('fa-xmark'); icon.classList.add('fa-bars'); 
+                    } else { 
+                        icon.classList.remove('fa-bars'); icon.classList.add('fa-xmark'); 
+                    }
+                });
+    
+                links.forEach(link => {
+                    link.addEventListener('click', () => { 
+                        mobileMenu.classList.add('hidden'); icon.classList.remove('fa-xmark'); icon.classList.add('fa-bars'); 
+                    });
+                });
+    
+                document.addEventListener('click', (e) => {
+                    if (!mobileMenu.contains(e.target) && !mobileBtn.contains(e.target) && !mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden'); icon.classList.remove('fa-xmark'); icon.classList.add('fa-bars');
+                    }
+                });
+            }
+    
+            // --- 2. BOTÓN VOLVER ARRIBA ---
+            const backToTopBtn = document.getElementById('backToTop');
+            if (backToTopBtn) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 300) { backToTopBtn.classList.remove('opacity-0', 'pointer-events-none'); } 
+                    else { backToTopBtn.classList.add('opacity-0', 'pointer-events-none'); }
+                });
+            }
+    
+            // --- 3. COOKIES ---
+            const cookieBanner = document.getElementById('cookie-banner');
+            const btnAccept = document.getElementById('btn-accept');
+            const btnReject = document.getElementById('btn-reject');
+            if (cookieBanner && !localStorage.getItem('cookiesAccepted')) {
+                cookieBanner.classList.remove('hidden');
+                setTimeout(() => { cookieBanner.classList.remove('translate-y-full'); }, 500);
+            }
+            if (btnAccept) { btnAccept.addEventListener('click', () => { localStorage.setItem('cookiesAccepted', 'true'); cookieBanner.classList.add('translate-y-full'); }); }
+            if (btnReject) { btnReject.addEventListener('click', () => { localStorage.setItem('cookiesAccepted', 'false'); cookieBanner.classList.add('translate-y-full'); }); }
+    
+            // --- 4. GESTIÓN FORMULARIO CON MAKE (SOPORTE) ---
+            const contactForm = document.getElementById('contact-form');
+            if (contactForm) {
+                contactForm.addEventListener('submit', async (e) => {
+                    e.preventDefault();
+                    const urlMake = 'https://hook.eu1.make.com/i94znb36hor2wlepeseoet2iv1uuaaa3';
+                    const paginaGracias = 'gracias.html';
+                    const formData = new FormData(contactForm);
+                    const data = Object.fromEntries(formData.entries());
+                    const btn = contactForm.querySelector('button[type="submit"]');
+                    const originalText = btn.innerText;
+    
+                    btn.innerText = "TRANSMITIENDO...";
+                    btn.disabled = true;
+    
+                    try {
+                        const response = await fetch(urlMake, {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                            body: JSON.stringify(data)
+                        });
+                        if (response.ok) { window.location.href = paginaGracias; } 
+                        else { throw new Error(`Status: ${response.status}`); }
+                    } catch (error) {
+                        console.error("Error envío:", error);
+                        btn.innerText = originalText;
+                        btn.disabled = false;
+                        alert("Error de conexión. Por favor, inténtalo de nuevo.");
+                    }
+                });
+            }
+    
+            // --- 5. GESTION FORMULARIO BEEHIIV NEWSLETTER (CORREGIDO) ---
+            const hubForm = document.getElementById('newsletter-hub-form');
+            const hubStatus = document.getElementById('hub-status');
+            const hubSubmitBtn = document.getElementById('hub-submit-btn');
+    
+            if (hubForm) {
+                hubForm.addEventListener('submit', async (e) => {
+                    e.preventDefault(); 
+                    
+                    const email = document.getElementById('hub-email').value;
+                    
+                    // 1. Estado de carga
+                    hubSubmitBtn.innerText = 'PROCESANDO...';
+                    hubSubmitBtn.disabled = true;
+                    hubForm.style.opacity = '0.7';
+    
+                    try {
+                        const response = await fetch('https://hook.eu1.make.com/i94znb36hor2wlepeseoet2iv1uuaaa3', {
+                            method: 'POST',
+                            headers: { 'Content-Type': 'application/json' },
+                            body: JSON.stringify({
+                                email: email,
+                                name: "Suscriptor Hub",
+                                message: "Suscripción directa desde el Hub inferior",
+                                newsletter_consent: "on"
+                            })
+                        });
+    
+                        if (response.ok) {
+                            // --- ÉXITO ---
+                            
+                            // 2. Inyectar HTML con estilo de terminal
+                            hubStatus.innerHTML = `
+                                <p class="font-mono text-sm text-w-olive uppercase tracking-widest mb-2 font-bold">
+                                    <span class="text-white/60">SYSTEM_MESSAGE ::</span> TRANSMISIÓN RECIBIDA<span class="animate-pulse">_</span>
+                                </p>
+                                <p class="font-mono text-xs text-white/80 font-light">
+                                    Lo que tu universidad no quiere que recibas está en camino.
+                                </p>
+                            `;
+                            
+                            // 3. Mostrar la caja (Garantizado)
+                            hubStatus.classList.remove('hidden');
+                            hubStatus.style.display = 'block'; // Fuerza bruta por si acaso
+                            
+                            // 4. Bloquear formulario visualmente
+                            hubForm.style.opacity = '0.3';
+                            hubForm.style.pointerEvents = 'none';
+                            hubForm.reset();
+                            
+                            // 5. Estado final del botón
+                            hubSubmitBtn.innerText = 'SUSCRITO';
+                            
+                        } else { throw new Error('Server Error'); }
+    
+                    } catch (error) {
+                        // --- ERROR ---
+                        hubStatus.innerHTML = `<span class="text-red-500 font-mono text-xs">ERROR EN LA TRANSMISIÓN. REINTENTA.</span>`;
+                        hubStatus.classList.remove('hidden');
+                        hubStatus.style.display = 'block';
+                        
+                        // Restaurar botón para reintentar
+                        hubSubmitBtn.innerText = 'SUSCRIBIRSE';
+                        hubSubmitBtn.disabled = false;
+                        hubForm.style.opacity = '1';
+                    }
+                });
+            }
+    
+        }); // Cierre DOMContentLoaded
+    </script>
+    <script src="https://gumroad.com/js/gumroad.js"></script>
+</body>
+</html>
