@@ -213,7 +213,7 @@
 
             <div class="flex md:hidden flex-col gap-3 pt-6">
                 <a href="https://wikingenieria.gumroad.com/l/plantilla-notion-organiza-aprueba" 
-                data-gumroad-single-product="true" class="px-6 py-4 bg-w-olive text-w-light font-mono text-xs font-bold uppercase tracking-widest hover:bg-w-light hover:text-w-black transition rounded-sm text-center">
+                class="px-6 py-4 bg-w-olive text-w-light font-mono text-xs font-bold uppercase tracking-widest hover:bg-w-light hover:text-w-black transition rounded-sm text-center">
                     Conseguir Sistema
                 </a>
                 <a href="#productos"
@@ -295,6 +295,20 @@
     
         </div>
     </section>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Si el ancho de pantalla es menor a 768px (móvil)
+            if (window.innerWidth < 768) {
+                // Seleccionamos todos los enlaces de Gumroad que tengan activado el overlay
+                const gumroadLinks = document.querySelectorAll('a[data-gumroad-single-product="true"]');
+                gumroadLinks.forEach(link => {
+                    // Les quitamos el atributo para que funcionen como enlaces normales
+                    link.removeAttribute('data-gumroad-single-product');
+                });
+            }
+        });
+    </script>
 
     <div class="section-divider"></div>
 
