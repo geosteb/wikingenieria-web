@@ -3,9 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Wikingeniería | System Update</title>
     
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <title>Wikingeniería | System Update</title>
+    <meta name="description" content="Wikingeniería: Recursos avanzados, plantillas Notion y herramientas para estudiantes de ingeniería. El sistema operativo que tu facultad no te dio.">
+    <meta name="keywords" content="ingeniería, apuntes, notion, productividad, universidad, recursos, software">
+    <meta name="author" content="Wikingeniería">
+    <meta name="robots" content="index, follow">
+
+    <meta property="og:title" content="Wikingeniería | System Update">
+    <meta property="og:description" content="Desplegando el sistema operativo para ingenieros. Acceso restringido.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://wikingenieria.com">
+    <meta property="og:image" content="assets/img/core/og-image.jpg"> <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -14,11 +23,11 @@
             theme: {
                 extend: {
                     colors: {
-                        'w-black': '#020201',
-                        'w-olive': '#2a322e',
-                        'w-sage': '#b0bab3',
-                        'w-light': '#d3d3d3',
-                        'w-matrix': '#6b7838',
+                        'w-black': '#020201',   // Negro profundo
+                        'w-olive': '#2a322e',   // Verde oliva oscuro
+                        'w-sage': '#b0bab3',    // Gris salvia (textos)
+                        'w-light': '#d3d3d3',   // Blanco roto (destacados)
+                        'w-matrix': '#6b7838',  // Verde Matrix
                     },
                     fontFamily: {
                         'sans': ['Inter', 'sans-serif'],
@@ -30,7 +39,7 @@
     </script>
 
     <style>
-        /* PANTALLA DE CARGA */
+        /* PANTALLA DE CARGA (LOADER) */
         #loader-screen {
             position: fixed;
             inset: 0;
@@ -58,7 +67,7 @@
             transition: width 0.05s linear;
         }
 
-        /* LIENZO MATRIX */
+        /* LIENZO MATRIX (FONDO) */
         #matrix-canvas {
             position: fixed;
             inset: 0;
@@ -72,7 +81,7 @@
             opacity: 0.25;
         }
 
-        /* CONTENIDO PRINCIPAL */
+        /* CONTENIDO PRINCIPAL (UI) */
         #main-ui {
             opacity: 0;
             transition: opacity 1.5s ease-in-out;
@@ -86,6 +95,7 @@
             opacity: 1;
         }
 
+        /* PANEL DE CRISTAL (EFECTO FROSTED) */
         .glass-panel {
             background: rgba(2, 2, 1, 0.75);
             backdrop-filter: blur(10px);
@@ -109,8 +119,8 @@
         </div>
         <span id="progress-text" class="font-mono text-[10px] mt-3 text-w-sage/60">0%</span>
     </div>
-
     <canvas id="matrix-canvas"></canvas>
+
 
     <div id="main-ui" class="relative z-10 px-4">
         
@@ -124,8 +134,8 @@
                 <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-w-olive/80 to-transparent"></div>
 
                 <div class="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-6 border-b border-w-olive/30 pb-2 font-mono tracking-widest text-w-sage/50">
-                    <span class="text-[8px] md:text-[10px]">SYSTEM_STATUS:: <span class="text-[#e05d5d] transition-colors duration-300" id="status-text">OFFLINE</span></span>
-                    <span class="text-[8px] md:text-[9px] uppercase font-bold opacity-70">WIKINGENIERIA-V2.0_DEPLOYMENT</span>
+                    <span class="text-[10px] md:text-xs">SYSTEM_STATUS:: <span class="text-[#e05d5d] transition-colors duration-300" id="status-text">OFFLINE</span></span>
+                    <span class="text-[9px] md:text-[10px] uppercase font-bold opacity-70">WIKINGENIERIA-V2.0_DEPLOYMENT</span>
                 </div>
 
                 <div class="font-mono text-[10px] md:text-xs space-y-1 mb-6 text-w-sage/70" id="loading-logs">
@@ -171,25 +181,24 @@
                    <a href="https://tiktok.com/@wikingenieria" target="_blank" class="hover:text-w-light transition">TIKTOK</a>
                </div>
            
-               <div class="mt-8 font-mono text-[8px] md:text-[9px] opacity-30 tracking-[0.3em] text-w-sage uppercase transition-all duration-500">
+               <div class="mt-8 font-mono text-[10px] md:text-xs opacity-80 tracking-[0.3em] text-w-sage uppercase transition-all duration-500 drop-shadow-[0_0_2px_rgba(176,186,179,0.3)]">
                    SYS_UPTIME: <span id="uptime-counter">00:00:00:000</span>
                </div>
            </div>
         </main>
     </div>
-
     <script>
         document.addEventListener('DOMContentLoaded', function () {
-            // --- 0. LOGO ASCII ---
+            // --- 0. LOGO ASCII EN CONSOLA (EASTER EGG INVISIBLE) ---
             renderAsciiLogo();
     
-            // --- VARIABLES GLOBALES PARA CONTROLAR INTERVALOS ---
+            // --- VARIABLES GLOBALES (ESTADO DEL SISTEMA) ---
             let uptimeInterval; 
             let matrixInterval;
             const sessionStart = Date.now();
             const uptimeDisplay = document.getElementById('uptime-counter');
     
-            // --- 1. CONFIGURACIÓN MATRIX ---
+            // --- 1. CONFIGURACIÓN MATRIX (LLUVIA DE CÓDIGO) ---
             const canvas = document.getElementById('matrix-canvas');
             const ctx = canvas.getContext('2d');
             const mainUI = document.getElementById('main-ui');
@@ -201,8 +210,9 @@
             window.addEventListener('resize', resizeCanvas);
             resizeCanvas();
     
+            // Caracteres matemáticos para la lluvia
             let matrixChars = 'πΣ∫∞√≈≠ΔΩφμeijkxyz01∀∃∇∂θλσμ≡≤≥'; 
-            let matrixColor = '#6b7838'; 
+            let matrixColor = '#6b7838'; // Color por defecto
             let matrixGlow = 0; 
             let currentSpeed = 50; 
             const piSpeed = 80; 
@@ -212,7 +222,7 @@
             const drops = Array.from({length: columns}, () => Math.floor(Math.random() * -20));
     
             function drawMatrix() {
-                ctx.fillStyle = 'rgba(2, 2, 1, 0.05)'; 
+                ctx.fillStyle = 'rgba(2, 2, 1, 0.05)'; // Estela de desvanecimiento
                 ctx.fillRect(0, 0, canvas.width, canvas.height);
                 ctx.fillStyle = matrixColor;
                 ctx.shadowBlur = matrixGlow; 
@@ -226,9 +236,10 @@
                     drops[i]++;
                 }
             }
+            // Inicio del bucle Matrix
             matrixInterval = setInterval(drawMatrix, currentSpeed);
     
-            // --- 2. BOOT SEQUENCE ---
+            // --- 2. BOOT SEQUENCE (BARRA DE CARGA INICIAL) ---
             const loader = document.getElementById('loader-screen');
             const progressBar = document.getElementById('progress-bar');
             const progressText = document.getElementById('progress-text');
@@ -238,7 +249,7 @@
                 if (progress >= 100) {
                     progress = 100;
                     clearInterval(bootInterval);
-                    startSystem();
+                    startSystem(); // Lanzar transición
                 }
                 progressBar.style.width = progress + '%';
                 progressText.innerText = Math.floor(progress) + '%';
@@ -248,12 +259,12 @@
                 loader.style.opacity = '0';
                 setTimeout(() => { 
                     loader.style.display = 'none'; 
-                    canvas.classList.add('active'); 
-                    setTimeout(() => { mainUI.classList.add('visible'); }, 2000); 
+                    canvas.classList.add('active'); // Activar lluvia de fondo
+                    setTimeout(() => { mainUI.classList.add('visible'); }, 2000); // Mostrar interfaz
                 }, 800);
             }
     
-            // --- 3. UPTIME INICIAL (NORMAL) ---
+            // --- 3. RELOJ DE UPTIME (FORMATO INGENIERÍA) ---
             function startUptime() {
                 uptimeInterval = setInterval(() => {
                     const delta = Date.now() - sessionStart;
@@ -271,7 +282,7 @@
                 uptimeDisplay.innerText = (isReverse ? "-" : "") + `${h}:${m}:${s}:${milli}`;
             }
     
-            // --- 4. INTERACCIÓN OFFLINE ---
+            // --- 4. INTERACCIÓN OFFLINE (EASTER EGG DE ERROR) ---
             const statusText = document.getElementById('status-text');
             let isConnecting = false;
             if (statusText) {
@@ -279,6 +290,7 @@
                 statusText.addEventListener('click', () => {
                     if (isConnecting) return;
                     isConnecting = true;
+                    // Cambio visual a "Intentando conectar"
                     statusText.innerText = "CONNECTING...";
                     statusText.style.color = "#f59e0b";
                     
@@ -289,12 +301,15 @@
                     if(logContainer) logContainer.appendChild(connectionLog);
     
                     setTimeout(() => {
+                        // Fallo simulado
                         statusText.innerText = "REFUSED";
                         statusText.style.color = "#ef4444";
                         setTimeout(() => {
+                            // Vuelta al estado original
                             statusText.innerText = "OFFLINE";
                             statusText.style.color = "#e05d5d";
                             if(connectionLog) connectionLog.innerText = "➜ system_msg: bypass_denied. use_email_protocol.";
+                            // Resaltar formulario
                             const form = document.getElementById('notify-form');
                             form.classList.add('ring-1', 'ring-w-light');
                             setTimeout(() => {
@@ -306,16 +321,18 @@
                 });
             }
     
-            // --- 5. EASTER EGG: MODO PI ---
+            // --- 5. EASTER EGG: MODO PI (ACTIVACIÓN GLOBAL) ---
             let keyBuffer = "";
             let logoClicks = 0;
             let piModeActive = false; // Flag para evitar reactivación
     
+            // A. Trigger Teclado (Escritorio)
             document.addEventListener('keydown', (e) => {
                 keyBuffer = (keyBuffer + e.key.toLowerCase()).slice(-2);
                 if (keyBuffer === "pi") activatePiMode();
             });
     
+            // B. Trigger Táctil (Móvil - 3 Clics en Logo)
             const logoTrigger = document.querySelector('.mt-4.mb-8.flex.items-center.gap-3') || document.querySelector('.flex.items-center.gap-3');
             if (logoTrigger) {
                 logoTrigger.addEventListener('click', () => {
@@ -325,11 +342,12 @@
                 });
             }
     
+            // C. Lógica de Activación del MODO PI
             function activatePiMode() {
                 if (piModeActive) return;
                 piModeActive = true;
     
-                // A. MATRIX VISUALS
+                // 1. Cambios Visuales en Matrix
                 matrixColor = "#e05d5d"; 
                 matrixGlow = 10; 
                 matrixChars = "π"; 
@@ -339,25 +357,21 @@
                 const mainPanel = document.querySelector('.glass-panel');
                 if(mainPanel) mainPanel.style.borderColor = "#e05d5d";
     
-                // B. TEXT UPDATES (MODO PÁNICO)
-                // 1. Status Failure
+                // 2. Cambios de Texto (Modo Pánico)
                 if (statusText) {
                     statusText.innerText = "FAILURE";
                     statusText.className = "text-[#e05d5d] font-bold animate-pulse"; 
                 }
     
-                // 2. Loadings Failed
                 const loadingSpans = document.querySelectorAll('#loading-logs p span:last-child');
                 loadingSpans.forEach(span => {
                     span.innerText = "[FAILED]";
                     span.className = "text-[#e05d5d] font-bold tracking-widest";
                 });
     
-                // 3. Title Change
                 const title = document.getElementById('main-title');
                 if (title) title.innerHTML = 'PI MODE SYSTEM ACTIVATED<span class="text-[#e05d5d] animate-pulse">_</span>';
     
-                // 4. Description Change (Digits of Pi)
                 const desc = document.getElementById('main-desc');
                 if (desc) {
                     desc.innerHTML = `3.14159265358979323846264338327950288419716939937510582097494459230781640628620899862803482534211706798214808651328230664709384460955058223172535940812848111745028410270193852110555964462294895493038196
@@ -368,31 +382,31 @@
                     desc.className = "text-[#e05d5d] text-[10px] leading-tight opacity-80 font-mono";
                 }
     
-                // C. UPTIME REVERSE (Cuenta atrás)
+                // 3. Inversión del Tiempo (Uptime marcha atrás)
                 if (uptimeDisplay) {
                     uptimeDisplay.style.color = "#e05d5d";
                     uptimeDisplay.style.textShadow = "0 0 10px #e05d5d";
                     
-                    clearInterval(uptimeInterval); // Paramos el reloj normal
+                    clearInterval(uptimeInterval); 
                     
                     const piActivationTime = Date.now();
-                    const accumulatedTime = Date.now() - sessionStart; // Tiempo hasta ahora
+                    const accumulatedTime = Date.now() - sessionStart;
     
                     uptimeInterval = setInterval(() => {
-                        // El tiempo empieza a restar desde lo acumulado
                         const reverseDelta = accumulatedTime - (Date.now() - piActivationTime);
                         const absoluteDelta = Math.abs(reverseDelta);
                         updateClock(absoluteDelta, reverseDelta < 0);
                     }, 50);
                 }
     
-                // D. NOTIFICACIÓN
+                // 4. Notificación
                 const notify = document.createElement('div');
                 notify.className = "fixed top-24 left-1/2 -translate-x-1/2 font-mono text-[9px] bg-[#e05d5d] text-w-black px-4 py-1 z-[100] tracking-tighter shadow-[0_0_10px_#e05d5d]";
                 notify.innerText = "ALERTA: SINGULARIDAD_PI_DETECTADA";
                 document.body.appendChild(notify);
             }
     
+            // --- 6. FUNCIÓN DE LOGO ASCII ---
             function renderAsciiLogo() {
                 const ascii = `
         ██╗    ██╗██╗██╗  ██╗██╗███╗   ██╗ ██████╗ ███████╗███╗   ██╗██╗███████╗██████╗ ██╗ █████╗ 
@@ -407,7 +421,7 @@
                 console.log("%cREGALO DE BIENVENIDA: Guarda el código 'WIKINGENIERIA40'. Te haré falta para evitar segundas matrículas. Me lo agradecerás luego.", "background: #2a322e; color: #fff; padding: 8px; border-left: 4px solid #6b7838; font-weight: bold;");
             }
     
-            // --- 6. MAKE.COM ---
+            // --- 7. CONEXIÓN CON MAKE.COM (FORMULARIO) ---
             const notifyForm = document.getElementById('notify-form');
             if (notifyForm) {
                 notifyForm.addEventListener('submit', async (e) => {
