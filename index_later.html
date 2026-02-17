@@ -216,9 +216,13 @@
                     class="px-6 py-4 border border-w-olive text-w-sage font-mono text-xs uppercase tracking-widest hover:border-w-light hover:text-w-light transition rounded-sm text-center">
                     Ver más recursos
                 </a>
+                <p class="text-[10px] opacity-40 font-mono mt-2 uppercase tracking-[0.1em] text-center">
+                    <i class="fas fa-lock mr-1"></i> Pago seguro vía Gumroad
+                </p>
             </div>
         </div>
     </section>
+    <div class="section-divider"></div>
     
     <section id="productos" class="py-20 md:py-24 px-6 bg-w-offblack relative">
         <div class="max-w-7xl mx-auto text-center mb-12 relative z-10">
@@ -228,11 +232,29 @@
         </div>
     
         <div class="flex flex-wrap justify-center gap-8 items-stretch relative z-10">
+            
             <a href="https://wikingenieria.gumroad.com/l/plantilla-notion-organiza-aprueba" 
             data-gumroad-single-product="true" class="gumroad-link w-full max-w-[22rem] flex flex-col bg-w-olive/20 border border-w-olive/40 hover:border-w-sage/30 transition-all duration-300 group backdrop-blur-sm cursor-pointer hover:-translate-y-1 hover:shadow-2xl">
+                
+                <div class="relative w-full h-56 bg-black/40 overflow-hidden shrink-0">
+                    <div class="absolute top-3 right-3 bg-[#e05d5d] text-black text-[10px] font-bold px-2 py-1 uppercase tracking-wider z-10 font-mono shadow-md">
+                        Top Ventas
+                    </div>
+                    <img src="assets/img/products/plantilla-notion-organiza-aprueba-cover.webp"
+                         alt="Portada sistema en Notion para gestión de asignaturas y notas de ingeniería"
+                         loading="lazy"
+                         class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition duration-500">
+                </div>
+    
                 <div class="p-6 flex flex-col flex-grow">
-                    <h3 class="font-mono text-lg text-w-light mb-3 leading-tight group-hover:text-white transition-colors">Ingeniería en Modo Fácil</h3>
-                    <div class="mt-auto block w-full py-3 font-mono text-xs font-bold uppercase tracking-widest transition rounded-sm text-center bg-w-olive text-w-light">
+                    <h3 class="font-mono text-lg text-w-light mb-3 leading-tight group-hover:text-white transition-colors">
+                        Ingeniería en Modo Fácil [Plantilla Notion]
+                    </h3>
+                    <p class="text-sm opacity-70 mb-6 font-light leading-relaxed flex-grow text-w-sage">
+                        El sistema operativo en Notion para organizar asignaturas, calcular notas y gestionar tu vida académica.
+                    </p>
+                    
+                    <div class="mt-auto block w-full py-3 font-mono text-xs font-bold uppercase tracking-widest transition rounded-sm text-center bg-w-olive text-w-light border border-transparent md:bg-w-black/40 md:border-w-sage/30 md:text-w-light group-hover:bg-w-light group-hover:text-w-black">
                         Conseguir Sistema
                     </div>
                 </div>
@@ -240,35 +262,32 @@
     
             <a href="https://wikingenieria.gumroad.com/l/sobrevive-ingenieria" 
             data-gumroad-single-product="true" class="gumroad-link w-full max-w-[22rem] flex flex-col bg-w-olive/20 border border-w-olive/40 hover:border-w-sage/30 transition-all duration-300 group backdrop-blur-sm cursor-pointer hover:-translate-y-1 hover:shadow-2xl">
+                
+                <div class="relative w-full h-56 bg-black/40 overflow-hidden shrink-0">
+                    <div class="absolute top-3 right-3 bg-[#f0dfa0] text-black text-[10px] font-bold px-2 py-1 uppercase tracking-wider z-10 font-mono shadow-md">
+                        Gratis
+                    </div>
+                    <img src="assets/img/products/ebook-sobrevive-ingenieria-cover.webp" 
+                         alt="Portada eBook gratis Sobrevive a la Ingeniería"
+                         loading="lazy"
+                         class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition duration-500">
+                </div>
+    
                 <div class="p-6 flex flex-col flex-grow">
-                    <h3 class="font-mono text-lg text-w-light mb-3 leading-tight group-hover:text-white transition-colors">Aprueba sin perder la salud mental</h3>
-                    <div class="mt-auto block w-full py-3 font-mono text-xs font-bold uppercase tracking-widest transition rounded-sm text-center bg-w-olive text-w-light">
+                    <h3 class="font-mono text-lg text-w-light mb-3 leading-tight group-hover:text-white transition-colors">
+                        Aprueba sin perder la salud mental [eBook]
+                    </h3>
+                    <p class="text-sm opacity-70 mb-6 font-light leading-relaxed flex-grow text-w-sage">
+                        Manual de estrategia mental y táctica académica para no pagar segundas matrículas.
+                    </p>
+                    
+                    <div class="mt-auto block w-full py-3 font-mono text-xs font-bold uppercase tracking-widest transition rounded-sm text-center bg-w-olive text-w-light border border-transparent md:bg-w-black/40 md:border-w-sage/30 md:text-w-light group-hover:bg-w-light group-hover:text-w-black">
                         Descargar
                     </div>
                 </div>
             </a>
         </div>
     </section>
-    
-    <script>
-        function disableGumroadOverlayOnMobile() {
-            if (window.innerWidth < 768) {
-                // Buscamos todos los links que Gumroad suele "secuestrar"
-                const links = document.querySelectorAll('a[data-gumroad-single-product="true"], .gumroad-button-mobile');
-                links.forEach(link => {
-                    link.removeAttribute('data-gumroad-single-product');
-                    // Clonamos el nodo para eliminar listeners de eventos previos que gumroad.js haya podido inyectar
-                    const newLink = link.cloneNode(true);
-                    link.parentNode.replaceChild(newLink, link);
-                });
-            }
-        }
-    
-        // Ejecutar al cargar
-        document.addEventListener('DOMContentLoaded', disableGumroadOverlayOnMobile);
-        // Ejecutar después de un breve delay por si gumroad.js tarda en cargar
-        window.addEventListener('load', () => setTimeout(disableGumroadOverlayOnMobile, 500));
-    </script>
 
     <div class="section-divider"></div>
 
@@ -625,7 +644,7 @@
                 });
             }
     
-            // --- 5. GESTION FORMULARIO BEEHIIV NEWSLETTER (CORREGIDO) ---
+            // --- 5. GESTION FORMULARIO BEEHIIV NEWSLETTER ---
             const hubForm = document.getElementById('newsletter-hub-form');
             const hubStatus = document.getElementById('hub-status');
             const hubSubmitBtn = document.getElementById('hub-submit-btn');
@@ -666,9 +685,9 @@
                                 </p>
                             `;
                             
-                            // 3. Mostrar la caja (Garantizado)
+                            // 3. Mostrar la caja
                             hubStatus.classList.remove('hidden');
-                            hubStatus.style.display = 'block'; // Fuerza bruta por si acaso
+                            hubStatus.style.display = 'block';
                             
                             // 4. Bloquear formulario visualmente
                             hubForm.style.opacity = '0.3';
@@ -693,6 +712,24 @@
                     }
                 });
             }
+            
+            // --- 6. FIX GUMROAD OVERLAY EN MÓVIL ---
+            // Elimina el comportamiento de overlay en pantallas pequeñas clonando los nodos
+            // para asegurar que el script de Gumroad no re-capture el evento de click.
+            function disableGumroadOverlayOnMobile() {
+                if (window.innerWidth < 768) {
+                    const links = document.querySelectorAll('a[data-gumroad-single-product="true"], .gumroad-button-mobile');
+                    links.forEach(link => {
+                        link.removeAttribute('data-gumroad-single-product');
+                        // Clonamos el nodo para eliminar listeners de eventos previos que gumroad.js haya podido inyectar
+                        const newLink = link.cloneNode(true);
+                        link.parentNode.replaceChild(newLink, link);
+                    });
+                }
+            }
+            // Ejecutamos inmediatamente y con delay para asegurar
+            disableGumroadOverlayOnMobile();
+            setTimeout(disableGumroadOverlayOnMobile, 500);
     
         }); // Cierre DOMContentLoaded
     </script>
