@@ -453,5 +453,12 @@
             }
         });
     </script>
+    <script>
+        // Si la URL contiene "test.", añadimos un aviso visual
+        if (window.location.hostname.includes('test.')) {
+          document.title = "[STAG] " + document.title;
+          console.log("Nodo de pruebas activo.");
+        }
+      </script>
 </body>
 </html>
