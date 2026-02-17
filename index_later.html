@@ -4,20 +4,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wikingeniería | Contenido & Recursos para Ingenieros</title>
+    <title>Wikingenieria | Contenido & Recursos para Ingenieros</title>
 
     <meta name="description"
         content="El punto de encuentro para amantes de la ingeniería, ciencia y tecnología. Descarga plantillas de Notion para tu gestión académica, eBooks de estrategia y recursos para sobrevivir a la ingeniería.">
 
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://wikingenieria.com/">
-    <meta property="og:title" content="Wikingeniería | Recursos para Ingenieros">
+    <meta property="og:title" content="Wikingenieria | Recursos para Ingenieros">
     <meta property="og:description"
         content="Integra el mejor contenido de ingeniería en tu día a día. Plantillas de organización, eBooks y ciencia.">
     <meta property="og:image" content="https://wikingenieria.com/assets/img/core/wikingenieria-social-share.jpg">
 
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Wikingeniería | Gestión Académica">
+    <meta name="twitter:title" content="Wikingenieria | Gestión Académica">
     <meta name="twitter:description" content="Sobrevive a la ingeniería. Recursos, organización y tecnología.">
     <meta name="twitter:image" content="https://wikingenieria.com/assets/img/core/wikingenieria-social-share.jpg">
 
@@ -122,7 +122,7 @@
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <a href="#" class="flex items-center gap-3 group">
                 <img src="assets/img/core/wikingenieria-logo.png" alt="Logo" class="h-9 w-9 opacity-90 group-hover:opacity-100 transition">
-                <span class="font-mono text-xl font-bold text-w-light tracking-tight">Wikingeniería</span>
+                <span class="font-mono text-xl font-bold text-w-light tracking-tight">Wikingenieria</span>
                 <span class="text-w-olive animate-pulse font-bold text-xl font-mono -ml-1">_</span>
             </a>
     
@@ -388,7 +388,7 @@
                 <div class="relative bg-w-black/50 border border-w-light/10 rounded-xl overflow-hidden shadow-2xl backdrop-blur-sm group-hover:border-w-olive/40 transition duration-500">
                     
                     <img src="assets/img/listas/all-spotify-playlists.webp" 
-                         alt="Colección de Listas Musicales para ingenieros Wikingeniería"
+                         alt="Colección de Listas Musicales para ingenieros Wikingenieria"
                          loading="lazy" 
                          class="w-full h-auto block opacity-85 group-hover:opacity-100 group-hover:scale-[1.01] transition duration-700 ease-out">
                     
@@ -427,7 +427,7 @@
                 <div class="col-span-8 md:flex-1 text-left space-y-4 md:space-y-6 md:max-w-md">
                     <div>
                         <h3 class="font-mono text-lg md:text-2xl font-bold text-w-light leading-tight tracking-tight">
-                            El Podcast de Wikingeniería
+                            El Podcast de Wikingenieria
                         </h3>
                         <div class="h-[1px] w-12 md:w-16 bg-w-olive/40 rounded-full mt-3 mb-1"></div>
                     </div>
@@ -529,7 +529,7 @@
             <div class="flex flex-col gap-2 text-center md:text-left">
                 <div class="flex items-center justify-center md:justify-start gap-3">
                     <img src="assets/img/core/wikingenieria-logo.png" alt="Logo" class="h-8 w-auto opacity-100 hover:opacity-100 transition">
-                    <span class="font-mono text-xs md:text-sm text-w-sage/80 uppercase tracking-widest">© 2026 Wikingeniería</span>
+                    <span class="font-mono text-xs md:text-sm text-w-sage/80 uppercase tracking-widest">© 2026 Wikingenieria</span>
                 </div>
                 <div class="flex gap-4 text-[10px] md:text-xs font-mono text-w-sage/70 uppercase tracking-widest justify-center md:justify-start">
                     <a href="legal.html" class="hover:text-w-light transition">Aviso Legal</a>
@@ -575,34 +575,24 @@
         document.addEventListener('DOMContentLoaded', function () {
             
             // --- 1. GESTIÓN "KILL SWITCH" PARA GUMROAD EN MÓVIL ---
-            // ESTO ES LA SOLUCIÓN DEFINITIVA:
-            // Si es móvil -> NO CARGAMOS EL SCRIPT DE GUMROAD. (Imposible abrir overlay).
-            // Si es PC -> Inyectamos el script y ponemos los atributos.
-            
             const isMobile = window.innerWidth < 768;
             
             if (isMobile) {
                 // MODO MÓVIL: LIMPIEZA TOTAL
-                // Buscamos todos los links que hemos marcado como triggers de gumroad
                 const gumroadLinks = document.querySelectorAll('.gumroad-trigger');
                 gumroadLinks.forEach(link => {
-                    // Borramos el atributo que busca Gumroad (por seguridad)
                     link.removeAttribute('data-gumroad-single-product');
-                    // Forzamos que se abra en pestaña nueva
                     link.setAttribute('target', '_blank');
                 });
-                // Y LO MÁS IMPORTANTE: NO HACEMOS NADA MÁS. NO CARGAMOS EL SCRIPT.
                 
             } else {
                 // MODO PC: CARGA COMPLETA
-                // 1. Ponemos el atributo data-gumroad-single-product="true"
                 const gumroadLinks = document.querySelectorAll('.gumroad-trigger');
                 gumroadLinks.forEach(link => {
                     link.setAttribute('data-gumroad-single-product', 'true');
-                    link.removeAttribute('target'); // En PC que lo gestione el overlay
+                    link.removeAttribute('target'); 
                 });
 
-                // 2. INYECTAMOS EL SCRIPT DE GUMROAD DINÁMICAMENTE
                 const script = document.createElement('script');
                 script.src = "https://gumroad.com/js/gumroad.js";
                 script.async = true;
@@ -659,7 +649,7 @@
             if (btnAccept) { btnAccept.addEventListener('click', () => { localStorage.setItem('cookiesAccepted', 'true'); cookieBanner.classList.add('translate-y-full'); }); }
             if (btnReject) { btnReject.addEventListener('click', () => { localStorage.setItem('cookiesAccepted', 'false'); cookieBanner.classList.add('translate-y-full'); }); }
 
-            // --- 5. GESTIÓN FORMULARIO CON MAKE (SOPORTE) ---
+            // --- 5. GESTIÓN FORMULARIO CON MAKE (SOPORTE) - BLINDADO ---
             const contactForm = document.getElementById('contact-form');
             if (contactForm) {
                 contactForm.addEventListener('submit', async (e) => {
@@ -668,6 +658,17 @@
                     const paginaGracias = 'gracias.html';
                     const formData = new FormData(contactForm);
                     const data = Object.fromEntries(formData.entries());
+
+                    // BLINDAJE: Validación preventiva
+                    if (!data.email || !data.email.trim().includes('@')) {
+                        console.error("Critical: Invalid email payload.");
+                        return; // Detenemos la ejecución silenciosamente
+                    }
+
+                    // AÑADIMOS METADATA
+                    data.source = window.location.hostname.includes('test.') ? "Staging Contact" : "Web Contact";
+                    data.timestamp = new Date().toISOString();
+
                     const btn = contactForm.querySelector('button[type="submit"]');
                     const originalText = btn.innerText;
 
@@ -677,7 +678,10 @@
                     try {
                         const response = await fetch(urlMake, {
                             method: 'POST',
-                            headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                            headers: { 
+                                'Content-Type': 'application/json', 
+                                'Accept': 'application/json' 
+                            },
                             body: JSON.stringify(data)
                         });
                         if (response.ok) { window.location.href = paginaGracias; } 
@@ -691,7 +695,7 @@
                 });
             }
 
-            // --- 6. GESTION FORMULARIO BEEHIIV NEWSLETTER ---
+            // --- 6. GESTION FORMULARIO BEEHIIV NEWSLETTER - BLINDADO ---
             const hubForm = document.getElementById('newsletter-hub-form');
             const hubStatus = document.getElementById('hub-status');
             const hubSubmitBtn = document.getElementById('hub-submit-btn');
@@ -700,7 +704,14 @@
                 hubForm.addEventListener('submit', async (e) => {
                     e.preventDefault(); 
                     
-                    const email = document.getElementById('hub-email').value;
+                    const emailInput = document.getElementById('hub-email');
+                    const email = emailInput.value ? emailInput.value.trim() : "";
+
+                    // BLINDAJE: Validación preventiva
+                    if (!email || !email.includes('@')) {
+                        console.error("Critical: Invalid email payload.");
+                        return; // Detenemos la ejecución silenciosamente
+                    }
                     
                     // Estado de carga
                     hubSubmitBtn.innerText = 'PROCESANDO...';
@@ -710,12 +721,17 @@
                     try {
                         const response = await fetch('https://hook.eu1.make.com/i94znb36hor2wlepeseoet2iv1uuaaa3', {
                             method: 'POST',
-                            headers: { 'Content-Type': 'application/json' },
+                            headers: { 
+                                'Content-Type': 'application/json',
+                                'Accept': 'application/json'
+                            },
                             body: JSON.stringify({
                                 email: email,
                                 name: "Suscriptor Hub",
                                 message: "Suscripción directa desde el Hub inferior",
-                                newsletter_consent: "on"
+                                newsletter_consent: "on",
+                                source: window.location.hostname.includes('test.') ? "Staging Hub" : "Web Hub",
+                                timestamp: new Date().toISOString()
                             })
                         });
 
