@@ -186,7 +186,7 @@
                     Conseguir Sistema
                 </a>
                 <a href="#productos"
-                   class="px-6 py-3 border border-w-olive text-w-sage font-mono text-xs uppercase tracking-widest hover:border-w-light hover:text-w-light transition rounded-sm text-center">
+                    class="px-6 py-3 border border-w-olive text-w-sage font-mono text-xs uppercase tracking-widest hover:border-w-light hover:text-w-light transition rounded-sm text-center">
                     Ver más recursos
                 </a>
             </div>
@@ -247,7 +247,7 @@
     
         <div class="flex flex-wrap justify-center gap-8 items-stretch relative z-10">
             
-            <a href="https://wikingenieria.gumroad.com/l/plantilla-notion-organiza-aprueba" target="_blank"
+            <a href="https://wikingenieria.gumroad.com/l/plantilla-notion-organiza-aprueba" 
             class="gumroad-trigger w-full max-w-[22rem] flex flex-col bg-w-olive/20 border border-w-olive/40 hover:border-w-sage/30 transition-all duration-300 group backdrop-blur-sm cursor-pointer hover:-translate-y-1 hover:shadow-2xl">
                 
                 <div class="relative w-full h-56 bg-black/40 overflow-hidden shrink-0">
@@ -273,7 +273,7 @@
                 </div>
             </a>
     
-            <a href="https://wikingenieria.gumroad.com/l/sobrevive-ingenieria" target="_blank"
+            <a href="https://wikingenieria.gumroad.com/l/sobrevive-ingenieria" 
             class="gumroad-trigger w-full max-w-[22rem] flex flex-col bg-w-olive/20 border border-w-olive/40 hover:border-w-sage/30 transition-all duration-300 group backdrop-blur-sm cursor-pointer hover:-translate-y-1 hover:shadow-2xl">
                 
                 <div class="relative w-full h-56 bg-black/40 overflow-hidden shrink-0">
@@ -452,8 +452,8 @@
                         <div class="relative w-20 h-20 md:w-48 md:h-48 rounded-full border border-w-light/10 bg-w-black/80 flex items-center justify-center shadow-2xl transition duration-500 group-hover:scale-105 group-hover:border-w-olive/50">
                             <img src="assets/img/core/wikipodcast-logo.png" alt="WikiPodcast Logo"
                             loading="lazy"
-                                 class="w-16 h-16 md:w-40 md:h-40 object-contain opacity-90 group-hover:opacity-100 transition duration-500 drop-shadow-lg">
-                                 
+                                     class="w-16 h-16 md:w-40 md:h-40 object-contain opacity-90 group-hover:opacity-100 transition duration-500 drop-shadow-lg">
+                                     
                         </div>
                     </a>
                 </div>
@@ -574,24 +574,40 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             
-            // --- 1. GESTIÓN OVERLAY GUMROAD (ESTRATEGIA INFALIBLE) ---
-            // En el HTML no hemos puesto 'data-gumroad-single-product'.
-            // Solo si detectamos que es PC (>768px), se lo inyectamos a los elementos con clase 'gumroad-trigger'.
-            // Así en móvil es IMPOSIBLE que salte el overlay porque el atributo no existe.
+            // --- 1. GESTIÓN "KILL SWITCH" PARA GUMROAD EN MÓVIL ---
+            // ESTO ES LA SOLUCIÓN DEFINITIVA:
+            // Si es móvil -> NO CARGAMOS EL SCRIPT DE GUMROAD. (Imposible abrir overlay).
+            // Si es PC -> Inyectamos el script y ponemos los atributos.
             
-            function initGumroadOverlay() {
-                if (window.innerWidth >= 768) {
-                    const gumroadLinks = document.querySelectorAll('.gumroad-trigger');
-                    gumroadLinks.forEach(link => {
-                        link.setAttribute('data-gumroad-single-product', 'true');
-                        // Opcional: quitamos target _blank en PC para que sea más limpio, aunque el overlay lo ignora.
-                        link.removeAttribute('target'); 
-                    });
-                }
+            const isMobile = window.innerWidth < 768;
+            
+            if (isMobile) {
+                // MODO MÓVIL: LIMPIEZA TOTAL
+                // Buscamos todos los links que hemos marcado como triggers de gumroad
+                const gumroadLinks = document.querySelectorAll('.gumroad-trigger');
+                gumroadLinks.forEach(link => {
+                    // Borramos el atributo que busca Gumroad (por seguridad)
+                    link.removeAttribute('data-gumroad-single-product');
+                    // Forzamos que se abra en pestaña nueva
+                    link.setAttribute('target', '_blank');
+                });
+                // Y LO MÁS IMPORTANTE: NO HACEMOS NADA MÁS. NO CARGAMOS EL SCRIPT.
+                
+            } else {
+                // MODO PC: CARGA COMPLETA
+                // 1. Ponemos el atributo data-gumroad-single-product="true"
+                const gumroadLinks = document.querySelectorAll('.gumroad-trigger');
+                gumroadLinks.forEach(link => {
+                    link.setAttribute('data-gumroad-single-product', 'true');
+                    link.removeAttribute('target'); // En PC que lo gestione el overlay
+                });
+
+                // 2. INYECTAMOS EL SCRIPT DE GUMROAD DINÁMICAMENTE
+                const script = document.createElement('script');
+                script.src = "https://gumroad.com/js/gumroad.js";
+                script.async = true;
+                document.body.appendChild(script);
             }
-            
-            // Ejecutar al inicio
-            initGumroadOverlay();
     
             // --- 2. GESTIÓN MENÚ MÓVIL ---
             const mobileBtn = document.getElementById('mobile-menu-btn');
@@ -609,20 +625,20 @@
                         icon.classList.remove('fa-bars'); icon.classList.add('fa-xmark'); 
                     }
                 });
-    
+
                 links.forEach(link => {
                     link.addEventListener('click', () => { 
                         mobileMenu.classList.add('hidden'); icon.classList.remove('fa-xmark'); icon.classList.add('fa-bars'); 
                     });
                 });
-    
+
                 document.addEventListener('click', (e) => {
                     if (!mobileMenu.contains(e.target) && !mobileBtn.contains(e.target) && !mobileMenu.classList.contains('hidden')) {
                         mobileMenu.classList.add('hidden'); icon.classList.remove('fa-xmark'); icon.classList.add('fa-bars');
                     }
                 });
             }
-    
+
             // --- 3. BOTÓN VOLVER ARRIBA ---
             const backToTopBtn = document.getElementById('backToTop');
             if (backToTopBtn) {
@@ -631,7 +647,7 @@
                     else { backToTopBtn.classList.add('opacity-0', 'pointer-events-none'); }
                 });
             }
-    
+
             // --- 4. COOKIES ---
             const cookieBanner = document.getElementById('cookie-banner');
             const btnAccept = document.getElementById('btn-accept');
@@ -642,7 +658,7 @@
             }
             if (btnAccept) { btnAccept.addEventListener('click', () => { localStorage.setItem('cookiesAccepted', 'true'); cookieBanner.classList.add('translate-y-full'); }); }
             if (btnReject) { btnReject.addEventListener('click', () => { localStorage.setItem('cookiesAccepted', 'false'); cookieBanner.classList.add('translate-y-full'); }); }
-    
+
             // --- 5. GESTIÓN FORMULARIO CON MAKE (SOPORTE) ---
             const contactForm = document.getElementById('contact-form');
             if (contactForm) {
@@ -654,10 +670,10 @@
                     const data = Object.fromEntries(formData.entries());
                     const btn = contactForm.querySelector('button[type="submit"]');
                     const originalText = btn.innerText;
-    
+
                     btn.innerText = "TRANSMITIENDO...";
                     btn.disabled = true;
-    
+
                     try {
                         const response = await fetch(urlMake, {
                             method: 'POST',
@@ -674,12 +690,12 @@
                     }
                 });
             }
-    
+
             // --- 6. GESTION FORMULARIO BEEHIIV NEWSLETTER ---
             const hubForm = document.getElementById('newsletter-hub-form');
             const hubStatus = document.getElementById('hub-status');
             const hubSubmitBtn = document.getElementById('hub-submit-btn');
-    
+
             if (hubForm) {
                 hubForm.addEventListener('submit', async (e) => {
                     e.preventDefault(); 
@@ -690,7 +706,7 @@
                     hubSubmitBtn.innerText = 'PROCESANDO...';
                     hubSubmitBtn.disabled = true;
                     hubForm.style.opacity = '0.7';
-    
+
                     try {
                         const response = await fetch('https://hook.eu1.make.com/i94znb36hor2wlepeseoet2iv1uuaaa3', {
                             method: 'POST',
@@ -702,7 +718,7 @@
                                 newsletter_consent: "on"
                             })
                         });
-    
+
                         if (response.ok) {
                             hubStatus.innerHTML = `
                                 <p class="font-mono text-sm text-w-olive uppercase tracking-widest mb-2 font-bold">
@@ -721,7 +737,7 @@
                             hubSubmitBtn.innerText = 'SUSCRITO';
                             
                         } else { throw new Error('Server Error'); }
-    
+
                     } catch (error) {
                         hubStatus.innerHTML = `<span class="text-red-500 font-mono text-xs">ERROR EN LA TRANSMISIÓN. REINTENTA.</span>`;
                         hubStatus.classList.remove('hidden');
@@ -734,6 +750,5 @@
             }
         });
     </script>
-    <script src="https://gumroad.com/js/gumroad.js"></script>
 </body>
 </html>
