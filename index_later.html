@@ -34,6 +34,7 @@
                         'w-sage': '#b0bab3',    /* Texto Cuerpo */
                         'w-light': '#d3d3d3',   /* Títulos / Acentos */
                         'w-offblack': '#080a09', /* Fondo alternativo sutil */
+                        'w-red': '#e05d5d',      /* Color Alerta */
                     },
                     fontFamily: {
                         'sans': ['Inter', 'sans-serif'],
@@ -60,63 +61,122 @@
             margin: 0 auto;
             max-width: 90%;
         }
-
+    
         /* --- ESTILOS TERMINAL BADGE --- */
         .cmd-badge {
             display: inline-flex;
             align-items: center;
-            background-color: #2a322e; /* Mismo color que el botón */
+            background-color: #2a322e;
             color: #d3d3d3;
             padding: 6px 12px;
-            border-radius: 2px; /* Rounded-sm */
+            border-radius: 2px;
             font-family: 'Space Grotesk', monospace;
             line-height: 1;
             border: 1px solid rgba(211, 211, 211, 0.1);
             user-select: none;
         }
-
-        .cmd-path {
-            font-size: 0.7rem; /* Letra más chica */
-            opacity: 0.7;
-            margin-right: 2px; /* Espacio mínimo */
-            white-space: nowrap;
-        }
-
+    
+        .cmd-path { font-size: 0.7rem; opacity: 0.7; margin-right: 2px; white-space: nowrap; }
         .cmd-text {
-            font-family: 'Courier New', Courier, monospace; /* Fuente mono estricta para animación fluida */
+            font-family: 'Courier New', Courier, monospace;
             font-weight: 700;
-            font-size: 0.85rem; /* Letra NUEVO más grande */
+            font-size: 0.85rem;
             color: #fff;
             overflow: hidden;
             white-space: nowrap;
             width: 0;
             animation: typing 7s steps(5, end) infinite;
         }
-
-        .cmd-cursor {
-            font-weight: 700;
-            margin-left: 1px;
-            animation: blink 1s step-end infinite;
-            color: #d3d3d3;
+        .cmd-cursor { font-weight: 700; margin-left: 1px; animation: blink 1s step-end infinite; color: #d3d3d3; }
+    
+        @keyframes typing { 0% { width: 0; } 10% { width: 5ch; } 85% { width: 5ch; } 95% { width: 0; } 100% { width: 0; } }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
+    
+        /* MATRIX OVERLAY */
+        #matrix-overlay {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100%; height: 100%;
+            z-index: -1;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 1s ease;
         }
-
-        @keyframes typing {
-            0% { width: 0; }
-            10% { width: 5ch; } /* Escribe 5 caracteres */
-            85% { width: 5ch; } /* Mantiene */
-            95% { width: 0; }   /* Borra */
-            100% { width: 0; }
+    
+        /* Píldora de Notificación */
+        .pill-notification {
+            position: fixed;
+            top: 100px;
+            left: 50%;
+            transform: translateX(-50%) translateY(-20px);
+            background: rgba(224, 93, 93, 0.95);
+            color: #020201;
+            padding: 12px 24px;
+            border-radius: 50px;
+            font-family: 'Space Grotesk', monospace;
+            font-size: 0.7rem;
+            font-weight: 800;
+            letter-spacing: 0.1em;
+            z-index: 999;
+            box-shadow: 0 0 25px rgba(224, 93, 93, 0.4);
+            pointer-events: none;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            opacity: 0;
+            white-space: nowrap;
         }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0; }
+    
+        .pill-notification.active { opacity: 1; transform: translateX(-50%) translateY(0); }
+    
+        /* Modo Stress Visual */
+        .stress-mode-border {
+            box-shadow: inset 0 0 60px rgba(224, 93, 93, 0.3) !important;
+            border: 1px solid rgba(224, 93, 93, 0.5) !important;
         }
+    
+        #footer-logo { user-select: none; -webkit-user-drag: none; cursor: pointer; }
+    
+        /* Etiquetas de Telemetría Easter Egg */
+        .telemetry-tag {
+            position: absolute;
+            font-family: 'Space Grotesk', monospace;
+            font-size: 8px;
+            color: #e05d5d;
+            background: rgba(2, 2, 1, 0.8);
+            padding: 2px 6px;
+            border-left: 1px solid #e05d5d;
+            pointer-events: none;
+            z-index: 45;
+            opacity: 0;
+            transition: opacity 1s ease;
+            white-space: nowrap;
+            text-transform: uppercase;
+        }
+    
+        /* Efecto de Ruido Estático */
+        .noise-overlay { position: relative; }
+        .noise-overlay::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: 10;
+            opacity: 0.15;
+            pointer-events: none;
+            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+        }
+    
+        .locked-resource { filter: grayscale(1) contrast(1.1); transition: all 0.5s ease; }
+        .locked-resource:hover { filter: grayscale(0.8) contrast(1.2); }
     </style>
 </head>
 
 <body
-    class="bg-w-black text-w-sage font-sans antialiased selection:bg-w-light selection:text-w-black relative flex flex-col min-h-screen">
+    class="bg-w-black text-w-sage font-sans antialiased selection:bg-w-light selection:text-w-black relative flex flex-col min-h-screen transition-all duration-500" id="main-body">
+
+    <canvas id="matrix-overlay"></canvas>
+    
+    <div id="pill-alert" class="pill-notification">
+        ⚠️ CRITICAL_OVERLOAD :: SYSTEM UNDER HIGH STRESS :: NODO_01_ACTIVE
+    </div>
 
     <nav class="fixed w-full z-50 bg-w-black/95 backdrop-blur-md border-b border-w-olive transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
@@ -173,17 +233,16 @@
             </div>
     
             <h1 class="font-mono text-3xl md:text-4xl lg:text-5xl font-bold text-w-light leading-tight">
-                La ingeniería no se saca solo estudiando, se saca gestionando recursos.
+                No pagues segundas matrículas. Domina la carrera y optimiza tu rendimiento.
             </h1>
             <p class="text-base md:text-lg font-light leading-relaxed opacity-80 max-w-lg">
-                No dejes que el cuatrimestre te coma. Tú pones el estudio. La plantilla pone el orden. (Ojalá hubiese
-                tenido yo algo así cuando me saqué la carrera).
+                El manual de estrategia que la universidad no te da. Este eBook no es otro libro de técnicas de estudio genéricas. Es un protocolo de actuación diseñado para la carga de trabajo de una ingeniería.
             </p>
             
             <div class="hidden md:flex flex-row gap-4 pt-4">
-                <a href="https://wikingenieria.gumroad.com/l/plantilla-notion-organiza-aprueba" 
+                <a href="https://wikingenieria.gumroad.com/l/sobrevive-ingenieria" 
                    class="gumroad-trigger px-6 py-3 bg-w-olive text-w-light font-mono text-xs font-bold uppercase tracking-widest hover:bg-w-light hover:text-w-black transition rounded-sm text-center">
-                    Conseguir Sistema
+                    Conseguir Guía
                 </a>
                 <a href="#productos"
                     class="px-6 py-3 border border-w-olive text-w-sage font-mono text-xs uppercase tracking-widest hover:border-w-light hover:text-w-light transition rounded-sm text-center">
@@ -198,10 +257,10 @@
         <div class="md:w-1/2 w-full max-w-md mx-auto">
             
             <div class="hidden md:block relative group cursor-pointer overflow-hidden border border-w-olive rounded-sm shadow-2xl shadow-w-olive/20">
-                <a href="https://wikingenieria.gumroad.com/l/plantilla-notion-organiza-aprueba" class="gumroad-trigger">
+                <a href="https://wikingenieria.gumroad.com/l/sobrevive-ingenieria" class="gumroad-trigger">
                     <div class="absolute inset-0 bg-w-olive/10 group-hover:bg-transparent transition duration-500 z-10"></div>
-                    <img src="assets/img/products/main-product-cover.png"
-                        alt="Plantilla Notion Ingeniería PC"
+                    <img src="assets/img/products/main-product-cover.webp"
+                        alt="Ebook Sobrevive a la Ingeniería PC"
                         fetchpriority="high"
                         loading="eager"
                         class="w-full h-auto object-cover transform group-hover:scale-105 transition duration-700">
@@ -209,10 +268,10 @@
             </div>
     
             <div class="block md:hidden relative group cursor-pointer overflow-hidden border border-w-olive rounded-sm shadow-2xl shadow-w-olive/20">
-                <a href="https://wikingenieria.gumroad.com/l/plantilla-notion-organiza-aprueba" target="_blank">
+                <a href="https://wikingenieria.gumroad.com/l/sobrevive-ingenieria" target="_blank">
                     <div class="absolute inset-0 bg-w-olive/10 group-hover:bg-transparent transition duration-500 z-10"></div>
-                    <img src="assets/img/products/main-product-cover.png"
-                        alt="Plantilla Notion Ingeniería Móvil"
+                    <img src="assets/img/products/main-product-cover.webp"
+                        alt="Ebook Sobrevive a la Ingeniería Móvil"
                         fetchpriority="high"
                         loading="eager"
                         class="w-full h-auto object-cover transform group-hover:scale-105 transition duration-700">
@@ -222,9 +281,9 @@
             <p class="text-center text-[10px] font-mono mt-3 opacity-40 uppercase tracking-widest">Ingeniería en Modo Fácil</p>
     
             <div class="flex md:hidden flex-col gap-3 pt-6">
-                <a href="https://wikingenieria.gumroad.com/l/plantilla-notion-organiza-aprueba" target="_blank"
+                <a href="https://wikingenieria.gumroad.com/l/sobrevive-ingenieria" target="_blank"
                 class="px-6 py-4 bg-w-olive text-w-light font-mono text-xs font-bold uppercase tracking-widest hover:bg-w-light hover:text-w-black transition rounded-sm text-center">
-                    Conseguir Sistema
+                    Conseguir Guía
                 </a>
                 <a href="#productos"
                     class="px-6 py-4 border border-w-olive text-w-sage font-mono text-xs uppercase tracking-widest hover:border-w-light hover:text-w-light transition rounded-sm text-center">
@@ -247,38 +306,12 @@
     
         <div class="flex flex-wrap justify-center gap-8 items-stretch relative z-10">
             
-            <a href="https://wikingenieria.gumroad.com/l/plantilla-notion-organiza-aprueba" 
-            class="gumroad-trigger w-full max-w-[22rem] flex flex-col bg-w-olive/20 border border-w-olive/40 hover:border-w-sage/30 transition-all duration-300 group backdrop-blur-sm cursor-pointer hover:-translate-y-1 hover:shadow-2xl">
-                
-                <div class="relative w-full h-56 bg-black/40 overflow-hidden shrink-0">
-                    <div class="absolute top-3 right-3 bg-[#e05d5d] text-black text-[10px] font-bold px-2 py-1 uppercase tracking-wider z-10 font-mono shadow-md">
-                        Top Ventas
-                    </div>
-                    <img src="assets/img/products/plantilla-notion-organiza-aprueba-cover.webp"
-                         alt="Portada sistema Notion"
-                         loading="lazy"
-                         class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition duration-500">
-                </div>
-    
-                <div class="p-6 flex flex-col flex-grow">
-                    <h3 class="font-mono text-lg text-w-light mb-3 leading-tight group-hover:text-white transition-colors">
-                        Ingeniería en Modo Fácil [Plantilla Notion]
-                    </h3>
-                    <p class="text-sm opacity-70 mb-6 font-light leading-relaxed flex-grow text-w-sage">
-                        El sistema operativo en Notion para organizar asignaturas, calcular notas y gestionar tu vida académica.
-                    </p>
-                    <div class="mt-auto block w-full py-3 font-mono text-xs font-bold uppercase tracking-widest transition rounded-sm text-center bg-w-olive text-w-light border border-transparent md:bg-w-black/40 md:border-w-sage/30 md:text-w-light group-hover:bg-w-light group-hover:text-w-black">
-                        Conseguir Sistema
-                    </div>
-                </div>
-            </a>
-    
             <a href="https://wikingenieria.gumroad.com/l/sobrevive-ingenieria" 
             class="gumroad-trigger w-full max-w-[22rem] flex flex-col bg-w-olive/20 border border-w-olive/40 hover:border-w-sage/30 transition-all duration-300 group backdrop-blur-sm cursor-pointer hover:-translate-y-1 hover:shadow-2xl">
                 
                 <div class="relative w-full h-56 bg-black/40 overflow-hidden shrink-0">
                     <div class="absolute top-3 right-3 bg-[#f0dfa0] text-black text-[10px] font-bold px-2 py-1 uppercase tracking-wider z-10 font-mono shadow-md">
-                        Gratis
+                        GRATIS
                     </div>
                     <img src="assets/img/products/ebook-sobrevive-ingenieria-cover.webp" 
                          alt="Portada eBook Sobrevive"
@@ -298,6 +331,32 @@
                     </div>
                 </div>
             </a>
+    
+            <div class="w-full max-w-[22rem] flex flex-col bg-w-olive/10 border border-w-olive/20 transition-all duration-300 group backdrop-blur-sm opacity-60 locked-resource noise-overlay cursor-not-allowed overflow-hidden">
+    
+                <div class="relative w-full h-56 bg-black/60 overflow-hidden shrink-0">
+                    <div class="absolute top-3 right-3 bg-w-sage text-black text-[10px] font-bold px-2 py-1 uppercase tracking-wider z-20 font-mono shadow-xl brightness-125">
+                        PROXIMAMENTE
+                    </div>
+                    <img src="assets/img/products/plantilla-notion-organiza-aprueba-cover.webp"
+                         alt="Portada sistema Notion"
+                         loading="lazy"
+                         class="w-full h-full object-cover opacity-30">
+                </div>
+            
+                <div class="p-6 flex flex-col flex-grow relative z-20">
+                    <h3 class="font-mono text-lg text-w-light mb-3 leading-tight">
+                        Ingeniería en Modo Fácil [Plantilla Notion]
+                    </h3>
+                    <p class="text-sm opacity-70 mb-6 font-light leading-relaxed flex-grow text-w-sage">
+                        El sistema operativo en Notion para organizar asignaturas, calcular notas y gestionar tu vida académica.
+                    </p>
+                    <div class="mt-auto block w-full py-3 font-mono text-xs font-bold uppercase tracking-widest transition rounded-sm text-center bg-transparent text-w-sage/70 border border-w-sage/20 cursor-not-allowed">
+                        COMPILANDO...
+                    </div>
+                </div>
+            </div>
+    
         </div>
     </section>
 
@@ -527,10 +586,11 @@
     <footer class="bg-w-black border-t border-w-olive/30 py-12 relative z-10">
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
             <div class="flex flex-col gap-2 text-center md:text-left">
-                <div class="flex items-center justify-center md:justify-start gap-3">
-                    <img src="assets/img/core/wikingenieria-logo.png" alt="Logo" class="h-8 w-auto opacity-100 hover:opacity-100 transition">
+                <div class="flex items-center justify-center md:justify-start gap-3 cursor-pointer" id="footer-logo-container">
+                    <img src="assets/img/core/wikingenieria-logo.png" alt="Logo" class="h-8 w-auto opacity-100 hover:opacity-100 transition" id="footer-logo">
                     <span class="font-mono text-xs md:text-sm text-w-sage/80 uppercase tracking-widest">© 2026 Wikingenieria</span>
                 </div>
+                
                 <div class="flex gap-4 text-[10px] md:text-xs font-mono text-w-sage/70 uppercase tracking-widest justify-center md:justify-start">
                     <a href="legal.html" class="hover:text-w-light transition">Aviso Legal</a>
                     <span class="text-w-olive">|</span>
@@ -539,6 +599,7 @@
                     <a href="legal.html#cookies" class="hover:text-w-light transition">Cookies</a>
                 </div>
             </div>
+            
             <div class="flex flex-wrap justify-center md:justify-end gap-6"> 
                 <a href="https://www.instagram.com/wikingenieria?igsh=MTBsczl2Z2hjcTYweQ==" target="_blank" rel="noopener" class="text-w-sage/90 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-instagram text-lg"></i></a>
                 <a href="https://x.com/wikingenieria" target="_blank" rel="noopener" class="text-w-sage/90 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-x-twitter text-lg"></i></a>
@@ -574,196 +635,197 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             
-            // --- 1. GESTIÓN "KILL SWITCH" PARA GUMROAD EN MÓVIL ---
+            // --- VARIABLES EASTER EGG ---
+            const footerLogo = document.getElementById('footer-logo');
+            const canvas = document.getElementById('matrix-overlay');
+            const pill = document.getElementById('pill-alert');
+            const mainBody = document.getElementById('main-body');
+            let clicks = 0;
+            let matrixActive = false;
+            let matrixInterval;
+    
+            function toggleMatrixMode() {
+                if (!matrixActive) {
+                    // ACTIVAR
+                    matrixActive = true;
+                    window.scrollTo({top: 0, behavior: 'smooth'});
+                    if(pill) pill.classList.add('active');
+                    if(mainBody) mainBody.classList.add('stress-mode-border');
+                    if(canvas) {
+                        canvas.style.opacity = '0.15';
+                        canvas.style.zIndex = '40';
+                        startMatrixRain();
+                    }
+                    injectTelemetry();
+                    console.log("%c// SYSTEM_DEEP_DEBUG_INITIATED", "color: #e05d5d; font-weight: bold;");
+                } else {
+                    // DESACTIVAR
+                    matrixActive = false;
+                    if(pill) pill.classList.remove('active');
+                    if(mainBody) mainBody.classList.remove('stress-mode-border');
+                    if(canvas) canvas.style.opacity = '0';
+                    document.querySelectorAll('.telemetry-tag').forEach(t => t.remove());
+                    setTimeout(() => {
+                        clearInterval(matrixInterval);
+                        if(canvas) canvas.style.zIndex = '-1';
+                    }, 1000);
+                    console.log("%c// SYSTEM_RECOVERY_COMPLETE", "color: #b0bab3;");
+                }
+            }
+    
+            function injectTelemetry() {
+                const sections = document.querySelectorAll('section');
+                const dataPoints = ["NODE_LOAD: 87%", "TEMP: 42°C", "ENCRYPT: AES-256", "STATUS: OVERLOAD", "UPTIME: 99.9%", "PROTOCOL: WIK-ING", "BUFFER: CRITICAL", "LATENCY: 4ms"];
+                sections.forEach(section => {
+                    for(let i = 0; i < 2; i++) {
+                        const tag = document.createElement('div');
+                        tag.className = 'telemetry-tag';
+                        tag.innerText = dataPoints[Math.floor(Math.random() * dataPoints.length)];
+                        tag.style.top = Math.random() * 80 + '%';
+                        tag.style.left = Math.random() * 80 + '%';
+                        section.style.position = 'relative';
+                        section.appendChild(tag);
+                        setTimeout(() => tag.style.opacity = '0.8', 100);
+                    }
+                });
+            }
+    
+            function startMatrixRain() {
+                if(!canvas) return;
+                const ctx = canvas.getContext('2d');
+                const setSize = () => { canvas.width = window.innerWidth; canvas.height = window.innerHeight; };
+                setSize();
+                window.addEventListener('resize', setSize);
+                
+                const chars = 'πΣ∫∞√≈≠ΔΩφμeijkxyz01∀∃∇∂θλσμ≡≤≥'.split('');
+                const fontSize = 14;
+                const columns = Math.floor(canvas.width / fontSize);
+                const drops = Array.from({length: columns}, () => 1);
+    
+                clearInterval(matrixInterval);
+                matrixInterval = setInterval(() => {
+                    ctx.fillStyle = 'rgba(2, 2, 1, 0.05)';
+                    ctx.fillRect(0, 0, canvas.width, canvas.height);
+                    ctx.fillStyle = '#e05d5d'; 
+                    ctx.font = fontSize + 'px Space Grotesk';
+                    for (let i = 0; i < drops.length; i++) {
+                        const text = chars[Math.floor(Math.random() * chars.length)];
+                        ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                        if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) drops[i] = 0;
+                        drops[i]++;
+                    }
+                }, 50);
+            }
+    
+            // Listener Unificado para Easter Egg
+            if (footerLogo) {
+                footerLogo.addEventListener('click', (e) => {
+                    if (window.innerWidth >= 768) {
+                        toggleMatrixMode();
+                    } else {
+                        clicks++;
+                        if (clicks === 3) { toggleMatrixMode(); clicks = 0; }
+                        setTimeout(() => { clicks = 0; }, 2000);
+                    }
+                });
+            }
+    
+            // --- GESTIÓN GUMROAD & UI ---
             const isMobile = window.innerWidth < 768;
+            const gumroadLinks = document.querySelectorAll('.gumroad-trigger');
             
             if (isMobile) {
-                // MODO MÓVIL: LIMPIEZA TOTAL
-                const gumroadLinks = document.querySelectorAll('.gumroad-trigger');
                 gumroadLinks.forEach(link => {
                     link.removeAttribute('data-gumroad-single-product');
                     link.setAttribute('target', '_blank');
                 });
-                
             } else {
-                // MODO PC: CARGA COMPLETA
-                const gumroadLinks = document.querySelectorAll('.gumroad-trigger');
                 gumroadLinks.forEach(link => {
                     link.setAttribute('data-gumroad-single-product', 'true');
                     link.removeAttribute('target'); 
                 });
-
-                const script = document.createElement('script');
-                script.src = "https://gumroad.com/js/gumroad.js";
-                script.async = true;
-                document.body.appendChild(script);
+                const s = document.createElement('script');
+                s.src = "https://gumroad.com/js/gumroad.js";
+                s.async = true;
+                document.body.appendChild(s);
             }
     
-            // --- 2. GESTIÓN MENÚ MÓVIL ---
+            // --- MENÚ MÓVIL ---
             const mobileBtn = document.getElementById('mobile-menu-btn');
             const mobileMenu = document.getElementById('mobile-menu');
             if (mobileBtn && mobileMenu) {
                 const icon = mobileBtn.querySelector('i');
-                const links = document.querySelectorAll('.mobile-link');
-                
                 mobileBtn.addEventListener('click', (e) => {
                     e.stopPropagation();
                     mobileMenu.classList.toggle('hidden');
-                    if (mobileMenu.classList.contains('hidden')) { 
-                        icon.classList.remove('fa-xmark'); icon.classList.add('fa-bars'); 
-                    } else { 
-                        icon.classList.remove('fa-bars'); icon.classList.add('fa-xmark'); 
-                    }
+                    icon.classList.toggle('fa-bars');
+                    icon.classList.toggle('fa-xmark');
                 });
-
-                links.forEach(link => {
-                    link.addEventListener('click', () => { 
-                        mobileMenu.classList.add('hidden'); icon.classList.remove('fa-xmark'); icon.classList.add('fa-bars'); 
+                document.querySelectorAll('.mobile-link').forEach(l => {
+                    l.addEventListener('click', () => {
+                        mobileMenu.classList.add('hidden');
+                        icon.classList.add('fa-bars'); icon.classList.remove('fa-xmark');
                     });
                 });
-
-                document.addEventListener('click', (e) => {
-                    if (!mobileMenu.contains(e.target) && !mobileBtn.contains(e.target) && !mobileMenu.classList.contains('hidden')) {
-                        mobileMenu.classList.add('hidden'); icon.classList.remove('fa-xmark'); icon.classList.add('fa-bars');
-                    }
-                });
             }
-
-            // --- 3. BOTÓN VOLVER ARRIBA ---
-            const backToTopBtn = document.getElementById('backToTop');
-            if (backToTopBtn) {
-                window.addEventListener('scroll', () => {
-                    if (window.scrollY > 300) { backToTopBtn.classList.remove('opacity-0', 'pointer-events-none'); } 
-                    else { backToTopBtn.classList.add('opacity-0', 'pointer-events-none'); }
-                });
+    
+            // --- VOLVER ARRIBA ---
+            const btt = document.getElementById('backToTop');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) btt?.classList.remove('opacity-0', 'pointer-events-none');
+                else btt?.classList.add('opacity-0', 'pointer-events-none');
+            });
+    
+            // --- COOKIES ---
+            const cb = document.getElementById('cookie-banner');
+            if (cb && !localStorage.getItem('cookiesAccepted')) {
+                cb.classList.remove('hidden');
+                setTimeout(() => cb.classList.remove('translate-y-full'), 500);
             }
-
-            // --- 4. COOKIES ---
-            const cookieBanner = document.getElementById('cookie-banner');
-            const btnAccept = document.getElementById('btn-accept');
-            const btnReject = document.getElementById('btn-reject');
-            if (cookieBanner && !localStorage.getItem('cookiesAccepted')) {
-                cookieBanner.classList.remove('hidden');
-                setTimeout(() => { cookieBanner.classList.remove('translate-y-full'); }, 500);
-            }
-            if (btnAccept) { btnAccept.addEventListener('click', () => { localStorage.setItem('cookiesAccepted', 'true'); cookieBanner.classList.add('translate-y-full'); }); }
-            if (btnReject) { btnReject.addEventListener('click', () => { localStorage.setItem('cookiesAccepted', 'false'); cookieBanner.classList.add('translate-y-full'); }); }
-
-            // --- 5. GESTIÓN FORMULARIO CON MAKE (SOPORTE) - BLINDADO ---
+            document.getElementById('btn-accept')?.addEventListener('click', () => { localStorage.setItem('cookiesAccepted', 'true'); cb.classList.add('translate-y-full'); });
+            document.getElementById('btn-reject')?.addEventListener('click', () => { localStorage.setItem('cookiesAccepted', 'false'); cb.classList.add('translate-y-full'); });
+    
+            // --- FORMULARIOS (CONTACTO & HUB) ---
             const contactForm = document.getElementById('contact-form');
-            if (contactForm) {
-                contactForm.addEventListener('submit', async (e) => {
-                    e.preventDefault();
-                    const urlMake = 'https://hook.eu1.make.com/i94znb36hor2wlepeseoet2iv1uuaaa3';
-                    const paginaGracias = 'gracias.html';
-                    const formData = new FormData(contactForm);
-                    const data = Object.fromEntries(formData.entries());
-
-                    // BLINDAJE: Validación preventiva
-                    if (!data.email || !data.email.trim().includes('@')) {
-                        console.error("Critical: Invalid email payload.");
-                        return; // Detenemos la ejecución silenciosamente
-                    }
-
-                    // AÑADIMOS METADATA
-                    data.source = window.location.hostname.includes('test.') ? "Staging Contact" : "Web Contact";
-                    data.timestamp = new Date().toISOString();
-
-                    const btn = contactForm.querySelector('button[type="submit"]');
-                    const originalText = btn.innerText;
-
-                    btn.innerText = "TRANSMITIENDO...";
-                    btn.disabled = true;
-
-                    try {
-                        const response = await fetch(urlMake, {
-                            method: 'POST',
-                            headers: { 
-                                'Content-Type': 'application/json', 
-                                'Accept': 'application/json' 
-                            },
-                            body: JSON.stringify(data)
-                        });
-                        if (response.ok) { window.location.href = paginaGracias; } 
-                        else { throw new Error(`Status: ${response.status}`); }
-                    } catch (error) {
-                        console.error("Error envío:", error);
-                        btn.innerText = originalText;
-                        btn.disabled = false;
-                        alert("Error de conexión. Por favor, inténtalo de nuevo.");
-                    }
-                });
-            }
-
-            // --- 6. GESTION FORMULARIO BEEHIIV NEWSLETTER - BLINDADO ---
+            contactForm?.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const btn = contactForm.querySelector('button[type="submit"]');
+                const originalText = btn.innerText;
+                const data = Object.fromEntries(new FormData(contactForm).entries());
+                if (!data.email?.includes('@')) return;
+                
+                btn.innerText = "TRANSMITIENDO..."; btn.disabled = true;
+                try {
+                    const res = await fetch('https://hook.eu1.make.com/i94znb36hor2wlepeseoet2iv1uuaaa3', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({...data, source: "Web Contact", timestamp: new Date().toISOString()})
+                    });
+                    if (res.ok) window.location.href = 'gracias.html';
+                } catch (e) { btn.innerText = originalText; btn.disabled = false; alert("Error de conexión."); }
+            });
+    
             const hubForm = document.getElementById('newsletter-hub-form');
             const hubStatus = document.getElementById('hub-status');
-            const hubSubmitBtn = document.getElementById('hub-submit-btn');
-
-            if (hubForm) {
-                hubForm.addEventListener('submit', async (e) => {
-                    e.preventDefault(); 
-                    
-                    const emailInput = document.getElementById('hub-email');
-                    const email = emailInput.value ? emailInput.value.trim() : "";
-
-                    // BLINDAJE: Validación preventiva
-                    if (!email || !email.includes('@')) {
-                        console.error("Critical: Invalid email payload.");
-                        return; // Detenemos la ejecución silenciosamente
+            hubForm?.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const email = document.getElementById('hub-email').value;
+                if (!email.includes('@')) return;
+                const btn = document.getElementById('hub-submit-btn');
+                btn.innerText = 'PROCESANDO...'; btn.disabled = true;
+    
+                try {
+                    const res = await fetch('https://hook.eu1.make.com/i94znb36hor2wlepeseoet2iv1uuaaa3', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({email, source: "Web Hub", timestamp: new Date().toISOString()})
+                    });
+                    if (res.ok) {
+                        hubStatus.innerHTML = `<p class="font-mono text-sm text-w-olive uppercase font-bold">TRANSMISIÓN RECIBIDA</p>`;
+                        hubStatus.classList.remove('hidden'); hubForm.reset(); btn.innerText = 'SUSCRITO';
                     }
-                    
-                    // Estado de carga
-                    hubSubmitBtn.innerText = 'PROCESANDO...';
-                    hubSubmitBtn.disabled = true;
-                    hubForm.style.opacity = '0.7';
-
-                    try {
-                        const response = await fetch('https://hook.eu1.make.com/i94znb36hor2wlepeseoet2iv1uuaaa3', {
-                            method: 'POST',
-                            headers: { 
-                                'Content-Type': 'application/json',
-                                'Accept': 'application/json'
-                            },
-                            body: JSON.stringify({
-                                email: email,
-                                name: "Suscriptor Hub",
-                                message: "Suscripción directa desde el Hub inferior",
-                                newsletter_consent: "on",
-                                source: window.location.hostname.includes('test.') ? "Staging Hub" : "Web Hub",
-                                timestamp: new Date().toISOString()
-                            })
-                        });
-
-                        if (response.ok) {
-                            hubStatus.innerHTML = `
-                                <p class="font-mono text-sm text-w-olive uppercase tracking-widest mb-2 font-bold">
-                                    <span class="text-white/60">SYSTEM_MESSAGE ::</span> TRANSMISIÓN RECIBIDA<span class="animate-pulse">_</span>
-                                </p>
-                                <p class="font-mono text-xs text-white/80 font-light">
-                                    Lo que tu universidad no quiere que recibas está en camino.
-                                </p>
-                            `;
-                            hubStatus.classList.remove('hidden');
-                            hubStatus.style.display = 'block';
-                            
-                            hubForm.style.opacity = '0.3';
-                            hubForm.style.pointerEvents = 'none';
-                            hubForm.reset();
-                            hubSubmitBtn.innerText = 'SUSCRITO';
-                            
-                        } else { throw new Error('Server Error'); }
-
-                    } catch (error) {
-                        hubStatus.innerHTML = `<span class="text-red-500 font-mono text-xs">ERROR EN LA TRANSMISIÓN. REINTENTA.</span>`;
-                        hubStatus.classList.remove('hidden');
-                        hubStatus.style.display = 'block';
-                        hubSubmitBtn.innerText = 'SUSCRIBIRSE';
-                        hubSubmitBtn.disabled = false;
-                        hubForm.style.opacity = '1';
-                    }
-                });
-            }
+                } catch (e) { btn.disabled = false; btn.innerText = 'SUSCRIBIRSE'; }
+            });
         });
     </script>
 </body>
