@@ -34,7 +34,7 @@
                         'w-sage': '#b0bab3',    /* Texto Cuerpo */
                         'w-light': '#d3d3d3',   /* Títulos / Acentos */
                         'w-offblack': '#080a09', /* Fondo alternativo sutil */
-                        'w-red': '#e05d5d',      /* Color Alerta */
+                        'w-red': '#e05d5d',      /* Color Alerta Easter Egg */
                     },
                     fontFamily: {
                         'sans': ['Inter', 'sans-serif'],
@@ -117,7 +117,7 @@
             font-size: 0.7rem;
             font-weight: 800;
             letter-spacing: 0.1em;
-            z-index: 999;
+            z-index: 9999;
             box-shadow: 0 0 25px rgba(224, 93, 93, 0.4);
             pointer-events: none;
             transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -181,14 +181,14 @@
     <nav class="fixed w-full z-50 bg-w-black/95 backdrop-blur-md border-b border-w-olive transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
             <a href="#" class="flex items-center gap-3 group">
-                <img src="assets/img/core/wikingenieria-logo.png" alt="Logo" class="h-9 w-9 opacity-90 group-hover:opacity-100 transition">
+                <img src="assets/img/core/wikingenieria-logo.png" alt="Wikingenieria Logo Oficial - Recursos para ingenieros" class="h-9 w-9 opacity-90 group-hover:opacity-100 transition">
                 <span class="font-mono text-xl font-bold text-w-light tracking-tight">Wikingenieria</span>
                 <span class="text-w-olive animate-pulse font-bold text-xl font-mono -ml-1">_</span>
             </a>
     
             <div class="hidden md:flex items-center space-x-8 h-full">
                 <a href="#productos" class="font-mono text-sm text-w-sage hover:text-w-light transition-colors uppercase tracking-widest flex items-center h-full">Recursos</a>
-                <a href="logs.html" class="font-mono text-sm text-w-sage hover:text-w-light transition-colors uppercase tracking-widest flex items-center h-full">Logs</a>
+                <a href="logs" class="font-mono text-sm text-w-sage hover:text-w-light transition-colors uppercase tracking-widest flex items-center h-full">Logs</a>
                 
                 <div class="relative group flex items-center h-full">
                     <a href="#" onclick="return false;" class="font-mono text-sm text-w-sage/50 cursor-not-allowed uppercase tracking-widest flex items-center gap-2 hover:text-w-sage/80 transition-colors">
@@ -210,7 +210,7 @@
         <div id="mobile-menu" class="hidden md:hidden bg-w-black border-b border-w-olive absolute w-full left-0 top-20">
             <div class="px-6 pt-4 pb-8 space-y-4 flex flex-col">
                 <a href="#productos" class="font-mono text-sm text-w-light py-3 border-b border-w-olive/30 hover:bg-w-olive/20 transition uppercase tracking-widest mobile-link text-center">Recursos</a>
-                <a href="logs.html" class="font-mono text-sm text-w-light py-3 border-b border-w-olive/30 hover:bg-w-olive/20 transition uppercase tracking-widest mobile-link text-center">Logs</a>
+                <a href="logs" class="font-mono text-sm text-w-light py-3 border-b border-w-olive/30 hover:bg-w-olive/20 transition uppercase tracking-widest mobile-link text-center">Logs</a>
                 
                 <div class="py-3 border-b border-w-olive/30 flex items-center justify-center gap-2 opacity-60">
                     <i class="fas fa-lock text-xs text-w-sage"></i>
@@ -260,7 +260,7 @@
                 <a href="https://wikingenieria.gumroad.com/l/sobrevive-ingenieria" class="gumroad-trigger">
                     <div class="absolute inset-0 bg-w-olive/10 group-hover:bg-transparent transition duration-500 z-10"></div>
                     <img src="assets/img/products/main-product-cover.webp"
-                        alt="Ebook Sobrevive a la Ingeniería PC"
+                        alt="Portada eBook Sobrevive a la Ingeniería - Estrategia académica y salud mental para estudiantes de ingeniería"
                         fetchpriority="high"
                         loading="eager"
                         class="w-full h-auto object-cover transform group-hover:scale-105 transition duration-700">
@@ -271,7 +271,7 @@
                 <a href="https://wikingenieria.gumroad.com/l/sobrevive-ingenieria" target="_blank">
                     <div class="absolute inset-0 bg-w-olive/10 group-hover:bg-transparent transition duration-500 z-10"></div>
                     <img src="assets/img/products/main-product-cover.webp"
-                        alt="Ebook Sobrevive a la Ingeniería Móvil"
+                        alt="Manual de supervivencia para ingeniería - Versión móvil eBook Wikingenieria"
                         fetchpriority="high"
                         loading="eager"
                         class="w-full h-auto object-cover transform group-hover:scale-105 transition duration-700">
@@ -314,7 +314,7 @@
                         GRATIS
                     </div>
                     <img src="assets/img/products/ebook-sobrevive-ingenieria-cover.webp" 
-                         alt="Portada eBook Sobrevive"
+                         alt="Mockup eBook Aprueba sin perder la salud mental - Guía de estrategia para estudiantes de ingeniería"
                          loading="lazy"
                          class="w-full h-full object-cover opacity-90 group-hover:opacity-100 group-hover:scale-105 transition duration-500">
                 </div>
@@ -327,7 +327,7 @@
                         Manual de estrategia mental y táctica académica para no pagar segundas matrículas.
                     </p>
                     <div class="mt-auto block w-full py-3 font-mono text-xs font-bold uppercase tracking-widest transition rounded-sm text-center bg-w-olive text-w-light border border-transparent md:bg-w-black/40 md:border-w-sage/30 md:text-w-light group-hover:bg-w-light group-hover:text-w-black">
-                        Descargar
+                        Descargar Guía
                     </div>
                 </div>
             </a>
@@ -339,7 +339,7 @@
                         PROXIMAMENTE
                     </div>
                     <img src="assets/img/products/plantilla-notion-organiza-aprueba-cover.webp"
-                         alt="Portada sistema Notion"
+                         alt="Plantilla Notion Ingeniería en Modo Fácil - Sistema operativo académico (Próximamente)"
                          loading="lazy"
                          class="w-full h-full object-cover opacity-30">
                 </div>
@@ -368,7 +368,7 @@
                 <h2 class="font-mono text-2xl md:text-3xl text-w-light uppercase tracking-widest"><span
                         class="text-w-olive mr-2">//</span>LOG DE ARTÍCULOS<span
                         class="animate-pulse text-w-olive">_</span></h2>
-                <a href="logs.html"
+                <a href="logs"
                     class="text-xs font-bold font-mono text-w-sage hover:text-w-light border border-transparent hover:border-w-olive px-3 py-1 transition uppercase tracking-widest">
                     [ VER LOG ]
                 </a>
@@ -377,7 +377,7 @@
             <div class="space-y-8">
                 <article
                     class="group relative pl-4 border-l-2 border-transparent hover:border-w-olive transition duration-300">
-                    <a href="logs/articulo-gadgets-ingenieros-2026.html" class="block">
+                    <a href="logs/articulo-gadgets-ingenieros-2026" class="block">
                         <div class="flex flex-col md:flex-row gap-2 md:items-center justify-between">
                             <div>
                                 <span class="text-xs font-mono text-w-sage/50 mb-1 block tracking-wider">05.02.2026
@@ -440,14 +440,14 @@
                 </p>
             </div>
     
-            <a href="audio.html" class="block w-full max-w-2xl mx-auto mb-10 group relative cursor-pointer">
+            <a href="audio" class="block w-full max-w-2xl mx-auto mb-10 group relative cursor-pointer">
     
                 <div class="absolute -inset-1 bg-gradient-to-r from-w-olive/0 via-w-olive/20 to-w-olive/0 rounded-2xl blur-2xl opacity-40 group-hover:opacity-100 transition duration-700"></div>
                 
                 <div class="relative bg-w-black/50 border border-w-light/10 rounded-xl overflow-hidden shadow-2xl backdrop-blur-sm group-hover:border-w-olive/40 transition duration-500">
                     
                     <img src="assets/img/listas/all-spotify-playlists.webp" 
-                         alt="Colección de Listas Musicales para ingenieros Wikingenieria"
+                         alt="Colección de Listas de Música para Estudiar Ingeniería y Concentración Profunda - Spotify Wikingenieria"
                          loading="lazy" 
                          class="w-full h-auto block opacity-85 group-hover:opacity-100 group-hover:scale-[1.01] transition duration-700 ease-out">
                     
@@ -456,7 +456,7 @@
             </a>
             
             <div class="flex justify-center">
-                <a href="audio.html" 
+                <a href="audio" 
                    class="inline-flex items-center justify-center px-8 py-4 border border-[#1DB954]/20 text-w-light font-mono text-xs md:text-sm font-bold tracking-[0.2em] uppercase hover:bg-[#1DB954] hover:text-white transition-all duration-300 rounded-sm group backdrop-blur-sm shadow-[0_0_15px_rgba(29,185,84,0.05)] hover:shadow-[0_0_20px_rgba(255,255,255,0.05)]">
                     
                     <i class="fab fa-spotify text-lg text-[#1DB954] mr-3 group-hover:text-white transition-colors"></i>
@@ -496,7 +496,7 @@
                     </p>
                     
                     <div class="hidden md:block pt-4">
-                        <a href="wikipodcast.html" 
+                        <a href="wikipodcast" 
                            class="inline-flex items-center justify-center px-8 py-4 border border-w-light/20 text-w-light font-mono text-sm font-bold tracking-[0.2em] uppercase hover:bg-w-light hover:text-w-black transition-all duration-300 rounded-sm group backdrop-blur-sm shadow-[0_0_15px_rgba(42,50,46,0.2)] hover:shadow-[0_0_20px_rgba(211,211,211,0.2)]">
                             <span>ESCUCHAR AHORA</span>
                             <i class="fas fa-play text-[10px] ml-3 transform group-hover:scale-110 transition-transform"></i>
@@ -505,11 +505,11 @@
                 </div>
     
                 <div class="col-span-4 md:w-auto flex justify-end md:block relative group cursor-pointer">
-                    <a href="wikipodcast.html" class="block relative">
+                    <a href="wikipodcast" class="block relative">
                         <div class="absolute -inset-2 md:-inset-4 bg-w-olive/20 rounded-full blur-xl md:blur-2xl group-hover:bg-w-olive/40 transition duration-500 opacity-60"></div>
                         
                         <div class="relative w-20 h-20 md:w-48 md:h-48 rounded-full border border-w-light/10 bg-w-black/80 flex items-center justify-center shadow-2xl transition duration-500 group-hover:scale-105 group-hover:border-w-olive/50">
-                            <img src="assets/img/core/wikipodcast-logo.png" alt="WikiPodcast Logo"
+                            <img src="assets/img/core/wikipodcast-logo.png" alt="Logotipo WikiPodcast - El podcast de humor y tecnología para ingenieros"
                             loading="lazy"
                                      class="w-16 h-16 md:w-40 md:h-40 object-contain opacity-90 group-hover:opacity-100 transition duration-500 drop-shadow-lg">
                                      
@@ -518,7 +518,7 @@
                 </div>
     
                 <div class="col-span-12 md:hidden mt-2">
-                    <a href="wikipodcast.html" 
+                    <a href="wikipodcast" 
                        class="flex items-center justify-center w-full py-4 bg-w-olive/10 border border-w-olive/40 text-w-light font-mono text-xs font-bold tracking-[0.2em] uppercase hover:bg-w-olive hover:text-white transition-all duration-300 rounded-sm group shadow-lg">
                         <span>ESCUCHAR AHORA</span>
                         <i class="fas fa-play text-[10px] ml-3 transform group-hover:scale-110 transition-transform"></i>
@@ -592,11 +592,11 @@
                 </div>
                 
                 <div class="flex gap-4 text-[10px] md:text-xs font-mono text-w-sage/70 uppercase tracking-widest justify-center md:justify-start">
-                    <a href="legal.html" class="hover:text-w-light transition">Aviso Legal</a>
+                    <a href="legal" class="hover:text-w-light transition">Aviso Legal</a>
                     <span class="text-w-olive">|</span>
-                    <a href="legal.html#privacidad" class="hover:text-w-light transition">Privacidad</a>
+                    <a href="legal#privacidad" class="hover:text-w-light transition">Privacidad</a>
                     <span class="text-w-olive">|</span>
-                    <a href="legal.html#cookies" class="hover:text-w-light transition">Cookies</a>
+                    <a href="legal#cookies" class="hover:text-w-light transition">Cookies</a>
                 </div>
             </div>
             
@@ -619,7 +619,7 @@
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
             <div class="text-xs text-w-sage font-mono font-light text-center md:text-left">
                 <span class="text-w-light font-bold">SYSTEM_NOTICE:</span> Usamos cookies propias y de terceros para mejorar tu experiencia.
-                <a href="legal.html#cookies" class="underline hover:text-white ml-1">Ver política</a>.
+                <a href="legal#cookies" class="underline hover:text-white ml-1">Ver política</a>.
             </div>
             <div class="flex gap-3">
                 <button id="btn-reject" class="px-4 py-2 border border-w-sage/30 text-[10px] font-mono uppercase text-w-sage hover:text-white hover:border-white transition rounded-sm">
@@ -801,7 +801,7 @@
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({...data, source: "Web Contact", timestamp: new Date().toISOString()})
                     });
-                    if (res.ok) window.location.href = 'gracias.html';
+                    if (res.ok) window.location.href = 'gracias';
                 } catch (e) { btn.innerText = originalText; btn.disabled = false; alert("Error de conexión."); }
             });
     
