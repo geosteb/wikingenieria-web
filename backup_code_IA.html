@@ -2,12 +2,14 @@
 <html lang="es" class="scroll-smooth">
 
 <head>
-    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    <!-- Google Tag Manager -->
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
 new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
 j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
 'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
 })(window,document,'script','dataLayer','GTM-NLJVRQ6D');</script>
-<meta charset="UTF-8">
+<!-- End Google Tag Manager -->
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wikingenieria | Contenido & Recursos para Ingenieros</title>
 
@@ -171,67 +173,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     
         .locked-resource { filter: grayscale(1) contrast(1.1); transition: all 0.5s ease; }
         .locked-resource:hover { filter: grayscale(0.8) contrast(1.2); }
-
-        /* BOOT SCREEN STYLES */
-        #fast-boot-screen {
-            position: fixed;
-            inset: 0;
-            background-color: #020201;
-            z-index: 999999;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
-            padding: 2rem;
-            transition: opacity 0.3s ease-out;
-        }
-        .boot-line-item {
-            font-family: 'Space Grotesk', monospace;
-            font-size: 0.85rem;
-            color: #b0bab3;
-            margin-bottom: 0.5rem;
-            opacity: 0;
-        }
-        @media (min-width: 768px) { .boot-line-item { font-size: 1rem; padding-left: 10%; } }
-        .boot-success { color: #6b7838; font-weight: bold; }
-        .boot-granted { color: #d3d3d3; font-weight: bold; font-size: 1.1rem; margin-top: 1rem; }
     </style>
 </head>
 
 <body class="bg-w-black text-w-sage font-sans antialiased selection:bg-w-light selection:text-w-black relative flex flex-col min-h-screen transition-all duration-500" id="main-body">
-
-    <div id="fast-boot-screen">
-        <div id="boot-1" class="boot-line-item">> Initializing Wikingenieria System...</div>
-        <div id="boot-2" class="boot-line-item">> Loading Future Vault Assets... <span class="boot-success">[OK]</span></div>
-        <div id="boot-3" class="boot-line-item">> Optimizing Resources for Engineers... <span class="boot-success">[OK]</span></div>
-        <div id="boot-4" class="boot-line-item boot-granted">> ACCESS GRANTED.<span class="animate-pulse">_</span></div>
-    </div>
-
-    <script>
-        if (sessionStorage.getItem('wikingenieria_booted')) {
-            document.getElementById('fast-boot-screen').style.display = 'none';
-        } else {
-            const b1 = document.getElementById('boot-1');
-            const b2 = document.getElementById('boot-2');
-            const b3 = document.getElementById('boot-3');
-            const b4 = document.getElementById('boot-4');
-            const bootScreen = document.getElementById('fast-boot-screen');
-            
-            // Secuencia rápida: 1.4s total
-            b1.style.opacity = 1;
-            setTimeout(() => b2.style.opacity = 1, 300);
-            setTimeout(() => b3.style.opacity = 1, 600);
-            setTimeout(() => b4.style.opacity = 1, 900);
-            
-            setTimeout(() => {
-                bootScreen.style.opacity = 0;
-                setTimeout(() => {
-                    bootScreen.style.display = 'none';
-                }, 300); // Espera a que termine la transición de CSS
-                sessionStorage.setItem('wikingenieria_booted', 'true');
-            }, 1400); // 1.4s exactos para desaparecer
-        }
-    </script>
 
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NLJVRQ6D"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
