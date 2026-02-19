@@ -1,4 +1,10 @@
 User-agent: *
 Allow: /
+# Bloquear páginas de agradecimiento para no ensuciar métricas de conversión
+Disallow: /gracias
+Disallow: /success
+# Bloquear páginas legales (opcional, pero ayuda a priorizar contenido real)
+Disallow: /legal
+Disallow: /privacidad
 
 Sitemap: https://wikingenieria.com/sitemap.xml
