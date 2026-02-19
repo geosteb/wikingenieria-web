@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NLJVRQ6D');</script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    
+    <title>Wikingenieria | ERROR_404</title>
+    <meta name="robots" content="noindex, follow">
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'w-black': '#020201',
+                        'w-olive': '#2a322e',
+                        'w-sage': '#b0bab3',
+                        'w-light': '#d3d3d3',
+                        'w-matrix': '#6b7838',
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'mono': ['Space Grotesk', 'monospace'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        #matrix-canvas {
+            position: fixed;
+            inset: 0;
+            z-index: 0;
+            opacity: 0.12;
+            pointer-events: none; 
+        }
+
+        .glass-panel {
+            background: rgba(2, 2, 1, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(224, 93, 93, 0.2);
+        }
+
+        body { background-color: #020201; }
+    </style>
+</head>
+<body class="bg-w-black text-w-sage font-sans min-h-screen flex items-center justify-center p-4 overflow-hidden">
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NLJVRQ6D"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <canvas id="matrix-canvas"></canvas>
+
+    <div id="main-ui" class="relative z-10 w-full max-w-lg">
+        <div class="glass-panel p-6 md:p-10 rounded-sm shadow-2xl relative overflow-hidden">
+            <div class="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-[#ef4444]/40 to-transparent"></div>
+
+            <div class="flex justify-between items-center mb-6 border-b border-w-olive/30 pb-3 font-mono tracking-widest">
+                <span class="text-[9px] md:text-[10px] text-[#ef4444] font-bold">STATUS_CODE :: 404</span>
+                <span class="text-[8px] md:text-[9px] uppercase font-bold opacity-40">NODO_FUERA_DE_RANGO</span>
+            </div>
+
+            <div class="mb-8">
+                <h1 class="font-mono text-3xl md:text-5xl font-bold text-w-light tracking-tighter mb-5 leading-tight italic">
+                    RUTA NOT FOUND<span class="text-[#ef4444] animate-pulse">_</span>
+                </h1>
+                <p class="font-light text-xs md:text-sm leading-relaxed opacity-80 font-mono">
+                    La dirección solicitada no existe en los registros de <span class="text-w-light">Wikingenieria</span>. Es posible que el recurso haya sido movido o el enlace esté corrupto.
+                    <br><br>
+                    <span class="text-[#ef4444]/90 text-[10px] md:text-xs font-bold drop-shadow-[0_0_3px_rgba(239,68,68,0.4)]">
+                        // Sugerencia: Reestablecer conexión con el sistema central.
+                    </span>
+                </p>
+            </div>
+
+            <div class="flex flex-col gap-4">
+                <a href="https://wikingenieria.com" 
+                   class="bg-w-olive text-w-light px-6 py-3 text-[10px] font-bold font-mono uppercase tracking-[0.3em] text-center hover:bg-w-light hover:text-w-black transition-all duration-300 border border-w-olive">
+                    VOLVER A WIKINGENIERIA
+                </a>
+                <p class="text-[8px] font-mono text-center opacity-30 uppercase tracking-[0.2em]">
+                    REQUEST_ID: WIKI-ERR-<span id="request-id">3.14159265</span>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Matrix Effect
+            const canvas = document.getElementById('matrix-canvas');
+            const ctx = canvas.getContext('2d');
+            function resize() {
+                canvas.width = window.innerWidth;
+                canvas.height = window.innerHeight;
+            }
+            window.addEventListener('resize', resize);
+            resize();
+
+            const fontSize = 13;
+            const columns = canvas.width / fontSize;
+            const drops = Array.from({length: columns}, () => 1);
+            const chars = "404ERROR_NODE_LOST_404_NULL_POINTER";
+
+            function draw() {
+                ctx.fillStyle = 'rgba(2, 2, 1, 0.08)';
+                ctx.fillRect(0, 0, canvas.width, canvas.height);
+                ctx.fillStyle = '#1a1f1c'; 
+                ctx.font = fontSize + 'px Space Grotesk';
+
+                for (let i = 0; i < drops.length; i++) {
+                    const text = chars[Math.floor(Math.random() * chars.length)];
+                    ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+                    if (drops[i] * fontSize > canvas.height && Math.random() > 0.98) drops[i] = 0;
+                    drops[i]++;
+                }
+            }
+            setInterval(draw, 60);
+
+            // SISTEMA DINÁMICO DE CONSTANTES
+            const reqId = document.getElementById('request-id');
+            const constantes = [
+                "3.14159265", // Pi
+                "2.71828182", // e (Euler)
+                "1.61803398", // Phi (Proporción Áurea)
+                "0.57721566", // Gamma (Euler-Mascheroni)
+                "9.80665000", // g (Gravedad)
+                "299792458",  // c (Velocidad luz)
+                "6.62607015"  // h (Planck)
+            ];
+            
+            let index = 0;
+            setInterval(() => {
+                index = (index + 1) % constantes.length;
+                // Pequeña transición de parpadeo al cambiar
+                reqId.style.opacity = 0;
+                setTimeout(() => {
+                    reqId.innerText = constantes[index];
+                    reqId.style.opacity = 1;
+                }, 200);
+            }, 3000);
+        });
+    </script>
+</body>
+</html>
