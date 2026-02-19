@@ -826,7 +826,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     const res = await fetch('https://hook.eu1.make.com/i94znb36hor2wlepeseoet2iv1uuaaa3', {
                         method: 'POST',
                         headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify({email, source: "Web Hub", timestamp: new Date().toISOString()})
+                        body: JSON.stringify({email, source: "Web Log", timestamp: new Date().toISOString()})
                     });
                     if (res.ok) {
                         hubStatus.innerHTML = `<p class="font-mono text-sm text-w-olive uppercase font-bold">TRANSMISIÓN RECIBIDA</p>`;
