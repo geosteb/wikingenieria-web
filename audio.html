@@ -1,11 +1,31 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        const priorConsent = localStorage.getItem('cookiesAccepted') === 'true' ? 'granted' : 'denied';
+        gtag('consent', 'default', {
+            'ad_storage': priorConsent,
+            'ad_user_data': priorConsent,
+            'ad_ads_measurement': priorConsent,
+            'analytics_storage': priorConsent
+        });
+    </script>
+
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NLJVRQ6D');</script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Listas de música para Ingenieros | Wikingenieria</title>
     <meta name="description" content="Las mejores playlists para estudiar, diseñar y sobrevivir a la ingeniería.">
-    <link rel="icon" type="image/x-icon" href="assets/img/core/wikingenieria-favicon.ico">
+    
+    <link rel="icon" type="image/x-icon" href="https://www.wikingenieria.com/assets/img/core/wikingenieria-favicon.ico">
+    <link rel="canonical" href="https://www.wikingenieria.com/audio">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -51,7 +71,10 @@
 
 <body class="bg-[#020201] text-w-sage font-sans min-h-screen flex flex-col items-center pt-12 px-4 pb-8 md:p-8 relative overflow-x-hidden selection:bg-w-light selection:text-w-black">
 
-    <a href="index.html#listas" class="fixed top-4 left-4 md:top-6 md:left-6 z-50 inline-flex items-center gap-3 px-4 py-2 bg-w-black/80 backdrop-blur-md border border-w-light/10 rounded-full text-[10px] md:text-xs font-mono text-w-sage hover:text-w-light hover:border-w-olive/50 hover:bg-w-olive/10 transition-all duration-300 group shadow-lg">
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NLJVRQ6D"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <a href="https://www.wikingenieria.com/#listas" class="fixed top-4 left-4 md:top-6 md:left-6 z-50 inline-flex items-center gap-3 px-4 py-2 bg-w-black/80 backdrop-blur-md border border-w-light/10 rounded-full text-[10px] md:text-xs font-mono text-w-sage hover:text-w-light hover:border-w-olive/50 hover:bg-w-olive/10 transition-all duration-300 group shadow-lg">
         <i class="fas fa-chevron-left text-[8px] md:text-[10px] group-hover:-translate-x-1 transition-transform"></i>
         <span class="tracking-[0.2em] uppercase font-bold">WIKINGENIERIA</span>
     </a>
@@ -77,7 +100,7 @@
 
             <a href="https://open.spotify.com/playlist/559SY5yxg2fMHSLi1U3Vxm?si=8c2d1bc9ef5c4ff3" target="_blank" class="group bg-w-olive/10 hover:bg-white/5 border border-w-light/10 hover:border-w-light/30 backdrop-blur-md p-3 rounded-xl flex items-center gap-4 transition-all duration-300 hover:scale-[1.01] hover:shadow-lg hover:shadow-w-olive/20">
                 <div class="w-20 h-20 md:w-24 md:h-24 flex-shrink-0 rounded-lg overflow-hidden border border-white/5 relative group-hover:border-white/20 transition">
-                    <img src="assets/img/listas/lofi-chill-hop-spotify-playlist.webp" alt="Portada Lista" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition duration-500 group-hover:scale-105">
+                    <img src="https://www.wikingenieria.com/assets/img/listas/lofi-chill-hop-spotify-playlist.webp" alt="Portada Lista" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition duration-500 group-hover:scale-105">
                 </div>
                 <div class="flex-1 min-w-0">
                     <h3 class="font-mono text-w-light font-bold text-lg leading-tight mb-1 truncate group-hover:text-white">☕ Lofi Engineering</h3>
@@ -93,7 +116,7 @@
 
             <a href="https://open.spotify.com/playlist/5Syo3RZAL0OMfAFDDHAO0R?si=513a548a3b2b4b67" target="_blank" class="group bg-w-olive/10 hover:bg-white/5 border border-w-light/10 hover:border-w-light/30 backdrop-blur-md p-3 rounded-xl flex items-center gap-4 transition-all duration-300 hover:scale-[1.01] hover:shadow-lg hover:shadow-w-olive/20">
                 <div class="w-20 h-20 md:w-24 md:h-24 flex-shrink-0 rounded-lg overflow-hidden border border-white/5">
-                    <img src="assets/img/listas/synthwave-spotify-playlist.webp" alt="Portada Lista" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition duration-500 group-hover:scale-105">
+                    <img src="https://www.wikingenieria.com/assets/img/listas/synthwave-spotify-playlist.webp" alt="Portada Lista" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition duration-500 group-hover:scale-105">
                 </div>
                 <div class="flex-1 min-w-0">
                     <h3 class="font-mono text-w-light font-bold text-lg leading-tight mb-1 truncate group-hover:text-white">🌇 Neon Coding</h3>
@@ -109,7 +132,7 @@
 
             <a href="https://open.spotify.com/playlist/31GNpsvKMOTc7n8UMUyn3z?si=652f0ab8f50a4ac7" target="_blank" class="group bg-w-olive/10 hover:bg-white/5 border border-w-light/10 hover:border-w-light/30 backdrop-blur-md p-3 rounded-xl flex items-center gap-4 transition-all duration-300 hover:scale-[1.01] hover:shadow-lg hover:shadow-w-olive/20">
                 <div class="w-20 h-20 md:w-24 md:h-24 flex-shrink-0 rounded-lg overflow-hidden border border-white/5">
-                    <img src="assets/img/listas/lofi-dnb-spotify-playlist.webp" alt="Portada Lista" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition duration-500 group-hover:scale-105">
+                    <img src="https://www.wikingenieria.com/assets/img/listas/lofi-dnb-spotify-playlist.webp" alt="Portada Lista" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition duration-500 group-hover:scale-105">
                 </div>
                 <div class="flex-1 min-w-0">
                     <h3 class="font-mono text-w-light font-bold text-lg leading-tight mb-1 truncate group-hover:text-white">🌌 Lofi Atmospheric DnB</h3>
@@ -125,7 +148,7 @@
 
             <a href="https://open.spotify.com/playlist/043AajRdke8uDTgAFqrhEF?si=4706acfef8584e81" target="_blank" class="group bg-w-olive/10 hover:bg-white/5 border border-w-light/10 hover:border-w-light/30 backdrop-blur-md p-3 rounded-xl flex items-center gap-4 transition-all duration-300 hover:scale-[1.01] hover:shadow-lg hover:shadow-w-olive/20">
                 <div class="w-20 h-20 md:w-24 md:h-24 flex-shrink-0 rounded-lg overflow-hidden border border-white/5">
-                    <img src="assets/img/listas/techno-house-spotify-playlist.webp" alt="Portada Lista" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition duration-500 group-hover:scale-105">
+                    <img src="https://www.wikingenieria.com/assets/img/listas/techno-house-spotify-playlist.webp" alt="Portada Lista" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition duration-500 group-hover:scale-105">
                 </div>
                 <div class="flex-1 min-w-0">
                     <h3 class="font-mono text-w-light font-bold text-lg leading-tight mb-1 truncate group-hover:text-white">⚙️ Deep Work Techno</h3>
@@ -141,7 +164,7 @@
 
             <a href="https://open.spotify.com/playlist/5CfRxSLYPBZ74nYr3tyGBX?si=764533757ec34b09" target="_blank" class="group bg-w-olive/10 hover:bg-white/5 border border-w-light/10 hover:border-w-light/30 backdrop-blur-md p-3 rounded-xl flex items-center gap-4 transition-all duration-300 hover:scale-[1.01] hover:shadow-lg hover:shadow-w-olive/20">
                 <div class="w-20 h-20 md:w-24 md:h-24 flex-shrink-0 rounded-lg overflow-hidden border border-white/5">
-                    <img src="assets/img/listas/future-garage-spotify-playlist.webp" alt="Portada Lista" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition duration-500 group-hover:scale-105">
+                    <img src="https://www.wikingenieria.com/assets/img/listas/future-garage-spotify-playlist.webp" alt="Portada Lista" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition duration-500 group-hover:scale-105">
                 </div>
                 <div class="flex-1 min-w-0">
                     <h3 class="font-mono text-w-light font-bold text-lg leading-tight mb-1 truncate group-hover:text-white">🌑 Night Shift Future Garage</h3>
@@ -157,7 +180,7 @@
 
             <a href="https://open.spotify.com/playlist/2Wxk1v8nipxDUtoBPb85LJ?si=01bd712149d240bb" target="_blank" class="group bg-w-olive/10 hover:bg-white/5 border border-w-light/10 hover:border-w-light/30 backdrop-blur-md p-3 rounded-xl flex items-center gap-4 transition-all duration-300 hover:scale-[1.01] hover:shadow-lg hover:shadow-w-olive/20">
                 <div class="w-20 h-20 md:w-24 md:h-24 flex-shrink-0 rounded-lg overflow-hidden border border-white/5">
-                    <img src="assets/img/listas/liquid-dnb-spotify-playlist.webp" alt="Portada Lista" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition duration-500 group-hover:scale-105">
+                    <img src="https://www.wikingenieria.com/assets/img/listas/liquid-dnb-spotify-playlist.webp" alt="Portada Lista" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition duration-500 group-hover:scale-105">
                 </div>
                 <div class="flex-1 min-w-0">
                     <h3 class="font-mono text-w-light font-bold text-lg leading-tight mb-1 truncate group-hover:text-white">🌊 Liquid DnB Focus 174</h3>
@@ -173,7 +196,7 @@
 
             <a href="https://open.spotify.com/playlist/0Q9aDfCbnULcEz4pcX0mkp?si=8739519bbe4f4524" target="_blank" class="group bg-w-olive/10 hover:bg-white/5 border border-w-light/10 hover:border-w-light/30 backdrop-blur-md p-3 rounded-xl flex items-center gap-4 transition-all duration-300 hover:scale-[1.01] hover:shadow-lg hover:shadow-w-olive/20">
                 <div class="w-20 h-20 md:w-24 md:h-24 flex-shrink-0 rounded-lg overflow-hidden border border-white/5">
-                    <img src="assets/img/listas/stutter-house-spotify-playlist.webp" alt="Portada Lista" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition duration-500 group-hover:scale-105">
+                    <img src="https://www.wikingenieria.com/assets/img/listas/stutter-house-spotify-playlist.webp" alt="Portada Lista" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition duration-500 group-hover:scale-105">
                 </div>
                 <div class="flex-1 min-w-0">
                     <h3 class="font-mono text-w-light font-bold text-lg leading-tight mb-1 truncate group-hover:text-white">⚡Stutter House Boost</h3>
@@ -189,7 +212,7 @@
 
             <a href="https://open.spotify.com/playlist/65q70JkwZQPo0UpLkKbx7N?si=c936fd3f33aa4576" target="_blank" class="group bg-w-olive/10 hover:bg-white/5 border border-w-light/10 hover:border-w-light/30 backdrop-blur-md p-3 rounded-xl flex items-center gap-4 transition-all duration-300 hover:scale-[1.01] hover:shadow-lg hover:shadow-w-olive/20">
                 <div class="w-20 h-20 md:w-24 md:h-24 flex-shrink-0 rounded-lg overflow-hidden border border-white/5">
-                    <img src="assets/img/listas/piano-spotify-playlist.webp" alt="Portada Lista" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition duration-500 group-hover:scale-105">
+                    <img src="https://www.wikingenieria.com/assets/img/listas/piano-spotify-playlist.webp" alt="Portada Lista" class="w-full h-full object-cover opacity-90 group-hover:opacity-100 transition duration-500 group-hover:scale-105">
                 </div>
                 <div class="flex-1 min-w-0">
                     <h3 class="font-mono text-w-light font-bold text-lg leading-tight mb-1 truncate group-hover:text-white">🎹 Piano Buffer</h3>
@@ -206,7 +229,7 @@
         </div>
 
         <footer class="flex flex-col items-center gap-6 mt-auto pb-6">
-            <a href="index.html" class="inline-flex items-center gap-2 text-xs font-mono text-w-sage hover:text-w-light uppercase tracking-widest border-b border-transparent hover:border-w-light transition pb-1">
+            <a href="https://www.wikingenieria.com" class="inline-flex items-center gap-2 text-xs font-mono text-w-sage hover:text-w-light uppercase tracking-widest border-b border-transparent hover:border-w-light transition pb-1">
                 <i class="fas fa-globe"></i> wikingenieria.com
             </a>
             <div class="flex gap-6 opacity-60">
@@ -215,7 +238,7 @@
                 <a href="https://facebook.com/wikingenieria" target="_blank" class="hover:text-white hover:scale-110 transition"><i class="fab fa-facebook text-xl"></i></a>
                 <a href="https://tiktok.com/@wikingenieria" target="_blank" class="hover:text-white hover:scale-110 transition"><i class="fab fa-tiktok text-xl"></i></a>
             </div>
-            <p class="text-[10px] font-mono text-w-sage/60 uppercase tracking-widest mt-4">© 2026 Wikingenieraa</p>
+            <p class="text-[10px] font-mono text-w-sage/60 uppercase tracking-widest mt-4">© 2026 Wikingenieria</p>
         </footer>
 
     </main>

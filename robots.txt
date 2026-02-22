@@ -1,10 +1,19 @@
+# --- WIKINGENIERIA ROBOTS PROTOCOL ---
+
 User-agent: *
 Allow: /
-# Bloquear páginas de agradecimiento para no ensuciar métricas de conversión
+
+# Bloqueo de nodos de confirmación (Evitar falsos positivos en conversiones)
 Disallow: /gracias
 Disallow: /success
-# Bloquear páginas legales (opcional, pero ayuda a priorizar contenido real)
-Disallow: /legal
-Disallow: /privacidad
 
-Sitemap: https://wikingenieria.com/sitemap.xml
+# Permitimos rastreo de legales para mejorar autoridad (EEAT)
+# Eliminado Disallow de /legal porque está en el sitemap
+
+# Optimización de rastreo de recursos
+Allow: /assets/
+Allow: /js/
+Allow: /css/
+
+# Sincronización de Mapa del Sitio
+Sitemap: https://www.wikingenieria.com/sitemap.xml

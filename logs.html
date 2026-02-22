@@ -1,11 +1,33 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        
+        const priorConsent = localStorage.getItem('cookiesAccepted') === 'true' ? 'granted' : 'denied';
+
+        gtag('consent', 'default', {
+            'ad_storage': priorConsent,
+            'ad_user_data': priorConsent,
+            'ad_ads_measurement': priorConsent,
+            'analytics_storage': priorConsent
+        });
+    </script>
+
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NLJVRQ6D');</script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Blog | Wikingenieria</title>
     
-    <link rel="icon" type="image/x-icon" href="assets/img/core/wikingenieria-favicon.ico">
+    <link rel="icon" type="image/x-icon" href="https://www.wikingenieria.com/assets/img/core/wikingenieria-favicon.ico">
+    <link rel="canonical" href="https://www.wikingenieria.com/logs">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -46,18 +68,20 @@
 
 <body class="bg-w-black text-w-sage font-sans antialiased selection:bg-w-light selection:text-w-black flex flex-col min-h-screen">
 
-    <nav class="fixed w-full z-50 bg-w-black/90 backdrop-blur-md border-b border-w-olive transition-all duration-300" id="navbar">
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NLJVRQ6D"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <nav class="fixed w-full z-50 bg-w-black/95 backdrop-blur-md border-b border-w-olive transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="index.html" class="flex items-center gap-3 hover:opacity-80 transition">
-                <img src="assets/img/core/wikingenieria-logo.png" alt="Wikingenieria Logo" class="h-9 w-9 opacity-90 transition">
+            <a href="https://www.wikingenieria.com/" class="flex items-center gap-3 group">
+                <img src="https://www.wikingenieria.com/assets/img/core/wikingenieria-logo.png" alt="Wikingenieria Logo Oficial - Recursos para ingenieros" class="h-9 w-9 opacity-90 group-hover:opacity-100 transition">
                 <span class="font-mono text-xl font-bold text-w-light tracking-tight">Wikingenieria</span>
                 <span class="text-w-olive animate-pulse font-bold text-xl font-mono -ml-1">_</span>
             </a>
     
             <div class="hidden md:flex items-center space-x-8 h-full">
-                <a href="index.html#productos" class="font-mono text-sm text-w-sage hover:text-w-light transition-colors uppercase tracking-widest flex items-center h-full">Recursos</a>
-                
-                <a href="blog.html" class="font-mono text-sm text-w-light uppercase tracking-widest border-b border-w-light flex items-center h-full">Logs</a>
+                <a href="https://www.wikingenieria.com/#productos" class="font-mono text-sm text-w-sage hover:text-w-light transition-colors uppercase tracking-widest flex items-center h-full">Recursos</a>
+                <a href="https://www.wikingenieria.com/logs" class="font-mono text-sm text-w-light uppercase tracking-widest border-b border-w-light flex items-center h-full font-bold">Logs</a>
                 
                 <div class="relative group flex items-center h-full">
                     <a href="#" onclick="return false;" class="font-mono text-sm text-w-sage/50 cursor-not-allowed uppercase tracking-widest flex items-center gap-2 hover:text-w-sage/80 transition-colors">
@@ -66,9 +90,9 @@
                     <span class="absolute -bottom-4 left-1/2 -translate-x-1/2 bg-w-olive text-[10px] text-w-light py-1 px-2 rounded-sm opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none border border-w-light/20 whitespace-nowrap font-mono z-50">
                         //EN_DESARROLLO
                     </span>
-                </div>
+                </div> 
     
-                <a href="index.html#contacto" class="font-mono text-sm text-w-sage hover:text-w-light transition-colors uppercase tracking-widest flex items-center h-full">Soporte Técnico</a>
+                <a href="https://www.wikingenieria.com/#contacto" class="font-mono text-sm text-w-sage hover:text-w-light transition-colors uppercase tracking-widest flex items-center h-full">Soporte</a>   
             </div>
     
             <button id="mobile-menu-btn" class="md:hidden text-w-sage hover:text-w-light focus:outline-none p-2">
@@ -78,16 +102,15 @@
     
         <div id="mobile-menu" class="hidden md:hidden bg-w-black border-b border-w-olive absolute w-full left-0 top-20">
             <div class="px-6 pt-4 pb-8 space-y-4 flex flex-col">
-                <a href="index.html#productos" class="font-mono text-sm text-w-light py-3 border-b border-w-olive/30 hover:bg-w-olive/20 transition uppercase tracking-widest mobile-link text-center">Recursos</a>
-                
-                <a href="blog.html" class="font-mono text-sm text-w-light py-3 border-b border-w-olive/30 bg-w-olive/10 transition uppercase tracking-widest mobile-link text-center font-bold">Logs</a>
+                <a href="https://www.wikingenieria.com/#productos" class="font-mono text-sm text-w-light py-3 border-b border-w-olive/30 hover:bg-w-olive/20 transition uppercase tracking-widest mobile-link text-center">Recursos</a>
+                <a href="https://www.wikingenieria.com/logs" class="font-mono text-sm text-w-light py-3 border-b border-w-olive/30 bg-w-olive/10 transition uppercase tracking-widest mobile-link text-center font-bold">Logs</a>
                 
                 <div class="py-3 border-b border-w-olive/30 flex items-center justify-center gap-2 opacity-60">
                     <i class="fas fa-lock text-xs text-w-sage"></i>
                     <span class="font-mono text-sm text-w-sage uppercase tracking-widest">Vault <span class="text-[10px] ml-1 opacity-70">//EN_DESARROLLO</span></span>
                 </div>
-    
-                <a href="index.html#contacto" class="font-mono text-sm text-w-light py-3 border-b border-w-olive/30 hover:bg-w-olive/20 transition uppercase tracking-widest mobile-link text-center">Soporte Técnico</a>
+                
+                <a href="https://www.wikingenieria.com/#contacto" class="font-mono text-sm text-w-light py-3 border-b border-w-olive/30 hover:bg-w-olive/20 transition uppercase tracking-widest mobile-link text-center">Soporte</a>
             </div>
         </div>
     </nav>
@@ -126,7 +149,7 @@
                             Lo último en herramientas que realmente importan — un resumen corto y potente de hardware y software.
                         </p>
                         <div class="mt-auto">
-                            <a href="blog/gadgets-para-ingenieros-2026.html" class="inline-flex items-center text-w-light font-mono text-xs font-bold uppercase tracking-[0.1em] group/link hover:text-w-olive transition-colors before:absolute before:inset-0 before:z-10">
+                            <a href="https://www.wikingenieria.com/logs/gadgets-para-ingenieros-2026" class="inline-flex items-center text-w-light font-mono text-xs font-bold uppercase tracking-[0.1em] group/link hover:text-w-olive transition-colors before:absolute before:inset-0 before:z-10">
                                 <span>LEER</span>
                                 <span class="ml-2 group-hover:translate-x-1 transition-transform duration-300">-></span>
                             </a>
@@ -160,39 +183,47 @@
         </div>
     </main>
 
-    <section class="py-16 md:py-20 px-6 bg-[#2a322e] border-y border-w-olive/40 w-full">
+    <section class="py-16 md:py-20 px-6 bg-[#2a322e] border-y border-w-olive/40">
         <div class="max-w-xl mx-auto text-center">
-            <h3 class="font-mono text-xl md:text-2xl text-white mb-2">Únete al Hub por excelencia para ingenieros</h3>
+            <h3 class="font-mono text-xl md:text-2xl text-white mb-2">Únete al Log de Wikingenieria</h3>
             <p class="text-sm text-w-light/70 mb-6 font-light">Recibe actualizaciones del sistema, nuevos recursos y contenido exclusivo.</p>
-            <form class="flex border-b border-w-light/50 pb-2 focus-within:border-white transition">
-                <input type="email" placeholder="tu@email.com" class="bg-transparent w-full text-white placeholder-w-light/50 focus:outline-none font-mono text-sm">
-                <button type="submit" class="text-w-light font-mono text-xs uppercase tracking-widest hover:text-white transition">Suscribirse</button>
+            
+            <form id="newsletter-hub-form" class="flex border-b border-w-light/50 pb-2 focus-within:border-white transition">
+                <input type="email" id="hub-email" name="email" required placeholder="tu@email.com"
+                    class="bg-transparent w-full text-white placeholder-w-light/50 focus:outline-none font-mono text-sm">
+                <button type="submit" id="hub-submit-btn"
+                    class="text-w-light font-mono text-xs uppercase tracking-widest hover:text-white transition whitespace-nowrap ml-4">Recibir Log</button>
             </form>
+    
+            <div id="hub-status" class="hidden mt-6 p-4 bg-black/60 border border-w-olive/50 rounded-sm backdrop-blur-sm text-center">
+            </div>
         </div>
     </section>
 
     <footer class="bg-w-black border-t border-w-olive/30 py-12 relative z-10">
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
             <div class="flex flex-col gap-2 text-center md:text-left">
-                <div class="flex items-center justify-center md:justify-start gap-3">
-                    <img src="assets/img/core/wikingenieria-logo.png" alt="Logo" class="h-8 w-auto opacity-100 hover:opacity-100 transition">
+                <div class="flex items-center justify-center md:justify-start gap-3 cursor-pointer" id="footer-logo-container">
+                    <img src="https://www.wikingenieria.com/assets/img/core/wikingenieria-logo.png" alt="Logo" class="h-8 w-auto opacity-100 hover:opacity-100 transition" id="footer-logo">
                     <span class="font-mono text-xs md:text-sm text-w-sage/80 uppercase tracking-widest">© 2026 Wikingenieria</span>
                 </div>
+                
                 <div class="flex gap-4 text-[10px] md:text-xs font-mono text-w-sage/70 uppercase tracking-widest justify-center md:justify-start">
-                    <a href="legal.html#aviso" class="hover:text-w-light transition">Aviso Legal</a>
+                    <a href="https://www.wikingenieria.com/legal" class="hover:text-w-light transition">Aviso Legal</a>
                     <span class="text-w-olive">|</span>
-                    <a href="legal.html#privacidad" class="hover:text-w-light transition">Privacidad</a>
+                    <a href="https://www.wikingenieria.com/legal#privacidad" class="hover:text-w-light transition">Privacidad</a>
                     <span class="text-w-olive">|</span>
-                    <a href="legal.html#cookies" class="hover:text-w-light transition">Cookies</a>
+                    <a href="https://www.wikingenieria.com/legal#cookies" class="hover:text-w-light transition">Cookies</a>
                 </div>
             </div>
-            <div class="flex flex-wrap justify-center md:justify-end gap-6">
-                <a href="https://instagram.com/wikingenieria/" target="_blank" rel="noopener" class="text-w-sage/90 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-instagram text-lg"></i></a>
+            
+            <div class="flex flex-wrap justify-center md:justify-end gap-6"> 
+                <a href="https://www.instagram.com/wikingenieria?igsh=MTBsczl2Z2hjcTYweQ==" target="_blank" rel="noopener" class="text-w-sage/90 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-instagram text-lg"></i></a>
                 <a href="https://x.com/wikingenieria" target="_blank" rel="noopener" class="text-w-sage/90 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-x-twitter text-lg"></i></a>
                 <a href="https://tiktok.com/@wikingenieria" target="_blank" rel="noopener" class="text-w-sage/90 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-tiktok text-lg"></i></a>
                 <a href="https://facebook.com/wikingenieria" target="_blank" rel="noopener" class="text-w-sage/90 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-facebook text-lg"></i></a>
                 <a href="https://www.youtube.com/@Wikingenieria" target="_blank" rel="noopener" class="text-w-sage/90 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-youtube text-lg"></i></a>
-                <a href="https://open.spotify.com/show/4rJF6Rcz7CtIKGzAR2SBiz?si=b3515346049543ab" target="_blank" rel="noopener" class="text-w-sage/90 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-spotify text-lg"></i></a>
+                <a href="http://googleusercontent.com/spotify.com/5" target="_blank" rel="noopener" class="text-w-sage/90 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-spotify text-lg"></i></a>
             </div>
         </div>
     </footer>
@@ -205,7 +236,7 @@
         <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
             <div class="text-xs text-w-sage font-mono font-light text-center md:text-left">
                 <span class="text-w-light font-bold">SYSTEM_NOTICE:</span> Usamos cookies propias y de terceros para mejorar tu experiencia.
-                <a href="legal.html#cookies" class="underline hover:text-white ml-1">Ver política</a>.
+                <a href="https://www.wikingenieria.com/legal#cookies" class="underline hover:text-white ml-1">Ver política</a>.
             </div>
             <div class="flex gap-3">
                 <button id="btn-reject" class="px-4 py-2 border border-w-sage/30 text-[10px] font-mono uppercase text-w-sage hover:text-white hover:border-white transition rounded-sm">
@@ -252,28 +283,49 @@
                 });
             }
 
-            // --- 3. COOKIES ---
-            const cookieBanner = document.getElementById('cookie-banner');
+            // --- 3. LOGICA DE COOKIES Y CONSENTIMIENTO (GA4) ---
+            const cb = document.getElementById('cookie-banner');
+            function updateGoogleConsent(isAccepted) {
+                const consentStatus = isAccepted ? 'granted' : 'denied';
+                if (typeof gtag === 'function') {
+                    gtag('consent', 'update', {
+                        'ad_storage': consentStatus,
+                        'ad_user_data': consentStatus,
+                        'ad_ads_measurement': consentStatus,
+                        'analytics_storage': consentStatus
+                    });
+                }
+            }
+            if (cb && !localStorage.getItem('cookiesAccepted')) {
+                cb.classList.remove('hidden');
+                setTimeout(() => { cb.classList.remove('translate-y-full'); }, 500);
+            }
             const btnAccept = document.getElementById('btn-accept');
             const btnReject = document.getElementById('btn-reject');
-            if (cookieBanner && !localStorage.getItem('cookiesAccepted')) {
-                cookieBanner.classList.remove('hidden');
-                setTimeout(() => { cookieBanner.classList.remove('translate-y-full'); }, 500);
+            if(btnAccept) { 
+                btnAccept.addEventListener('click', () => { 
+                    localStorage.setItem('cookiesAccepted', 'true'); 
+                    updateGoogleConsent(true);
+                    cb.classList.add('translate-y-full'); 
+                }); 
             }
-            if(btnAccept) { btnAccept.addEventListener('click', () => { localStorage.setItem('cookiesAccepted', 'true'); cookieBanner.classList.add('translate-y-full'); }); }
-            if(btnReject) { btnReject.addEventListener('click', () => { localStorage.setItem('cookiesAccepted', 'false'); cookieBanner.classList.add('translate-y-full'); }); }
+            if(btnReject) { 
+                btnReject.addEventListener('click', () => { 
+                    localStorage.setItem('cookiesAccepted', 'false'); 
+                    updateGoogleConsent(false);
+                    cb.classList.add('translate-y-full'); 
+                }); 
+            }
 
-            // --- 4. BUSCADOR INTELIGENTE (SIN TILDES Y ROBUSTO) ---
+            // --- 4. BUSCADOR INTELIGENTE ---
             const searchInput = document.getElementById('blog-search');
             const searchBtn = document.getElementById('blog-search-btn');
             const articlesGrid = document.getElementById('articles-grid');
 
             if (searchBtn && searchInput && articlesGrid) {
-                // Función para normalizar texto (Quitar tildes y caracteres especiales)
                 const normalize = (text) => {
                     return text.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
                 }
-
                 function doSearch() {
                     const q = normalize(searchInput.value.trim());
                     const cards = articlesGrid.querySelectorAll('.article-card');
@@ -283,21 +335,17 @@
                         const subtitle = normalize(card.getAttribute('data-subtitle') || '');
                         const matches = title.includes(q) || subtitle.includes(q);
                         
-                        // Usamos hidden para asegurar que no hay estados intermedios raros
                         if (matches) {
                             card.classList.remove('hidden');
-                            card.classList.add('flex'); // Mantiene el layout flex
+                            card.classList.add('flex');
                         } else {
                             card.classList.remove('flex');
                             card.classList.add('hidden');
                         }
                     });
                 }
-
                 searchBtn.addEventListener('click', doSearch);
-                searchInput.addEventListener('input', doSearch); // Búsqueda en tiempo real robusta
-                
-                // Prevenir el submit del form si estuviera dentro de uno
+                searchInput.addEventListener('input', doSearch); 
                 searchInput.addEventListener('keydown', (e) => {
                     if (e.key === 'Enter') {
                         e.preventDefault();
@@ -305,6 +353,33 @@
                     }
                 });
             }
+
+            // --- 5. FORMULARIO NEWSLETTER CON TELEMETRIA (GA4 + MAKE) ---
+            const hubForm = document.getElementById('newsletter-hub-form');
+            const hubStatus = document.getElementById('hub-status');
+            hubForm?.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const email = document.getElementById('hub-email').value;
+                if (!email.includes('@')) return;
+                const btn = document.getElementById('hub-submit-btn');
+                btn.innerText = 'PROCESANDO...'; btn.disabled = true;
+
+                try {
+                    const res = await fetch('https://hook.eu1.make.com/i94znb36hor2wlepeseoet2iv1uuaaa3', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({email, source: "Web Logs", timestamp: new Date().toISOString()})
+                    });
+                    if (res.ok) {
+                        if (typeof gtag === 'function') {
+                            gtag('event', 'generate_lead', { 'event_category': 'newsletter', 'event_label': 'Logs Footer' });
+                        }
+                        hubStatus.innerHTML = `<p class="font-mono text-sm text-w-olive uppercase font-bold">TRANSMISIÓN RECIBIDA</p>`;
+                        hubStatus.classList.remove('hidden'); hubForm.reset(); btn.innerText = 'SUSCRITO';
+                    }
+                } catch (e) { btn.disabled = false; btn.innerText = 'RECIBIR LOG'; }
+            });
+
         });
     </script>
 </body>
