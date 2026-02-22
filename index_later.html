@@ -2,12 +2,29 @@
 <html lang="es" class="scroll-smooth">
 
 <head>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        
+        // Verificamos el estado previo en localStorage
+        // Si no existe o es 'false', por defecto es 'denied'
+        const priorConsent = localStorage.getItem('cookiesAccepted') === 'true' ? 'granted' : 'denied';
+
+        gtag('consent', 'default', {
+            'ad_storage': priorConsent,
+            'ad_user_data': priorConsent,
+            'ad_ads_measurement': priorConsent,
+            'analytics_storage': priorConsent
+        });
+    </script>
+
     <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-})(window,document,'script','dataLayer','GTM-NLJVRQ6D');</script>
-<meta charset="UTF-8">
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NLJVRQ6D');</script>
+
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wikingenieria | Contenido & Recursos para Ingenieros</title>
 <meta name="description" content="El punto de encuentro para amantes de la ingeniería, ciencia y tecnología. Descarga plantillas de Notion para tu gestión académica, eBooks de estrategia y recursos para sobrevivir a la ingeniería.">
@@ -700,7 +717,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             
-            // --- VARIABLES EASTER EGG ---
+            // --- VARIABLES EASTER EGG (VALIDADO) ---
             const footerLogo = document.getElementById('footer-logo');
             const canvas = document.getElementById('matrix-overlay');
             const pill = document.getElementById('pill-alert');
@@ -711,7 +728,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     
             function toggleMatrixMode() {
                 if (!matrixActive) {
-                    // ACTIVAR
                     matrixActive = true;
                     window.scrollTo({top: 0, behavior: 'smooth'});
                     if(pill) pill.classList.add('active');
@@ -724,7 +740,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                     injectTelemetry();
                     console.log("%c// SYSTEM_DEEP_DEBUG_INITIATED", "color: #e05d5d; font-weight: bold;");
                 } else {
-                    // DESACTIVAR
                     matrixActive = false;
                     if(pill) pill.classList.remove('active');
                     if(mainBody) mainBody.classList.remove('stress-mode-border');
@@ -782,7 +797,6 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 }, 50);
             }
     
-            // Listener Unificado para Easter Egg
             if (footerLogo) {
                 footerLogo.addEventListener('click', (e) => {
                     if (window.innerWidth >= 768) {
@@ -841,16 +855,39 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                 else btt?.classList.add('opacity-0', 'pointer-events-none');
             });
     
-            // --- COOKIES ---
+            // --- [CORREGIDO] LOGICA DE COOKIES Y CONSENTIMIENTO ---
             const cb = document.getElementById('cookie-banner');
+    
+            function updateGoogleConsent(isAccepted) {
+                const consentStatus = isAccepted ? 'granted' : 'denied';
+                if (typeof gtag === 'function') {
+                    gtag('consent', 'update', {
+                        'ad_storage': consentStatus,
+                        'ad_user_data': consentStatus,
+                        'ad_ads_measurement': consentStatus,
+                        'analytics_storage': consentStatus
+                    });
+                }
+            }
+    
             if (cb && !localStorage.getItem('cookiesAccepted')) {
                 cb.classList.remove('hidden');
                 setTimeout(() => cb.classList.remove('translate-y-full'), 500);
             }
-            document.getElementById('btn-accept')?.addEventListener('click', () => { localStorage.setItem('cookiesAccepted', 'true'); cb.classList.add('translate-y-full'); });
-            document.getElementById('btn-reject')?.addEventListener('click', () => { localStorage.setItem('cookiesAccepted', 'false'); cb.classList.add('translate-y-full'); });
     
-            // --- FORMULARIOS (CONTACTO & HUB) ---
+            document.getElementById('btn-accept')?.addEventListener('click', () => {
+                localStorage.setItem('cookiesAccepted', 'true');
+                updateGoogleConsent(true); 
+                cb.classList.add('translate-y-full');
+            });
+    
+            document.getElementById('btn-reject')?.addEventListener('click', () => {
+                localStorage.setItem('cookiesAccepted', 'false');
+                updateGoogleConsent(false); 
+                cb.classList.add('translate-y-full');
+            });
+    
+            // --- [CORREGIDO] FORMULARIOS (CONTACTO & HUB) CON TELEMETRÍA ---
             const contactForm = document.getElementById('contact-form');
             contactForm?.addEventListener('submit', async (e) => {
                 e.preventDefault();
@@ -866,7 +903,13 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         headers: { 'Content-Type': 'application/json' },
                         body: JSON.stringify({...data, source: "Web Contact", timestamp: new Date().toISOString()})
                     });
-                    if (res.ok) window.location.href = 'gracias';
+                    if (res.ok) {
+                        // EVENTO DE CONVERSIÓN GA4
+                        if (typeof gtag === 'function') {
+                            gtag('event', 'generate_lead', { 'event_category': 'form', 'event_label': 'Contact' });
+                        }
+                        window.location.href = 'gracias';
+                    }
                 } catch (e) { btn.innerText = originalText; btn.disabled = false; alert("Error de conexión."); }
             });
     
@@ -886,6 +929,10 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
                         body: JSON.stringify({email, source: "Web Log", timestamp: new Date().toISOString()})
                     });
                     if (res.ok) {
+                        // EVENTO DE CONVERSIÓN GA4
+                        if (typeof gtag === 'function') {
+                            gtag('event', 'generate_lead', { 'event_category': 'newsletter', 'event_label': 'Footer Hub' });
+                        }
                         hubStatus.innerHTML = `<p class="font-mono text-sm text-w-olive uppercase font-bold">TRANSMISIÓN RECIBIDA</p>`;
                         hubStatus.classList.remove('hidden'); hubForm.reset(); btn.innerText = 'SUSCRITO';
                     }

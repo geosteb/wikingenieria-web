@@ -1,13 +1,27 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <!-- Google Tag Manager -->
-<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        
+        // Verificamos el estado previo en localStorage
+        // Si no existe o es 'false', por defecto es 'denied'
+        const priorConsent = localStorage.getItem('cookiesAccepted') === 'true' ? 'granted' : 'denied';
+
+        gtag('consent', 'default', {
+            'ad_storage': priorConsent,
+            'ad_user_data': priorConsent,
+            'ad_ads_measurement': priorConsent,
+            'analytics_storage': priorConsent
+        });
+    </script>
+
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
     new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
     j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
     'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-NLJVRQ6D');</script>
-    <!-- End Google Tag Manager -->
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     
@@ -212,6 +226,42 @@
         document.addEventListener('DOMContentLoaded', function () {
             // --- 0. LOGO ASCII EN CONSOLA (EASTER EGG INVISIBLE) ---
             renderAsciiLogo();
+    
+            // --- [NUEVO] GESTIÓN DE PRIVACIDAD Y COOKIES ---
+            const cb = document.getElementById('cookie-banner');
+            
+            // Función para actualizar el estado de Google Analytics
+            function updateGoogleConsent(granted) {
+                const status = granted ? 'granted' : 'denied';
+                if (typeof gtag === 'function') {
+                    gtag('consent', 'update', {
+                        'ad_storage': status,
+                        'ad_user_data': status,
+                        'ad_ads_measurement': status,
+                        'analytics_storage': status
+                    });
+                }
+            }
+    
+            // Mostrar banner si no hay decisión previa
+            if (cb && !localStorage.getItem('cookiesAccepted')) {
+                cb.classList.remove('hidden');
+                setTimeout(() => cb.classList.remove('translate-y-full'), 500);
+            }
+    
+            // Eventos del Banner
+            document.getElementById('btn-accept')?.addEventListener('click', () => {
+                localStorage.setItem('cookiesAccepted', 'true');
+                updateGoogleConsent(true); // Activa rastreo
+                cb.classList.add('translate-y-full');
+            });
+    
+            document.getElementById('btn-reject')?.addEventListener('click', () => {
+                localStorage.setItem('cookiesAccepted', 'false');
+                updateGoogleConsent(false); // Bloquea rastreo
+                cb.classList.add('translate-y-full');
+            });
+            // --- [FIN SECCIÓN COOKIES] ---
     
             // --- VARIABLES GLOBALES (ESTADO DEL SISTEMA) ---
             let uptimeInterval; 
@@ -431,7 +481,6 @@
                     const btn = notifyForm.querySelector('button');
                     const emailInput = notifyForm.querySelector('input[type="email"]');
                     
-                    // 1. Validación preventiva en el cliente
                     const emailValue = emailInput.value ? emailInput.value.trim() : "";
                     if (!emailValue || !emailValue.includes('@')) {
                         console.error("Critical: Invalid email payload.");
@@ -442,7 +491,6 @@
                     btn.innerText = "SEND_";
                     btn.disabled = true;
     
-                    // 2. Definición del Payload
                     const payload = { 
                         email: emailValue, 
                         source: window.location.hostname.includes('test.') ? "Staging Web" : "Soon Page",
@@ -450,7 +498,6 @@
                     };
     
                     try {
-                        // 3. Ejecución de la transmisión
                         const response = await fetch('https://hook.eu1.make.com/6xk7mrit18i9eww4fu1aixt0pbbuhubz', {
                             method: 'POST',
                             headers: { 
@@ -461,6 +508,14 @@
                         });
     
                         if (response.ok) {
+                            // [NUEVO] REGISTRO DE CONVERSIÓN EN ANALYTICS
+                            if (typeof gtag === 'function') {
+                                gtag('event', 'generate_lead', {
+                                    'event_category': 'engagement',
+                                    'event_label': 'Soon Page Notify'
+                                });
+                            }
+    
                             btn.innerText = "SYNCED";
                             btn.style.backgroundColor = "#b0bab3";
                             btn.style.color = "#020201";
