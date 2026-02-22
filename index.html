@@ -193,6 +193,8 @@
                 <div class="mt-8">
                     <p class="text-[9px] font-mono uppercase tracking-widest text-w-sage/50 mb-3">Notificarme al finalizar despliegue:</p>
                     <form id="notify-form" class="flex flex-col sm:flex-row border border-w-olive/40 bg-w-black/40 focus-within:border-w-light/30 transition duration-300">
+                        <input type="text" name="b_honeypot" style="display:none" tabindex="-1" autocomplete="off">
+                        
                         <input type="email" placeholder="email@ingenieria.com" required
                             class="bg-transparent w-full text-w-light px-4 py-3 text-xs placeholder-w-sage/30 focus:outline-none font-mono">
                         <button type="submit" 
@@ -478,6 +480,14 @@
                 notifyForm.addEventListener('submit', async (e) => {
                     e.preventDefault();
                     
+                    // --- VALIDACIÓN HONEYPOT ---
+                    const honey = notifyForm.querySelector('input[name="b_honeypot"]');
+                    if (honey && honey.value) {
+                        console.warn("Bot detected. Transmission halted.");
+                        return; // Corta la ejecución si se ha rellenado el campo oculto
+                    }
+                    // ---------------------------
+                    
                     const btn = notifyForm.querySelector('button');
                     const emailInput = notifyForm.querySelector('input[type="email"]');
                     
@@ -537,6 +547,6 @@
                 });
             }
         });
-    </script>
+</script>
 </body>
 </html>
