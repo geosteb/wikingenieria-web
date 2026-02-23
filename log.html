@@ -27,6 +27,8 @@
     <link rel="canonical" href="https://www.wikingenieria.com/log">
     <link rel="icon" type="image/x-icon" href="https://www.wikingenieria.com/assets/img/core/wikingenieria-favicon.ico">
 
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://www.wikingenieria.com/log">
     <meta property="og:title" content="> ACCESO AL LOG: Ingeniería en modo fácil">
@@ -78,14 +80,15 @@
             background: rgba(2, 2, 1, 0.85);
             backdrop-filter: blur(12px);
             -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(42, 50, 46, 0.6);
-            box-shadow: 0 10px 40px rgba(224, 93, 93, 0.05);
+            border: 1px solid #2a322e;
+            box-shadow: 0 10px 40px rgba(224, 93, 93, 0.08);
         }
         
         .input-terminal {
             background: rgba(17, 17, 17, 0.8);
             border: 1px solid #2a322e;
             color: #d3d3d3;
+            font-family: 'Space Grotesk', monospace;
             transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
         }
         
@@ -95,7 +98,6 @@
             outline: none;
         }
 
-        /* Clase de error para el input */
         .input-error {
             border-color: #e05d5d !important;
             box-shadow: 0 0 10px rgba(224, 93, 93, 0.3) !important;
@@ -105,6 +107,7 @@
             background: rgba(224, 93, 93, 0.1);
             color: #e05d5d;
             border: 1px solid #e05d5d;
+            font-family: 'Space Grotesk', sans-serif;
             font-weight: 700;
             transition: all 0.3s ease;
         }
@@ -126,7 +129,7 @@
     </style>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
-<body class="min-h-screen w-full flex flex-col items-center justify-center p-4 selection:bg-w-red selection:text-white overflow-x-hidden my-4 md:my-0">
+<body class="min-h-screen w-full flex flex-col items-center justify-start md:justify-center p-4 pt-8 md:pt-4 selection:bg-w-red selection:text-white overflow-x-hidden">
 
     <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NLJVRQ6D"
     height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
@@ -148,22 +151,22 @@
                     <span class="text-w-red">//</span> WIKINGENIERIA.LOG <span class="text-w-red animate-pulse">_</span>
                 </h1>
                 
-                <p class="text-base md:text-[17px] text-w-light font-semibold leading-relaxed mb-6" id="dynamic-subtitle">
+                <p class="font-sans text-base md:text-[17px] text-w-light font-semibold leading-relaxed mb-6" id="dynamic-subtitle">
                     Con +400k ingenieros en redes, tocaba subir el nivel. Este es el repositorio de recursos para sobrevivir a la carrera sin perder la cabeza.
                 </p>
                 
                 <ul class="space-y-2.5 font-mono text-[13px] md:text-[15px] text-w-sage/80" id="value-props">
                     <li class="flex items-start gap-3">
                         <i class="fas fa-check text-w-red mt-1.5 text-[11px]"></i> 
-                        <span>80% dolor ingenieril y memes.</span>
+                        <span>80% DOLOR INGENIERIL Y MEMES.</span>
                     </li>
                     <li class="flex items-start gap-3">
                         <i class="fas fa-check text-w-red mt-1.5 text-[11px]"></i> 
-                        <span>20% recursos para evitar segundas matrículas.</span>
+                        <span>20% RECURSOS PARA EVITAR SEGUNDAS MATRÍCULAS.</span>
                     </li>
                     <li class="flex items-start gap-3">
                         <i class="fas fa-check text-w-red mt-1.5 text-[11px]"></i> 
-                        <span>0% ruido. Ingeniería en modo fácil.</span>
+                        <span>0% RUIDO. INGENIERÍA EN MODO FÁCIL.</span>
                     </li>
                 </ul>
             </header>
@@ -172,15 +175,15 @@
                 <input type="text" name="b-honeypot" id="b-honeypot" tabindex="-1" value="" class="hidden" autocomplete="off">
                 
                 <div class="relative">
-                    <label for="log-email" class="block font-mono text-xs uppercase tracking-[0.2em] text-w-light mb-2">
-                        <i class="fas fa-terminal mr-1 opacity-50"></i> Insertar_Email
+                    <label for="log-email" class="block font-mono text-xs uppercase tracking-[0.2em] text-w-light mb-2 font-bold">
+                        <i class="fas fa-terminal mr-1 opacity-50"></i> INSERTAR_EMAIL
                     </label>
                     <div class="relative flex items-center">
                         <span class="absolute left-4 text-w-red font-mono font-bold text-lg">></span>
                         <input type="email" id="log-email" name="email" required autocomplete="email" placeholder="ingeniero@dominio.com"
                             class="w-full pl-10 pr-4 py-3.5 input-terminal font-mono text-base rounded-md placeholder-w-sage/30">
                     </div>
-                    <p id="email-error" class="hidden absolute -bottom-5 left-0 text-[10px] font-mono text-w-red"><i class="fas fa-exclamation-triangle mr-1"></i> Formato de correo inválido.</p>
+                    <p id="email-error" class="hidden absolute -bottom-5 left-0 text-[10px] font-mono text-w-red uppercase font-bold tracking-widest"><i class="fas fa-exclamation-triangle mr-1"></i> Formato de correo inválido.</p>
                 </div>
                 
                 <div class="pt-2">
@@ -194,24 +197,24 @@
             </form>
 
             <div id="success-state" class="hidden flex-col items-center justify-center py-6 text-center animate-fade-in mt-2">
-                <div class="w-16 h-16 rounded-full border-2 border-[#1DB954] flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(29,185,84,0.2)]">
-                    <i class="fas fa-check text-[#1DB954] text-2xl"></i>
+                <div class="w-16 h-16 rounded-full border-2 border-w-matrix flex items-center justify-center mb-6 shadow-[0_0_20px_rgba(107,120,56,0.2)]">
+                    <i class="fas fa-check text-w-matrix text-2xl"></i>
                 </div>
                 <h2 class="font-mono text-xl md:text-2xl font-bold text-w-light tracking-widest uppercase mb-3">
                     TRANSMISIÓN_OK
                 </h2>
-                <p class="text-w-sage text-sm md:text-base mb-6 max-w-sm mx-auto">
+                <p class="font-sans text-w-sage text-sm md:text-base mb-6 max-w-sm mx-auto">
                     El sistema ha registrado tu acceso. Ve a tu correo y busca el mensaje de confirmación.
                 </p>
-                <div class="p-4 bg-w-olive/20 border border-[#1DB954]/30 rounded text-left font-mono text-xs text-w-sage/80 w-full">
-                    <span class="text-[#1DB954] font-bold">INFO:</span> Si no lo ves en la bandeja principal, revisa SPAM o Promociones y muévelo a la bandeja principal para no perder las actualizaciones del log.
+                <div class="p-4 bg-w-olive/20 border border-w-matrix/30 rounded text-left font-mono text-xs text-w-sage/80 w-full">
+                    <span class="text-w-matrix font-bold">INFO:</span> Si no lo ves en la bandeja principal, revisa SPAM o Promociones y muévelo a la bandeja principal para no perder las actualizaciones del log.
                 </div>
             </div>
 
             <footer class="mt-7 pt-5 border-t border-w-olive/30" id="panel-footer">
-                <div class="flex flex-wrap justify-between items-center gap-4 text-w-sage/60 font-mono text-[10px] md:text-xs tracking-widest uppercase">
+                <div class="flex flex-wrap justify-between items-center gap-4 text-w-sage/60 font-mono text-[10px] md:text-xs tracking-widest uppercase font-bold">
                     <span class="flex items-center gap-2">
-                        <i class="fas fa-bolt text-[#b0bab3] opacity-80"></i> 
+                        <i class="fas fa-bolt text-w-sage opacity-80"></i> 
                         BAJA_EN_1_CLIC
                     </span>
                     <span><i class="fas fa-shield-halved mr-1 text-w-sage/40"></i> SIN_SPAM</span>
@@ -219,7 +222,7 @@
             </footer>
         </div>
 
-        <div class="mt-6 flex items-center justify-center gap-4">
+        <div class="mt-6 flex items-center justify-center gap-4 pb-8 md:pb-0">
             <a href="https://www.wikingenieria.com" class="font-mono text-xs md:text-sm text-w-sage/60 hover:text-w-light transition tracking-widest uppercase border-b border-transparent hover:border-w-light pb-0.5">
                 &larr; VOLVER A WIKINGENIERIA
             </a>
@@ -231,7 +234,7 @@
     </main>
 
     <script>
-        // --- EFECTO MATRIX OPTIMIZADO ---
+        // --- EFECTO MATRIX OPTIMIZADO (Rojo Alerta) ---
         const canvas = document.getElementById('matrix-bg');
         const ctx = canvas.getContext('2d');
         const fontSize = 16; 
@@ -251,7 +254,7 @@
         function draw() {
             ctx.fillStyle = "rgba(2, 2, 1, 0.05)";
             ctx.fillRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = "rgba(224, 93, 93, 0.2)";
+            ctx.fillStyle = "rgba(224, 93, 93, 0.2)"; // Color w-red
             ctx.font = fontSize + "px monospace";
             
             for (let i = 0; i < drops.length; i++) {
@@ -270,7 +273,6 @@
         const emailInput = document.getElementById('log-email');
         const errorMsg = document.getElementById('email-error');
         
-        // Validación en tiempo real para limpiar el error si el usuario corrige
         emailInput.addEventListener('input', () => {
             emailInput.classList.remove('input-error');
             errorMsg.classList.add('hidden');
@@ -278,11 +280,8 @@
 
         logForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            
-            // Protección Honeypot (Bloqueo silencioso a bots)
             if (document.getElementById('b-honeypot').value) return;
             
-            // Validación Regex de email
             const emailValue = emailInput.value.trim();
             const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
             
@@ -337,8 +336,6 @@
                 btn.classList.remove('opacity-75', 'cursor-not-allowed');
                 btn.style.background = '';
                 btn.style.color = '';
-                
-                // Mostrar error de servidor de forma in-line
                 errorMsg.innerHTML = '<i class="fas fa-exclamation-triangle mr-1"></i> Servidor saturado. Inténtalo de nuevo.';
                 errorMsg.classList.remove('hidden');
             }
