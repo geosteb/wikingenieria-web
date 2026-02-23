@@ -27,22 +27,19 @@
     
     <link rel="icon" type="image/x-icon" href="https://www.wikingenieria.com/assets/img/core/wikingenieria-favicon.ico">
     <link rel="canonical" href="https://www.wikingenieria.com/logs">
+    
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://www.wikingenieria.com/logs">
+    <meta property="og:title" content="Repositorio de Logs | Wikingenieria">
+    <meta property="og:description" content="Repositorio con contenido, estrategias y recursos para ingenieros.">
+    <meta property="og:image" content="https://www.wikingenieria.com/assets/img/core/wikingenieria-social-share-logs.png">
 
-    <link rel="icon" type="image/x-icon" href="https://www.wikingenieria.com/assets/img/core/wikingenieria-favicon.ico">
-<link rel="canonical" href="https://www.wikingenieria.com/logs">
-
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://www.wikingenieria.com/logs">
-<meta property="og:title" content="Repositorio de Logs | Wikingenieria">
-<meta property="og:description" content="Repositorio con contenido, estrategias y recursos para ingenieros.">
-<meta property="og:image" content="https://www.wikingenieria.com/assets/img/core/wikingenieria-social-share-logs.png">
-
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:site" content="@wikingenieria">
-<meta name="twitter:url" content="https://www.wikingenieria.com/logs">
-<meta name="twitter:title" content="Repositorio de Logs | Wikingenieria">
-<meta name="twitter:description" content="Repositorio con contenido, estrategias y recursos para ingenieros.">
-<meta name="twitter:image" content="https://www.wikingenieria.com/assets/img/core/wikingenieria-social-share-logs.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@wikingenieria">
+    <meta name="twitter:url" content="https://www.wikingenieria.com/logs">
+    <meta name="twitter:title" content="Repositorio de Logs | Wikingenieria">
+    <meta name="twitter:description" content="Repositorio con contenido, estrategias y recursos para ingenieros.">
+    <meta name="twitter:image" content="https://www.wikingenieria.com/assets/img/core/wikingenieria-social-share-logs.png">
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -68,7 +65,6 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     
     <style>
-        /* Quitar el botón azul nativo de búsqueda + El parpadeo al hacer click */
         input[type="search"]::-webkit-search-cancel-button {
             -webkit-appearance: none;
             height: 10px;
@@ -77,7 +73,7 @@
             cursor: pointer;
         }
         input[type="search"] {
-            -webkit-tap-highlight-color: transparent; /* MATA EL PARPADEO EN MÓVIL */
+            -webkit-tap-highlight-color: transparent; 
         }
     </style>
 </head>
@@ -155,48 +151,89 @@
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20" id="articles-grid">
 
-                <article class="article-card relative group bg-w-olive/20 border border-w-olive/40 hover:border-w-sage/50 transition-all duration-500 overflow-hidden flex flex-col h-full" data-title="Gadgets para ingenieros 2026" data-subtitle="Lo último en herramientas que realmente importan">
+                <article class="article-card relative group bg-w-olive/10 border border-w-olive/40 hover:border-w-sage/50 transition-all duration-500 overflow-hidden flex flex-col h-full" data-title="Gadgets para ingenieros 2026" data-subtitle="Lo último en herramientas que realmente importan">
+                    <div class="h-48 w-full bg-w-black border-b border-w-olive/40 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-w-olive/20 mix-blend-overlay z-10 group-hover:bg-transparent transition-colors duration-500"></div>
+                        <img src="/assets/img/blog/2026/banner-gadgets-ingenieros.png" alt="Circuito hardware" class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 transform group-hover:scale-105">
+                    </div>
                     <div class="p-6 flex flex-col flex-grow">
-                        <span class="font-mono text-xs text-w-sage/40 uppercase tracking-widest mb-3 block">09.02.2026 :: ENTRY_001</span>
+                        <span class="font-mono text-xs text-w-sage/50 uppercase tracking-widest mb-3 block">09.02.2026 :: ENTRY_001</span>
                         <h2 class="text-xl md:text-2xl font-bold text-w-light font-mono mb-3 leading-tight group-hover:text-white transition">
-                            Gadgets para ingenieros 2026
+                            Gadgets y software para ingenieros 2026
                         </h2>
                         <p class="text-base text-w-sage/70 font-light mb-8 flex-grow leading-relaxed">
-                            Lo último en herramientas que realmente importan — un resumen corto y potente de hardware y software.
+                            Lo último en herramientas que realmente importan — un resumen corto y potente de hardware y software para optimizar el trabajo.
                         </p>
                         <div class="mt-auto">
                             <a href="https://www.wikingenieria.com/logs/gadgets-para-ingenieros-2026" class="inline-flex items-center text-w-light font-mono text-xs font-bold uppercase tracking-[0.1em] group/link hover:text-w-olive transition-colors before:absolute before:inset-0 before:z-10">
-                                <span>LEER</span>
+                                <span>LEER LOG</span>
                                 <span class="ml-2 group-hover:translate-x-1 transition-transform duration-300">-></span>
                             </a>
                         </div>
                     </div>
                 </article>
-            
-                <article class="article-card group bg-w-olive/10 border border-w-olive/30 transition-all duration-500 overflow-hidden flex flex-col h-full opacity-80" data-title="Técnicas de estudio (reales) que salvaron mi carrera" data-subtitle="Técnicas prácticas y efectivas">
+
+                <article class="article-card relative group bg-w-olive/10 border border-w-olive/40 hover:border-w-sage/50 transition-all duration-500 overflow-hidden flex flex-col h-full" data-title="Técnicas de estudio (reales) que salvaron mi carrera" data-subtitle="Técnicas prácticas y efectivas">
+                    <div class="h-48 w-full bg-w-black border-b border-w-olive/40 overflow-hidden relative">
+                        <div class="absolute inset-0 bg-w-olive/20 mix-blend-overlay z-10 group-hover:bg-transparent transition-colors duration-500"></div>
+                        <img src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?q=80&w=800&auto=format&fit=crop" alt="Ingeniería y estudio" class="w-full h-full object-cover grayscale opacity-60 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 transform group-hover:scale-105">
+                    </div>
                     <div class="p-6 flex flex-col flex-grow">
-                        <span class="font-mono text-xs text-w-olive uppercase tracking-widest mb-3 block animate-pulse">PRÓXIMAMENTE :: EN_PROCESO</span>
-                        <h2 class="text-xl md:text-2xl font-bold text-w-light/80 font-mono mb-3 leading-tight">
+                        <span class="font-mono text-xs text-w-sage/50 uppercase tracking-widest mb-3 block">15.02.2026 :: ENTRY_002</span>
+                        <h2 class="text-xl md:text-2xl font-bold text-w-light font-mono mb-3 leading-tight group-hover:text-white transition">
                             Técnicas de estudio (reales) que salvaron mi carrera
                         </h2>
-                        <p class="text-base text-w-sage/60 font-light mb-8 flex-grow leading-relaxed">
-                            Generando entry... Procesando redacción técnica y tácticas de supervivencia académica.
+                        <p class="text-base text-w-sage/70 font-light mb-8 flex-grow leading-relaxed">
+                            Menos subrayar con colores y más ingeniería inversa a los exámenes. Lo que funciona cuando el temario te supera.
                         </p>
                         <div class="mt-auto">
-                            <span class="inline-flex items-center text-w-sage/40 font-mono text-xs font-bold uppercase tracking-[0.1em] cursor-not-allowed">
-                                <span>EN ESPERA</span>
-                            </span>
+                            <a href="https://www.wikingenieria.com/logs/tecnicas-de-estudio-reales" class="inline-flex items-center text-w-light font-mono text-xs font-bold uppercase tracking-[0.1em] group/link hover:text-w-olive transition-colors before:absolute before:inset-0 before:z-10">
+                                <span>LEER LOG</span>
+                                <span class="ml-2 group-hover:translate-x-1 transition-transform duration-300">-></span>
+                            </a>
                         </div>
                     </div>
                 </article>
-            
+
+                <article class="article-card relative group bg-w-olive/5 border border-w-olive/30 hover:border-w-olive/60 transition-all duration-500 overflow-hidden flex flex-col h-full" data-title="3 errores que cometí en mi primer trabajo de ingeniero" data-subtitle="Próximamente">
+                    <div class="h-48 w-full bg-w-black border-b border-w-olive/40 overflow-hidden relative flex items-center justify-center">
+                        <div class="absolute inset-0 bg-w-black/60 z-10"></div>
+                        <img src="https://images.unsplash.com/photo-1581092335397-9583eb92d232?q=80&w=800&auto=format&fit=crop" alt="Ingeniero en planta" class="w-full h-full object-cover grayscale opacity-40 absolute inset-0 transition-transform duration-700 transform group-hover:scale-105">
+                        
+                        <div class="z-20 text-center flex flex-col items-center opacity-80 group-hover:opacity-100 transition-opacity">
+                            <i class="fas fa-hourglass-half text-2xl mb-2 text-w-sage"></i>
+                            <span class="font-mono text-[10px] tracking-[0.2em] uppercase border border-w-sage/40 text-w-light px-2 py-1 bg-w-black/50 backdrop-blur-sm">EN DESARROLLO</span>
+                        </div>
+                    </div>
+                    <div class="p-6 flex flex-col flex-grow">
+                        <span class="font-mono text-xs text-w-olive uppercase tracking-widest mb-3 block animate-pulse">DD:MM:YYYY :: PRÓXIMAMENTE</span>
+                        <h2 class="text-xl md:text-2xl font-bold text-w-light/90 font-mono mb-3 leading-tight">
+                            3 errores que cometí en mi primer trabajo de ingeniero
+                        </h2>
+                        <p class="text-base text-w-sage/60 font-light mb-4 flex-grow leading-relaxed">
+                            Lo que la universidad no te enseña sobre el mundo real. Aprende de mis fallos para no replicarlos tú.
+                        </p>
+                        
+                        <div class="bg-w-olive/10 border border-w-olive/30 p-3 mb-5 rounded-sm flex gap-3 items-start">
+                            <i class="fas fa-info-circle text-w-sage mt-0.5 text-sm"></i>
+                            <p class="text-xs font-mono text-w-sage/80 leading-relaxed">Suscríbete al log y te enviaré un aviso en cuanto este artículo esté compilado.</p>
+                        </div>
+
+                        <div class="mt-auto border-t border-w-olive/30 pt-5 z-20">
+                            <a href="#newsletter-hub-form" onclick="document.getElementById('hub-email').focus();" class="inline-flex items-center text-w-light font-mono text-[10px] font-bold uppercase tracking-[0.1em] hover:text-w-black transition-colors w-full justify-center bg-w-olive/80 py-3 rounded-sm hover:bg-w-light border border-transparent hover:border-w-light">
+                                <i class="fas fa-bell mr-2"></i>
+                                <span>AVISADME CUANDO SALGA</span>
+                            </a>
+                        </div>
+                    </div>
+                </article>
                 <article class="opacity-70 border border-w-olive/20 p-8 flex flex-col justify-center items-center text-center h-full min-h-[250px] grayscale bg-w-olive/10">
                     <i class="fas fa-terminal text-2xl text-w-sage/50 mb-4"></i>
                     <h3 class="font-mono text-sm text-w-sage/80 uppercase tracking-widest">COMPILANDO...</h3>
                 </article>
             
             </div>
-        </div>
+            </div>
     </main>
 
     <section class="py-16 md:py-20 px-6 bg-[#2a322e] border-y border-w-olive/40">
@@ -204,7 +241,7 @@
             <h3 class="font-mono text-xl md:text-2xl text-white mb-2">Únete al Log de Wikingenieria</h3>
             <p class="text-sm text-w-light/70 mb-6 font-light">Recibe actualizaciones del sistema, nuevos recursos y contenido exclusivo.</p>
             
-            <form id="newsletter-hub-form" class="flex border-b border-w-light/50 pb-2 focus-within:border-white transition">
+            <form id="newsletter-hub-form" class="flex border-b border-w-light/50 pb-2 focus-within:border-white transition relative z-20">
                 <input type="email" id="hub-email" name="email" required placeholder="tu@email.com"
                     class="bg-transparent w-full text-white placeholder-w-light/50 focus:outline-none font-mono text-sm">
                 <button type="submit" id="hub-submit-btn"
