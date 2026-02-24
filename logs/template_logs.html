@@ -1,224 +1,464 @@
 <!DOCTYPE html>
 <html lang="es" class="scroll-smooth">
 <head>
-    <title>Gadgets para ingenieros 2026: Hardware sin florituras | Wikingeniería</title>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        const priorConsent = localStorage.getItem('cookiesAccepted') === 'true' ? 'granted' : 'denied';
+        gtag('consent', 'default', {
+            'ad_storage': priorConsent,
+            'ad_user_data': priorConsent,
+            'ad_ads_measurement': priorConsent,
+            'analytics_storage': priorConsent
+        });
+    </script>
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-NLJVRQ6D');</script>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Olvida el RGB inútil. Selección de hardware y herramientas reales para optimizar tu trabajo en campo y en la oficina técnica.">
+    <title>Gadgets y Software para Ingenieros 2026 | Wikingenieria</title>
+    <meta name="description" content="Mi setup real de hardware y software para optimizar el trabajo en campo y análisis de datos en 2026. Cero relleno.">
     
-    <meta property="og:title" content="Gadgets para ingenieros 2026: Hardware que sí resuelve problemas">
+    <link rel="icon" type="image/x-icon" href="https://www.wikingenieria.com/assets/img/core/wikingenieria-favicon.ico">
+    <link rel="canonical" href="https://www.wikingenieria.com/logs/gadgets-para-ingenieros-2026">
+    
     <meta property="og:type" content="article">
     <meta property="og:url" content="https://www.wikingenieria.com/logs/gadgets-para-ingenieros-2026">
-    <meta property="og:image" content="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop">
+    <meta property="og:title" content="Gadgets y Software para Ingenieros 2026 | Wikingenieria">
+    <meta property="og:description" content="Mi setup real de hardware y software para optimizar el trabajo en campo y análisis de datos en 2026. Cero relleno.">
+    <meta property="og:image" content="https://www.wikingenieria.com/assets/img/core/wikingenieria-social-share-logs.png">
 
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@wikingenieria">
+    <meta name="twitter:title" content="Gadgets y Software para Ingenieros 2026 | Wikingenieria">
+    <meta name="twitter:description" content="Mi setup real de hardware y software para optimizar el trabajo en campo y análisis de datos en 2026. Cero relleno.">
+    <meta name="twitter:image" content="https://www.wikingenieria.com/assets/img/core/wikingenieria-social-share-logs.png">
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
-        tailwind.config = { theme: { extend: { colors: { 'w-black': '#020201', 'w-olive': '#2a322e', 'w-sage': '#b0bab3', 'w-light': '#d3d3d3' }, fontFamily: { 'sans': ['Inter', 'sans-serif'], 'mono': ['Space Grotesk', 'monospace'] } } } }
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'w-black': '#020201',
+                        'w-olive': '#2a322e',
+                        'w-sage': '#b0bab3',
+                        'w-light': '#d3d3d3',
+                        'w-offblack': '#080a09',
+                    },
+                    fontFamily: {
+                        'sans': ['Inter', 'sans-serif'],
+                        'mono': ['Space Grotesk', 'monospace'],
+                    }
+                }
+            }
+        }
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Space+Grotesk:wght@300;500;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <link rel="icon" type="image/x-icon" href="../assets/img/core/wikingenieria-favicon.ico">
-</head>
+    <style>
+        /* Estilos base para el artículo */
+        .terminal-box {
+            background-color: #080a09;
+            border-left: 4px solid #b0bab3;
+            padding: 1.5rem;
+            margin: 2rem 0;
+            font-family: 'Space Grotesk', monospace;
+            position: relative;
+        }
+        .terminal-box a {
+            color: #d3d3d3;
+            text-decoration: underline;
+            text-decoration-color: #b0bab3;
+            text-underline-offset: 4px;
+            transition: all 0.2s ease;
+        }
+        .terminal-box a:hover {
+            color: #ffffff;
+            text-decoration-color: #ffffff;
+        }
+    </style>
+    </head>
 
 <body class="bg-w-black text-w-sage font-sans antialiased selection:bg-w-light selection:text-w-black flex flex-col min-h-screen">
 
-    <nav class="fixed w-full z-50 bg-w-black/90 backdrop-blur-md border-b border-w-olive transition-all duration-300" id="navbar">
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-NLJVRQ6D" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+
+    <nav class="fixed w-full z-50 bg-w-black/95 backdrop-blur-md border-b border-w-olive transition-all duration-300" id="navbar">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <a href="../index.html" class="flex items-center gap-3 hover:opacity-80 transition">
-                <img src="../assets/img/core/wikingenieria-logo.png" alt="Logo" class="h-9 w-9 opacity-90">
-                <span class="font-mono text-lg font-bold text-w-light tracking-tight">Wikingeniería</span>
+            <a href="https://www.wikingenieria.com/" class="flex items-center gap-3 group">
+                <img src="https://www.wikingenieria.com/assets/img/core/wikingenieria-logo.png" alt="Wikingenieria Logo Oficial" class="h-9 w-9 opacity-90 group-hover:opacity-100 transition">
+                <span class="font-mono text-xl font-bold text-w-light tracking-tight">Wikingenieria</span>
+                <span class="text-w-olive animate-pulse font-bold text-xl font-mono -ml-1">_</span>
             </a>
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="../logs" class="font-mono text-xs text-w-sage hover:text-w-light uppercase tracking-widest border border-w-sage/30 px-3 py-1 rounded-full transition hover:border-w-light">
-                    <i class="fas fa-arrow-left mr-2"></i> Volver al Archivo
+            <div class="hidden md:flex items-center space-x-8 h-full">
+                <a href="https://www.wikingenieria.com/logs" class="font-mono text-sm text-w-sage hover:text-w-light transition-colors uppercase tracking-widest flex items-center h-full">
+                    <i class="fas fa-arrow-left mr-2"></i> Volver al Repositorio
                 </a>
             </div>
-            <button id="mobile-menu-btn" class="md:hidden text-w-sage hover:text-w-light focus:outline-none"><i class="fas fa-bars text-2xl"></i></button>
+            <button id="mobile-menu-btn" class="md:hidden text-w-sage hover:text-w-light focus:outline-none p-2">
+                <i class="fas fa-bars text-xl"></i>
+            </button>
         </div>
         <div id="mobile-menu" class="hidden md:hidden bg-w-black border-b border-w-olive absolute w-full left-0 top-20">
             <div class="px-6 pt-4 pb-8 space-y-4 flex flex-col text-center">
-                <a href="../index.html" class="font-mono text-sm text-w-light py-3 border-b border-w-olive/30 uppercase tracking-widest">Inicio</a>
-                <a href="../logs" class="font-mono text-sm text-w-light py-3 border-b border-w-olive/30 uppercase tracking-widest">Volver a Logs</a>
+                <a href="https://www.wikingenieria.com/" class="font-mono text-sm text-w-light py-3 border-b border-w-olive/30 uppercase tracking-widest">Inicio</a>
+                <a href="https://www.wikingenieria.com/logs" class="font-mono text-sm text-w-light py-3 border-b border-w-olive/30 uppercase tracking-widest">Volver al Repositorio</a>
             </div>
         </div>
     </nav>
-
-    <article class="flex-grow pt-32 pb-20 px-6">
+    <main class="flex-grow pt-32 pb-20 px-6">
         <div class="max-w-3xl mx-auto">
             
-            <header class="mb-12 text-center">
-                <div class="inline-block border-b border-w-light/30 mb-6 pb-1">
-                    <span class="font-mono text-xs text-w-light uppercase tracking-[0.2em]">HARDWARE / SETUP</span>
+            <header class="mb-12 border border-w-olive bg-w-offblack p-6 rounded-sm">
+                <div class="flex items-center justify-between border-b border-w-olive/50 pb-4 mb-4">
+                    <span class="font-mono text-[10px] text-w-sage uppercase tracking-[0.2em] flex items-center">
+                        <i class="fas fa-terminal mr-2"></i> ROOT@WIKINGENIERIA:~#
+                    </span>
+                    <time class="font-mono text-[10px] text-w-sage/50">ENTRY_001 :: 09.02.2026</time>
                 </div>
-                <h1 class="font-mono text-3xl md:text-5xl font-bold text-w-light mb-6 leading-tight">
-                    Gadgets para ingenieros 2026
+                <h1 class="font-mono text-3xl md:text-4xl font-bold text-w-light mb-4 leading-tight">
+                    Gadgets y Software para Ingenieros 2026
                 </h1>
-                <p class="text-lg md:text-xl text-w-sage/80 font-light italic mb-8 max-w-2xl mx-auto">
-                    "Olvida el RGB. Herramientas de hardware reales para optimizar tu trabajo en campo y en la oficina."
+                <p class="text-base text-w-sage/80 font-light leading-relaxed">
+                    > Ejecutando escaneo de hardware y software.<br>
+                    > Filtrando humo comercial. Mostrando solo herramientas para optimizar el trabajo en campo, análisis de datos y configuración de sistemas.
                 </p>
-                <time class="font-mono text-xs text-w-sage/50 block">09.02.2026 • 5 min de lectura</time>
             </header>
-
-            <div class="w-full h-64 md:h-96 bg-w-olive mb-12 overflow-hidden border border-w-olive">
-                <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?q=80&w=1200&auto=format&fit=crop" alt="Circuito hardware detalle" class="w-full h-full object-cover opacity-90 grayscale hover:grayscale-0 transition-all duration-700">
-            </div>
-
-            <div class="prose prose-invert prose-lg max-w-none prose-headings:font-mono prose-headings:text-w-light prose-p:text-w-sage prose-p:font-light prose-p:leading-relaxed prose-strong:text-white prose-a:text-w-light prose-a:underline hover:prose-a:text-white prose-li:text-w-sage prose-li:font-light">
+            
+            <figure class="w-full mb-16 border border-w-olive bg-w-black overflow-hidden rounded-sm shadow-xl group">
+                <div class="relative w-full aspect-[1.91/1] overflow-hidden">
+                    <div class="absolute inset-0 bg-w-olive/10 mix-blend-overlay z-10 group-hover:bg-transparent transition-colors duration-500 pointer-events-none"></div>
+                    
+                    <img src="../assets/img/blog/2026/banner-gadgets-ingenieros-2026.webp" 
+                         alt="4 pilares del setup de ingeniería: Hardware, Software, Energía y Foco" 
+                         class="w-full h-full object-cover grayscale opacity-90 group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-700 transform group-hover:scale-[1.02]">
+                </div>
                 
-                <p>El mercado está saturado de periféricos de aspecto "gaming" y herramientas que prometen revolucionar tu productividad, pero que en el fondo solo son plástico caro con luces LED. Cuando estás ocho horas mapeando señales, configurando equipos de planta o ahogado en hojas de cálculo para calcular KPIs, necesitas cosas que funcionen. Punto.</p>
+                <figcaption class="bg-w-offblack border-t border-w-olive/50 px-4 py-2 flex justify-between items-center">
+                    <span class="font-mono text-[9px] text-w-sage/50 tracking-[0.2em] uppercase">IMG_REF: TECH_STACK_2026</span>
+                    <span class="font-mono text-[9px] text-w-olive tracking-[0.2em] uppercase font-bold animate-pulse">STATUS: RENDERED</span>
+                </figcaption>
+            </figure>
 
-                <p>Aquí tienes el hardware que realmente marca la diferencia en 2026, sin humo y orientado a quitarte trabajo de encima.</p>
+            <div class="prose prose-invert prose-lg max-w-none prose-headings:font-mono prose-headings:text-w-light prose-p:text-w-sage prose-p:font-light prose-p:leading-relaxed prose-strong:text-w-light prose-a:text-w-light prose-a:underline hover:prose-a:text-white prose-li:text-w-sage prose-li:font-light">
+                
+                <p>El mercado está saturado de periféricos que prometen revolucionar tu productividad, pero que en el fondo son plástico con luces LED. Cuando estás lidiando con SCADAs, configurando plantas fotovoltaicas o haciendo un backfill de datos masivo en un APM, necesitas herramientas que simplemente funcionen y reduzcan tu carga cognitiva.</p>
+                <p>Este es el hardware y software que realmente marca la diferencia. Lo que tengo en la mochila, lo que uso en mi escritorio y lo que no falla.</p>
 
-                <h2>1. El Macropad: Tu terminal física</h2>
-                <p>Dejar de usar atajos de teclado complejos y pasar a un hardware dedicado es un salto brutal. No hablo de teclados mecánicos completos, sino de teclados auxiliares (macropads) o dispositivos tipo Stream Deck.</p>
-                <p>Tener teclas físicas programadas para lanzar scripts de Python recurrentes, abrir entornos de desarrollo específicos, o insertar bloques de texto técnico que usas cincuenta veces al día en los correos te ahorra mucha carga cognitiva.</p>
-                <ul>
-                    <li><strong>Recomendación:</strong> Elgato Stream Deck MK.2 o cualquier Macropad QMK/VIA.</li>
-                    <li><strong>Uso clave:</strong> Automatización de apertura de software pesado y macros de teclado para tareas repetitivas en SCADAs.</li>
-                </ul>
+                <div class="bg-w-olive/10 border border-w-sage/20 p-6 my-8 rounded-sm relative overflow-hidden">
+                    <div class="absolute top-0 left-0 w-1 h-full bg-w-olive"></div>
+                    <h3 class="font-mono text-lg text-w-light font-bold mb-3 flex items-center mt-0">
+                        <i class="fas fa-bolt text-w-olive mr-3 animate-pulse"></i> FAST TRACK: Resumen Rápido
+                    </h3>
+                    <p class="text-sm text-w-sage mb-4 leading-relaxed">Si estás en medio de una puesta en marcha y no tienes tiempo de escanear el log completo, estos son los 3 multiplicadores de productividad absolutos de este año:</p>
+                    <ul class="space-y-3 mb-0 list-none pl-0">
+                        <li class="flex items-start">
+                            <i class="fas fa-chevron-right text-w-sage/50 text-xs mt-1.5 mr-3"></i>
+                            <span class="text-sm"><strong><a href="TU_LINK_1" target="_blank" rel="noopener">EL PRODUCTO 1</a>:</strong> Para [escribe aquí el problema principal que resuelve, ej: salvarte el cuello al teletrabajar].</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-chevron-right text-w-sage/50 text-xs mt-1.5 mr-3"></i>
+                            <span class="text-sm"><strong><a href="TU_LINK_2" target="_blank" rel="noopener">EL PRODUCTO 2</a>:</strong> Porque [escribe aquí por qué es útil, ej: un ingeniero sin batería en planta es un ingeniero inútil].</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-chevron-right text-w-sage/50 text-xs mt-1.5 mr-3"></i>
+                            <span class="text-sm"><strong><a href="TU_LINK_3" target="_blank" rel="noopener">EL PRODUCTO 3</a>:</strong> El estándar para [escribe aquí la justificación, ej: digerir manuales de 500 páginas sin quemarte la vista].</span>
+                        </li>
+                    </ul>
+                </div>
 
-                <h2>2. Ratón ergonómico de precisión (Tu muñeca te lo debe)</h2>
-                <p>Si trabajas en diseño de sistemas, análisis de datos o redacción de especificaciones, el ratón genérico de la empresa te está destrozando el túnel carpiano en silencio.</p>
-                <p>Un ratón con scroll lateral y botones personalizables por aplicación cambia la forma en la que navegas por excels kilométricos o esquemas unifilares.</p>
-                <ul>
-                    <li><strong>Recomendación:</strong> Logitech MX Master 3S.</li>
-                    <li><strong>Uso clave:</strong> El scroll lateral para líneas de tiempo y el sensor que funciona sobre cualquier superficie (incluso sobre el cuadro eléctrico de una instalación).</li>
-                </ul>
+                <h2 class="text-2xl mt-12 mb-4">1. Interfaz Física: Setup de Escritorio y Campo</h2>
+                <p>Tu cuerpo y tu tiempo sufren si no tienes la interfaz adecuada entre el mundo físico y los datos.</p>
+                
+                <div class="terminal-box">
+                    <p class="text-xs text-w-sage/60 uppercase mb-2 flex items-center gap-2"><i class="fas fa-laptop"></i> // HW_01: SOPORTE ERGONÓMICO ELEVADO</p>
+                    <p class="text-sm text-w-light m-0">El cuello roto de teletrabajar se soluciona con física básica. <a href="https://amzn.to/46YMfKf" target="_blank" rel="noopener">Este soporte de metal</a> eleva el portátil a la altura exacta de tus ojos. Lo mejor: deja un hueco limpio debajo perfecto para esconder una cajita, guardar cables, chicles o la pelota antiestrés sin ensuciar el setup.</p>
+                </div>
 
-                <h2>3. Power Bank de alta capacidad (100W+)</h2>
-                <p>El trabajo de ingeniero no siempre pasa en un escritorio cómodo. A veces te toca hacer una puesta en marcha, revisar un híbrido o configurar dispositivos en medio de una planta donde el enchufe más cercano está a 300 metros.</p>
-                <p>Necesitas una batería externa capaz de cargar un portátil a 100W. No las típicas de móvil, sino un bloque industrial que te garantice no quedarte con la pantalla en negro a mitad de una carga de firmware.</p>
-                <ul>
-                    <li><strong>Recomendación:</strong> Anker Prime 27,650mAh o similar con Power Delivery (PD) de 100W o 140W.</li>
-                    <li><strong>Uso clave:</strong> Supervivencia en campo y trabajo en remoto sin depender de enchufes.</li>
-                </ul>
+                <div class="terminal-box">
+                    <p class="text-xs text-w-sage/60 uppercase mb-2 flex items-center gap-2"><i class="fas fa-computer-mouse"></i> // HW_02: LOGITECH MX MASTER 3S</p>
+                    <p class="text-sm text-w-light m-0">Si lidias con Excel, SCADAs o esquemas kilométricos, el scroll lateral de este ratón te salva el túnel carpiano. El <a href="TU_LINK_AMAZON_MX_MASTER" target="_blank" rel="noopener">Logitech MX Master 3S</a> es un estándar en la industria por algo. Su sensor funciona sobre cristal o sobre la chapa del cuadro eléctrico de una instalación. Impepinable.</p>
+                </div>
 
-                <h2>4. Aislamiento acústico: Auriculares ANC</h2>
-                <p>La oficina técnica promedio (especialmente si es un *open space*) es el enemigo de la concentración profunda. Los tapones de espuma están bien para la fábrica, pero para compilar o pensar arquitectura de red, necesitas Cancelación Activa de Ruido (ANC).</p>
-                <p>No busques calidad audiófila, busca aislamiento puro para poder ponerte un generador de ruido blanco o música sin distracciones y aislarte del ruido de los servidores o las llamadas de los demás.</p>
-                <ul>
-                    <li><strong>Recomendación:</strong> Sony WH-1000XM5 o Bose QuietComfort.</li>
-                    <li><strong>Uso clave:</strong> Crear una burbuja de foco instantánea.</li>
-                </ul>
+                <div class="terminal-box border-l-cyan-600">
+                    <p class="text-xs text-cyan-500 uppercase mb-2 flex items-center gap-2 font-bold"><i class="fas fa-desktop"></i> // HW_03: MONITOR PORTÁTIL (15.6" USB-C) [MVP]</p>
+                    <p class="text-sm text-w-light m-0">Tirar código, tener la terminal abierta y mirar esquemas a la vez en 14 pulgadas es de masoquistas. Tanto si estás en la biblioteca como en la caseta de una planta fotovoltaica, sacar un segundo monitor que se alimenta con un solo cable USB-C te cambia la vida. <a href="TU_LINK_ARZOPA_O_ASUS" target="_blank" rel="noopener">Este modelo es fino, barato y no necesita instalación</a>.</p>
+                </div>
+                <div class="terminal-box">
+                    <p class="text-xs text-w-sage/60 uppercase mb-2 flex items-center gap-2"><i class="fas fa-headphones"></i> // HW_04: NOTHING EAR 3</p>
+                    <p class="text-sm text-w-light m-0">Llevo usando la versión 2 a diario y el salto natural son los <a href="https://amzn.to/3N27GTX" target="_blank" rel="noopener">Nothing Ear 3</a>. Batería que aguanta maratones, un ANC (cancelación de ruido) que te aísla en la oficina técnica y un micrófono que no te deja vendido en las reuniones. Diseño técnico impecable.</p>
+                </div>
+
+                <div class="terminal-box">
+                    <p class="text-xs text-w-sage/60 uppercase mb-2 flex items-center gap-2"><i class="fas fa-clock"></i> // HW_05: CASIO ABL 100WE (BLUETOOTH)</p>
+                    <p class="text-sm text-w-light m-0">Mantenemos el clásico vivo, pero actualizado. <a href="https://amzn.to/46qIHjP" target="_blank" rel="noopener">Este Casio</a> tiene step tracker y Bluetooth (ideal para asegurar tus macros diarios). Puedes ver la hora en plena oscuridad dentro de una sala de servidores y es un tanque absoluto que jamás te dejará tirado.</p>
+                </div>
+
+                <h2 class="text-2xl mt-12 mb-4">2. Supervivencia: Energía y Herramientas</h2>
+                <p>Configurar sistemas híbridos (BESS) o verificar inversores en planta implica estar lejos de un enchufe. Necesitas redundancia energética y mecánica.</p>
+
+                <div class="terminal-box border-l-amber-500">
+                    <p class="text-xs text-amber-500 uppercase mb-2 flex items-center gap-2 font-bold"><i class="fas fa-battery-full"></i> // HW_06: POWERBANK UGREEN ZAPIX 22.5W (20K mAh) [MVP]</p>
+                    <p class="text-sm text-w-light m-0">Si viajas, te mueves entre plantas o estás en campo, quedarte a cero de batería es crítico. <a href="https://amzn.to/3Ms5AN7" target="_blank" rel="noopener">Este bloque de UGREEN</a> tiene Power Delivery (perfecto para cargar un Pixel o terminales rápidos) y 20.000mAh. Tu salvavidas en la mochila.</p>
+                </div>
+                <div class="terminal-box">
+                    <p class="text-xs text-w-sage/60 uppercase mb-2 flex items-center gap-2"><i class="fas fa-screwdriver"></i> // HW_07: DESTORNILLADOR ELÉCTRICO DE PRECISIÓN</p>
+                    <p class="text-sm text-w-light m-0">Un extra que no puede faltar en la mochila de ningún ingeniero que toque hardware o cuadros. Un buen destornillador portátil de precisión (tipo Wowstick o iFixit) te ahorra frustración cuando toca desmontar carcasas rápido. <a href="https://amzn.to/4s5SunF" target="_blank" rel="noopener">Esta es mi recomendación top</a>.</p>
+                </div>
+
+                <div class="terminal-box">
+                    <p class="text-xs text-w-sage/60 uppercase mb-2 flex items-center gap-2"><i class="fas fa-suitcase"></i> // HW_08: MOCHILA TÉCNICA WATERPROOF</p>
+                    <p class="text-sm text-w-light m-0">El chasis de todo este ecosistema. Si llevas miles de euros en equipo, no escatimes en la caja. Necesitas algo rígido, resistente al agua (clave si vas a campo o te pilla lloviendo de camino a clase) y con compartimentos lógicos, no un saco sin fondo. <a href="TU_LINK_AMAZON_MOCHILA_MARKRYDEN" target="_blank" rel="noopener">Esta mochila técnica</a> cumple con los estándares sin costar un riñón.</p>
+                </div>
+
+                <div class="terminal-box">
+                    <p class="text-xs text-w-sage/60 uppercase mb-2 flex items-center gap-2"><i class="fas fa-lightbulb"></i> // HW_09: LÁMPARA PORTÁTIL REGULABLE</p>
+                    <p class="text-sm text-w-light m-0">Un gadget infravalorado. Esta lámpara portable con luz blanca y cálida regulable es vital tanto para sesiones de estudio nocturnas como para cuando te toca revisar un cuadro en un sótano mal iluminado. <a href="TU_LINK_LAMPARA_AMAZON" target="_blank" rel="noopener">Pequeña, ligera y se carga por USB-C</a>.</p>
+                </div>
+
+                <h2 class="text-2xl mt-12 mb-4">3. Foco Mental</h2>
+                <p>A veces, el mayor cuello de botella no es el hardware, es la concentración al lidiar con mappings kilométricos.</p>
+
+                <div class="terminal-box border-l-emerald-500">
+                    <p class="text-xs text-emerald-500 uppercase mb-2 flex items-center gap-2 font-bold"><i class="fas fa-tablet-screen-button"></i> // HW_10: CUADERNO DIGITAL E-INK [MVP]</p>
+                    <p class="text-sm text-w-light m-0">El iPad tiene demasiadas notificaciones y el papel acaba en la basura. Para diseñar arquitecturas de sistemas, tirar esquemas o resolver cálculos, la tinta electrónica es el formato final. <a href="TU_LINK_KINDLE_SCRIBE_O_BOOX" target="_blank" rel="noopener">Esta bestia (tipo Kindle Scribe / Boox)</a> te permite rayar PDFs de manuales técnicos sin cansarte la vista y sincronizarlo todo con la nube.</p>
+                </div>
+                <div class="terminal-box">
+                    <p class="text-xs text-w-sage/60 uppercase mb-2 flex items-center gap-2"><i class="fas fa-book-open"></i> // HW_11: KINDLE (LECTURA TÉCNICA Y FOCO)</p>
+                    <p class="text-sm text-w-light m-0">No todo es estar pegado al PC. Para digerir libros como <em>Hábitos Atómicos</em> o manuales de <em>Prompt Engineering</em> sin distracciones, el Kindle es mi herramienta de cabecera. La clave: puedes pasarle PDFs de ingeniería complejos y leerlos en cualquier sitio (visitas familiares, viajes) sin quemarte la vista. <a href="TU_LINK_KINDLE_AMAZON" target="_blank" rel="noopener">Indispensable para formación continua</a>.</p>
+                </div>
+
+                <div class="terminal-box">
+                    <p class="text-xs text-w-sage/60 uppercase mb-2 flex items-center gap-2"><i class="fas fa-pen"></i> // HW_12: BOLÍGRAFO MAGNÉTICO ANTIESTRÉS</p>
+                    <p class="text-sm text-w-light m-0">Cuando estás bloqueado con un bucle o esperando una compilación, mantener las manos ocupadas ayuda. <a href="https://amzn.to/4kW5Qk7" target="_blank" rel="noopener">Este bolígrafo modular</a> funciona como un lego magnético. Frikismo útil.</p>
+                </div>
+
+                <div class="terminal-box">
+                    <p class="text-xs text-w-sage/60 uppercase mb-2 flex items-center gap-2"><i class="fas fa-music"></i> // SW_01: SPOTIFY + "NEON CODING"</p>
+                    <p class="text-sm text-w-light m-0">Parte de mis gadgets no tangibles. Las listas de Synthwave son el filtro de paso-bajo definitivo para el ruido de la oficina o biblioteca.</p>
+                </div>
+                <h2 class="text-2xl mt-12 mb-6">4. Tech Stack: Software y Protocolos</h2>
+                <p class="mb-6">El código y las herramientas correctas multiplican tu rendimiento sin gastar un euro en periféricos.</p>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="border border-w-olive/50 bg-w-offblack p-5 rounded-sm hover:border-w-sage/30 transition-colors">
+                        <h4 class="font-mono text-w-light font-bold mb-2 flex items-center gap-2"><i class="fas fa-code text-w-sage/70"></i> Cursor</h4>
+                        <p class="text-sm m-0 text-w-sage/80 leading-relaxed">El IDE que redefine cómo interactuamos con el código. Entorno hipervitaminado con IA. Obligatorio si programas de forma habitual.</p>
+                    </div>
+
+                    <div class="border border-w-sage/40 bg-w-olive/10 p-5 rounded-sm hover:border-w-light transition-colors relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 bg-w-sage/20 text-w-light text-[9px] font-mono px-2 py-1 uppercase tracking-wider">Core System</div>
+                        <h4 class="font-mono text-w-light font-bold mb-2 flex items-center gap-2"><i class="fas fa-cube text-w-light group-hover:animate-pulse"></i> Notion</h4>
+                        <p class="text-sm m-0 text-w-sage/80 leading-relaxed">El segundo cerebro. Bases de datos relacionales para controlar IPs, documentación de proyectos y mantener la rutina en orden.</p>
+                    </div>
+
+                    <div class="border border-w-olive/50 bg-w-offblack p-5 rounded-sm hover:border-w-sage/30 transition-colors">
+                        <h4 class="font-mono text-w-light font-bold mb-2 flex items-center gap-2"><i class="fas fa-file-lines text-w-sage/70"></i> Notepad++</h4>
+                        <p class="text-sm m-0 text-w-sage/80 leading-relaxed">Sigue siendo el rey indiscutible para abrir archivos gigantes de logs, limpiar datos rápidos o formatear JSONs sin que la CPU sufra.</p>
+                    </div>
+
+                    <div class="border border-w-olive/50 bg-w-offblack p-5 rounded-sm hover:border-w-sage/30 transition-colors">
+                        <h4 class="font-mono text-w-light font-bold mb-2 flex items-center gap-2"><i class="fab fa-python text-w-sage/70"></i> Python + Pandas</h4>
+                        <p class="text-sm m-0 text-w-sage/80 leading-relaxed">Excel muere rápido con miles de filas; un script de Pandas automatizando mapeos de señales y limpieza de telemetría aguanta lo que le echen.</p>
+                    </div>
+
+                    <div class="border border-w-olive/50 bg-w-offblack p-5 rounded-sm hover:border-w-sage/30 transition-colors md:col-span-2">
+                        <h4 class="font-mono text-w-light font-bold mb-2 flex items-center gap-2"><i class="fas fa-project-diagram text-w-sage/70"></i> Canva & Lucid Charts</h4>
+                        <p class="text-sm m-0 text-w-sage/80 leading-relaxed">Para cuando toca bajar los datos a la tierra y explicar la jerarquía de dispositivos de una planta a gerencia mediante diagramas que se entiendan a la primera.</p>
+                    </div>
+                </div>
+
+                <h2 class="text-2xl mt-12 mb-4">Fin del log</h2>
+                <p>Simplifica. Identifica qué tarea repites más veces durante tu jornada de ingeniería y busca la herramienta específica que la reduzca a la mínima fricción posible.</p>
 
             </div>
             <div class="w-full h-px bg-w-olive my-16"></div>
 
-            <div class="bg-w-olive/20 border border-w-olive p-8 rounded-sm text-center mb-12">
-                <h3 class="font-mono text-xl text-w-light mb-2">Únete al Log de Wikingeniería</h3>
-                <p class="text-w-sage text-sm font-light mb-6">Recibe más tácticas, herramientas y recursos técnicos sin filtro comercial.</p>
-                
-                <form id="newsletter-hub-form" class="flex border-b border-w-sage/30 max-w-sm mx-auto focus-within:border-w-light transition">
-                    <input type="email" id="hub-email" required placeholder="tu@email.com" class="bg-transparent w-full text-w-light placeholder-w-sage/50 py-2 focus:outline-none font-mono text-sm">
-                    <button type="submit" id="hub-submit-btn" class="text-w-light font-mono text-xs uppercase tracking-widest hover:text-white ml-2 whitespace-nowrap">Suscribirse</button>
-                </form>
-                <div id="hub-status" class="hidden mt-4 font-mono text-xs text-w-light uppercase tracking-widest"></div>
-                </div>
-
-            <div class="bg-w-light/5 border border-w-light/10 p-8 md:p-10 flex flex-col md:flex-row items-center gap-8 relative overflow-hidden">
-                <div class="md:w-1/3">
-                    <div class="aspect-square bg-w-olive relative overflow-hidden border border-w-olive shadow-2xl">
-                        <img src="https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=600&auto=format&fit=crop" class="w-full h-full object-cover grayscale opacity-80" alt="Sistema operativo estudiante">
+            <div class="bg-w-black border border-w-olive/60 p-8 flex flex-col md:flex-row items-center gap-8 relative overflow-hidden group">
+                <div class="absolute inset-0 bg-w-olive/5 mix-blend-overlay group-hover:bg-w-olive/10 transition-colors duration-500"></div>
+                <div class="md:w-1/3 z-10">
+                    <div class="aspect-square bg-w-olive relative overflow-hidden border border-w-olive shadow-lg group-hover:shadow-w-olive/20 transition-shadow">
+                        <img src="../assets/img/products/main-product-cover_OLD.webp" alt="Sistema Operativo para Estudiantes - Notion" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500">
                     </div>
                 </div>
                 <div class="md:w-2/3 text-center md:text-left z-10">
-                    <h3 class="font-mono text-2xl text-w-light font-bold mb-2">Organiza tu caos académico y profesional</h3>
+                    <h3 class="font-mono text-xl md:text-2xl text-w-light font-bold mb-3">Sistematiza tu carrera académica</h3>
                     <p class="text-w-sage font-light mb-6 text-sm leading-relaxed">
-                        Deja de usar Excel para todo. Estructura tu conocimiento, proyectos y tareas en un solo lugar.
+                        Si te ha gustado la parte de optimización con Notion, este sistema es para ti. Deja el caos de apuntes y excels, y estructura tu ingeniería como un profesional.
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                        <a href="#productos" class="bg-w-light text-w-black font-mono text-xs font-bold uppercase tracking-widest px-6 py-3 hover:bg-white transition text-center border border-transparent">Ver Plantillas</a>
+                        <a href="https://wikingenieria.gumroad.com/l/student-os" target="_blank" rel="noopener" class="bg-w-olive text-w-light border border-w-sage/30 font-mono text-xs font-bold uppercase tracking-widest px-6 py-3 hover:bg-w-light hover:text-w-black hover:border-w-light transition-all text-center">
+                            Ver Plantilla Notion
+                        </a>
                     </div>
                 </div>
             </div>
+            </div>
+    </main>
 
+    <section class="py-16 md:py-20 px-6 bg-[#2a322e] border-y border-w-olive/40">
+        <div class="max-w-xl mx-auto text-center">
+            <h3 class="font-mono text-xl md:text-2xl text-white mb-2">Únete al Log de Wikingenieria</h3>
+            <p class="text-sm text-w-light/70 mb-6 font-light">Recibe actualizaciones del sistema, nuevos recursos y contenido exclusivo.</p>
+            
+            <form id="newsletter-hub-form" class="flex border-b border-w-light/50 pb-2 focus-within:border-white transition relative z-20">
+                <input type="email" id="hub-email" name="email" required placeholder="tu@email.com"
+                    class="bg-transparent w-full text-white placeholder-w-light/50 focus:outline-none font-mono text-sm">
+                <button type="submit" id="hub-submit-btn"
+                    class="text-w-light font-mono text-xs uppercase tracking-widest hover:text-white transition whitespace-nowrap ml-4">Recibir Log</button>
+            </form>
+    
+            <div id="hub-status" class="hidden mt-6 p-4 bg-black/60 border border-w-olive/50 rounded-sm backdrop-blur-sm text-center">
+            </div>
         </div>
-    </article>
-
-    <footer class="bg-w-olive/10 border-t border-w-olive py-12">
+    </section>
+    <footer class="bg-w-black border-t border-w-olive/30 py-12 relative z-10">
         <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-8">
             <div class="flex flex-col gap-2 text-center md:text-left">
-                <div class="flex items-center justify-center md:justify-start gap-3">
-                    <img src="../assets/img/core/wikingenieria-logo.png" alt="Logo" class="h-8 w-auto opacity-80 hover:opacity-100 transition">
-                    <span class="font-mono text-xs text-w-sage/40 uppercase tracking-widest">© 2026 Wikingeniería</span>
+                <div class="flex items-center justify-center md:justify-start gap-3 cursor-pointer" id="footer-logo-container">
+                    <img src="https://www.wikingenieria.com/assets/img/core/wikingenieria-logo.png" alt="Logo" class="h-8 w-auto opacity-100 hover:opacity-100 transition" id="footer-logo">
+                    <span class="font-mono text-xs md:text-sm text-w-sage/80 uppercase tracking-widest">© 2026 Wikingenieria</span>
                 </div>
-                <div class="flex gap-4 text-[10px] font-mono text-w-sage/30 uppercase tracking-widest justify-center md:justify-start">
-                    <a href="../legal.html#aviso" class="hover:text-w-light transition">Aviso Legal</a>
+                
+                <div class="flex gap-4 text-[10px] md:text-xs font-mono text-w-sage/70 uppercase tracking-widest justify-center md:justify-start">
+                    <a href="https://www.wikingenieria.com/legal" class="hover:text-w-light transition">Aviso Legal</a>
                     <span class="text-w-olive">|</span>
-                    <a href="../legal.html#privacidad" class="hover:text-w-light transition">Privacidad</a>
+                    <a href="https://www.wikingenieria.com/legal#privacidad" class="hover:text-w-light transition">Privacidad</a>
                     <span class="text-w-olive">|</span>
-                    <a href="../legal.html#cookies" class="hover:text-w-light transition">Cookies</a>
+                    <a href="https://www.wikingenieria.com/legal#cookies" class="hover:text-w-light transition">Cookies</a>
                 </div>
             </div>
-            <div class="flex flex-wrap justify-center md:justify-end gap-6">
-                <a href="https://instagram.com/wikingenieria" target="_blank" rel="noopener" class="text-w-sage/60 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-instagram text-lg"></i></a>
-                <a href="https://x.com/wikingenieria" target="_blank" rel="noopener" class="text-w-sage/60 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-x-twitter text-lg"></i></a>
-                <a href="https://tiktok.com/@wikingenieria" target="_blank" rel="noopener" class="text-w-sage/60 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-tiktok text-lg"></i></a>
-                <a href="https://facebook.com/wikingenieria" target="_blank" rel="noopener" class="text-w-sage/60 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-facebook text-lg"></i></a>
-                <a href="https://www.youtube.com/@Wikingenieria" target="_blank" rel="noopener" class="text-w-sage/60 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-youtube text-lg"></i></a>
-                <a href="https://open.spotify.com/show/4rJF6Rcz7CtIKGzAR2SBiz?si=800ccb4920594e02" target="_blank" rel="noopener" class="text-w-sage/60 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-spotify text-lg"></i></a>
+            
+            <div class="flex flex-wrap justify-center md:justify-end gap-6"> 
+                <a href="https://www.instagram.com/wikingenieria?igsh=MTBsczl2Z2hjcTYweQ==" target="_blank" rel="noopener" class="text-w-sage/90 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-instagram text-lg"></i></a>
+                <a href="https://x.com/wikingenieria" target="_blank" rel="noopener" class="text-w-sage/90 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-x-twitter text-lg"></i></a>
+                <a href="https://tiktok.com/@wikingenieria" target="_blank" rel="noopener" class="text-w-sage/90 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-tiktok text-lg"></i></a>
+                <a href="https://facebook.com/wikingenieria" target="_blank" rel="noopener" class="text-w-sage/90 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-facebook text-lg"></i></a>
+                <a href="https://www.youtube.com/@Wikingenieria" target="_blank" rel="noopener" class="text-w-sage/90 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-youtube text-lg"></i></a>
+                <a href="http://googleusercontent.com/spotify.com/5" target="_blank" rel="noopener" class="text-w-sage/90 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-spotify text-lg"></i></a>
             </div>
         </div>
     </footer>
+    <button id="backToTop" onclick="window.scrollTo({top: 0, behavior: 'smooth'})" class="fixed bottom-8 right-8 bg-w-olive text-w-light w-10 h-10 flex items-center justify-center rounded-sm opacity-0 pointer-events-none transition-all duration-300 hover:bg-w-light hover:text-w-black z-50 border border-w-light/10">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <div id="cookie-banner" class="fixed bottom-0 left-0 w-full bg-w-black/95 backdrop-blur-md border-t border-w-olive p-4 z-[60] transform translate-y-full transition-transform duration-500 hidden">
+        <div class="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
+            <div class="text-xs text-w-sage font-mono font-light text-center md:text-left">
+                <span class="text-w-light font-bold">SYSTEM_NOTICE:</span> Usamos cookies propias y de terceros para mejorar tu experiencia.
+                <a href="https://www.wikingenieria.com/legal#cookies" class="underline hover:text-white ml-1">Ver política</a>.
+            </div>
+            <div class="flex gap-3">
+                <button id="btn-reject" class="px-4 py-2 border border-w-sage/30 text-[10px] font-mono uppercase text-w-sage hover:text-white hover:border-white transition rounded-sm">
+                    Rechazar
+                </button>
+                <button id="btn-accept" class="px-6 py-2 bg-w-olive text-w-light text-[10px] font-mono font-bold uppercase hover:bg-w-light hover:text-w-black transition rounded-sm">
+                    Aceptar Todo
+                </button>
+            </div>
+        </div>
+    </div>
 
     <script>
-        // 1. Script del menú móvil
-        const btn = document.getElementById('mobile-menu-btn');
-        const menu = document.getElementById('mobile-menu');
-        const icon = btn.querySelector('i');
-        const mobileLinks = document.querySelectorAll('#mobile-menu a');
-
-        btn.addEventListener('click', () => {
-            menu.classList.toggle('hidden');
-            if (menu.classList.contains('hidden')) {
-                icon.classList.remove('fa-xmark');
-                icon.classList.add('fa-bars');
-            } else {
-                icon.classList.remove('fa-bars');
-                icon.classList.add('fa-xmark');
-            }
-        });
-
-        mobileLinks.forEach(link => {
-            link.addEventListener('click', () => {
-                menu.classList.add('hidden');
-                icon.classList.remove('fa-xmark');
-                icon.classList.add('fa-bars');
-            });
-        });
-
-        // 2. Script para enlazar el formulario de newsletter con tu Webhook de Make.com
-        const hubForm = document.getElementById('newsletter-hub-form');
-        const hubStatus = document.getElementById('hub-status');
-        
-        hubForm?.addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const email = document.getElementById('hub-email').value;
-            if (!email.includes('@')) return;
+        document.addEventListener('DOMContentLoaded', function() {
             
-            const btnSubmit = document.getElementById('hub-submit-btn');
-            btnSubmit.innerText = 'PROCESANDO...'; 
-            btnSubmit.disabled = true;
-
-            try {
-                const res = await fetch('https://hook.eu1.make.com/i94znb36hor2wlepeseoet2iv1uuaaa3', {
-                    method: 'POST',
-                    headers: { 'Content-Type': 'application/json' },
-                    body: JSON.stringify({email, source: "Articulo Gadgets", timestamp: new Date().toISOString()})
+            // --- 1. MENÚ MÓVIL ---
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            const mobileMenu = document.getElementById('mobile-menu');
+            if (mobileBtn && mobileMenu) {
+                const icon = mobileBtn.querySelector('i');
+                const links = document.querySelectorAll('.mobile-link');
+                mobileBtn.addEventListener('click', (e) => {
+                    e.stopPropagation(); 
+                    mobileMenu.classList.toggle('hidden');
+                    if (mobileMenu.classList.contains('hidden')) { icon.classList.remove('fa-xmark'); icon.classList.add('fa-bars'); } 
+                    else { icon.classList.remove('fa-bars'); icon.classList.add('fa-xmark'); }
                 });
-                
-                if (res.ok) {
-                    hubStatus.innerHTML = `> TRANSMISIÓN RECIBIDA`;
-                    hubStatus.classList.remove('hidden'); 
-                    hubForm.reset(); 
-                    btnSubmit.innerText = 'SUSCRITO';
-                }
-            } catch (e) { 
-                btnSubmit.disabled = false; 
-                btnSubmit.innerText = 'SUSCRIBIRSE'; 
+                links.forEach(link => {
+                    link.addEventListener('click', () => { mobileMenu.classList.add('hidden'); icon.classList.remove('fa-xmark'); icon.classList.add('fa-bars'); });
+                });
+                document.addEventListener('click', (e) => {
+                    if (!mobileMenu.contains(e.target) && !mobileBtn.contains(e.target) && !mobileMenu.classList.contains('hidden')) {
+                        mobileMenu.classList.add('hidden'); icon.classList.remove('fa-xmark'); icon.classList.add('fa-bars');
+                    }
+                });
             }
+
+            // --- 2. BOTÓN VOLVER ARRIBA ---
+            const backToTopBtn = document.getElementById('backToTop');
+            if (backToTopBtn) {
+                window.addEventListener('scroll', () => {
+                    if (window.scrollY > 300) { backToTopBtn.classList.remove('opacity-0', 'pointer-events-none'); } 
+                    else { backToTopBtn.classList.add('opacity-0', 'pointer-events-none'); }
+                });
+            }
+
+            // --- 3. LOGICA DE COOKIES Y CONSENTIMIENTO (GA4) ---
+            const cb = document.getElementById('cookie-banner');
+            function updateGoogleConsent(isAccepted) {
+                const consentStatus = isAccepted ? 'granted' : 'denied';
+                if (typeof gtag === 'function') {
+                    gtag('consent', 'update', {
+                        'ad_storage': consentStatus,
+                        'ad_user_data': consentStatus,
+                        'ad_ads_measurement': consentStatus,
+                        'analytics_storage': consentStatus
+                    });
+                }
+            }
+            if (cb && !localStorage.getItem('cookiesAccepted')) {
+                cb.classList.remove('hidden');
+                setTimeout(() => { cb.classList.remove('translate-y-full'); }, 500);
+            }
+            const btnAccept = document.getElementById('btn-accept');
+            const btnReject = document.getElementById('btn-reject');
+            if(btnAccept) { 
+                btnAccept.addEventListener('click', () => { 
+                    localStorage.setItem('cookiesAccepted', 'true'); 
+                    updateGoogleConsent(true);
+                    cb.classList.add('translate-y-full'); 
+                }); 
+            }
+            if(btnReject) { 
+                btnReject.addEventListener('click', () => { 
+                    localStorage.setItem('cookiesAccepted', 'false'); 
+                    updateGoogleConsent(false);
+                    cb.classList.add('translate-y-full'); 
+                }); 
+            }
+
+            // --- 4. FORMULARIO NEWSLETTER CON TELEMETRIA (GA4 + MAKE) ---
+            const hubForm = document.getElementById('newsletter-hub-form');
+            const hubStatus = document.getElementById('hub-status');
+            hubForm?.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const email = document.getElementById('hub-email').value;
+                if (!email.includes('@')) return;
+                const btn = document.getElementById('hub-submit-btn');
+                btn.innerText = 'PROCESANDO...'; btn.disabled = true;
+
+                try {
+                    const res = await fetch('https://hook.eu1.make.com/i94znb36hor2wlepeseoet2iv1uuaaa3', {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify({email, source: "Web Logs", timestamp: new Date().toISOString()})
+                    });
+                    if (res.ok) {
+                        if (typeof gtag === 'function') {
+                            gtag('event', 'generate_lead', { 'event_category': 'newsletter', 'event_label': 'Logs Footer' });
+                        }
+                        hubStatus.innerHTML = `<p class="font-mono text-sm text-w-olive uppercase font-bold">TRANSMISIÓN RECIBIDA</p>`;
+                        hubStatus.classList.remove('hidden'); hubForm.reset(); btn.innerText = 'SUSCRITO';
+                    }
+                } catch (e) { btn.disabled = false; btn.innerText = 'RECIBIR LOG'; }
+            });
+
         });
     </script>
-    
-</body>
+    </body>
 </html>
