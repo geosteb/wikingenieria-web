@@ -67,6 +67,8 @@
             margin: 2rem 0;
             font-family: 'Space Grotesk', monospace;
             position: relative;
+            box-shadow: inset 0 2px 10px 0 rgba(0, 0, 0, 0.5);
+            border-top: 1px solid rgba(176, 186, 179, 0.05);
         }
         .terminal-box a {
             color: #d3d3d3;
@@ -112,18 +114,19 @@
     <main class="flex-grow pt-32 pb-20 px-6">
         <div class="max-w-3xl mx-auto">
             
-            <header class="mb-12 border border-w-olive bg-w-offblack p-6 rounded-sm">
-                <div class="flex items-center justify-between border-b border-w-olive/50 pb-4 mb-4">
+            <header class="mb-12 border border-w-olive bg-w-offblack p-6 rounded-sm relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-px bg-[#2a322e]/40"></div>
+                <div class="flex items-center justify-between border-b border-w-olive/30 pb-4 mb-4">
                     <span class="font-mono text-[10px] text-w-sage uppercase tracking-[0.2em] flex items-center">
-                        <i class="fas fa-terminal mr-2"></i> ROOT@WIKINGENIERIA:~#
+                        <i class="fas fa-terminal text-[#2a322e]/80 mr-2 animate-pulse"></i> ROOT@WIKINGENIERIA
                     </span>
-                    <time class="font-mono text-[10px] text-w-sage/50">ENTRY_002 :: 24.02.2026</time>
+                    <time class="font-mono text-[10px] text-w-sage/50">ENTRY_002 :: 27.02.2026</time>
                 </div>
                 <h1 class="font-mono text-3xl md:text-4xl font-bold text-w-light mb-4 leading-tight">
                     Técnicas de estudio (reales) que salvaron mi carrera de Ingeniería
                 </h1>
                 <p class="text-base text-w-sage/80 font-light leading-relaxed">
-                    > Ejecutando protocolo de optimización académica.<br>
+                    > Este es el protocolo de optimización para estudiantes e incluso ingenieros.<br>
                     > Cómo hackear tu cerebro para aprobar sin perder la salud mental. La guía definitiva de ingeniero a estudiante.
                 </p>
             </header>
@@ -143,127 +146,129 @@
 
             <div class="prose prose-invert prose-lg max-w-none prose-headings:font-mono prose-headings:text-w-light prose-p:text-w-sage prose-p:font-light prose-p:leading-relaxed prose-strong:text-w-light prose-a:text-w-light prose-a:underline hover:prose-a:text-white prose-li:text-w-sage prose-li:font-light">
                 
-                <p>Hay muchas maneras de tomarse la época de exámenes. Si te quieres amargar y quejarte de que el profesor te tiene manía, es tu elección. Pero si te lo tomas con responsabilidad y analizas el sistema como lo que es (un problema a resolver), no solo aumentarás tus posibilidades de aprobar, sino que recuperarás tu tiempo libre.</p>
+                <p>Hay dos formas de enfocar la época de exámenes: puedes amargarte, llorar por el temario y quejarte de que el profesor te tiene maní o puedes tomar responsabilidad y ver el sistema académico como lo que es: <strong>un problema de ingeniería a resolver</strong>. Si haces lo segundo, no solo suben tus notas, sino que recuperas tu tiempo libre.</p>
                 
-                <p>He destilado las técnicas exactas que me salvaron en la carrera. Nada de "échale horas". Pura eficiencia.</p>
+                <p>He extraído las técnicas exactas que me salvaron en la carrera. Nada de "échale horas" ni motivación barata. Pura eficiencia táctica.</p>
 
-                <div class="bg-w-olive/10 border border-w-sage/20 p-6 my-8 rounded-sm relative overflow-hidden">
-                    <div class="absolute top-0 left-0 w-1 h-full bg-w-olive"></div>
+                <div class="bg-w-olive/20 border border-w-sage/30 p-6 my-8 rounded-sm relative overflow-hidden shadow-inner">
+                    <div class="absolute top-0 left-0 w-1.5 h-full bg-[#2a322e]"></div>
                     <h3 class="font-mono text-lg text-w-light font-bold mb-3 flex items-center mt-0">
-                        <i class="fas fa-bolt text-w-olive mr-3 animate-pulse"></i> FAST TRACK: Resumen Rápido
+                        <i class="fas fa-bolt text-[#2a322e] mr-3 animate-pulse"></i> Resumen Rápido
                     </h3>
-                    <p class="text-sm text-w-sage mb-4 leading-relaxed">Si el examen es mañana y estás en modo pánico, aquí tienes la inyección directa a la vena:</p>
-                    <ul class="space-y-3 mb-0 list-none pl-0">
+                    <p class="text-sm text-w-sage mb-4 leading-relaxed italic">Si el examen es ya y estás en pleno ataque de pánico, te dejo el top 3 aquí:</p>
+                    <ul class="space-y-4 mb-0 list-none pl-0">
                         <li class="flex items-start">
-                            <i class="fas fa-chevron-right text-w-sage/50 text-xs mt-1.5 mr-3"></i>
-                            <span class="text-sm"><strong>Ingeniería Inversa:</strong> Los libros son relleno; los exámenes de años anteriores son oro. Consíguelos como sea.</span>
+                            <i class="fas fa-chevron-right text-[#2a322e] text-xs mt-1.5 mr-3"></i>
+                            <span class="text-sm"><strong class="text-w-light">Ingeniería Inversa:</strong> Los libros y apuntes a última hora no sirve de nada. Debes conseguir los exámenes de años anteriores para tener ventaja. Audita al profesor, no al temario.</span>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-chevron-right text-w-sage/50 text-xs mt-1.5 mr-3"></i>
-                            <span class="text-sm"><strong>La estafa del Multitasking:</strong> El modo avión no es negociable. Interrumpir tu flujo de estudio cuesta 23 minutos de reinicio cerebral.</span>
+                            <i class="fas fa-chevron-right text-[#2a322e] text-xs mt-1.5 mr-3"></i>
+                            <span class="text-sm"><strong class="text-w-light">La penalización de 23 minutos:</strong> El multitasking es una estafa. Una sola interrupción de WhatsApp reinicia tu ciclo de concentración y necesitas 23 minutos para recuperarla. Modo avión innegociable.</span>
                         </li>
                         <li class="flex items-start">
-                            <i class="fas fa-chevron-right text-w-sage/50 text-xs mt-1.5 mr-3"></i>
-                            <span class="text-sm"><strong>Entiende, no memorices:</strong> Usa la memoria para constantes y la lógica para el desarrollo. Hazte siempre la prueba del "¿Por qué?".</span>
+                            <i class="fas fa-chevron-right text-[#2a322e] text-xs mt-1.5 mr-3"></i>
+                            <span class="text-sm"><strong class="text-w-light">Derivación Lógica:</strong> Memorizar el desarrollo de un problema es jugar a la ruleta rusa. Si sabes el <em>porqué</em> de la fórmula inicial, el <em>cómo</em> sale solo.</span>
                         </li>
                     </ul>
                 </div>
 
-                <h2 class="text-2xl mt-12 mb-4">1. Conoce al enemigo: Ingeniería inversa al examen</h2>
-                <p>Cuando entré en primero pequé de novato: iba a ciegas. No conocía a los profesores ni su estilo de evaluación. Pronto me di cuenta de que algunos estudiantes tenían guardados exámenes de otros años. Ese tipo de material es el tesoro de la carrera.</p>
+                <h2 class="text-2xl mt-12 mb-4">
+                    <span class="text-w-sage/40 mr-2">//</span>1. Conoce al enemigo: Ingeniería inversa
+                </h2>
+                <p>Cuando entré en primero iba completamente a ciegas. Pensaba que era lo mismo que bachillerato y no conocía la manera de puntuar de los profesores ni lo que me iba a esperar en el examen. Pronto me di cuenta de que los veteranos manejaban un archivo oculto: exámenes de otros años. Ese material marca la diferencia entre aprobar o ir a septiembre.</p>
                 
-                
-
                 <div class="terminal-box border-l-cyan-600">
-                    <p class="text-xs text-cyan-500 uppercase mb-2 flex items-center gap-2 font-bold"><i class="fas fa-database"></i> // RECOLECCIÓN DE DATOS</p>
-                    <p class="text-sm text-w-light m-0">Conecta con gente de cursos superiores. Pregunta qué tipo de ejercicios pone el profesor y cómo puntúa. Si un tema aparece en varios exámenes antiguos, es el core de la asignatura. Estudia de forma inteligente: analiza el patrón de fallos del sistema.</p>
+                    <p class="text-xs text-cyan-500 uppercase mb-2 flex items-center gap-2 font-bold"><i class="fas fa-database"></i> LA BASE DE DATOS DE EXÁMENES</p>
+                    <p class="text-sm text-w-light m-0">
+                        El valor de un examen pasado es 10 veces superior al de cualquier apunte. Si un tipo de problema de termodinámica se repite tres años, ese es el núcleo del sistema. Estudia de forma inteligente: analiza el patrón del profesor y úsalo a tu favor. En el manual 
+                        <a href="#ebook-section" class="text-w-sage underline decoration-w-olive hover:text-white transition-all">Sobrevive a la Ingeniería</a> explico exactamente cómo gestionar esto.
+                    </p>
                 </div>
 
-                <h2 class="text-2xl mt-12 mb-4">2. Procesamiento en Clúster: Estudiar acompañado</h2>
-                <p>Dos servidores comparten mejor la carga que uno. Cuando me rodeaba de las personas adecuadas, los problemas se resolvían más fácil. Ver la resolución desde otra mente te ayuda a comprender mejor el ejercicio.</p>
+                <h2 class="text-2xl mt-12 mb-4">
+                    <span class="text-w-sage/40 mr-2">//</span>2. El mito del grupo de estudio
+                </h2>
+                <p>Estudiar con colegas suele acabar en hablar de cualquier cosa menos de cálculo diferencial. Pero dos servidores comparten mejor la carga que uno si los configuras bien. La colaboración debe ser una herramienta de resolución de problemas, no un evento social.</p>
                 
                 <ul>
-                    <li><strong>Single Player (Teoría):</strong> Estudiar a solas. Usa la técnica PQRST (Preview, Question, Read, Summarize, Test) para lectura activa.</li>
-                    <li><strong>Multiplayer (Problemas):</strong> Hazlo como un juego. <em>Challenge:</em> El primero que resuelva el problema sin fallos de cálculo, le debe un café al otro. Mente responsable y cero interrupciones.</li>
+                    <li><strong>Single Player (Teoría):</strong> La teoría se repasa en solitario. No pierdas el tiempo leyendo apuntes en voz alta con nadie.</li>
+                    <li><strong>Multiplayer (Problemas):</strong> Reserva el grupo solo para hacer números. Ver la lógica de resolución en otra mente acelera tu propia comprensión mucho más rápido que darte de cabezazos solo contra un ejercicio. Hazlo competitivo: el primero que resuelva la matriz sin fallos, no paga los cafés.</li>
                 </ul>
 
-                <h2 class="text-2xl mt-12 mb-4">3. Entorno y Estado de Flow: Tu superpoder oculto</h2>
-                <p>Trabajando como ingeniero me di cuenta de que rendía más que en la oficina por el control del entorno. Cuando alguien te interrumpe con un "¿tienes un momento?", tu cerebro no se pausa; se reinicia. Los estudios dicen que tardas 23 minutos en recuperar tu nivel de concentración mental.</p>
+                <h2 class="text-2xl mt-12 mb-4">
+                    <span class="text-w-sage/40 mr-2">//</span>3. Blindaje del cerebro
+                </h2>
+                <p>Tu cerebro no "pausa" una ecuación compleja cuando miras una notificación de Instagram; se resetea por completo. Una interrupción te cuesta 23 minutos de concentración. El entorno controlado no es buscar comodidad, es buscar velocidad de procesamiento. El modo avión es innegociable.</p>
 
-                <p>Ese nivel máximo de concentración se llama <strong>Estado de Flow</strong>. Es un estado donde tu mente procesa el aprendizaje con una eficiencia brutal. El psicólogo Mihaly Csikszentmihalyi definió que este estado es una función entre tu Habilidad ($H$) y la Dificultad del Reto ($R$).</p>
-
+                <p>Romper el estado de reposo inicial consume demasiada energía. Si te propones estudiar 4 horas del tirón, fracasarás por agotamiento. Usa el apilamiento de hábitos (Habit Stacking): ancla tu estudio a algo que ya hagas. Ejemplo: "Después de encender el portátil y tomar café, hago 10 minutos de lectura". Tras unas semanas, entrar en <strong>Estado de Flow</strong> se vuelve un acto reflejo.</p>
                 
-
                 <div class="terminal-box">
-                    <p class="text-xs text-w-sage/60 uppercase mb-2 flex items-center gap-2"><i class="fas fa-calculator"></i> // LA ECUACIÓN DEL FLOW</p>
-                    <ul class="text-sm text-w-light m-0 space-y-2">
-                        <li>Si $R > H \rightarrow$ Ansiedad (Bloqueo). Bajas la dificultad del problema.</li>
-                        <li>Si $H > R \rightarrow$ Aburrimiento. Buscas exámenes más duros.</li>
-                        <li>Si $H \approx R \rightarrow$ <strong>FLOW</strong>. Avance masivo.</li>
-                    </ul>
+                    <p class="text-xs text-w-sage/60 uppercase mb-2 flex items-center gap-2"><i class="fas fa-beer-mug-empty"></i> LA PARADOJA DEL OCIO</p>
+                    <p class="text-sm text-w-light m-0">El año que más asignaturas aprobé fue el año que más salí de fiesta. Estudiar a <em>Full Focus</em> te permite tener horas libres reales. Si bloqueas 2 horas rindiendo al 95%, destrozarás a quien pasa 5 horas en la biblioteca mirando el móvil. Aísla tu mente, ejecuta el trabajo, y vete a tomar una cerveza sin remordimientos.</p>
                 </div>
-
-                <p>El error del principiante es entrar en Flow solo por pánico, la noche antes del examen. El objetivo es activarlo a voluntad ajustando tu entorno: ergonomía visual (escritorio limpio) y aislamiento acústico.</p>
                 
-                <h2 class="text-2xl mt-12 mb-6">4. Tech Stack: Plantillas y Visualización</h2>
-                <p class="mb-6">El 80% de los compañeros que tenían apuntes limpios y visuales aprobaba a la primera. La mente humana procesa imágenes 60.000 veces más rápido que el texto. No necesitas 10 aplicaciones, necesitas estas tres:</p>
-
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div class="border border-w-olive/50 bg-w-offblack p-5 rounded-sm hover:border-w-sage/30 transition-colors">
-                        <h4 class="font-mono text-w-light font-bold mb-2 flex items-center gap-2"><i class="fas fa-cube text-w-sage/70"></i> Notion</h4>
-                        <p class="text-sm m-0 text-w-sage/80 leading-relaxed">El Cerebro. Para organizar asignaturas, fechas de entrega y automatizar el cálculo de notas. Tu base organizativa.</p>
-                    </div>
-
-                    <div class="border border-w-olive/50 bg-w-offblack p-5 rounded-sm hover:border-w-sage/30 transition-colors">
-                        <h4 class="font-mono text-w-light font-bold mb-2 flex items-center gap-2"><i class="fas fa-project-diagram text-w-sage/70"></i> Lucidchart</h4>
-                        <p class="text-sm m-0 text-w-sage/80 leading-relaxed">La Lógica. El estándar de la industria para diagramas de flujo y esquemas técnicos. Empieza a usarlo ya.</p>
-                    </div>
+                <h2 class="text-2xl mt-12 mb-6">
+                    <span class="text-w-sage/40 mr-2">//</span>4. Active Recall: La ilusión de competencia
+                </h2>
+                <p>Subrayar con colores fluorescentes y releer los apuntes cinco veces es el mayor fraude académico. Se llama "ilusión de competencia": crees que te lo sabes porque lo estás leyendo, pero tu cerebro no está trabajando, solo está reconociendo texto.</p>
+                
+                <p>La única forma de aprender información técnica es forzar al cerebro a recuperarla de la memoria (Active Recall). Lee la teoría, cierra el libro y escribe o di en voz alta todo lo que recuerdes. Al principio duele porque te das cuenta de que no sabes nada, pero esa fricción es lo que consolida el conocimiento real a largo plazo.</p>
+                
+                <div class="terminal-box">
+                    <p class="text-xs text-w-sage/60 uppercase mb-2 flex items-center gap-2 font-bold"><i class="fas fa-brain"></i> PROTOCOLO DE CONSOLIDACIÓN</p>
+                    <p class="text-sm text-w-light m-0">No repases el mismo tema todos los días. Usa la "Repetición Espaciada". Revisa un concepto hoy, vuelve a él a los 3 días, luego a la semana y luego al mes. He diseñado la 
+                    <a href="https://wikingenieria.gumroad.com/l/plantilla-notion-organiza-aprueba" target="_blank" class="text-w-sage underline decoration-w-olive hover:text-white transition-all">Plantilla de Notion</a> 
+                    precisamente para automatizar este proceso de repasos y que no tengas que pensar qué te toca estudiar cada día.</p>
+                </div>
                 </div>
 
-                <h2 class="text-2xl mt-12 mb-4">5. Compila, no almacenes: Entiende, no memorices</h2>
-                <p>Hacer un problema mil veces hasta que salga de memoria es jugar a la ruleta rusa. Si te cambian una variable en el examen, la lías. Usa la memoria para las constantes, pero la lógica para el desarrollo. <em>Si sabes el porqué, el cómo sale solo.</em></p>
+                <h2 class="text-2xl mt-12 mb-4">
+                    <span class="text-w-sage/40 mr-2">//</span>5. Entiende, no memorices (Método Feynman)
+                </h2>
+                <p>Aprender un problema por repetición mecánica es un sistema sumamente frágil. Si el profesor te cambia un parámetro en el examen, te hundes. Usa tu RAM (memoria) solo para las constantes físicas. Usa tu CPU (lógica) para el desarrollo.</p>
 
                 <div class="terminal-box border-l-emerald-500">
-                    <p class="text-xs text-emerald-500 uppercase mb-2 flex items-center gap-2 font-bold"><i class="fas fa-chalkboard-user"></i> // MÉTODO FEYNMAN</p>
-                    <p class="text-sm text-w-light m-0">Antes de lanzarte a hacer decenas de ejercicios, dedica tiempo a explicar en voz alta (o escribir) cómo funciona el problema con tus propias palabras. Hasta que no sepas explicárselo a un colega, no lo has entendido realmente.</p>
+                    <p class="text-xs text-emerald-500 uppercase mb-2 flex items-center gap-2 font-bold"><i class="fas fa-chalkboard-user"></i> LA PRUEBA DEL "POR QUÉ"</p>
+                    <p class="text-sm text-w-light m-0">No avances de línea en un problema matemático si no puedes justificar el paso anterior con tus propias palabras. Entender la lógica subyacente hace que el "cómo" ejecutar el problema se convierta en una consecuencia automática, permitiéndote adaptar la solución a cualquier variante que te pongan en el examen.</p>
                 </div>
 
-                <h2 class="text-2xl mt-12 mb-4">6. Vence la inercia estática (Empieza con 5 minutos)</h2>
-                <p>Romper el estado de reposo cuesta una energía tremenda. El error es pasar de 0 a 100 y meterse 4 horas el primer día. Trocea la tarea y usa el "Apilamiento de Hábitos" (Habit Stacking): asocia la rutina nueva a una vieja (ej: "después de mi café, repaso 10 minutos").</p>
-                
-                <h2 class="text-2xl mt-12 mb-4">7. Protocolo de Mantenimiento y Modo Avión</h2>
-                <p>Si intentas estudiar con el móvil al lado, estás luchando contra ingenieros de Silicon Valley diseñados para robarte la atención. Los estudios no mienten: el multitasking es una estafa.</p>
-                
-                <ul>
-                    <li><strong>Active Recall:</strong> Lee, cierra el cuaderno, explícalo sin mirar. Esa es la verdadera memoria.</li>
-                    <li><strong>Gestión de Energía (Pomodoro):</strong> Bloques de 50 mins a full focus y 10 mins de descanso para problemas complejos de ingeniería.</li>
-                    <li><strong>Desconexión:</strong> El año que más asignaturas aprobé fue el año que más salí de fiesta. Estudiar a full focus te permite tener 2 horas libres sin remordimientos para ir al gym o tomar cervezas. </li>
-                </ul>
+                <div class="mt-20 mb-12 text-center">
+                    <p class="font-mono text-[14px] text-w-sage/90 uppercase tracking-[0.3em] mb-4">
+                        <i class="fas fa-power-off mr-2"></i> Fin del Protocolo de Estudio
+                    </p>
+                    <p class="text-w-sage/80 text-xs font-light italic">
+                        "La ingeniería no se trata de saberlo todo, sino de saber dónde encontrar la solución y cómo aplicarla antes que los demás."
+                    </p>
+                </div>
 
             </div>
             
             <div class="w-full h-px bg-w-olive my-16"></div>
 
-            <div class="bg-w-black border border-w-olive/60 p-8 flex flex-col md:flex-row items-center gap-8 relative overflow-hidden group">
+            <div id="ebook-section" class="bg-w-black border border-w-olive/60 p-8 flex flex-col md:flex-row items-center gap-8 relative overflow-hidden group mb-16 scroll-mt-32">
                 <div class="absolute inset-0 bg-w-olive/5 mix-blend-overlay group-hover:bg-w-olive/10 transition-colors duration-500"></div>
-                <div class="md:w-1/3 z-10">
-                    <div class="aspect-square bg-w-olive relative overflow-hidden border border-w-olive shadow-lg group-hover:shadow-w-olive/20 transition-shadow">
-                        <img src="../assets/img/products/main-product-cover_OLD.webp" alt="Plantilla Organiza y Aprueba Notion" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500">
-                    </div>
+                
+                <div class="md:w-1/3 z-10 w-full">
+                    <a href="https://wikingenieria.gumroad.com/l/sobrevive-ingenieria" target="_blank" rel="noopener" class="block aspect-[4/4] bg-w-olive relative overflow-hidden border border-w-olive shadow-lg group-hover:shadow-w-olive/20 transition-shadow cursor-pointer">
+                        <div class="absolute top-3 right-3 bg-[#f0dfa0] text-black text-[10px] font-bold px-2 py-1 uppercase tracking-wider z-20 font-mono shadow-md">
+                            GRATIS
+                        </div>
+                        
+                        <img src="../assets/img/products/main-product-cover.webp" alt="eBook Sobrevive a la Ingeniería" class="w-full h-full object-cover opacity-90 group-hover:scale-105 transition-transform duration-500">
+                    </a>
                 </div>
+                
                 <div class="md:w-2/3 text-center md:text-left z-10">
-                    <h3 class="font-mono text-xl md:text-2xl text-w-light font-bold mb-3">Tu Segundo Cerebro (Plantilla Notion)</h3>
+                    <h3 class="font-mono text-xl md:text-2xl text-w-light font-bold mb-3">Sobrevive a la Ingeniería (El Manual)</h3>
                     <p class="text-w-sage font-light mb-6 text-sm leading-relaxed">
-                        No pierdas horas creando tablas desde cero. He diseñado el sistema "Organiza & Aprueba" para calcular notas objetivo, controlar el dominio de cada asignatura y gestionar tareas automáticamente. 
+                        Si quieres ejecutar lo que has leído en el artículo, he condensado en 29 páginas el <strong>sistema exacto</strong> para reventar las convocatorias de exámenes. Nada de motivación barata: pura táctica, cronogramas de estudio y la estructura de ingeniería inversa para aprobar sin sacrificar tu vida social.
                     </p>
                     <div class="flex flex-col sm:flex-row items-center gap-4 justify-center md:justify-start">
-                        <a href="https://wikingenieria.gumroad.com/l/student-os" target="_blank" rel="noopener" class="bg-w-olive text-w-light border border-w-sage/30 font-mono text-xs font-bold uppercase tracking-widest px-6 py-3 hover:bg-w-light hover:text-w-black hover:border-w-light transition-all text-center">
-                            Ejecutar Sistema
+                        <a href="https://wikingenieria.gumroad.com/l/sobrevive-ingenieria" target="_blank" rel="noopener" class="bg-w-olive text-w-light border border-w-sage/30 font-mono text-xs font-bold uppercase tracking-widest px-6 py-3 hover:bg-w-light hover:text-w-black hover:border-w-light transition-all text-center">
+                            Descargar el eBook
                         </a>
-                    
                     </div>
                 </div>
-            </div>
             </div>
     </main>
 
@@ -301,10 +306,12 @@
             </div>
             
             <div class="flex flex-wrap justify-center md:justify-end gap-6"> 
-                <a href="https://www.instagram.com/wikingenieria" target="_blank" rel="noopener" class="text-w-sage/90 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-instagram text-lg"></i></a>
+                <a href="https://www.instagram.com/wikingenieria?igsh=MTBsczl2Z2hjcTYweQ==" target="_blank" rel="noopener" class="text-w-sage/90 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-instagram text-lg"></i></a>
                 <a href="https://x.com/wikingenieria" target="_blank" rel="noopener" class="text-w-sage/90 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-x-twitter text-lg"></i></a>
                 <a href="https://tiktok.com/@wikingenieria" target="_blank" rel="noopener" class="text-w-sage/90 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-tiktok text-lg"></i></a>
+                <a href="https://facebook.com/wikingenieria" target="_blank" rel="noopener" class="text-w-sage/90 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-facebook text-lg"></i></a>
                 <a href="https://www.youtube.com/@Wikingenieria" target="_blank" rel="noopener" class="text-w-sage/90 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-youtube text-lg"></i></a>
+                <a href="https://open.spotify.com/show/4rJF6Rcz7CtIKGzAR2SBiz?si=6bcc0c10ff8d4ea2" target="_blank" rel="noopener" class="text-w-sage/90 hover:text-white transition transform hover:-translate-y-1"><i class="fab fa-spotify text-lg"></i></a>
             </div>
         </div>
     </footer>
