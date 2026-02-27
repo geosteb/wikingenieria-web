@@ -2,43 +2,78 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
    <url>
       <loc>https://www.wikingenieria.com/</loc>
-      <lastmod>2026-02-22</lastmod>
+      <lastmod>2026-02-27</lastmod>
       <changefreq>daily</changefreq>
       <priority>1.0</priority>
    </url>
 
    <url>
       <loc>https://www.wikingenieria.com/log</loc>
-      <lastmod>2026-02-22</lastmod>
+      <lastmod>2026-02-27</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.9</priority>
    </url>
 
    <url>
       <loc>https://www.wikingenieria.com/logs</loc>
-      <lastmod>2026-02-22</lastmod>
+      <lastmod>2026-02-27</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
    </url>
 
    <url>
+      <loc>https://www.wikingenieria.com/logs/tecnicas-estudio-ingenieria</loc>
+      <lastmod>2026-02-27</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+
+   <url>
+      <loc>https://www.wikingenieria.com/logs/gadgets-para-ingenieros-2026</loc>
+      <lastmod>2026-02-27</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.8</priority>
+   </url>
+
+   <url>
+      <loc>https://www.wikingenieria.com/logs/tres-errores-primer-trabajo-ingeniero</loc>
+      <lastmod>2026-02-27</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+   </url>
+
+   <url>
       <loc>https://www.wikingenieria.com/wikipodcast</loc>
-      <lastmod>2026-02-22</lastmod>
+      <lastmod>2026-02-27</lastmod>
       <changefreq>weekly</changefreq>
       <priority>0.8</priority>
    </url>
 
    <url>
       <loc>https://www.wikingenieria.com/audio</loc>
-      <lastmod>2026-02-22</lastmod>
+      <lastmod>2026-02-27</lastmod>
       <changefreq>monthly</changefreq>
       <priority>0.7</priority>
+   </url>
+
+   <url>
+      <loc>https://www.wikingenieria.com/vault</loc>
+      <lastmod>2026-02-27</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>0.6</priority>
    </url>
 
    <url>
       <loc>https://www.wikingenieria.com/legal</loc>
       <lastmod>2026-02-22</lastmod>
       <changefreq>monthly</changefreq>
-      <priority>0.5</priority>
+      <priority>0.3</priority>
+   </url>
+
+   <url>
+      <loc>https://www.wikingenieria.com/gracias</loc>
+      <lastmod>2026-02-22</lastmod>
+      <changefreq>never</changefreq>
+      <priority>0.2</priority>
    </url>
 </urlset>
